@@ -1,0 +1,89 @@
+/**
+ * Adlaire Group Brand Colors
+ * ブランドアイデンティティカラーの定義
+ * 
+ * Adlaire Group公式カラーパレット:
+ * - Emerald Green (#00a968) - Primary
+ * - Blue Sky (#3498db) - Secondary
+ * - Summer Sky (#40AAEF) - Accent
+ * - Solitude (#58BE89) - Success variant
+ * - White Rat (#ecf0f1) - Light background
+ * - Silver Tree (#ECEEF1) - Subtle background
+ */
+
+@layer tokens {
+  
+  :root {
+    
+    /* ========================================
+       ADLAIRE BRAND COLOR PRIMITIVES
+       Adlaire Group公式カラーとその派生色
+       ======================================== */
+    
+    /* ----- Emerald Green Scale (Primary Brand) ----- */
+    /* Base: #00a968 */
+    --adlaire-brand-emerald-50: #e6f7f0;
+    --adlaire-brand-emerald-100: #b3e8d4;
+    --adlaire-brand-emerald-200: #80d9b8;
+    --adlaire-brand-emerald-300: #4dca9c;
+    --adlaire-brand-emerald-400: #26bb85;
+    --adlaire-brand-emerald-500: #00a968;  /* Official Brand Color */
+    --adlaire-brand-emerald-600: #009159;
+    --adlaire-brand-emerald-700: #007a4a;
+    --adlaire-brand-emerald-800: #00623b;
+    --adlaire-brand-emerald-900: #004a2c;
+    
+    /* ----- Blue Sky Scale (Secondary Brand) ----- */
+    /* Base: #3498db */
+    --adlaire-brand-bluesky-50: #ebf5fb;
+    --adlaire-brand-bluesky-100: #c8e2f4;
+    --adlaire-brand-bluesky-200: #a5cfed;
+    --adlaire-brand-bluesky-300: #82bce6;
+    --adlaire-brand-bluesky-400: #5ba8e0;
+    --adlaire-brand-bluesky-500: #3498db;  /* Official Brand Color */
+    --adlaire-brand-bluesky-600: #2980b9;
+    --adlaire-brand-bluesky-700: #216897;
+    --adlaire-brand-bluesky-800: #1a5075;
+    --adlaire-brand-bluesky-900: #123853;
+    
+    /* ----- Summer Sky Scale (Accent Brand) ----- */
+    /* Base: #40AAEF */
+    --adlaire-brand-summersky-50: #ecf7fe;
+    --adlaire-brand-summersky-100: #c9e8fc;
+    --adlaire-brand-summersky-200: #a6d9fa;
+    --adlaire-brand-summersky-300: #83caf8;
+    --adlaire-brand-summersky-400: #5fbaf3;
+    --adlaire-brand-summersky-500: #40AAEF;  /* Official Brand Color */
+    --adlaire-brand-summersky-600: #2995da;
+    --adlaire-brand-summersky-700: #217bb5;
+    --adlaire-brand-summersky-800: #1a6190;
+    --adlaire-brand-summersky-900: #13476b;
+    
+    /* ----- Solitude Scale (Success/Green variant) ----- */
+    /* Base: #58BE89 */
+    --adlaire-brand-solitude-50: #eef8f3;
+    --adlaire-brand-solitude-100: #cfeadd;
+    --adlaire-brand-solitude-200: #b0ddc7;
+    --adlaire-brand-solitude-300: #91d0b1;
+    --adlaire-brand-solitude-400: #72c39b;
+    --adlaire-brand-solitude-500: #58BE89;  /* Official Brand Color */
+    --adlaire-brand-solitude-600: #49a075;
+    --adlaire-brand-solitude-700: #3b8261;
+    --adlaire-brand-solitude-800: #2e644d;
+    --adlaire-brand-solitude-900: #204639;
+    
+    /* ----- Neutral Scale (White Rat & Silver Tree) ----- */
+    --adlaire-brand-neutral-50: #FAFBFC;
+    --adlaire-brand-neutral-100: #F5F7F8;
+    --adlaire-brand-neutral-200: #ECEEF1;  /* Silver Tree */
+    --adlaire-brand-neutral-300: #ecf0f1;  /* White Rat */
+    --adlaire-brand-neutral-400: #D5D8DC;
+    --adlaire-brand-neutral-500: #AEB6BF;
+    --adlaire-brand-neutral-600: #85929E;
+    --adlaire-brand-neutral-700: #5D6D7E;
+    --adlaire-brand-neutral-800: #34495E;
+    --adlaire-brand-neutral-900: #212F3D;
+    
+  }
+  
+}
