@@ -1,0 +1,44 @@
+/**
+ * Adlaire Architect CSS Framework
+ * Utilities - Main Index
+ * 
+ * Version: 0.6.0
+ * License: Apache 2.0
+ * Copyright 2026 Adlaire Group DX事業セグメントグループ
+ * 
+ * This file aggregates all utility classes for rapid UI development.
+ * 200+ atomic CSS classes for maximum developer productivity.
+ */
+
+/* Display Utilities */
+@import './display.css';
+
+/* Flexbox Utilities */
+@import './flexbox.css';
+
+/* Spacing Utilities (Margin & Padding) */
+@import './spacing.css';
+
+/* Position Utilities */
+@import './position.css';
+
+/* Sizing Utilities (Width & Height) */
+@import './sizing.css';
+
+/* Overflow Utilities */
+@import './overflow.css';
+
+/* Z-Index Utilities */
+@import './z-index.css';
+
+/* Visibility & Opacity Utilities */
+@import './visibility.css';
+
+/* Border Utilities */
+@import './borders.css';
+
+/* Shadow Utilities */
+@import './shadows.css';
+
+/* Text Alignment Utilities */
+@import './text.css';

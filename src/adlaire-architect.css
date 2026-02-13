@@ -2,7 +2,7 @@
  * Adlaire Architect CSS Framework
  * Main Entry Point
  * 
- * Version: 0.5.0
+ * Version: 0.6.0
  * License: Apache License 2.0
  * Copyright: 2026 Adlaire Group DX Division
  * 
@@ -41,7 +41,7 @@
 /* ========================================
    UTILITIES
    ======================================== */
-/* TODO: 今後追加予定 */
+@import url('./utilities/_index.css');
 
 /* ========================================
    THEMES
