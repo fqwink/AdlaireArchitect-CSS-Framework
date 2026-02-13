@@ -1,0 +1,481 @@
+/**
+ * Adlaire Architect CSS Framework
+ * Table Component
+ * 
+ * Version: 0.7.0
+ * License: Apache 2.0
+ * Copyright 2026 Adlaire Group DX事業セグメントグループ
+ */
+
+/* ============================================
+   Table Container
+   ============================================ */
+
+.table-container {
+  container-type: inline-size;
+  container-name: table-container;
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.table-container--scrollable {
+  overflow-x: auto;
+  overflow-y: visible;
+}
+
+.table-container--fixed-header {
+  max-height: 500px;
+  overflow-y: auto;
+  position: relative;
+}
+
+/* ============================================
+   Base Table Styles
+   ============================================ */
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  background-color: var(--aa-bg-primary);
+  color: var(--aa-text-primary);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.table caption {
+  padding: 12px 16px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: left;
+  caption-side: top;
+  color: var(--aa-text-primary);
+}
+
+/* ============================================
+   Table Head
+   ============================================ */
+
+.table__head {
+  background-color: var(--aa-bg-secondary);
+  border-bottom: 2px solid var(--aa-border-color);
+}
+
+.table-container--fixed-header .table__head {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: var(--aa-bg-secondary);
+}
+
+.table__header-cell {
+  padding: 12px 16px;
+  font-weight: 600;
+  color: var(--aa-text-primary);
+  border-bottom: 2px solid var(--aa-border-color);
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+/* ============================================
+   Table Body & Rows
+   ============================================ */
+
+.table__body {
+  background-color: var(--aa-bg-primary);
+}
+
+.table__row {
+  border-bottom: 1px solid var(--aa-border-color);
+  transition: background-color 200ms ease;
+}
+
+.table__row:last-child {
+  border-bottom: none;
+}
+
+.table__cell {
+  padding: 12px 16px;
+  color: var(--aa-text-primary);
+  vertical-align: middle;
+  border-bottom: 1px solid var(--aa-border-color);
+}
+
+/* ============================================
+   Table Footer
+   ============================================ */
+
+.table__foot {
+  background-color: var(--aa-bg-secondary);
+  border-top: 2px solid var(--aa-border-color);
+  font-weight: 600;
+}
+
+.table__foot .table__cell {
+  padding: 12px 16px;
+  border-bottom: none;
+}
+
+/* ============================================
+   Table Variants
+   ============================================ */
+
+/* Striped */
+.table--striped .table__body .table__row:nth-child(odd) {
+  background-color: var(--aa-bg-secondary);
+}
+
+/* Bordered */
+.table--bordered {
+  border: 1px solid var(--aa-border-color);
+}
+
+.table--bordered .table__header-cell,
+.table--bordered .table__cell {
+  border: 1px solid var(--aa-border-color);
+}
+
+/* Hover */
+.table--hover .table__body .table__row:hover {
+  background-color: var(--aa-bg-tertiary);
+  cursor: pointer;
+}
+
+/* Borderless */
+.table--borderless .table__header-cell,
+.table--borderless .table__cell,
+.table--borderless .table__row {
+  border: none;
+}
+
+.table--borderless .table__head {
+  border-bottom: none;
+}
+
+/* ============================================
+   Table Sizes
+   ============================================ */
+
+/* Compact */
+.table--compact .table__header-cell,
+.table--compact .table__cell {
+  padding: 8px 12px;
+  font-size: 0.8125rem;
+}
+
+/* Comfortable */
+.table--comfortable .table__header-cell,
+.table--comfortable .table__cell {
+  padding: 16px 20px;
+  font-size: 0.9375rem;
+}
+
+/* ============================================
+   Cell Alignment
+   ============================================ */
+
+.table__cell--align-left,
+.table__header-cell--align-left {
+  text-align: left;
+}
+
+.table__cell--align-center,
+.table__header-cell--align-center {
+  text-align: center;
+}
+
+.table__cell--align-right,
+.table__header-cell--align-right {
+  text-align: right;
+}
+
+/* ============================================
+   Sortable Headers
+   ============================================ */
+
+.table__header-cell--sortable {
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  padding-right: 32px;
+}
+
+.table__header-cell--sortable:hover {
+  background-color: var(--aa-bg-tertiary);
+}
+
+.table__header-cell--sortable:focus {
+  outline: 2px solid var(--aa-brand-emerald-500);
+  outline-offset: -2px;
+}
+
+.table__sort-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--aa-text-secondary);
+  font-size: 0.75rem;
+  opacity: 0.5;
+}
+
+.table__header-cell--sortable:hover .table__sort-icon {
+  opacity: 1;
+}
+
+.table__header-cell--sort-asc .table__sort-icon::after {
+  content: '↑';
+  opacity: 1;
+  color: var(--aa-brand-emerald-500);
+}
+
+.table__header-cell--sort-desc .table__sort-icon::after {
+  content: '↓';
+  opacity: 1;
+  color: var(--aa-brand-emerald-500);
+}
+
+/* ============================================
+   Row States
+   ============================================ */
+
+.table__row--selected {
+  background-color: var(--aa-brand-emerald-100);
+}
+
+.table__row--success {
+  background-color: var(--aa-brand-solitude-100);
+}
+
+.table__row--warning {
+  background-color: rgba(255, 193, 7, 0.1);
+}
+
+.table__row--error {
+  background-color: rgba(220, 53, 69, 0.1);
+}
+
+/* ============================================
+   Sticky Column
+   ============================================ */
+
+.table--sticky-column .table__header-cell:first-child,
+.table--sticky-column .table__cell:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 5;
+  background-color: inherit;
+}
+
+.table--sticky-column .table__head .table__header-cell:first-child {
+  z-index: 15;
+}
+
+/* ============================================
+   Fixed Layout
+   ============================================ */
+
+.table--fixed {
+  table-layout: fixed;
+}
+
+/* ============================================
+   Column Widths
+   ============================================ */
+
+.table__col--auto {
+  width: auto;
+}
+
+.table__col--10 {
+  width: 10%;
+}
+
+.table__col--20 {
+  width: 20%;
+}
+
+.table__col--30 {
+  width: 30%;
+}
+
+.table__col--40 {
+  width: 40%;
+}
+
+.table__col--50 {
+  width: 50%;
+}
+
+/* ============================================
+   Brand Color Variants
+   ============================================ */
+
+.table--brand-emerald .table__head {
+  background-color: var(--aa-brand-emerald-500);
+  color: white;
+}
+
+.table--brand-emerald .table__header-cell {
+  color: white;
+  border-bottom-color: var(--aa-brand-emerald-600);
+}
+
+.table--brand-blue .table__head {
+  background-color: var(--aa-brand-blue-500);
+  color: white;
+}
+
+.table--brand-blue .table__header-cell {
+  color: white;
+  border-bottom-color: var(--aa-brand-blue-600);
+}
+
+/* ============================================
+   Responsive Table
+   ============================================ */
+
+@container table-container (max-width: 640px) {
+  .table--responsive {
+    border: 0;
+  }
+
+  .table--responsive .table__head {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+    clip: rect(0, 0, 0, 0);
+  }
+
+  .table--responsive .table__row {
+    display: block;
+    margin-bottom: 16px;
+    border: 1px solid var(--aa-border-color);
+    border-radius: 8px;
+    padding: 12px;
+    background-color: var(--aa-bg-secondary);
+  }
+
+  .table--responsive .table__cell {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--aa-border-color);
+    text-align: right;
+  }
+
+  .table--responsive .table__cell:last-child {
+    border-bottom: none;
+  }
+
+  .table--responsive .table__cell::before {
+    content: attr(data-label);
+    font-weight: 600;
+    text-align: left;
+    flex: 1;
+    padding-right: 16px;
+  }
+
+  /* Remove striped effect on mobile */
+  .table--responsive.table--striped .table__row {
+    background-color: var(--aa-bg-secondary);
+  }
+}
+
+/* ============================================
+   Dark Mode Support
+   ============================================ */
+
+[data-theme="dark"] .table {
+  background-color: var(--aa-bg-primary);
+  color: var(--aa-text-primary);
+}
+
+[data-theme="dark"] .table__head {
+  background-color: var(--aa-bg-tertiary);
+}
+
+[data-theme="dark"] .table__header-cell,
+[data-theme="dark"] .table__cell {
+  border-color: var(--aa-border-color);
+}
+
+[data-theme="dark"] .table--striped .table__body .table__row:nth-child(odd) {
+  background-color: var(--aa-bg-secondary);
+}
+
+[data-theme="dark"] .table--hover .table__body .table__row:hover {
+  background-color: var(--aa-bg-tertiary);
+}
+
+[data-theme="dark"] .table__row--selected {
+  background-color: rgba(0, 169, 104, 0.2);
+}
+
+[data-theme="dark"] .table--brand-emerald .table__head,
+[data-theme="dark"] .table--brand-blue .table__head {
+  opacity: 0.9;
+}
+
+/* ============================================
+   Accessibility
+   ============================================ */
+
+.table caption {
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 12px 16px;
+}
+
+.table__header-cell[aria-sort]:focus,
+.table__header-cell--sortable:focus {
+  outline: 2px solid var(--aa-brand-emerald-500);
+  outline-offset: -2px;
+}
+
+/* Screen reader only caption */
+.table caption.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ============================================
+   Reduced Motion
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .table__row,
+  .table__header-cell--sortable {
+    transition: none;
+  }
+}
+
+/* ============================================
+   Print Styles
+   ============================================ */
+
+@media print {
+  .table {
+    border-collapse: collapse;
+  }
+
+  .table__header-cell,
+  .table__cell {
+    border: 1px solid #000;
+    padding: 8px;
+  }
+
+  .table__sort-icon {
+    display: none;
+  }
+}

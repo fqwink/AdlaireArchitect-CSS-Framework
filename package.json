@@ -1,6 +1,6 @@
 {
   "name": "adlaire-architect-css",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "Adlaire Architect CSS Framework - Complete Component Library with Dark Mode Support - Container Queries First, Pure CSS3, Accessibility First by Adlaire Group",
   "main": "src/adlaire-architect.css",
   "scripts": {
