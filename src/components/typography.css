@@ -1,0 +1,512 @@
+/**
+ * Adlaire Architect CSS Framework
+ * Typography System
+ * 
+ * ブランドアイデンティティを反映した統一されたタイポグラフィシステム
+ * Adlaire Groupのブランドカラーを活用
+ */
+
+@layer components {
+  
+  /* ========================================
+     HEADINGS
+     ======================================== */
+  
+  h1, .adlaire-h1 {
+    font-size: var(--adlaire-font-size-5xl);      /* 48px */
+    font-weight: var(--adlaire-font-weight-bold);
+    line-height: var(--adlaire-line-height-tight);
+    letter-spacing: var(--adlaire-letter-spacing-tight);
+    color: var(--adlaire-color-text-primary);
+    margin-top: 0;
+    margin-bottom: var(--adlaire-space-lg);
+  }
+  
+  h2, .adlaire-h2 {
+    font-size: var(--adlaire-font-size-4xl);      /* 36px */
+    font-weight: var(--adlaire-font-weight-bold);
+    line-height: var(--adlaire-line-height-tight);
+    letter-spacing: var(--adlaire-letter-spacing-tight);
+    color: var(--adlaire-color-text-primary);
+    margin-top: 0;
+    margin-bottom: var(--adlaire-space-md);
+  }
+  
+  h3, .adlaire-h3 {
+    font-size: var(--adlaire-font-size-3xl);      /* 30px */
+    font-weight: var(--adlaire-font-weight-semibold);
+    line-height: var(--adlaire-line-height-snug);
+    color: var(--adlaire-color-text-primary);
+    margin-top: 0;
+    margin-bottom: var(--adlaire-space-md);
+  }
+  
+  h4, .adlaire-h4 {
+    font-size: var(--adlaire-font-size-2xl);      /* 24px */
+    font-weight: var(--adlaire-font-weight-semibold);
+    line-height: var(--adlaire-line-height-snug);
+    color: var(--adlaire-color-text-primary);
+    margin-top: 0;
+    margin-bottom: var(--adlaire-space-sm);
+  }
+  
+  h5, .adlaire-h5 {
+    font-size: var(--adlaire-font-size-xl);       /* 20px */
+    font-weight: var(--adlaire-font-weight-medium);
+    line-height: var(--adlaire-line-height-normal);
+    color: var(--adlaire-color-text-primary);
+    margin-top: 0;
+    margin-bottom: var(--adlaire-space-sm);
+  }
+  
+  h6, .adlaire-h6 {
+    font-size: var(--adlaire-font-size-lg);       /* 18px */
+    font-weight: var(--adlaire-font-weight-medium);
+    line-height: var(--adlaire-line-height-normal);
+    color: var(--adlaire-color-text-primary);
+    margin-top: 0;
+    margin-bottom: var(--adlaire-space-sm);
+  }
+  
+  /* ========================================
+     HEADING COLOR VARIANTS
+     ======================================== */
+  
+  .adlaire-heading--brand {
+    color: var(--adlaire-color-brand-primary);
+  }
+  
+  .adlaire-heading--secondary {
+    color: var(--adlaire-color-brand-secondary);
+  }
+  
+  .adlaire-heading--muted {
+    color: var(--adlaire-color-text-secondary);
+  }
+  
+  /* ========================================
+     PARAGRAPHS
+     ======================================== */
+  
+  p, .adlaire-paragraph {
+    font-size: var(--adlaire-font-size-base);
+    line-height: var(--adlaire-line-height-relaxed);
+    color: var(--adlaire-color-text-primary);
+    margin-top: 0;
+    margin-bottom: var(--adlaire-space-md);
+  }
+  
+  .adlaire-paragraph--large {
+    font-size: var(--adlaire-font-size-lg);
+    line-height: var(--adlaire-line-height-relaxed);
+  }
+  
+  .adlaire-paragraph--small {
+    font-size: var(--adlaire-font-size-sm);
+    line-height: var(--adlaire-line-height-normal);
+  }
+  
+  .adlaire-lead {
+    font-size: var(--adlaire-font-size-xl);
+    line-height: var(--adlaire-line-height-relaxed);
+    color: var(--adlaire-color-text-secondary);
+    margin-bottom: var(--adlaire-space-lg);
+  }
+  
+  /* ========================================
+     LINKS
+     ======================================== */
+  
+  a, .adlaire-link {
+    color: var(--adlaire-color-brand-primary);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color var(--adlaire-transition-fast) var(--adlaire-easing-default);
+  }
+  
+  a:hover, .adlaire-link:hover {
+    color: var(--adlaire-color-brand-primary-hover);
+  }
+  
+  a:focus-visible, .adlaire-link:focus-visible {
+    outline: 2px solid var(--adlaire-color-focus);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+  
+  .adlaire-link--secondary {
+    color: var(--adlaire-color-brand-secondary);
+  }
+  
+  .adlaire-link--secondary:hover {
+    color: var(--adlaire-color-brand-secondary-hover);
+  }
+  
+  .adlaire-link--muted {
+    color: var(--adlaire-color-text-secondary);
+    text-decoration: none;
+  }
+  
+  .adlaire-link--muted:hover {
+    color: var(--adlaire-color-text-primary);
+    text-decoration: underline;
+  }
+  
+  /* ========================================
+     LISTS
+     ======================================== */
+  
+  ul, ol {
+    margin-top: 0;
+    margin-bottom: var(--adlaire-space-md);
+    padding-left: var(--adlaire-space-lg);
+  }
+  
+  ul {
+    list-style-type: disc;
+  }
+  
+  ol {
+    list-style-type: decimal;
+  }
+  
+  li {
+    margin-bottom: var(--adlaire-space-xs);
+    line-height: var(--adlaire-line-height-relaxed);
+  }
+  
+  ul ul, ol ul {
+    list-style-type: circle;
+    margin-top: var(--adlaire-space-xs);
+  }
+  
+  ul ol, ol ol {
+    margin-top: var(--adlaire-space-xs);
+  }
+  
+  /* Clean list (no bullets) */
+  .adlaire-list--clean {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .adlaire-list--clean li {
+    padding-left: 0;
+  }
+  
+  /* List with brand color markers */
+  .adlaire-list--brand {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .adlaire-list--brand li {
+    padding-left: var(--adlaire-space-lg);
+    position: relative;
+  }
+  
+  .adlaire-list--brand li::before {
+    content: "●";
+    color: var(--adlaire-color-brand-primary);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+  }
+  
+  /* Description List */
+  dl {
+    margin-top: 0;
+    margin-bottom: var(--adlaire-space-md);
+  }
+  
+  dt {
+    font-weight: var(--adlaire-font-weight-semibold);
+    color: var(--adlaire-color-text-primary);
+    margin-bottom: var(--adlaire-space-xs);
+  }
+  
+  dd {
+    margin-left: var(--adlaire-space-lg);
+    margin-bottom: var(--adlaire-space-md);
+    color: var(--adlaire-color-text-secondary);
+  }
+  
+  /* ========================================
+     CODE & PREFORMATTED TEXT
+     ======================================== */
+  
+  code {
+    font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+    font-size: 0.875em;
+    background: var(--adlaire-color-neutral-100);
+    color: var(--adlaire-color-brand-primary-hover);
+    padding: 0.125rem 0.375rem;
+    border-radius: var(--adlaire-radius-sm);
+    border: 1px solid var(--adlaire-color-neutral-300);
+  }
+  
+  pre {
+    font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+    font-size: var(--adlaire-font-size-sm);
+    background: var(--adlaire-color-neutral-100);
+    color: var(--adlaire-color-text-primary);
+    padding: var(--adlaire-space-md);
+    border-radius: var(--adlaire-radius-md);
+    border: 1px solid var(--adlaire-color-neutral-300);
+    overflow-x: auto;
+    margin-top: 0;
+    margin-bottom: var(--adlaire-space-md);
+  }
+  
+  pre code {
+    background: transparent;
+    color: inherit;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    font-size: inherit;
+  }
+  
+  /* ========================================
+     BLOCKQUOTE
+     ======================================== */
+  
+  blockquote, .adlaire-blockquote {
+    font-size: var(--adlaire-font-size-lg);
+    line-height: var(--adlaire-line-height-relaxed);
+    color: var(--adlaire-color-text-secondary);
+    border-left: 4px solid var(--adlaire-color-brand-primary);
+    padding-left: var(--adlaire-space-lg);
+    margin: 0 0 var(--adlaire-space-lg) 0;
+    font-style: italic;
+  }
+  
+  blockquote cite {
+    display: block;
+    font-size: var(--adlaire-font-size-sm);
+    color: var(--adlaire-color-text-tertiary);
+    margin-top: var(--adlaire-space-sm);
+    font-style: normal;
+  }
+  
+  blockquote cite::before {
+    content: "— ";
+  }
+  
+  /* ========================================
+     HORIZONTAL RULE
+     ======================================== */
+  
+  hr, .adlaire-divider {
+    border: none;
+    border-top: 1px solid var(--adlaire-color-border-default);
+    margin: var(--adlaire-space-xl) 0;
+  }
+  
+  .adlaire-divider--thick {
+    border-top-width: 2px;
+  }
+  
+  .adlaire-divider--brand {
+    border-top-color: var(--adlaire-color-brand-primary);
+  }
+  
+  /* ========================================
+     TEXT EMPHASIS
+     ======================================== */
+  
+  strong, b {
+    font-weight: var(--adlaire-font-weight-bold);
+  }
+  
+  em, i {
+    font-style: italic;
+  }
+  
+  small {
+    font-size: var(--adlaire-font-size-sm);
+  }
+  
+  mark {
+    background-color: var(--adlaire-color-brand-primary-light);
+    color: var(--adlaire-color-text-primary);
+    padding: 0.125rem 0.25rem;
+    border-radius: var(--adlaire-radius-sm);
+  }
+  
+  del {
+    text-decoration: line-through;
+    color: var(--adlaire-color-text-tertiary);
+  }
+  
+  ins {
+    text-decoration: underline;
+    color: var(--adlaire-color-success);
+  }
+  
+  /* ========================================
+     TEXT UTILITIES
+     ======================================== */
+  
+  /* Text Colors */
+  .adlaire-text--primary {
+    color: var(--adlaire-color-text-primary);
+  }
+  
+  .adlaire-text--secondary {
+    color: var(--adlaire-color-text-secondary);
+  }
+  
+  .adlaire-text--tertiary {
+    color: var(--adlaire-color-text-tertiary);
+  }
+  
+  .adlaire-text--brand {
+    color: var(--adlaire-color-brand-primary);
+  }
+  
+  .adlaire-text--success {
+    color: var(--adlaire-color-success);
+  }
+  
+  .adlaire-text--error {
+    color: var(--adlaire-color-error);
+  }
+  
+  .adlaire-text--warning {
+    color: var(--adlaire-color-warning);
+  }
+  
+  .adlaire-text--info {
+    color: var(--adlaire-color-info);
+  }
+  
+  /* Text Alignment */
+  .adlaire-text--left {
+    text-align: left;
+  }
+  
+  .adlaire-text--center {
+    text-align: center;
+  }
+  
+  .adlaire-text--right {
+    text-align: right;
+  }
+  
+  .adlaire-text--justify {
+    text-align: justify;
+  }
+  
+  /* Font Weights */
+  .adlaire-font--light {
+    font-weight: var(--adlaire-font-weight-light);
+  }
+  
+  .adlaire-font--normal {
+    font-weight: var(--adlaire-font-weight-normal);
+  }
+  
+  .adlaire-font--medium {
+    font-weight: var(--adlaire-font-weight-medium);
+  }
+  
+  .adlaire-font--semibold {
+    font-weight: var(--adlaire-font-weight-semibold);
+  }
+  
+  .adlaire-font--bold {
+    font-weight: var(--adlaire-font-weight-bold);
+  }
+  
+  /* Font Sizes */
+  .adlaire-text--xs {
+    font-size: var(--adlaire-font-size-xs);
+  }
+  
+  .adlaire-text--sm {
+    font-size: var(--adlaire-font-size-sm);
+  }
+  
+  .adlaire-text--base {
+    font-size: var(--adlaire-font-size-base);
+  }
+  
+  .adlaire-text--lg {
+    font-size: var(--adlaire-font-size-lg);
+  }
+  
+  .adlaire-text--xl {
+    font-size: var(--adlaire-font-size-xl);
+  }
+  
+  .adlaire-text--2xl {
+    font-size: var(--adlaire-font-size-2xl);
+  }
+  
+  /* Text Transform */
+  .adlaire-text--uppercase {
+    text-transform: uppercase;
+  }
+  
+  .adlaire-text--lowercase {
+    text-transform: lowercase;
+  }
+  
+  .adlaire-text--capitalize {
+    text-transform: capitalize;
+  }
+  
+  /* Text Decoration */
+  .adlaire-text--no-underline {
+    text-decoration: none;
+  }
+  
+  .adlaire-text--underline {
+    text-decoration: underline;
+  }
+  
+  .adlaire-text--line-through {
+    text-decoration: line-through;
+  }
+  
+  /* Line Height */
+  .adlaire-leading--tight {
+    line-height: var(--adlaire-line-height-tight);
+  }
+  
+  .adlaire-leading--normal {
+    line-height: var(--adlaire-line-height-normal);
+  }
+  
+  .adlaire-leading--relaxed {
+    line-height: var(--adlaire-line-height-relaxed);
+  }
+  
+  .adlaire-leading--loose {
+    line-height: var(--adlaire-line-height-loose);
+  }
+  
+  /* Truncate */
+  .adlaire-truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  /* Line Clamp */
+  .adlaire-line-clamp-2 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+  }
+  
+  .adlaire-line-clamp-3 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+  }
+  
+}

@@ -116,6 +116,138 @@
   <!-- Main Content -->
   <div class="adlaire-container-3xl">
     
+    <!-- Typography Section -->
+    <section class="demo-section">
+      <h2>✍️ Typography System</h2>
+      
+      <h3>Headings</h3>
+      <div style="margin-bottom: 2rem;">
+        <h1 style="margin-bottom: 0.5rem;">Heading 1 - The quick brown fox</h1>
+        <h2 style="margin-bottom: 0.5rem;">Heading 2 - The quick brown fox</h2>
+        <h3 style="margin-bottom: 0.5rem;">Heading 3 - The quick brown fox</h3>
+        <h4 style="margin-bottom: 0.5rem;">Heading 4 - The quick brown fox</h4>
+        <h5 style="margin-bottom: 0.5rem;">Heading 5 - The quick brown fox</h5>
+        <h6 style="margin-bottom: 0.5rem;">Heading 6 - The quick brown fox</h6>
+      </div>
+      
+      <h3>Heading Color Variants</h3>
+      <div style="margin-bottom: 2rem;">
+        <h2 style="margin-bottom: 0.5rem;">Default Heading</h2>
+        <h2 class="adlaire-heading--brand" style="margin-bottom: 0.5rem;">Brand Heading (Emerald Green)</h2>
+        <h2 class="adlaire-heading--secondary" style="margin-bottom: 0.5rem;">Secondary Heading (Blue Sky)</h2>
+        <h2 class="adlaire-heading--muted" style="margin-bottom: 0.5rem;">Muted Heading</h2>
+      </div>
+      
+      <h3>Paragraphs</h3>
+      <div style="margin-bottom: 2rem;">
+        <p class="adlaire-lead">
+          Lead paragraph: Adlaire-Architect-CSS-Framework は、Adlaire Group DX事業セグメントグループが開発する、モダンで軽量なCSSフレームワークです。
+        </p>
+        <p>
+          Default paragraph: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+        </p>
+        <p class="adlaire-paragraph--large">
+          Large paragraph: Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        </p>
+        <p class="adlaire-paragraph--small">
+          Small paragraph: Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+      </div>
+      
+      <h3>Links</h3>
+      <div style="margin-bottom: 2rem;">
+        <p>
+          This is a <a href="#">default link</a> with underline.<br>
+          This is a <a href="#" class="adlaire-link--secondary">secondary link</a> (Blue Sky).<br>
+          This is a <a href="#" class="adlaire-link--muted">muted link</a> without underline.
+        </p>
+      </div>
+      
+      <h3>Lists</h3>
+      <div class="demo-grid">
+        <div>
+          <h4 style="font-size: 1rem; margin-bottom: 0.5rem;">Unordered List</h4>
+          <ul>
+            <li>First item</li>
+            <li>Second item</li>
+            <li>Third item
+              <ul>
+                <li>Nested item 1</li>
+                <li>Nested item 2</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 style="font-size: 1rem; margin-bottom: 0.5rem;">Ordered List</h4>
+          <ol>
+            <li>First step</li>
+            <li>Second step</li>
+            <li>Third step</li>
+          </ol>
+        </div>
+        
+        <div>
+          <h4 style="font-size: 1rem; margin-bottom: 0.5rem;">Brand List</h4>
+          <ul class="adlaire-list--brand">
+            <li>Emerald Green bullets</li>
+            <li>Second item</li>
+            <li>Third item</li>
+          </ul>
+        </div>
+      </div>
+      
+      <h3>Code & Preformatted</h3>
+      <p>
+        Inline code example: <code>const name = 'Adlaire';</code>
+      </p>
+      <pre><code>// Code block example
+function greet(name) {
+  console.log(`Hello, ${name}!`);
+}
+
+greet('Adlaire Group');</code></pre>
+      
+      <h3>Blockquote</h3>
+      <blockquote>
+        "Adlaire-Architect-CSS-Framework は、Container Queries First、Pure CSS3、アクセシビリティファーストを実現した、次世代CSSフレームワークです。"
+        <cite>Adlaire Group DX Team</cite>
+      </blockquote>
+      
+      <h3>Text Utilities</h3>
+      <div style="margin-bottom: 1rem;">
+        <p class="adlaire-text--brand adlaire-font--bold">Brand colored bold text (Emerald Green)</p>
+        <p class="adlaire-text--secondary">Secondary colored text (Blue Sky)</p>
+        <p class="adlaire-text--success">Success colored text (Solitude)</p>
+        <p class="adlaire-text--error">Error colored text</p>
+      </div>
+      
+      <div style="margin-bottom: 1rem;">
+        <p class="adlaire-text--xs">Extra small text</p>
+        <p class="adlaire-text--sm">Small text</p>
+        <p class="adlaire-text--base">Base text</p>
+        <p class="adlaire-text--lg">Large text</p>
+        <p class="adlaire-text--xl">Extra large text</p>
+      </div>
+      
+      <div>
+        <p class="adlaire-text--uppercase">Uppercase text</p>
+        <p class="adlaire-text--lowercase">LOWERCASE TEXT</p>
+        <p class="adlaire-text--capitalize">capitalize text</p>
+      </div>
+      
+      <hr class="adlaire-divider">
+      
+      <div style="background: #e6f7f0; padding: 1.5rem; border-radius: 0.5rem; border-left: 4px solid #00a968;">
+        <h4 style="margin-top: 0; color: #00a968;">✨ Typography System Complete</h4>
+        <p style="margin-bottom: 0; color: #424242;">
+          統一されたタイポグラフィシステムにより、Adlaireブランドの一貫性が保たれます。
+          すべてのテキスト要素が美しく、読みやすく表示されます。
+        </p>
+      </div>
+    </section>
+    
     <!-- Buttons Section -->
     <section class="demo-section">
       <h2>📦 Buttons Component</h2>
