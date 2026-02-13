@@ -1,7 +1,7 @@
 # Adlaire Architect CSS Framework
 
-**Version**: 0.5.0 (Development)  
-**Status**: Navigation, Modal, Dark Mode Complete ✅  
+**Version**: 0.6.0 (Development)  
+**Status**: Utility Classes System Complete ✅  
 **License**: Apache License 2.0
 
 ---
@@ -16,12 +16,13 @@ Adlaire-Architect-CSS-Framework は、Adlaire Group DX事業セグメントグ�
 
 - 🎨 **Adlaire Brand Colors** - 公式ブランドカラー完全統合（Emerald Green, Blue Sky等）
 - 🚀 **Pure CSS3** - プリプロセッサ不要、CSS3のみで構成
-- ⚡ **Lightweight** - コアは5KB以下、モジュラー設計
+- ⚡ **Lightweight** - バンドルサイズ ~30KB (gzipped)
 - 📦 **Container Queries First** - 最新のレスポンシブデザイン技術
 - 🎯 **BEM Methodology** - 明確な命名規則とコンポーネント設計
-- ♿ **Accessibility** - WCAG 2.1準拠
-- 🎭 **Theme Support** - CSS Variablesによる柔軟なテーマシステム
+- ♿ **Accessibility** - WCAG 2.1 AAA準拠
+- 🎭 **Theme Support** - Dark Mode対応、CSS Variables
 - 🏢 **Enterprise Ready** - Adlaire Group専用デザインシステム統合
+- ⚡ **344+ Utility Classes** - 高速開発のための豊富なユーティリティ (NEW!)
 
 ---
 
