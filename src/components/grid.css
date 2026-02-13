@@ -1,0 +1,351 @@
+/**
+ * Adlaire Architect CSS Framework
+ * Grid System
+ * 
+ * Copyright 2026 Adlaire Group DX Division
+ * Licensed under the Apache License, Version 2.0
+ */
+
+@layer components {
+  
+  /* ==========================================================================
+     GRID BASE
+     ========================================================================== */
+  
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--spacing-md);
+  }
+  
+  /* ==========================================================================
+     AUTO-FIT & AUTO-FILL GRIDS
+     ========================================================================== */
+  
+  .grid--auto-fit {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+  
+  .grid--auto-fill {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+  
+  /* Different minimum column widths */
+  .grid--auto-fit-sm {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+  
+  .grid--auto-fit-md {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+  
+  .grid--auto-fit-lg {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+  
+  .grid--auto-fit-xl {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  }
+  
+  /* ==========================================================================
+     COLUMN SPANS (1-12)
+     ========================================================================== */
+  
+  .col-1 { grid-column: span 1; }
+  .col-2 { grid-column: span 2; }
+  .col-3 { grid-column: span 3; }
+  .col-4 { grid-column: span 4; }
+  .col-5 { grid-column: span 5; }
+  .col-6 { grid-column: span 6; }
+  .col-7 { grid-column: span 7; }
+  .col-8 { grid-column: span 8; }
+  .col-9 { grid-column: span 9; }
+  .col-10 { grid-column: span 10; }
+  .col-11 { grid-column: span 11; }
+  .col-12 { grid-column: span 12; }
+  
+  /* Auto and Full */
+  .col-auto {
+    grid-column: auto;
+  }
+  
+  .col-full {
+    grid-column: 1 / -1;
+  }
+  
+  /* ==========================================================================
+     COLUMN START POSITIONS
+     ========================================================================== */
+  
+  .col-start-1 { grid-column-start: 1; }
+  .col-start-2 { grid-column-start: 2; }
+  .col-start-3 { grid-column-start: 3; }
+  .col-start-4 { grid-column-start: 4; }
+  .col-start-5 { grid-column-start: 5; }
+  .col-start-6 { grid-column-start: 6; }
+  .col-start-7 { grid-column-start: 7; }
+  .col-start-8 { grid-column-start: 8; }
+  .col-start-9 { grid-column-start: 9; }
+  .col-start-10 { grid-column-start: 10; }
+  .col-start-11 { grid-column-start: 11; }
+  .col-start-12 { grid-column-start: 12; }
+  
+  /* ==========================================================================
+     ROW SPANS
+     ========================================================================== */
+  
+  .row-span-1 { grid-row: span 1; }
+  .row-span-2 { grid-row: span 2; }
+  .row-span-3 { grid-row: span 3; }
+  .row-span-4 { grid-row: span 4; }
+  .row-span-5 { grid-row: span 5; }
+  .row-span-6 { grid-row: span 6; }
+  
+  .row-auto {
+    grid-row: auto;
+  }
+  
+  /* ==========================================================================
+     GAP UTILITIES
+     ========================================================================== */
+  
+  .gap-0 { gap: 0; }
+  .gap-xs { gap: var(--spacing-xs); }
+  .gap-sm { gap: var(--spacing-sm); }
+  .gap-md { gap: var(--spacing-md); }
+  .gap-lg { gap: var(--spacing-lg); }
+  .gap-xl { gap: var(--spacing-xl); }
+  .gap-2xl { gap: var(--spacing-2xl); }
+  .gap-3xl { gap: var(--spacing-3xl); }
+  
+  /* Column Gap (Horizontal) */
+  .gap-x-0 { column-gap: 0; }
+  .gap-x-xs { column-gap: var(--spacing-xs); }
+  .gap-x-sm { column-gap: var(--spacing-sm); }
+  .gap-x-md { column-gap: var(--spacing-md); }
+  .gap-x-lg { column-gap: var(--spacing-lg); }
+  .gap-x-xl { column-gap: var(--spacing-xl); }
+  .gap-x-2xl { column-gap: var(--spacing-2xl); }
+  .gap-x-3xl { column-gap: var(--spacing-3xl); }
+  
+  /* Row Gap (Vertical) */
+  .gap-y-0 { row-gap: 0; }
+  .gap-y-xs { row-gap: var(--spacing-xs); }
+  .gap-y-sm { row-gap: var(--spacing-sm); }
+  .gap-y-md { row-gap: var(--spacing-md); }
+  .gap-y-lg { row-gap: var(--spacing-lg); }
+  .gap-y-xl { row-gap: var(--spacing-xl); }
+  .gap-y-2xl { row-gap: var(--spacing-2xl); }
+  .gap-y-3xl { row-gap: var(--spacing-3xl); }
+  
+  /* ==========================================================================
+     ALIGNMENT UTILITIES
+     ========================================================================== */
+  
+  /* Align Items (Vertical) */
+  .items-start { align-items: start; }
+  .items-center { align-items: center; }
+  .items-end { align-items: end; }
+  .items-stretch { align-items: stretch; }
+  .items-baseline { align-items: baseline; }
+  
+  /* Justify Items (Horizontal) */
+  .justify-start { justify-items: start; }
+  .justify-center { justify-items: center; }
+  .justify-end { justify-items: end; }
+  .justify-stretch { justify-items: stretch; }
+  
+  /* Justify Content */
+  .justify-content-start { justify-content: start; }
+  .justify-content-center { justify-content: center; }
+  .justify-content-end { justify-content: end; }
+  .justify-content-between { justify-content: space-between; }
+  .justify-content-around { justify-content: space-around; }
+  .justify-content-evenly { justify-content: space-evenly; }
+  
+  /* Align Content */
+  .content-start { align-content: start; }
+  .content-center { align-content: center; }
+  .content-end { align-content: end; }
+  .content-between { align-content: space-between; }
+  .content-around { align-content: space-around; }
+  .content-evenly { align-content: space-evenly; }
+  
+  /* Place Items (Both Axes) */
+  .place-start { place-items: start; }
+  .place-center { place-items: center; }
+  .place-end { place-items: end; }
+  .place-stretch { place-items: stretch; }
+  
+  /* ==========================================================================
+     SELF ALIGNMENT
+     ========================================================================== */
+  
+  .self-auto { align-self: auto; }
+  .self-start { align-self: start; }
+  .self-center { align-self: center; }
+  .self-end { align-self: end; }
+  .self-stretch { align-self: stretch; }
+  
+  .justify-self-auto { justify-self: auto; }
+  .justify-self-start { justify-self: start; }
+  .justify-self-center { justify-self: center; }
+  .justify-self-end { justify-self: end; }
+  .justify-self-stretch { justify-self: stretch; }
+  
+  /* ==========================================================================
+     GRID TEMPLATE COLUMNS UTILITIES
+     ========================================================================== */
+  
+  .grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+  .grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .grid-cols-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+  .grid-cols-6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .grid-cols-12 { grid-template-columns: repeat(12, minmax(0, 1fr)); }
+  
+  .grid-cols-none { grid-template-columns: none; }
+  
+  /* ==========================================================================
+     GRID TEMPLATE ROWS UTILITIES
+     ========================================================================== */
+  
+  .grid-rows-1 { grid-template-rows: repeat(1, minmax(0, 1fr)); }
+  .grid-rows-2 { grid-template-rows: repeat(2, minmax(0, 1fr)); }
+  .grid-rows-3 { grid-template-rows: repeat(3, minmax(0, 1fr)); }
+  .grid-rows-4 { grid-template-rows: repeat(4, minmax(0, 1fr)); }
+  .grid-rows-5 { grid-template-rows: repeat(5, minmax(0, 1fr)); }
+  .grid-rows-6 { grid-template-rows: repeat(6, minmax(0, 1fr)); }
+  
+  .grid-rows-none { grid-template-rows: none; }
+  
+  /* ==========================================================================
+     GRID AUTO FLOW
+     ========================================================================== */
+  
+  .grid-flow-row { grid-auto-flow: row; }
+  .grid-flow-col { grid-auto-flow: column; }
+  .grid-flow-dense { grid-auto-flow: dense; }
+  .grid-flow-row-dense { grid-auto-flow: row dense; }
+  .grid-flow-col-dense { grid-auto-flow: column dense; }
+  
+  /* ==========================================================================
+     GRID AUTO COLUMNS & ROWS
+     ========================================================================== */
+  
+  .auto-cols-auto { grid-auto-columns: auto; }
+  .auto-cols-min { grid-auto-columns: min-content; }
+  .auto-cols-max { grid-auto-columns: max-content; }
+  .auto-cols-fr { grid-auto-columns: minmax(0, 1fr); }
+  
+  .auto-rows-auto { grid-auto-rows: auto; }
+  .auto-rows-min { grid-auto-rows: min-content; }
+  .auto-rows-max { grid-auto-rows: max-content; }
+  .auto-rows-fr { grid-auto-rows: minmax(0, 1fr); }
+  
+  /* ==========================================================================
+     SPECIAL GRID PATTERNS
+     ========================================================================== */
+  
+  /* Masonry-style Grid */
+  .grid--masonry {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-auto-rows: 10px;
+    gap: var(--spacing-md);
+  }
+  
+  /* Dashboard Grid (2 columns, 1st wider) */
+  .grid--dashboard {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--spacing-lg);
+  }
+  
+  /* Sidebar Layout */
+  .grid--sidebar {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: var(--spacing-lg);
+  }
+  
+  .grid--sidebar-right {
+    display: grid;
+    grid-template-columns: 1fr 250px;
+    gap: var(--spacing-lg);
+  }
+  
+  /* Holy Grail Layout */
+  .grid--holy-grail {
+    display: grid;
+    grid-template-columns: 200px 1fr 200px;
+    grid-template-rows: auto 1fr auto;
+    gap: var(--spacing-md);
+    min-height: 100vh;
+  }
+  
+  /* ==========================================================================
+     CONTAINER QUERIES - RESPONSIVE COLUMNS
+     ========================================================================== */
+  
+  @container (max-width: 400px) {
+    /* Stack to single column on very small containers */
+    .col-sm-12 { grid-column: span 12; }
+    .col-sm-6 { grid-column: span 12; }
+    .col-sm-4 { grid-column: span 12; }
+    .col-sm-3 { grid-column: span 12; }
+    
+    .grid-cols-sm-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+    
+    .grid--sidebar,
+    .grid--sidebar-right,
+    .grid--dashboard {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  @container (min-width: 400px) and (max-width: 768px) {
+    .col-md-12 { grid-column: span 12; }
+    .col-md-6 { grid-column: span 6; }
+    .col-md-4 { grid-column: span 4; }
+    .col-md-3 { grid-column: span 3; }
+    
+    .grid-cols-md-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid-cols-md-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  }
+  
+  @container (min-width: 768px) {
+    .col-lg-12 { grid-column: span 12; }
+    .col-lg-8 { grid-column: span 8; }
+    .col-lg-6 { grid-column: span 6; }
+    .col-lg-4 { grid-column: span 4; }
+    .col-lg-3 { grid-column: span 3; }
+    
+    .grid-cols-lg-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid-cols-lg-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  }
+  
+  @container (min-width: 1024px) {
+    .col-xl-12 { grid-column: span 12; }
+    .col-xl-8 { grid-column: span 8; }
+    .col-xl-6 { grid-column: span 6; }
+    .col-xl-4 { grid-column: span 4; }
+    .col-xl-3 { grid-column: span 3; }
+    
+    .grid-cols-xl-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .grid-cols-xl-6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  }
+  
+  /* ==========================================================================
+     ACCESSIBILITY - REDUCED MOTION
+     ========================================================================== */
+  
+  @media (prefers-reduced-motion: reduce) {
+    .grid,
+    .grid > * {
+      transition: none;
+    }
+  }
+
+}

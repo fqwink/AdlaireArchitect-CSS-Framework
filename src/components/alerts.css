@@ -1,0 +1,392 @@
+/**
+ * Adlaire Architect CSS Framework
+ * Alert/Notification Component
+ * 
+ * Copyright 2026 Adlaire Group DX Division
+ * Licensed under the Apache License, Version 2.0
+ */
+
+@layer components {
+  
+  /* ==========================================================================
+     ALERT BASE
+     ========================================================================== */
+  
+  .alert {
+    /* Display & Layout */
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+    
+    /* Box Model */
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-radius: var(--radius-md);
+    border: 1px solid transparent;
+    
+    /* Typography */
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-relaxed);
+    
+    /* Position */
+    position: relative;
+    
+    /* Transitions */
+    transition: var(--transition-base);
+    transition-property: opacity, transform, box-shadow;
+  }
+  
+  /* ==========================================================================
+     ALERT CONTENT
+     ========================================================================== */
+  
+  .alert__icon {
+    flex-shrink: 0;
+    font-size: 1.25rem;
+    line-height: 1;
+  }
+  
+  .alert__content {
+    flex: 1;
+    min-width: 0;
+  }
+  
+  .alert__title {
+    display: block;
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--spacing-xs);
+  }
+  
+  .alert__message {
+    margin: 0;
+  }
+  
+  .alert__close {
+    /* Reset button styles */
+    appearance: none;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    
+    /* Styling */
+    flex-shrink: 0;
+    width: 1.5rem;
+    height: 1.5rem;
+    font-size: 1.5rem;
+    line-height: 1;
+    opacity: 0.6;
+    border-radius: var(--radius-sm);
+    
+    /* Transitions */
+    transition: var(--transition-base);
+    transition-property: opacity, background-color;
+  }
+  
+  .alert__close:hover {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+  
+  .alert__close:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+  }
+  
+  /* ==========================================================================
+     ALERT VARIANTS - SUCCESS
+     ========================================================================== */
+  
+  .alert--success {
+    background-color: var(--semantic-success-50);
+    border-color: var(--semantic-success-300);
+    color: var(--semantic-success-900);
+  }
+  
+  .alert--success .alert__icon {
+    color: var(--semantic-success-600);
+  }
+  
+  .alert--success .alert__title {
+    color: var(--semantic-success-800);
+  }
+  
+  /* ==========================================================================
+     ALERT VARIANTS - ERROR
+     ========================================================================== */
+  
+  .alert--error {
+    background-color: var(--semantic-error-50);
+    border-color: var(--semantic-error-300);
+    color: var(--semantic-error-900);
+  }
+  
+  .alert--error .alert__icon {
+    color: var(--semantic-error-600);
+  }
+  
+  .alert--error .alert__title {
+    color: var(--semantic-error-800);
+  }
+  
+  /* ==========================================================================
+     ALERT VARIANTS - WARNING
+     ========================================================================== */
+  
+  .alert--warning {
+    background-color: var(--semantic-warning-50);
+    border-color: var(--semantic-warning-300);
+    color: var(--semantic-warning-900);
+  }
+  
+  .alert--warning .alert__icon {
+    color: var(--semantic-warning-600);
+  }
+  
+  .alert--warning .alert__title {
+    color: var(--semantic-warning-800);
+  }
+  
+  /* ==========================================================================
+     ALERT VARIANTS - INFO
+     ========================================================================== */
+  
+  .alert--info {
+    background-color: var(--semantic-info-50);
+    border-color: var(--semantic-info-300);
+    color: var(--semantic-info-900);
+  }
+  
+  .alert--info .alert__icon {
+    color: var(--semantic-info-600);
+  }
+  
+  .alert--info .alert__title {
+    color: var(--semantic-info-800);
+  }
+  
+  /* ==========================================================================
+     ALERT STYLES - SOLID
+     ========================================================================== */
+  
+  .alert--solid.alert--success {
+    background-color: var(--semantic-success-600);
+    border-color: var(--semantic-success-600);
+    color: white;
+  }
+  
+  .alert--solid.alert--success .alert__icon,
+  .alert--solid.alert--success .alert__title {
+    color: white;
+  }
+  
+  .alert--solid.alert--error {
+    background-color: var(--semantic-error-600);
+    border-color: var(--semantic-error-600);
+    color: white;
+  }
+  
+  .alert--solid.alert--error .alert__icon,
+  .alert--solid.alert--error .alert__title {
+    color: white;
+  }
+  
+  .alert--solid.alert--warning {
+    background-color: var(--semantic-warning-600);
+    border-color: var(--semantic-warning-600);
+    color: white;
+  }
+  
+  .alert--solid.alert--warning .alert__icon,
+  .alert--solid.alert--warning .alert__title {
+    color: white;
+  }
+  
+  .alert--solid.alert--info {
+    background-color: var(--semantic-info-600);
+    border-color: var(--semantic-info-600);
+    color: white;
+  }
+  
+  .alert--solid.alert--info .alert__icon,
+  .alert--solid.alert--info .alert__title {
+    color: white;
+  }
+  
+  /* ==========================================================================
+     ALERT STYLES - OUTLINED
+     ========================================================================== */
+  
+  .alert--outlined {
+    background-color: transparent;
+    border-width: 2px;
+  }
+  
+  .alert--outlined.alert--success {
+    border-color: var(--semantic-success-500);
+    color: var(--semantic-success-700);
+  }
+  
+  .alert--outlined.alert--error {
+    border-color: var(--semantic-error-500);
+    color: var(--semantic-error-700);
+  }
+  
+  .alert--outlined.alert--warning {
+    border-color: var(--semantic-warning-500);
+    color: var(--semantic-warning-700);
+  }
+  
+  .alert--outlined.alert--info {
+    border-color: var(--semantic-info-500);
+    color: var(--semantic-info-700);
+  }
+  
+  /* ==========================================================================
+     ALERT STYLES - SUBTLE
+     ========================================================================== */
+  
+  .alert--subtle {
+    border-color: transparent;
+  }
+  
+  .alert--subtle.alert--success {
+    background-color: var(--semantic-success-100);
+  }
+  
+  .alert--subtle.alert--error {
+    background-color: var(--semantic-error-100);
+  }
+  
+  .alert--subtle.alert--warning {
+    background-color: var(--semantic-warning-100);
+  }
+  
+  .alert--subtle.alert--info {
+    background-color: var(--semantic-info-100);
+  }
+  
+  /* ==========================================================================
+     ALERT SIZES
+     ========================================================================== */
+  
+  .alert--small {
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: var(--font-size-sm);
+  }
+  
+  .alert--small .alert__icon {
+    font-size: 1rem;
+  }
+  
+  .alert--small .alert__close {
+    width: 1.25rem;
+    height: 1.25rem;
+    font-size: 1.25rem;
+  }
+  
+  .alert--large {
+    padding: var(--spacing-lg) var(--spacing-xl);
+    font-size: var(--font-size-lg);
+  }
+  
+  .alert--large .alert__icon {
+    font-size: 1.5rem;
+  }
+  
+  .alert--large .alert__close {
+    width: 2rem;
+    height: 2rem;
+    font-size: 2rem;
+  }
+  
+  /* ==========================================================================
+     ALERT WITH ACTIONS
+     ========================================================================== */
+  
+  .alert__actions {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-sm);
+  }
+  
+  .alert__action {
+    appearance: none;
+    background: none;
+    border: none;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: inherit;
+    font-weight: var(--font-weight-medium);
+    color: currentColor;
+    cursor: pointer;
+    border-radius: var(--radius-sm);
+    transition: var(--transition-base);
+  }
+  
+  .alert__action:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+  
+  .alert__action:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+  }
+  
+  /* Solid alert actions need different hover */
+  .alert--solid .alert__action:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  /* ==========================================================================
+     ALERT DISMISSIBLE
+     ========================================================================== */
+  
+  /* CSS-only dismiss (using checkbox) */
+  .alert__dismiss {
+    display: none;
+  }
+  
+  .alert__dismiss:checked + .alert {
+    opacity: 0;
+    transform: scale(0.95);
+    pointer-events: none;
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    overflow: hidden;
+  }
+  
+  /* ==========================================================================
+     CONTAINER QUERIES - RESPONSIVE
+     ========================================================================== */
+  
+  @container (max-width: 400px) {
+    .alert {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    
+    .alert__close {
+      position: absolute;
+      top: var(--spacing-sm);
+      right: var(--spacing-sm);
+    }
+    
+    .alert__actions {
+      flex-direction: column;
+    }
+  }
+  
+  /* ==========================================================================
+     ACCESSIBILITY - REDUCED MOTION
+     ========================================================================== */
+  
+  @media (prefers-reduced-motion: reduce) {
+    .alert,
+    .alert__close,
+    .alert__action {
+      transition: none;
+    }
+  }
+
+}

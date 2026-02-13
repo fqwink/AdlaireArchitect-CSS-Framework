@@ -8,11 +8,106 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Planned
-- Card Component
 - Navigation Component
 - Modal/Dialog Component
-- Alert/Toast Component
-- Grid System
+- Utility Classes (Display, Position, etc.)
+- Dark Mode Theme
+- High Contrast Theme
+- Official Documentation Site
+- npm Package Publication
+
+## [0.4.0] - 2026-02-13
+
+### Added - Alert, Card, and Grid System ✅
+
+#### Alert/Notification Component
+- **4 Variants**: Success, Error, Warning, Info
+- **3 Styles**: Solid, Outlined, Subtle
+- **3 Sizes**: Small, Base, Large
+- **Features**:
+  - Icon support with semantic icons
+  - Dismissible with close button
+  - Title and message support
+  - Action buttons support
+  - WCAG 2.1 AAA compliant
+  - Container Queries responsive
+  - `role="alert"` for accessibility
+
+#### Card Component
+- **Complete Structure**: Header, Body, Footer sections
+- **Image Support**:
+  - Top image (full width)
+  - Horizontal layout (side image)
+  - Aspect ratio control (16:9, 4:3, 1:1)
+- **3 Variants**: Default, Elevated, Outlined
+- **3 Sizes**: Small, Base, Large
+- **Interactive Features**:
+  - Hover effects (lift + shadow)
+  - Focus states
+  - Clickable cards
+  - Brand color variants
+- **Elements**:
+  - Title and subtitle
+  - Avatar support
+  - Badge/tag support
+  - Link support
+  - Footer actions
+- **Container Queries**: Full responsive support
+
+#### Grid System
+- **12-Column Base Grid**: Full flexibility
+- **Auto-Fit Grid**: `repeat(auto-fit, minmax(250px, 1fr))`
+- **Auto-Fill Grid**: `repeat(auto-fill, minmax(250px, 1fr))`
+- **Column Spans**: `.col-1` through `.col-12`
+- **Column Starts**: `.col-start-1` through `.col-start-12`
+- **Row Spans**: `.row-span-1` through `.row-span-6`
+- **Gap Utilities**: 8 sizes (0, xs, sm, md, lg, xl, 2xl, 3xl)
+- **Row/Column Gaps**: `.gap-x-*` and `.gap-y-*`
+- **Alignment Utilities**:
+  - Align items (start, center, end, stretch, baseline)
+  - Justify items and content
+  - Self alignment
+  - Place utilities
+- **Grid Template Utilities**: `.grid-cols-{1-12}`, `.grid-rows-{1-6}`
+- **Grid Flow**: Row, column, dense variants
+- **Special Patterns**:
+  - Masonry grid
+  - Dashboard layout (2 columns, 1st wider)
+  - Sidebar layouts
+  - Holy Grail layout
+- **Container Query Responsive**: Breakpoints for sm, md, lg, xl
+- **100+ Utility Classes**
+
+### Documentation
+- **Comprehensive Specification**: 8.3KB document covering all three components
+  - Design principles
+  - Component variants
+  - Usage examples
+  - Accessibility requirements
+  - Browser support
+
+### Statistics
+- **New Components**: 3 (Alert, Card, Grid)
+- **Total Components**: 6 (Button, Typography, Forms, Alert, Card, Grid)
+- **CSS Added**: ~30KB uncompressed (~10KB gzipped)
+- **Total CSS**: ~50KB uncompressed (~20KB gzipped)
+- **Utility Classes**: 150+ grid utilities
+- **Component Variants**: 50+ alert/card variants
+
+### Technical Achievements
+- Pure CSS3 (no JavaScript)
+- Container Queries throughout
+- WCAG 2.1 AAA accessible
+- BEM naming convention
+- Reduced motion support
+- Cross-browser compatible
+
+### Files Changed
+- Modified: 3 (README, package.json, adlaire-architect.css)
+- Added: 4 (alerts.css, cards.css, grid.css, specification.md)
+- Total: 7 files
+
+## [0.3.0] - 2026-02-13
 - Utility Classes (Spacing, Colors, Display, etc.)
 - Dark Mode Theme
 - High Contrast Theme

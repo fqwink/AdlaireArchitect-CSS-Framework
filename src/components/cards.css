@@ -1,0 +1,331 @@
+/**
+ * Adlaire Architect CSS Framework
+ * Card Component
+ * 
+ * Copyright 2026 Adlaire Group DX Division
+ * Licensed under the Apache License, Version 2.0
+ */
+
+@layer components {
+  
+  /* ==========================================================================
+     CARD BASE
+     ========================================================================== */
+  
+  .card {
+    /* Display */
+    display: flex;
+    flex-direction: column;
+    
+    /* Box Model */
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-base);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    
+    /* Shadow */
+    box-shadow: 
+      0 1px 3px 0 rgba(0, 0, 0, 0.1),
+      0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    
+    /* Transitions */
+    transition: var(--transition-base);
+    transition-property: box-shadow, transform, border-color;
+  }
+  
+  /* ==========================================================================
+     CARD SECTIONS
+     ========================================================================== */
+  
+  .card__image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+  
+  .card__header {
+    padding: var(--spacing-lg);
+    border-bottom: 1px solid var(--border-base);
+  }
+  
+  .card__header:last-child {
+    border-bottom: none;
+  }
+  
+  .card__body {
+    padding: var(--spacing-lg);
+    flex: 1;
+  }
+  
+  .card__footer {
+    padding: var(--spacing-lg);
+    border-top: 1px solid var(--border-base);
+    display: flex;
+    gap: var(--spacing-sm);
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .card__footer:first-child {
+    border-top: none;
+  }
+  
+  /* ==========================================================================
+     CARD HEADER ELEMENTS
+     ========================================================================== */
+  
+  .card__title {
+    margin: 0;
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+    color: var(--text-primary);
+    line-height: var(--line-height-tight);
+  }
+  
+  .card__subtitle {
+    margin: var(--spacing-xs) 0 0 0;
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+    line-height: var(--line-height-normal);
+  }
+  
+  /* ==========================================================================
+     CARD VARIANTS - ELEVATED
+     ========================================================================== */
+  
+  .card--elevated {
+    border: none;
+    box-shadow: 
+      0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+  
+  .card--elevated:hover {
+    box-shadow: 
+      0 10px 15px -3px rgba(0, 0, 0, 0.1),
+      0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    transform: translateY(-2px);
+  }
+  
+  /* ==========================================================================
+     CARD VARIANTS - OUTLINED
+     ========================================================================== */
+  
+  .card--outlined {
+    border: 2px solid var(--border-base);
+    box-shadow: none;
+  }
+  
+  .card--outlined:hover {
+    border-color: var(--brand-primary-300);
+  }
+  
+  /* ==========================================================================
+     CARD SIZES
+     ========================================================================== */
+  
+  .card--small .card__header,
+  .card--small .card__body,
+  .card--small .card__footer {
+    padding: var(--spacing-md);
+  }
+  
+  .card--small .card__title {
+    font-size: var(--font-size-lg);
+  }
+  
+  .card--large .card__header,
+  .card--large .card__body,
+  .card--large .card__footer {
+    padding: var(--spacing-xl);
+  }
+  
+  .card--large .card__title {
+    font-size: var(--font-size-2xl);
+  }
+  
+  /* ==========================================================================
+     CARD IMAGE VARIANTS
+     ========================================================================== */
+  
+  /* Top Image (default) */
+  .card__image--top {
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  }
+  
+  /* Aspect Ratios */
+  .card__image--16-9 {
+    aspect-ratio: 16 / 9;
+  }
+  
+  .card__image--4-3 {
+    aspect-ratio: 4 / 3;
+  }
+  
+  .card__image--1-1 {
+    aspect-ratio: 1 / 1;
+  }
+  
+  /* Side Image Layout */
+  .card--horizontal {
+    flex-direction: row;
+  }
+  
+  .card--horizontal .card__image {
+    width: 40%;
+    height: auto;
+    min-height: 100%;
+    object-fit: cover;
+  }
+  
+  .card--horizontal .card__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* ==========================================================================
+     CARD INTERACTIVE
+     ========================================================================== */
+  
+  .card--interactive {
+    cursor: pointer;
+    user-select: none;
+  }
+  
+  .card--interactive:hover {
+    box-shadow: 
+      0 10px 15px -3px rgba(0, 0, 0, 0.1),
+      0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    transform: translateY(-2px);
+  }
+  
+  .card--interactive:active {
+    transform: translateY(0);
+    box-shadow: 
+      0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+  
+  .card--interactive:focus-visible {
+    outline: 2px solid var(--brand-primary-500);
+    outline-offset: 2px;
+  }
+  
+  /* ==========================================================================
+     CARD WITH BRAND COLORS
+     ========================================================================== */
+  
+  .card--primary {
+    border-color: var(--brand-primary-300);
+  }
+  
+  .card--primary .card__header {
+    background-color: var(--brand-primary-50);
+    border-bottom-color: var(--brand-primary-200);
+  }
+  
+  .card--secondary {
+    border-color: var(--brand-secondary-300);
+  }
+  
+  .card--secondary .card__header {
+    background-color: var(--brand-secondary-50);
+    border-bottom-color: var(--brand-secondary-200);
+  }
+  
+  /* ==========================================================================
+     CARD LINK
+     ========================================================================== */
+  
+  .card__link {
+    color: var(--brand-primary-600);
+    text-decoration: none;
+    font-weight: var(--font-weight-medium);
+    transition: color var(--transition-base);
+  }
+  
+  .card__link:hover {
+    color: var(--brand-primary-700);
+    text-decoration: underline;
+  }
+  
+  /* ==========================================================================
+     CARD BADGE/TAG
+     ========================================================================== */
+  
+  .card__badge {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    background-color: var(--neutral-100);
+    color: var(--text-secondary);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-medium);
+    border-radius: var(--radius-full);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  
+  .card__badge--primary {
+    background-color: var(--brand-primary-100);
+    color: var(--brand-primary-700);
+  }
+  
+  .card__badge--success {
+    background-color: var(--semantic-success-100);
+    color: var(--semantic-success-700);
+  }
+  
+  /* ==========================================================================
+     CARD AVATAR
+     ========================================================================== */
+  
+  .card__avatar {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--border-base);
+  }
+  
+  /* ==========================================================================
+     CONTAINER QUERIES - RESPONSIVE
+     ========================================================================== */
+  
+  @container (max-width: 500px) {
+    .card--horizontal {
+      flex-direction: column;
+    }
+    
+    .card--horizontal .card__image {
+      width: 100%;
+      height: auto;
+    }
+    
+    .card__footer {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  }
+  
+  @container (min-width: 768px) {
+    .card--large .card__title {
+      font-size: var(--font-size-3xl);
+    }
+  }
+  
+  /* ==========================================================================
+     ACCESSIBILITY - REDUCED MOTION
+     ========================================================================== */
+  
+  @media (prefers-reduced-motion: reduce) {
+    .card,
+    .card--interactive {
+      transition: none;
+      transform: none !important;
+    }
+  }
+
+}

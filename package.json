@@ -1,7 +1,7 @@
 {
   "name": "adlaire-architect-css",
-  "version": "0.3.0",
-  "description": "Adlaire Architect CSS Framework - Container Queries First, Pure CSS3, Accessibility First CSS Framework with Official Adlaire Brand Colors and Complete Form Components by Adlaire Group",
+  "version": "0.4.0",
+  "description": "Adlaire Architect CSS Framework - Container Queries First, Pure CSS3, Accessibility First CSS Framework with Complete Component Library by Adlaire Group",
   "main": "src/adlaire-architect.css",
   "scripts": {
     "dev": "python3 -m http.server 8000",

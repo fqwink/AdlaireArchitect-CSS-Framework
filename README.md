@@ -1,7 +1,7 @@
 # Adlaire Architect CSS Framework
 
-**Version**: 0.3.0 (Development)  
-**Status**: Form Components Complete ✅  
+**Version**: 0.4.0 (Development)  
+**Status**: Alert, Card, Grid Complete ✅  
 **License**: Apache License 2.0
 
 ---
