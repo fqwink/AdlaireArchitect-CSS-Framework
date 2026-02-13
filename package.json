@@ -1,7 +1,7 @@
 {
   "name": "adlaire-architect-css",
-  "version": "0.2.0",
-  "description": "Adlaire Architect CSS Framework - Container Queries First, Pure CSS3, Accessibility First CSS Framework with Official Adlaire Brand Colors by Adlaire Group",
+  "version": "0.3.0",
+  "description": "Adlaire Architect CSS Framework - Container Queries First, Pure CSS3, Accessibility First CSS Framework with Official Adlaire Brand Colors and Complete Form Components by Adlaire Group",
   "main": "src/adlaire-architect.css",
   "scripts": {
     "dev": "python3 -m http.server 8000",
@@ -16,23 +16,27 @@
     "a11y",
     "bem",
     "design-system",
-    "adlaire"
+    "adlaire",
+    "forms",
+    "components",
+    "wcag"
   ],
   "author": "Adlaire Group DX事業セグメントグループ",
-  "license": "TBD",
+  "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/adlaire-group/adlaire-architect-css.git"
+    "url": "https://github.com/fqwink/AdlaireArchitect-CSS-Framework.git"
   },
   "bugs": {
-    "url": "https://github.com/adlaire-group/adlaire-architect-css/issues"
+    "url": "https://github.com/fqwink/AdlaireArchitect-CSS-Framework/issues"
   },
-  "homepage": "https://github.com/adlaire-group/adlaire-architect-css#readme",
+  "homepage": "https://github.com/fqwink/AdlaireArchitect-CSS-Framework#readme",
   "files": [
     "dist",
     "src",
     "README.md",
-    "LICENSE"
+    "LICENSE",
+    "NOTICE"
   ],
   "engines": {
     "node": ">=14.0.0"

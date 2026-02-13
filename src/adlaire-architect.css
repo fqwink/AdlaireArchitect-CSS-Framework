@@ -2,9 +2,9 @@
  * Adlaire Architect CSS Framework
  * Main Entry Point
  * 
- * Version: 0.1.0
- * License: TBD (MIT推奨)
- * Author: Adlaire Group DX事業セグメントグループ
+ * Version: 0.3.0
+ * License: Apache License 2.0
+ * Copyright: 2026 Adlaire Group DX Division
  * 
  * すべてのモジュールを統合
  */
@@ -31,6 +31,7 @@
    ======================================== */
 @import url('./components/typography.css');
 @import url('./components/buttons.css');
+@import url('./components/forms.css');
 
 /* ========================================
    UTILITIES

@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Components Demo - Adlaire Architect CSS Framework</title>
+  <link rel="stylesheet" href="../src/adlaire-architect.css">
+  <style>
+    body {
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      min-height: 100vh;
+      padding: 2rem 1rem;
+    }
+    
+    .demo-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 1rem;
+      padding: 3rem;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    }
+    
+    .demo-header {
+      text-align: center;
+      margin-bottom: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 2px solid #e5e7eb;
+    }
+    
+    .demo-section {
+      margin-bottom: 4rem;
+    }
+    
+    .demo-section:last-child {
+      margin-bottom: 0;
+    }
+    
+    .demo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .demo-item {
+      padding: 1.5rem;
+      background: #f9fafb;
+      border-radius: 0.5rem;
+      border: 1px solid #e5e7eb;
+    }
+    
+    .demo-item h4 {
+      margin-top: 0;
+      margin-bottom: 1rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #6b7280;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    .code-block {
+      background: #1f2937;
+      color: #f3f4f6;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      font-family: 'Monaco', 'Menlo', monospace;
+      font-size: 0.875rem;
+      overflow-x: auto;
+      margin-top: 1rem;
+    }
+    
+    .color-swatch {
+      display: inline-block;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 0.25rem;
+      vertical-align: middle;
+      margin-right: 0.5rem;
+      border: 1px solid #e5e7eb;
+    }
+    
+    .badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      background: #00a968;
+      color: white;
+      border-radius: 1rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-left: 0.5rem;
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    
+    .stat-card {
+      text-align: center;
+      padding: 1.5rem;
+      background: linear-gradient(135deg, #00a968 0%, #40AAEF 100%);
+      color: white;
+      border-radius: 0.75rem;
+    }
+    
+    .stat-value {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+    
+    .stat-label {
+      font-size: 0.875rem;
+      opacity: 0.9;
+    }
+    
+    @container (max-width: 600px) {
+      .demo-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="demo-container">
+    
+    <!-- Header -->
+    <header class="demo-header">
+      <h1 class="text-6xl text-primary mb-2">Form Components</h1>
+      <p class="text-large text-secondary">Adlaire Architect CSS Framework v0.3.0</p>
+      <p class="text-base text-tertiary mt-2">
+        完全なフォームコンポーネントシステム - Apache License 2.0
+      </p>
+      
+      <div class="stats-grid" style="margin-top: 2rem;">
+        <div class="stat-card">
+          <div class="stat-value">5</div>
+          <div class="stat-label">コンポーネントタイプ</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">100+</div>
+          <div class="stat-label">バリエーション</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">AAA</div>
+          <div class="stat-label">WCAG 2.1準拠</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">20KB</div>
+          <div class="stat-label">CSSサイズ</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Section 1: Text Inputs -->
+    <section class="demo-section">
+      <h2 class="text-3xl text-primary mb-3">Text Input</h2>
+      <p class="text-secondary mb-4">様々なサイズ、状態、バリエーションを持つテキスト入力フィールド</p>
+      
+      <div class="demo-grid">
+        
+        <!-- Basic Input -->
+        <div class="demo-item">
+          <h4>基本</h4>
+          <div class="form-group">
+            <label class="form-label" for="input-basic">メールアドレス</label>
+            <input type="email" id="input-basic" class="input" placeholder="your@email.com">
+            <span class="form-message form-message--helper">正しいメールアドレスを入力してください</span>
+          </div>
+        </div>
+        
+        <!-- Small Input -->
+        <div class="demo-item">
+          <h4>Small サイズ</h4>
+          <div class="form-group">
+            <label class="form-label" for="input-small">ユーザー名</label>
+            <input type="text" id="input-small" class="input input--small" placeholder="username">
+          </div>
+        </div>
+        
+        <!-- Large Input -->
+        <div class="demo-item">
+          <h4>Large サイズ</h4>
+          <div class="form-group">
+            <label class="form-label" for="input-large">会社名</label>
+            <input type="text" id="input-large" class="input input--large" placeholder="Adlaire Group">
+          </div>
+        </div>
+        
+        <!-- Error State -->
+        <div class="demo-item">
+          <h4>エラー状態</h4>
+          <div class="form-group">
+            <label class="form-label form-label--required" for="input-error">パスワード</label>
+            <input type="password" id="input-error" class="input input--error" placeholder="••••••••">
+            <span class="form-message form-message--error">パスワードは8文字以上である必要があります</span>
+          </div>
+        </div>
+        
+        <!-- Success State -->
+        <div class="demo-item">
+          <h4>成功状態</h4>
+          <div class="form-group">
+            <label class="form-label" for="input-success">確認コード</label>
+            <input type="text" id="input-success" class="input input--success" value="ABC123">
+            <span class="form-message form-message--success">確認コードが正しく入力されました</span>
+          </div>
+        </div>
+        
+        <!-- Warning State -->
+        <div class="demo-item">
+          <h4>警告状態</h4>
+          <div class="form-group">
+            <label class="form-label form-label--optional" for="input-warning">電話番号</label>
+            <input type="tel" id="input-warning" class="input input--warning" placeholder="090-1234-5678">
+            <span class="form-message form-message--warning">この形式は非推奨です</span>
+          </div>
+        </div>
+        
+        <!-- Disabled State -->
+        <div class="demo-item">
+          <h4>無効状態</h4>
+          <div class="form-group">
+            <label class="form-label" for="input-disabled">ユーザーID</label>
+            <input type="text" id="input-disabled" class="input" value="user_12345" disabled>
+            <span class="form-message">このフィールドは変更できません</span>
+          </div>
+        </div>
+        
+        <!-- Read-only State -->
+        <div class="demo-item">
+          <h4>読み取り専用</h4>
+          <div class="form-group">
+            <label class="form-label" for="input-readonly">登録日</label>
+            <input type="text" id="input-readonly" class="input" value="2026-02-13" readonly>
+          </div>
+        </div>
+        
+      </div>
+    </section>
+
+    <!-- Section 2: Textarea -->
+    <section class="demo-section">
+      <h2 class="text-3xl text-primary mb-3">Textarea</h2>
+      <p class="text-secondary mb-4">複数行のテキスト入力エリア</p>
+      
+      <div class="demo-grid">
+        
+        <!-- Basic Textarea -->
+        <div class="demo-item">
+          <h4>基本</h4>
+          <div class="form-group">
+            <label class="form-label" for="textarea-basic">メッセージ</label>
+            <textarea id="textarea-basic" class="textarea" placeholder="メッセージを入力してください..."></textarea>
+            <span class="form-message">最大500文字まで入力できます</span>
+          </div>
+        </div>
+        
+        <!-- Small Textarea -->
+        <div class="demo-item">
+          <h4>Small サイズ</h4>
+          <div class="form-group">
+            <label class="form-label" for="textarea-small">簡単なコメント</label>
+            <textarea id="textarea-small" class="textarea textarea--small" placeholder="コメント..."></textarea>
+          </div>
+        </div>
+        
+        <!-- Large Textarea -->
+        <div class="demo-item">
+          <h4>Large サイズ</h4>
+          <div class="form-group">
+            <label class="form-label" for="textarea-large">詳細説明</label>
+            <textarea id="textarea-large" class="textarea textarea--large" placeholder="詳細を入力してください..."></textarea>
+          </div>
+        </div>
+        
+        <!-- No Resize -->
+        <div class="demo-item">
+          <h4>リサイズ無効</h4>
+          <div class="form-group">
+            <label class="form-label" for="textarea-no-resize">固定サイズ</label>
+            <textarea id="textarea-no-resize" class="textarea textarea--no-resize" placeholder="このテキストエリアはリサイズできません"></textarea>
+          </div>
+        </div>
+        
+        <!-- Error State -->
+        <div class="demo-item">
+          <h4>エラー状態</h4>
+          <div class="form-group">
+            <label class="form-label form-label--required" for="textarea-error">理由</label>
+            <textarea id="textarea-error" class="textarea textarea--error" placeholder="理由を入力してください"></textarea>
+            <span class="form-message form-message--error">このフィールドは必須です</span>
+          </div>
+        </div>
+        
+        <!-- Success State -->
+        <div class="demo-item">
+          <h4>成功状態</h4>
+          <div class="form-group">
+            <label class="form-label" for="textarea-success">フィードバック</label>
+            <textarea id="textarea-success" class="textarea textarea--success">素晴らしいサービスでした！</textarea>
+            <span class="form-message form-message--success">フィードバックが送信されました</span>
+          </div>
+        </div>
+        
+      </div>
+    </section>
+
+    <!-- Section 3: Select -->
+    <section class="demo-section">
+      <h2 class="text-3xl text-primary mb-3">Select / Dropdown</h2>
+      <p class="text-secondary mb-4">選択リスト・ドロップダウンメニュー</p>
+      
+      <div class="demo-grid">
+        
+        <!-- Basic Select -->
+        <div class="demo-item">
+          <h4>基本</h4>
+          <div class="form-group">
+            <label class="form-label" for="select-basic">国を選択</label>
+            <select id="select-basic" class="select">
+              <option value="">選択してください</option>
+              <option value="jp">日本</option>
+              <option value="us">アメリカ</option>
+              <option value="uk">イギリス</option>
+              <option value="cn">中国</option>
+            </select>
+          </div>
+        </div>
+        
+        <!-- Small Select -->
+        <div class="demo-item">
+          <h4>Small サイズ</h4>
+          <div class="form-group">
+            <label class="form-label" for="select-small">言語</label>
+            <select id="select-small" class="select select--small">
+              <option value="ja">日本語</option>
+              <option value="en">English</option>
+              <option value="zh">中文</option>
+            </select>
+          </div>
+        </div>
+        
+        <!-- Large Select -->
+        <div class="demo-item">
+          <h4>Large サイズ</h4>
+          <div class="form-group">
+            <label class="form-label" for="select-large">部署</label>
+            <select id="select-large" class="select select--large">
+              <option value="">選択してください</option>
+              <option value="dx">DX事業セグメント</option>
+              <option value="sales">営業部門</option>
+              <option value="dev">開発部門</option>
+              <option value="hr">人事部門</option>
+            </select>
+          </div>
+        </div>
+        
+        <!-- Error State -->
+        <div class="demo-item">
+          <h4>エラー状態</h4>
+          <div class="form-group">
+            <label class="form-label form-label--required" for="select-error">プラン</label>
+            <select id="select-error" class="select select--error">
+              <option value="">選択してください</option>
+              <option value="basic">Basic</option>
+              <option value="pro">Pro</option>
+              <option value="enterprise">Enterprise</option>
+            </select>
+            <span class="form-message form-message--error">プランを選択してください</span>
+          </div>
+        </div>
+        
+        <!-- Success State -->
+        <div class="demo-item">
+          <h4>成功状態</h4>
+          <div class="form-group">
+            <label class="form-label" for="select-success">支払い方法</label>
+            <select id="select-success" class="select select--success">
+              <option value="card" selected>クレジットカード</option>
+              <option value="bank">銀行振込</option>
+              <option value="paypal">PayPal</option>
+            </select>
+            <span class="form-message form-message--success">選択されました</span>
+          </div>
+        </div>
+        
+        <!-- Disabled State -->
+        <div class="demo-item">
+          <h4>無効状態</h4>
+          <div class="form-group">
+            <label class="form-label" for="select-disabled">会員タイプ</label>
+            <select id="select-disabled" class="select" disabled>
+              <option value="premium" selected>プレミアム会員</option>
+            </select>
+          </div>
+        </div>
+        
+        <!-- Multiple Select -->
+        <div class="demo-item" style="grid-column: 1 / -1;">
+          <h4>複数選択</h4>
+          <div class="form-group">
+            <label class="form-label" for="select-multiple">興味のある分野（複数選択可）</label>
+            <select id="select-multiple" class="select" multiple size="5">
+              <option value="web">Web開発</option>
+              <option value="mobile">モバイルアプリ</option>
+              <option value="ai">AI/機械学習</option>
+              <option value="cloud">クラウドサービス</option>
+              <option value="security">セキュリティ</option>
+              <option value="iot">IoT</option>
+            </select>
+            <span class="form-message">Ctrl/Cmdキーを押しながら複数選択できます</span>
+          </div>
+        </div>
+        
+      </div>
+    </section>
+
+    <!-- Section 4: Checkbox -->
+    <section class="demo-section">
+      <h2 class="text-3xl text-primary mb-3">Checkbox</h2>
+      <p class="text-secondary mb-4">複数選択可能なチェックボックス</p>
+      
+      <div class="demo-grid">
+        
+        <!-- Basic Checkbox -->
+        <div class="demo-item">
+          <h4>基本</h4>
+          <div class="form-group">
+            <div class="form-check">
+              <input type="checkbox" id="checkbox-1" class="checkbox">
+              <label for="checkbox-1">利用規約に同意する</label>
+            </div>
+            <div class="form-check">
+              <input type="checkbox" id="checkbox-2" class="checkbox" checked>
+              <label for="checkbox-2">ニュースレターを受け取る</label>
+            </div>
+            <div class="form-check">
+              <input type="checkbox" id="checkbox-3" class="checkbox">
+              <label for="checkbox-3">プロモーション情報を受け取る</label>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Small Checkbox -->
+        <div class="demo-item">
+          <h4>Small サイズ</h4>
+          <div class="form-group">
+            <div class="form-check">
+              <input type="checkbox" id="checkbox-small-1" class="checkbox checkbox--small">
+              <label for="checkbox-small-1">オプション 1</label>
+            </div>
+            <div class="form-check">
+              <input type="checkbox" id="checkbox-small-2" class="checkbox checkbox--small" checked>
+              <label for="checkbox-small-2">オプション 2</label>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Large Checkbox -->
+        <div class="demo-item">
+          <h4>Large サイズ</h4>
+          <div class="form-group">
+            <div class="form-check">
+              <input type="checkbox" id="checkbox-large-1" class="checkbox checkbox--large">
+              <label for="checkbox-large-1">重要な選択肢 1</label>
+            </div>
+            <div class="form-check">
+              <input type="checkbox" id="checkbox-large-2" class="checkbox checkbox--large" checked>
+              <label for="checkbox-large-2">重要な選択肢 2</label>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Disabled Checkbox -->
+        <div class="demo-item">
+          <h4>無効状態</h4>
+          <div class="form-group">
+            <div class="form-check">
+              <input type="checkbox" id="checkbox-disabled-1" class="checkbox" disabled>
+              <label for="checkbox-disabled-1">利用不可</label>
+            </div>
+            <div class="form-check">
+              <input type="checkbox" id="checkbox-disabled-2" class="checkbox" checked disabled>
+              <label for="checkbox-disabled-2">自動選択済み</label>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Error State -->
+        <div class="demo-item">
+          <h4>エラー状態</h4>
+          <div class="form-group">
+            <div class="form-check">
+              <input type="checkbox" id="checkbox-error" class="checkbox checkbox--error">
+              <label for="checkbox-error">必須項目に同意する</label>
+            </div>
+            <span class="form-message form-message--error">この項目は必須です</span>
+          </div>
+        </div>
+        
+        <!-- Indeterminate State -->
+        <div class="demo-item">
+          <h4>不確定状態</h4>
+          <div class="form-group">
+            <div class="form-check">
+              <input type="checkbox" id="checkbox-indeterminate" class="checkbox">
+              <label for="checkbox-indeterminate">すべて選択</label>
+            </div>
+            <div style="margin-left: 2rem;">
+              <div class="form-check">
+                <input type="checkbox" id="sub-checkbox-1" class="checkbox checkbox--small" checked>
+                <label for="sub-checkbox-1">サブ項目 1</label>
+              </div>
+              <div class="form-check">
+                <input type="checkbox" id="sub-checkbox-2" class="checkbox checkbox--small">
+                <label for="sub-checkbox-2">サブ項目 2</label>
+              </div>
+            </div>
+          </div>
+          <script>
+            // Set indeterminate state
+            document.getElementById('checkbox-indeterminate').indeterminate = true;
+          </script>
+        </div>
+        
+      </div>
+    </section>
+
+    <!-- Section 5: Radio Button -->
+    <section class="demo-section">
+      <h2 class="text-3xl text-primary mb-3">Radio Button</h2>
+      <p class="text-secondary mb-4">単一選択可能なラジオボタン</p>
+      
+      <div class="demo-grid">
+        
+        <!-- Basic Radio -->
+        <div class="demo-item">
+          <h4>基本</h4>
+          <div class="form-group">
+            <label class="form-label">支払い方法を選択</label>
+            <div class="form-check">
+              <input type="radio" id="radio-1" name="payment" class="radio" checked>
+              <label for="radio-1">クレジットカード</label>
+            </div>
+            <div class="form-check">
+              <input type="radio" id="radio-2" name="payment" class="radio">
+              <label for="radio-2">銀行振込</label>
+            </div>
+            <div class="form-check">
+              <input type="radio" id="radio-3" name="payment" class="radio">
+              <label for="radio-3">PayPal</label>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Small Radio -->
+        <div class="demo-item">
+          <h4>Small サイズ</h4>
+          <div class="form-group">
+            <label class="form-label">通知設定</label>
+            <div class="form-check">
+              <input type="radio" id="radio-small-1" name="notification" class="radio radio--small" checked>
+              <label for="radio-small-1">全て受け取る</label>
+            </div>
+            <div class="form-check">
+              <input type="radio" id="radio-small-2" name="notification" class="radio radio--small">
+              <label for="radio-small-2">重要のみ</label>
+            </div>
+            <div class="form-check">
+              <input type="radio" id="radio-small-3" name="notification" class="radio radio--small">
+              <label for="radio-small-3">受け取らない</label>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Large Radio -->
+        <div class="demo-item">
+          <h4>Large サイズ</h4>
+          <div class="form-group">
+            <label class="form-label">プランを選択</label>
+            <div class="form-check">
+              <input type="radio" id="radio-large-1" name="plan" class="radio radio--large">
+              <label for="radio-large-1">Basic - ¥0/月</label>
+            </div>
+            <div class="form-check">
+              <input type="radio" id="radio-large-2" name="plan" class="radio radio--large" checked>
+              <label for="radio-large-2">Pro - ¥1,980/月</label>
+            </div>
+            <div class="form-check">
+              <input type="radio" id="radio-large-3" name="plan" class="radio radio--large">
+              <label for="radio-large-3">Enterprise - お問い合わせ</label>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Disabled Radio -->
+        <div class="demo-item">
+          <h4>無効状態</h4>
+          <div class="form-group">
+            <label class="form-label">配送方法</label>
+            <div class="form-check">
+              <input type="radio" id="radio-disabled-1" name="shipping" class="radio" checked>
+              <label for="radio-disabled-1">通常配送（利用可能）</label>
+            </div>
+            <div class="form-check">
+              <input type="radio" id="radio-disabled-2" name="shipping" class="radio" disabled>
+              <label for="radio-disabled-2">速達（現在利用不可）</label>
+            </div>
+            <div class="form-check">
+              <input type="radio" id="radio-disabled-3" name="shipping" class="radio" disabled>
+              <label for="radio-disabled-3">店舗受取（準備中）</label>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Error State -->
+        <div class="demo-item">
+          <h4>エラー状態</h4>
+          <div class="form-group">
+            <label class="form-label form-label--required">性別</label>
+            <div class="form-check">
+              <input type="radio" id="radio-error-1" name="gender" class="radio radio--error">
+              <label for="radio-error-1">男性</label>
+            </div>
+            <div class="form-check">
+              <input type="radio" id="radio-error-2" name="gender" class="radio radio--error">
+              <label for="radio-error-2">女性</label>
+            </div>
+            <div class="form-check">
+              <input type="radio" id="radio-error-3" name="gender" class="radio radio--error">
+              <label for="radio-error-3">その他</label>
+            </div>
+            <span class="form-message form-message--error">性別を選択してください</span>
+          </div>
+        </div>
+        
+        <!-- With Description -->
+        <div class="demo-item">
+          <h4>説明付き</h4>
+          <div class="form-group">
+            <label class="form-label">テーマを選択</label>
+            <div class="form-check">
+              <input type="radio" id="radio-desc-1" name="theme" class="radio" checked>
+              <div>
+                <label for="radio-desc-1" style="font-weight: 600;">ライトモード</label>
+                <div class="text-sm text-tertiary">明るい背景で見やすい</div>
+              </div>
+            </div>
+            <div class="form-check">
+              <input type="radio" id="radio-desc-2" name="theme" class="radio">
+              <div>
+                <label for="radio-desc-2" style="font-weight: 600;">ダークモード</label>
+                <div class="text-sm text-tertiary">目に優しい暗い背景</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </section>
+
+    <!-- Section 6: Complete Form Example -->
+    <section class="demo-section">
+      <h2 class="text-3xl text-primary mb-3">完全なフォーム例</h2>
+      <p class="text-secondary mb-4">実際の利用例</p>
+      
+      <div style="max-width: 600px; margin: 2rem auto; padding: 2rem; background: #f9fafb; border-radius: 1rem; border: 2px solid #e5e7eb;">
+        <h3 class="text-2xl text-primary mb-4">お問い合わせフォーム</h3>
+        
+        <form>
+          <!-- Name -->
+          <div class="form-group">
+            <label class="form-label form-label--required" for="contact-name">お名前</label>
+            <input type="text" id="contact-name" class="input" placeholder="山田 太郎" required>
+          </div>
+          
+          <!-- Email -->
+          <div class="form-group">
+            <label class="form-label form-label--required" for="contact-email">メールアドレス</label>
+            <input type="email" id="contact-email" class="input" placeholder="yamada@example.com" required>
+          </div>
+          
+          <!-- Phone -->
+          <div class="form-group">
+            <label class="form-label form-label--optional" for="contact-phone">電話番号</label>
+            <input type="tel" id="contact-phone" class="input" placeholder="090-1234-5678">
+          </div>
+          
+          <!-- Category -->
+          <div class="form-group">
+            <label class="form-label form-label--required" for="contact-category">お問い合わせ種類</label>
+            <select id="contact-category" class="select" required>
+              <option value="">選択してください</option>
+              <option value="product">製品について</option>
+              <option value="sales">営業・販売</option>
+              <option value="support">サポート</option>
+              <option value="other">その他</option>
+            </select>
+          </div>
+          
+          <!-- Message -->
+          <div class="form-group">
+            <label class="form-label form-label--required" for="contact-message">お問い合わせ内容</label>
+            <textarea id="contact-message" class="textarea" placeholder="お問い合わせ内容を入力してください..." required></textarea>
+            <span class="form-message">できるだけ詳しくご記入ください</span>
+          </div>
+          
+          <!-- Preferences -->
+          <div class="form-group">
+            <label class="form-label">希望連絡方法（複数選択可）</label>
+            <div class="form-check">
+              <input type="checkbox" id="contact-method-email" class="checkbox" checked>
+              <label for="contact-method-email">メール</label>
+            </div>
+            <div class="form-check">
+              <input type="checkbox" id="contact-method-phone" class="checkbox">
+              <label for="contact-method-phone">電話</label>
+            </div>
+          </div>
+          
+          <!-- Urgency -->
+          <div class="form-group">
+            <label class="form-label">緊急度</label>
+            <div class="form-check">
+              <input type="radio" id="urgency-low" name="urgency" class="radio" checked>
+              <label for="urgency-low">低（1週間以内）</label>
+            </div>
+            <div class="form-check">
+              <input type="radio" id="urgency-medium" name="urgency" class="radio">
+              <label for="urgency-medium">中（3日以内）</label>
+            </div>
+            <div class="form-check">
+              <input type="radio" id="urgency-high" name="urgency" class="radio">
+              <label for="urgency-high">高（即日対応希望）</label>
+            </div>
+          </div>
+          
+          <!-- Terms -->
+          <div class="form-group">
+            <div class="form-check">
+              <input type="checkbox" id="contact-terms" class="checkbox" required>
+              <label for="contact-terms">プライバシーポリシーに同意する</label>
+            </div>
+          </div>
+          
+          <!-- Submit -->
+          <div class="form-group">
+            <button type="submit" class="btn btn--primary btn--large" style="width: 100%;">送信する</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="text-align: center; margin-top: 4rem; padding-top: 2rem; border-top: 2px solid #e5e7eb;">
+      <p class="text-secondary">
+        © 2026 Adlaire Group DX Division | 
+        Licensed under 
+        <a href="../LICENSE" class="text-link">Apache License 2.0</a>
+      </p>
+      <p class="text-sm text-tertiary mt-2">
+        <a href="https://github.com/fqwink/AdlaireArchitect-CSS-Framework" class="text-link">GitHub Repository</a>
+      </p>
+    </footer>
+
+  </div>
+
+</body>
+</html>

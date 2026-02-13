@@ -1,8 +1,8 @@
 # Adlaire Architect CSS Framework
 
-**Version**: 0.2.0 (Development)  
-**Status**: Brand Colors Integrated ✅  
-**License**: TBD
+**Version**: 0.3.0 (Development)  
+**Status**: Form Components Complete ✅  
+**License**: Apache License 2.0
 
 ---
 
