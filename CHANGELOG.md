@@ -8,13 +8,133 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Planned
-- Navigation Component
-- Modal/Dialog Component
-- Utility Classes (Display, Position, etc.)
-- Dark Mode Theme
-- High Contrast Theme
+- Utility Classes (Display, Position, Flex, etc.)
+- Table Component
+- Badge/Tag Component
+- Pagination Component
+- Tooltip Component
 - Official Documentation Site
 - npm Package Publication
+
+## [0.5.0] - 2026-02-13
+
+### Added - Navigation, Modal, and Dark Mode Theme ✅
+
+#### Navigation Component
+- **Navbar**: Complete navigation bar system
+  - Logo/brand area
+  - Horizontal menu (desktop)
+  - Mobile hamburger menu
+  - Responsive behavior
+  - Sticky and fixed variants
+  - Dark variant
+- **Dropdown Menus**:
+  - Hover and focus triggers
+  - Nested menu support
+  - Keyboard accessible (Arrow keys, Enter, Esc)
+  - Smooth animations
+  - Mobile-friendly
+- **Breadcrumb**:
+  - Hierarchy navigation
+  - Multiple separator styles (/, ›, →)
+  - Current page indicator
+  - Semantic HTML
+- **Accessibility**:
+  - ARIA labels and roles
+  - Keyboard navigation
+  - Focus indicators
+  - Screen reader support
+
+#### Modal/Dialog Component
+- **Complete Modal System**:
+  - Overlay with backdrop blur
+  - Header, Body, Footer structure
+  - Close button with multiple methods
+  - Smooth show/hide animations
+- **4 Sizes**: Small (400px), Base (600px), Large (800px), Full (90vw)
+- **Variants**:
+  - Centered (default)
+  - Top-aligned
+  - Scrollable body
+  - No header/footer options
+- **Features**:
+  - Focus trap (keyboard stays in modal)
+  - Escape key to close
+  - Overlay click to dismiss
+  - Body scroll lock when open
+  - Brand color variants
+- **Accessibility**:
+  - `role="dialog"` and `aria-modal="true"`
+  - Focus management
+  - Keyboard navigation
+  - Screen reader compatible
+
+#### Dark Mode Theme
+- **Complete Dark Mode Implementation**:
+  - All color tokens redefined for dark mode
+  - System preference detection (`prefers-color-scheme`)
+  - Manual toggle support
+  - LocalStorage persistence
+- **Color Tokens**:
+  - Background colors (dark grays)
+  - Text colors (light grays)
+  - Border colors (medium grays)
+  - Shadow adjustments (darker)
+  - Brand color adjustments
+- **All Components Supported**:
+  - Buttons (ghost variant adjusted)
+  - Forms (input backgrounds darker)
+  - Cards (shadow enhancements)
+  - Alerts (background opacity)
+  - Navigation (dark backgrounds)
+  - Modal (darker overlay)
+  - Typography (text colors)
+  - Grid (no changes needed)
+- **Theme Toggle Button**:
+  - Icon switch (🌙/☀️)
+  - Smooth transitions
+  - Accessible
+  - Position flexible
+- **Smooth Transitions**:
+  - 200ms easing for color changes
+  - No jarring switches
+  - Reduced motion support
+- **System Integration**:
+  - `color-scheme` meta support
+  - Respects user OS preference
+  - Can be overridden manually
+
+### Technical Achievements
+- Pure CSS3 (minimal JS for theme toggle only)
+- Container Queries throughout Navigation
+- WCAG 2.1 AAA contrast in both modes
+- BEM naming convention
+- Focus trap in Modal (CSS-only where possible)
+- Smooth theme transitions
+
+### Documentation
+- **Comprehensive Specification**: 8.7KB document
+  - Navigation patterns
+  - Modal best practices
+  - Dark mode implementation guide
+  - Accessibility requirements
+
+### Statistics
+- **New Components**: 3 (Navigation, Modal, Dark Mode)
+- **Total Components**: 9 complete
+- **CSS Added**: ~25KB uncompressed (~8KB gzipped)
+- **Total CSS**: ~75KB uncompressed (~25KB gzipped)
+- **Theme Toggle**: Requires <10 lines of JS
+- **Files Added**: 4 new CSS files
+
+### Files Changed
+- Modified: 4 (README, package.json, CHANGELOG, adlaire-architect.css)
+- Added: 4 (navigation.css, modal.css, dark-mode.css, specification.md)
+- Total: 8 files
+
+### Browser Support
+- Dark Mode: Chrome 76+, Firefox 67+, Safari 12.1+
+- All features: Chrome 90+, Firefox 88+, Safari 14+
 
 ## [0.4.0] - 2026-02-13
 

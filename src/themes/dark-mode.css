@@ -1,0 +1,314 @@
+/**
+ * Adlaire Architect CSS Framework
+ * Dark Mode Theme
+ * 
+ * Copyright 2026 Adlaire Group DX Division
+ * Licensed under the Apache License, Version 2.0
+ */
+
+@layer themes {
+  
+  /* ==========================================================================
+     DARK MODE COLOR TOKENS
+     ========================================================================== */
+  
+  :root[data-theme="dark"] {
+    
+    /* Backgrounds */
+    --bg-primary: #111827;
+    --bg-secondary: #1f2937;
+    --bg-tertiary: #374151;
+    
+    /* Text */
+    --text-primary: #f9fafb;
+    --text-secondary: #d1d5db;
+    --text-tertiary: #9ca3af;
+    --text-disabled: #6b7280;
+    
+    /* Borders */
+    --border-base: #374151;
+    --border-strong: #4b5563;
+    --border-subtle: #1f2937;
+    
+    /* Neutrals */
+    --neutral-50: #374151;
+    --neutral-100: #4b5563;
+    --neutral-200: #6b7280;
+    --neutral-300: #9ca3af;
+    --neutral-400: #d1d5db;
+    --neutral-500: #e5e7eb;
+    --neutral-600: #f3f4f6;
+    --neutral-700: #f9fafb;
+    --neutral-800: #1f2937;
+    --neutral-900: #111827;
+    
+    /* Shadows (darker in dark mode) */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
+    --shadow-base: 0 1px 3px 0 rgba(0, 0, 0, 0.6), 0 1px 2px 0 rgba(0, 0, 0, 0.5);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.6), 0 2px 4px -1px rgba(0, 0, 0, 0.5);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.7), 0 4px 6px -2px rgba(0, 0, 0, 0.5);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.8), 0 10px 10px -5px rgba(0, 0, 0, 0.5);
+    
+    /* Focus ring (brighter for dark mode) */
+    --focus-ring: var(--brand-primary-400);
+    
+    /* Brand colors adjustments for dark mode */
+    /* Primary - Emerald Green (slightly brighter) */
+    --brand-primary-50: #1a3a2e;
+    --brand-primary-100: #235239;
+    --brand-primary-200: #2d6a44;
+    --brand-primary-300: #36824f;
+    --brand-primary-400: #3f9a5a;
+    --brand-primary-500: #00a968;
+    --brand-primary-600: #00c175;
+    --brand-primary-700: #33cd8e;
+    
+    /* Secondary - Blue Sky */
+    --brand-secondary-50: #1e3a52;
+    --brand-secondary-100: #2a5070;
+    --brand-secondary-200: #36668e;
+    --brand-secondary-300: #3498db;
+    --brand-secondary-400: #4da6e0;
+    --brand-secondary-500: #66b4e5;
+    --brand-secondary-600: #7fc2ea;
+    --brand-secondary-700: #99d0ef;
+  }
+  
+  /* ==========================================================================
+     SYSTEM PREFERENCE SUPPORT
+     ========================================================================== */
+  
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme]) {
+      /* Apply dark mode if no explicit theme is set */
+      --bg-primary: #111827;
+      --bg-secondary: #1f2937;
+      --bg-tertiary: #374151;
+      
+      --text-primary: #f9fafb;
+      --text-secondary: #d1d5db;
+      --text-tertiary: #9ca3af;
+      --text-disabled: #6b7280;
+      
+      --border-base: #374151;
+      --border-strong: #4b5563;
+      --border-subtle: #1f2937;
+    }
+  }
+  
+  /* ==========================================================================
+     TRANSITION FOR THEME SWITCH
+     ========================================================================== */
+  
+  * {
+    transition-property: background-color, color, border-color, box-shadow;
+    transition-duration: 200ms;
+    transition-timing-function: ease;
+  }
+  
+  /* Don't transition transforms and other properties */
+  *:not([class*="btn"]):not([class*="card"]):not([class*="alert"]) {
+    transition-property: background-color, color, border-color;
+  }
+  
+  /* ==========================================================================
+     DARK MODE COMPONENT ADJUSTMENTS
+     ========================================================================== */
+  
+  /* Buttons in dark mode */
+  :root[data-theme="dark"] .btn--ghost {
+    background-color: transparent;
+  }
+  
+  :root[data-theme="dark"] .btn--ghost:hover {
+    background-color: var(--neutral-800);
+  }
+  
+  /* Cards in dark mode */
+  :root[data-theme="dark"] .card {
+    background-color: var(--bg-secondary);
+    border-color: var(--border-base);
+  }
+  
+  :root[data-theme="dark"] .card--elevated {
+    box-shadow: var(--shadow-lg);
+  }
+  
+  /* Forms in dark mode */
+  :root[data-theme="dark"] .input,
+  :root[data-theme="dark"] .textarea,
+  :root[data-theme="dark"] .select {
+    background-color: var(--bg-tertiary);
+    border-color: var(--border-base);
+    color: var(--text-primary);
+  }
+  
+  :root[data-theme="dark"] .input:focus,
+  :root[data-theme="dark"] .textarea:focus,
+  :root[data-theme="dark"] .select:focus {
+    border-color: var(--brand-primary-400);
+    background-color: var(--bg-secondary);
+  }
+  
+  :root[data-theme="dark"] .input::placeholder,
+  :root[data-theme="dark"] .textarea::placeholder {
+    color: var(--text-tertiary);
+  }
+  
+  /* Alerts in dark mode */
+  :root[data-theme="dark"] .alert--success {
+    background-color: rgba(0, 169, 104, 0.15);
+    border-color: var(--semantic-success-600);
+  }
+  
+  :root[data-theme="dark"] .alert--error {
+    background-color: rgba(239, 68, 68, 0.15);
+    border-color: var(--semantic-error-600);
+  }
+  
+  :root[data-theme="dark"] .alert--warning {
+    background-color: rgba(245, 158, 11, 0.15);
+    border-color: var(--semantic-warning-600);
+  }
+  
+  :root[data-theme="dark"] .alert--info {
+    background-color: rgba(52, 152, 219, 0.15);
+    border-color: var(--semantic-info-600);
+  }
+  
+  /* Navigation in dark mode */
+  :root[data-theme="dark"] .navbar {
+    background-color: var(--bg-secondary);
+    border-bottom-color: var(--border-base);
+  }
+  
+  :root[data-theme="dark"] .navbar__link:hover {
+    background-color: var(--neutral-800);
+  }
+  
+  :root[data-theme="dark"] .navbar__dropdown {
+    background-color: var(--bg-secondary);
+    border-color: var(--border-base);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  /* Modal in dark mode */
+  :root[data-theme="dark"] .modal__overlay {
+    background-color: rgba(0, 0, 0, 0.75);
+  }
+  
+  :root[data-theme="dark"] .modal__container {
+    background-color: var(--bg-secondary);
+    box-shadow: var(--shadow-xl);
+  }
+  
+  /* ==========================================================================
+     THEME TOGGLE BUTTON
+     ========================================================================== */
+  
+  .theme-toggle {
+    appearance: none;
+    background: none;
+    border: none;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    cursor: pointer;
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+    transition: var(--transition-base);
+    transition-property: background-color, transform;
+  }
+  
+  .theme-toggle:hover {
+    background-color: var(--neutral-100);
+  }
+  
+  :root[data-theme="dark"] .theme-toggle:hover {
+    background-color: var(--neutral-800);
+  }
+  
+  .theme-toggle:focus-visible {
+    outline: 2px solid var(--brand-primary-500);
+    outline-offset: 2px;
+  }
+  
+  .theme-toggle:active {
+    transform: scale(0.95);
+  }
+  
+  /* Icon states */
+  .theme-toggle__light {
+    display: none;
+  }
+  
+  .theme-toggle__dark {
+    display: block;
+  }
+  
+  :root[data-theme="dark"] .theme-toggle__light {
+    display: block;
+  }
+  
+  :root[data-theme="dark"] .theme-toggle__dark {
+    display: none;
+  }
+  
+  /* ==========================================================================
+     REDUCED MOTION
+     ========================================================================== */
+  
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      transition-duration: 0ms !important;
+    }
+  }
+  
+  /* ==========================================================================
+     COLOR SCHEME META
+     ========================================================================== */
+  
+  /* This tells the browser about our color scheme support */
+  :root {
+    color-scheme: light dark;
+  }
+  
+  :root[data-theme="light"] {
+    color-scheme: light;
+  }
+  
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+  }
+
+}
+
+/* ==========================================================================
+   THEME TOGGLE SCRIPT (Minimal JavaScript)
+   Place this in <script> tag before </body>
+   ========================================================================== */
+
+/*
+<script>
+// Check for saved theme preference or default to system preference
+const theme = localStorage.getItem('theme') || 
+              (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+document.documentElement.setAttribute('data-theme', theme);
+
+// Theme toggle functionality
+document.addEventListener('DOMContentLoaded', () => {
+  const toggleBtn = document.querySelector('.theme-toggle');
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', () => {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+    });
+  }
+});
+</script>
+*/

@@ -1,0 +1,273 @@
+/**
+ * Adlaire Architect CSS Framework
+ * Modal/Dialog Component
+ * 
+ * Copyright 2026 Adlaire Group DX Division
+ * Licensed under the Apache License, Version 2.0
+ */
+
+@layer components {
+  
+  /* ==========================================================================
+     MODAL BASE
+     ========================================================================== */
+  
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-md);
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition-base);
+    transition-property: opacity, visibility;
+  }
+  
+  /* Show modal (requires JS or :target) */
+  .modal.is-active,
+  .modal:target {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  /* ==========================================================================
+     MODAL OVERLAY
+     ========================================================================== */
+  
+  .modal__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
+    cursor: pointer;
+  }
+  
+  /* ==========================================================================
+     MODAL CONTAINER
+     ========================================================================== */
+  
+  .modal__container {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    max-height: 90vh;
+    background-color: var(--bg-primary);
+    border-radius: var(--radius-lg);
+    box-shadow: 
+      0 20px 25px -5px rgba(0, 0, 0, 0.1),
+      0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transform: scale(0.95);
+    transition: transform var(--transition-base);
+  }
+  
+  .modal.is-active .modal__container,
+  .modal:target .modal__container {
+    transform: scale(1);
+  }
+  
+  /* ==========================================================================
+     MODAL SECTIONS
+     ========================================================================== */
+  
+  .modal__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-lg);
+    border-bottom: 1px solid var(--border-base);
+    flex-shrink: 0;
+  }
+  
+  .modal__title {
+    margin: 0;
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+    color: var(--text-primary);
+  }
+  
+  .modal__close {
+    appearance: none;
+    background: none;
+    border: none;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    line-height: 1;
+    color: var(--text-secondary);
+    cursor: pointer;
+    border-radius: var(--radius-sm);
+    transition: var(--transition-base);
+    flex-shrink: 0;
+  }
+  
+  .modal__close:hover {
+    background-color: var(--neutral-100);
+    color: var(--text-primary);
+  }
+  
+  .modal__close:focus-visible {
+    outline: 2px solid var(--brand-primary-500);
+    outline-offset: 2px;
+  }
+  
+  .modal__body {
+    padding: var(--spacing-lg);
+    overflow-y: auto;
+    flex: 1;
+    color: var(--text-primary);
+  }
+  
+  .modal__footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-lg);
+    border-top: 1px solid var(--border-base);
+    flex-shrink: 0;
+  }
+  
+  /* ==========================================================================
+     MODAL SIZES
+     ========================================================================== */
+  
+  .modal--small .modal__container {
+    max-width: 400px;
+  }
+  
+  .modal--large .modal__container {
+    max-width: 800px;
+  }
+  
+  .modal--xl .modal__container {
+    max-width: 1000px;
+  }
+  
+  .modal--full .modal__container {
+    max-width: 90vw;
+    max-height: 90vh;
+  }
+  
+  /* ==========================================================================
+     MODAL VARIANTS
+     ========================================================================== */
+  
+  /* Centered (default) */
+  .modal--centered {
+    align-items: center;
+  }
+  
+  /* Top aligned */
+  .modal--top {
+    align-items: flex-start;
+    padding-top: var(--spacing-2xl);
+  }
+  
+  /* Scrollable body */
+  .modal--scrollable .modal__body {
+    max-height: 400px;
+    overflow-y: auto;
+  }
+  
+  /* No header */
+  .modal--no-header .modal__header {
+    display: none;
+  }
+  
+  /* No footer */
+  .modal--no-footer .modal__footer {
+    display: none;
+  }
+  
+  /* ==========================================================================
+     MODAL WITH BRAND COLORS
+     ========================================================================== */
+  
+  .modal--primary .modal__header {
+    background-color: var(--brand-primary-50);
+    border-bottom-color: var(--brand-primary-200);
+  }
+  
+  .modal--primary .modal__title {
+    color: var(--brand-primary-700);
+  }
+  
+  /* ==========================================================================
+     BODY SCROLL LOCK (when modal is open)
+     ========================================================================== */
+  
+  body:has(.modal.is-active) {
+    overflow: hidden;
+  }
+  
+  /* ==========================================================================
+     RESPONSIVE
+     ========================================================================== */
+  
+  @container (max-width: 600px) {
+    .modal__container {
+      max-width: 100%;
+      margin: var(--spacing-md);
+      border-radius: var(--radius-md);
+    }
+    
+    .modal__header,
+    .modal__body,
+    .modal__footer {
+      padding: var(--spacing-md);
+    }
+    
+    .modal__footer {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .modal {
+      padding: 0;
+    }
+    
+    .modal__container {
+      max-width: 100%;
+      max-height: 100vh;
+      border-radius: 0;
+    }
+    
+    .modal--full .modal__container {
+      max-width: 100vw;
+      max-height: 100vh;
+    }
+  }
+  
+  /* ==========================================================================
+     ACCESSIBILITY - REDUCED MOTION
+     ========================================================================== */
+  
+  @media (prefers-reduced-motion: reduce) {
+    .modal,
+    .modal__container {
+      transition: none;
+    }
+    
+    .modal__container {
+      transform: none !important;
+    }
+  }
+
+}

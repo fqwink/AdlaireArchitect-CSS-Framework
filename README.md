@@ -1,7 +1,7 @@
 # Adlaire Architect CSS Framework
 
-**Version**: 0.4.0 (Development)  
-**Status**: Alert, Card, Grid Complete ✅  
+**Version**: 0.5.0 (Development)  
+**Status**: Navigation, Modal, Dark Mode Complete ✅  
 **License**: Apache License 2.0
 
 ---
