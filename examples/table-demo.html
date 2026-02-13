@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Table Component Demo - Adlaire Architect CSS Framework</title>
+  <link rel="stylesheet" href="../src/adlaire-architect.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 2rem;
+      font-family: var(--aa-font-family);
+      background-color: var(--aa-bg-primary, #ffffff);
+      color: var(--aa-text-primary, #2c3e50);
+    }
+    
+    .demo-header {
+      max-width: 1200px;
+      margin: 0 auto 3rem;
+      text-align: center;
+    }
+    
+    .demo-header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--aa-primary);
+    }
+    
+    .demo-header p {
+      font-size: 1.125rem;
+      color: var(--aa-text-secondary, #7f8c8d);
+    }
+    
+    .demo-section {
+      max-width: 1200px;
+      margin: 0 auto 4rem;
+    }
+    
+    .demo-section h2 {
+      font-size: 1.75rem;
+      margin-bottom: 0.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--aa-primary);
+    }
+    
+    .demo-section h3 {
+      font-size: 1.25rem;
+      margin: 2rem 0 1rem;
+      color: var(--aa-secondary);
+    }
+    
+    .demo-section p {
+      margin-bottom: 1.5rem;
+      color: var(--aa-text-secondary);
+    }
+    
+    .code-example {
+      background-color: #f8f9fa;
+      border: 1px solid #e9ecef;
+      border-radius: 4px;
+      padding: 1rem;
+      margin: 1rem 0;
+      font-family: 'Courier New', monospace;
+      font-size: 0.875rem;
+      overflow-x: auto;
+    }
+    
+    .demo-controls {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    
+    .theme-toggle {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      z-index: 1000;
+    }
+    
+    /* Fixed header demo container */
+    .fixed-header-demo {
+      max-height: 400px;
+      border: 1px solid var(--aa-gray-200);
+      border-radius: 4px;
+      margin: 1rem 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Theme Toggle -->
+  <div class="theme-toggle">
+    <button class="aa-btn aa-btn--outline aa-btn--sm" onclick="toggleTheme()">
+      <span id="theme-icon">🌙</span> テーマ切替
+    </button>
+  </div>
+
+  <!-- Header -->
+  <header class="demo-header">
+    <h1>📊 Table Component Demo</h1>
+    <p>Adlaire Architect CSS Framework v0.8.0</p>
+    <p>レスポンシブで柔軟なテーブルコンポーネント - ストライプ、ボーダー、ホバー、ソート機能対応</p>
+  </header>
+
+  <!-- Basic Table -->
+  <section class="demo-section">
+    <h2>基本テーブル</h2>
+    <p>シンプルで使いやすい基本のテーブルスタイル。</p>
+    
+    <div class="aa-table__container">
+      <table class="aa-table">
+        <thead class="aa-thead">
+          <tr class="aa-tr">
+            <th class="aa-th">氏名</th>
+            <th class="aa-th">部署</th>
+            <th class="aa-th">役職</th>
+            <th class="aa-th">メール</th>
+          </tr>
+        </thead>
+        <tbody class="aa-tbody">
+          <tr class="aa-tr">
+            <td class="aa-td">山田 太郎</td>
+            <td class="aa-td">開発部</td>
+            <td class="aa-td">エンジニア</td>
+            <td class="aa-td">yamada@example.com</td>
+          </tr>
+          <tr class="aa-tr">
+            <td class="aa-td">鈴木 花子</td>
+            <td class="aa-td">デザイン部</td>
+            <td class="aa-td">デザイナー</td>
+            <td class="aa-td">suzuki@example.com</td>
+          </tr>
+          <tr class="aa-tr">
+            <td class="aa-td">佐藤 次郎</td>
+            <td class="aa-td">営業部</td>
+            <td class="aa-td">マネージャー</td>
+            <td class="aa-td">sato@example.com</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Striped Table -->
+  <section class="demo-section">
+    <h2>ストライプテーブル</h2>
+    <p>偶数行に背景色を付けて可読性を向上。<code>.aa-table--striped</code></p>
+    
+    <div class="aa-table__container">
+      <table class="aa-table aa-table--striped">
+        <thead class="aa-thead">
+          <tr class="aa-tr">
+            <th class="aa-th">商品ID</th>
+            <th class="aa-th">商品名</th>
+            <th class="aa-th">カテゴリ</th>
+            <th class="aa-th">価格</th>
+            <th class="aa-th">在庫</th>
+          </tr>
+        </thead>
+        <tbody class="aa-tbody">
+          <tr class="aa-tr">
+            <td class="aa-td">#001</td>
+            <td class="aa-td">ノートPC</td>
+            <td class="aa-td">コンピュータ</td>
+            <td class="aa-td">¥120,000</td>
+            <td class="aa-td">15</td>
+          </tr>
+          <tr class="aa-tr">
+            <td class="aa-td">#002</td>
+            <td class="aa-td">マウス</td>
+            <td class="aa-td">周辺機器</td>
+            <td class="aa-td">¥3,500</td>
+            <td class="aa-td">50</td>
+          </tr>
+          <tr class="aa-tr">
+            <td class="aa-td">#003</td>
+            <td class="aa-td">キーボード</td>
+            <td class="aa-td">周辺機器</td>
+            <td class="aa-td">¥8,000</td>
+            <td class="aa-td">30</td>
+          </tr>
+          <tr class="aa-tr">
+            <td class="aa-td">#004</td>
+            <td class="aa-td">モニター</td>
+            <td class="aa-td">ディスプレイ</td>
+            <td class="aa-td">¥45,000</td>
+            <td class="aa-td">12</td>
+          </tr>
+          <tr class="aa-tr">
+            <td class="aa-td">#005</td>
+            <td class="aa-td">USBケーブル</td>
+            <td class="aa-td">アクセサリ</td>
+            <td class="aa-td">¥1,200</td>
+            <td class="aa-td">100</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Bordered Table -->
+  <section class="demo-section">
+    <h2>ボーダーテーブル</h2>
+    <p>全セルにボーダーを追加。<code>.aa-table--bordered</code></p>
+    
+    <div class="aa-table__container">
+      <table class="aa-table aa-table--bordered">
+        <thead class="aa-thead">
+          <tr class="aa-tr">
+            <th class="aa-th">曜日</th>
+            <th class="aa-th">9:00-12:00</th>
+            <th class="aa-th">13:00-17:00</th>
+            <th class="aa-th">18:00-20:00</th>
+          </tr>
+        </thead>
+        <tbody class="aa-tbody">
+          <tr class="aa-tr">
+            <td class="aa-td"><strong>月曜日</strong></td>
+            <td class="aa-td">会議</td>
+            <td class="aa-td">開発</td>
+            <td class="aa-td">レビュー</td>
+          </tr>
+          <tr class="aa-tr">
+            <td class="aa-td"><strong>火曜日</strong></td>
+            <td class="aa-td">開発</td>
+            <td class="aa-td">開発</td>
+            <td class="aa-td">-</td>
+          </tr>
+          <tr class="aa-tr">
+            <td class="aa-td"><strong>水曜日</strong></td>
+            <td class="aa-td">開発</td>
+            <td class="aa-td">設計レビュー</td>
+            <td class="aa-td">勉強会</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Hover Table -->
+  <section class="demo-section">
+    <h2>ホバーテーブル</h2>
+    <p>行にホバーするとハイライト。<code>.aa-table--hover</code></p>
+    
+    <div class="aa-table__container">
+      <table class="aa-table aa-table--hover">
+        <thead class="aa-thead">
+          <tr class="aa-tr">
+            <th class="aa-th">プロジェクト</th>
+            <th class="aa-th">担当者</th>
+            <th class="aa-th">進捗</th>
+            <th class="aa-th">期限</th>
+            <th class="aa-th">ステータス</th>
+          </tr>
+        </thead>
+        <tbody class="aa-tbody">
+          <tr class="aa-tr">
+            <td class="aa-td">Webサイトリニューアル</td>
+            <td class="aa-td">山田 太郎</td>
+            <td class="aa-td">85%</td>
+            <td class="aa-td">2026-03-31</td>
+            <td class="aa-td"><span class="aa-badge aa-badge--success aa-badge--sm">進行中</span></td>
+          </tr>
+          <tr class="aa-tr">
+            <td class="aa-td">モバイルアプリ開発</td>
+            <td class="aa-td">鈴木 花子</td>
+            <td class="aa-td">40%</td>
+            <td class="aa-td">2026-06-30</td>
+            <td class="aa-td"><span class="aa-badge aa-badge--info aa-badge--sm">計画中</span></td>
+          </tr>
+          <tr class="aa-tr">
+            <td class="aa-td">API統合</td>
+            <td class="aa-td">佐藤 次郎</td>
+            <td class="aa-td">100%</td>
+            <td class="aa-td">2026-02-28</td>
+            <td class="aa-td"><span class="aa-badge aa-badge--success aa-badge--sm">完了</span></td>
+          </tr>
+          <tr class="aa-tr">
+            <td class="aa-td">セキュリティ監査</td>
+            <td class="aa-td">田中 美咲</td>
+            <td class="aa-td">20%</td>
+            <td class="aa-td">2026-05-15</td>
+            <td class="aa-td"><span class="aa-badge aa-badge--warning aa-badge--sm">遅延</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Combined Styles -->
+  <section class="demo-section">
+    <h2>複合スタイル</h2>
+    <p>複数のクラスを組み合わせて使用。<code>.aa-table--striped.aa-table--bordered.aa-table--hover</code></p>
+    
+    <div class="aa-table__container">
+      <table class="aa-table aa-table--striped aa-table--bordered aa-table--hover">
+        <thead class="aa-thead">
+          <tr class="aa-tr">
+            <th class="aa-th">ユーザーID</th>
+            <th class="aa-th">ユーザー名</th>
+            <th class="aa-th">登録日</th>
+            <th class="aa-th">最終ログイン</th>
+            <th class="aa-th">ステータス</th>
+          </tr>
+        </thead>
+        <tbody class="aa-tbody">
+          <tr class="aa-tr">
+            <td class="aa-td">#1001</td>
+            <td class="aa-td">yamada_taro</td>
+            <td class="aa-td">2025-01-15</td>
+            <td class="aa-td">2026-02-13 09:30</td>
+            <td class="aa-td"><span class="aa-badge aa-badge--dot aa-badge--success"></span> オンライン</td>
+          </tr>
+          <tr class="aa-tr">
+            <td class="aa-td">#1002</td>
+            <td class="aa-td">suzuki_hanako</td>
+            <td class="aa-td">2025-02-20</td>
+            <td class="aa-td">2026-02-12 18:45</td>
+            <td class="aa-td"><span class="aa-badge aa-badge--dot aa-badge--neutral"></span> オフライン</td>
+          </tr>
+          <tr class="aa-tr">
+            <td class="aa-td">#1003</td>
+            <td class="aa-td">sato_jiro</td>
+            <td class="aa-td">2025-03-10</td>
+            <td class="aa-td">2026-02-13 10:15</td>
+            <td class="aa-td"><span class="aa-badge aa-badge--dot aa-badge--success"></span> オンライン</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Table Sizes -->
+  <section class="demo-section">
+    <h2>テーブルサイズ</h2>
+    
+    <h3>コンパクト <code>.aa-table--compact</code></h3>
+    <p>狭いスペースに最適な小さめのテーブル。</p>
+    <div class="aa-table__container">
+      <table class="aa-table aa-table--compact aa-table--striped">
+        <thead class="aa-thead">
+          <tr class="aa-tr">
+            <th class="aa-th">項目</th>
+            <th class="aa-th">値</th>
+            <th class="aa-th">単位</th>
+          </tr>
+        </thead>
+        <tbody class="aa-tbody">
+          <tr class="aa-tr">
+            <td class="aa-td">CPU使用率</td>
+            <td class="aa-td">45%</td>
+            <td class="aa-td">%</td>
+          </tr>
+          <tr class="aa-tr">
+            <td class="aa-td">メモリ使用量</td>
+            <td class="aa-td">8.5</td>
+            <td class="aa-td">GB</td>
+          </tr>
+          <tr class="aa-tr">
+            <td class="aa-td">ディスク使用量</td>
+            <td class="aa-td">250</td>
+            <td class="aa-td">GB</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>快適 <code>.aa-table--comfortable</code></h3>
+    <p>ゆとりのあるスペーシングで読みやすいテーブル。</p>
+    <div class="aa-table__container">
+      <table class="aa-table aa-table--comfortable aa-table--striped">
+        <thead class="aa-thead">
+          <tr class="aa-tr">
+            <th class="aa-th">サービス</th>
+            <th class="aa-th">月額料金</th>
+            <th class="aa-th">ユーザー数</th>
+          </tr>
+        </thead>
+        <tbody class="aa-tbody">
+          <tr class="aa-tr">
+            <td class="aa-td">スタンダード</td>
+            <td class="aa-td">¥5,000</td>
+            <td class="aa-td">最大10名</td>
+          </tr>
+          <tr class="aa-tr">
+            <td class="aa-td">プロフェッショナル</td>
+            <td class="aa-td">¥15,000</td>
+            <td class="aa-td">最大50名</td>
+          </tr>
+          <tr class="aa-tr">
+            <td class="aa-td">エンタープライズ</td>
+            <td class="aa-td">¥50,000</td>
+            <td class="aa-td">無制限</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Sortable Table -->
+  <section class="demo-section">
+    <h2>ソート可能テーブル</h2>
+    <p>ヘッダーをクリックしてソート（見た目のみ、実際のソートはJavaScriptで実装）。<code>.aa-table__sortable</code></p>
+    
+    <div class="aa-table__container">
+      <table class="aa-table aa-table--hover">
+        <thead class="aa-thead">
+          <tr class="aa-tr">
+            <th class="aa-th aa-table__sortable" aria-sort="none">
+              製品名 <span class="aa-table__sort-indicator"></span>
+            </th>
+            <th class="aa-th aa-table__sortable" aria-sort="none">
+              価格 <span class="aa-table__sort-indicator"></span>
+            </th>
+            <th class="aa-th aa-table__sortable" aria-sort="none">
+              評価 <span class="aa-table__sort-indicator"></span>
+            </th>
+            <th class="aa-th aa-table__sortable" aria-sort="descending">
+              販売数 <span class="aa-table__sort-indicator"></span>
+            </th>
+          </tr>
+        </thead>
+        <tbody class="aa-tbody">
+          <tr class="aa-tr">
+            <td class="aa-td">Adlaire Design System</td>
+            <td class="aa-td">¥0</td>
+            <td class="aa-td">⭐⭐⭐⭐⭐ 5.0</td>
+            <td class="aa-td">15,000</td>
+          </tr>
+          <tr class="aa-tr">
+            <td class="aa-td">Premium Template Pack</td>
+            <td class="aa-td">¥9,800</td>
+            <td class="aa-td">⭐⭐⭐⭐ 4.5</td>
+            <td class="aa-td">8,500</td>
+          </tr>
+          <tr class="aa-tr">
+            <td class="aa-td">Component Library Pro</td>
+            <td class="aa-td">¥5,000</td>
+            <td class="aa-td">⭐⭐⭐⭐⭐ 4.8</td>
+            <td class="aa-td">12,300</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Fixed Header Table -->
+  <section class="demo-section">
+    <h2>固定ヘッダーテーブル</h2>
+    <p>スクロール可能なテーブルでヘッダーを固定。<code>.aa-table__container--fixed-header</code></p>
+    
+    <div class="aa-table__container aa-table__container--fixed-header" style="max-height: 300px;">
+      <table class="aa-table aa-table--striped">
+        <thead class="aa-thead">
+          <tr class="aa-tr">
+            <th class="aa-th">No.</th>
+            <th class="aa-th">タスク</th>
+            <th class="aa-th">担当者</th>
+            <th class="aa-th">優先度</th>
+            <th class="aa-th">ステータス</th>
+          </tr>
+        </thead>
+        <tbody class="aa-tbody">
+          <tr class="aa-tr">
+            <td class="aa-td">1</td>
+            <td class="aa-td">ホームページデザイン</td>
+            <td class="aa-td">山田</td>
+            <td class="aa-td"><span class="aa-badge aa-badge--error aa-badge--xs">高</span></td>
+            <td class="aa-td"><span class="aa-badge aa-badge--success aa-badge--xs">完了</span></td>
+          </tr>
+          <tr class="aa-tr">
+            <td class="aa-td">2</td>
+            <td class="aa-td">APIエンドポイント実装</td>
+            <td class="aa-td">鈴木</td>
+            <td class="aa-td"><span class="aa-badge aa-badge--error aa-badge--xs">高</span></td>
+            <td class="aa-td"><span class="aa-badge aa-badge--info aa-badge--xs">進行中</span></td>
+          </tr>
+          <tr class="aa-tr">
+            <td class="aa-td">3</td>
+            <td class="aa-td">データベース設計</td>
+            <td class="aa-td">佐藤</td>
+            <td class="aa-td"><span class="aa-badge aa-badge--warning aa-badge--xs">中</span></td>
+            <td class="aa-td"><span class="aa-badge aa-badge--success aa-badge--xs">完了</span></td>
+          </tr>
+          <tr class="aa-tr">
+            <td class="aa-td">4</td>
+            <td class="aa-td">ユーザー認証機能</td>
+            <td class="aa-td">田中</td>
+            <td class="aa-td"><span class="aa-badge aa-badge--error aa-badge--xs">高</span></td>
+            <td class="aa-td"><span class="aa-badge aa-badge--info aa-badge--xs">進行中</span></td>
+          </tr>
+          <tr class="aa-tr">
+            <td class="aa-td">5</td>
+            <td class="aa-td">決済システム統合</td>
+            <td class="aa-td">伊藤</td>
+            <td class="aa-td"><span class="aa-badge aa-badge--warning aa-badge--xs">中</span></td>
+            <td class="aa-td"><span class="aa-badge aa-badge--neutral aa-badge--xs">未着手</span></td>
+          </tr>
+          <tr class="aa-tr">
+            <td class="aa-td">6</td>
+            <td class="aa-td">メール通知機能</td>
+            <td class="aa-td">渡辺</td>
+            <td class="aa-td"><span class="aa-badge aa-badge--neutral aa-badge--xs">低</span></td>
+            <td class="aa-td"><span class="aa-badge aa-badge--neutral aa-badge--xs">未着手</span></td>
+          </tr>
+          <tr class="aa-tr">
+            <td class="aa-td">7</td>
+            <td class="aa-td">レスポンシブ対応</td>
+            <td class="aa-td">高橋</td>
+            <td class="aa-td"><span class="aa-badge aa-badge--error aa-badge--xs">高</span></td>
+            <td class="aa-td"><span class="aa-badge aa-badge--info aa-badge--xs">進行中</span></td>
+          </tr>
+          <tr class="aa-tr">
+            <td class="aa-td">8</td>
+            <td class="aa-td">パフォーマンス最適化</td>
+            <td class="aa-td">小林</td>
+            <td class="aa-td"><span class="aa-badge aa-badge--warning aa-badge--xs">中</span></td>
+            <td class="aa-td"><span class="aa-badge aa-badge--neutral aa-badge--xs">未着手</span></td>
+          </tr>
+          <tr class="aa-tr">
+            <td class="aa-td">9</td>
+            <td class="aa-td">セキュリティ監査</td>
+            <td class="aa-td">加藤</td>
+            <td class="aa-td"><span class="aa-badge aa-badge--error aa-badge--xs">高</span></td>
+            <td class="aa-td"><span class="aa-badge aa-badge--neutral aa-badge--xs">未着手</span></td>
+          </tr>
+          <tr class="aa-tr">
+            <td class="aa-td">10</td>
+            <td class="aa-td">ドキュメント作成</td>
+            <td class="aa-td">吉田</td>
+            <td class="aa-td"><span class="aa-badge aa-badge--neutral aa-badge--xs">低</span></td>
+            <td class="aa-td"><span class="aa-badge aa-badge--neutral aa-badge--xs">未着手</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Responsive Table -->
+  <section class="demo-section">
+    <h2>レスポンシブテーブル</h2>
+    <p>小さい画面では横スクロール可能。<code>.aa-table--responsive</code></p>
+    
+    <div class="aa-table__container aa-table--responsive">
+      <table class="aa-table aa-table--striped">
+        <thead class="aa-thead">
+          <tr class="aa-tr">
+            <th class="aa-th">製品コード</th>
+            <th class="aa-th">製品名</th>
+            <th class="aa-th">カテゴリ</th>
+            <th class="aa-th">サブカテゴリ</th>
+            <th class="aa-th">価格（税抜）</th>
+            <th class="aa-th">価格（税込）</th>
+            <th class="aa-th">在庫数</th>
+            <th class="aa-th">最終更新</th>
+          </tr>
+        </thead>
+        <tbody class="aa-tbody">
+          <tr class="aa-tr">
+            <td class="aa-td">PRD-001</td>
+            <td class="aa-td">ワイヤレスマウス</td>
+            <td class="aa-td">コンピュータ</td>
+            <td class="aa-td">周辺機器</td>
+            <td class="aa-td">¥3,000</td>
+            <td class="aa-td">¥3,300</td>
+            <td class="aa-td">45</td>
+            <td class="aa-td">2026-02-10</td>
+          </tr>
+          <tr class="aa-tr">
+            <td class="aa-td">PRD-002</td>
+            <td class="aa-td">メカニカルキーボード</td>
+            <td class="aa-td">コンピュータ</td>
+            <td class="aa-td">周辺機器</td>
+            <td class="aa-td">¥12,000</td>
+            <td class="aa-td">¥13,200</td>
+            <td class="aa-td">28</td>
+            <td class="aa-td">2026-02-12</td>
+          </tr>
+          <tr class="aa-tr">
+            <td class="aa-td">PRD-003</td>
+            <td class="aa-td">27インチモニター</td>
+            <td class="aa-td">ディスプレイ</td>
+            <td class="aa-td">液晶モニター</td>
+            <td class="aa-td">¥35,000</td>
+            <td class="aa-td">¥38,500</td>
+            <td class="aa-td">15</td>
+            <td class="aa-td">2026-02-08</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p><small>※ 画面幅を狭めると横スクロールが表示されます。</small></p>
+  </section>
+
+  <!-- Row Selection States -->
+  <section class="demo-section">
+    <h2>行選択状態</h2>
+    <p>異なる状態を表現する行スタイル。</p>
+    
+    <div class="aa-table__container">
+      <table class="aa-table">
+        <thead class="aa-thead">
+          <tr class="aa-tr">
+            <th class="aa-th">注文番号</th>
+            <th class="aa-th">顧客名</th>
+            <th class="aa-th">金額</th>
+            <th class="aa-th">ステータス</th>
+          </tr>
+        </thead>
+        <tbody class="aa-tbody">
+          <tr class="aa-tr aa-tr--selected">
+            <td class="aa-td">#ORD-001</td>
+            <td class="aa-td">山田商事</td>
+            <td class="aa-td">¥150,000</td>
+            <td class="aa-td"><span class="aa-badge aa-badge--primary aa-badge--sm">選択中</span></td>
+          </tr>
+          <tr class="aa-tr aa-tr--success">
+            <td class="aa-td">#ORD-002</td>
+            <td class="aa-td">鈴木産業</td>
+            <td class="aa-td">¥85,000</td>
+            <td class="aa-td"><span class="aa-badge aa-badge--success aa-badge--sm">承認済み</span></td>
+          </tr>
+          <tr class="aa-tr aa-tr--warning">
+            <td class="aa-td">#ORD-003</td>
+            <td class="aa-td">佐藤建設</td>
+            <td class="aa-td">¥220,000</td>
+            <td class="aa-td"><span class="aa-badge aa-badge--warning aa-badge--sm">保留中</span></td>
+          </tr>
+          <tr class="aa-tr aa-tr--error">
+            <td class="aa-td">#ORD-004</td>
+            <td class="aa-td">田中運輸</td>
+            <td class="aa-td">¥45,000</td>
+            <td class="aa-td"><span class="aa-badge aa-badge--error aa-badge--sm">キャンセル</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Cell Alignment -->
+  <section class="demo-section">
+    <h2>セル配置</h2>
+    <p>テキストの配置を変更。<code>.aa-td--left</code>, <code>.aa-td--center</code>, <code>.aa-td--right</code></p>
+    
+    <div class="aa-table__container">
+      <table class="aa-table aa-table--bordered">
+        <thead class="aa-thead">
+          <tr class="aa-tr">
+            <th class="aa-th aa-td--left">商品名（左寄せ）</th>
+            <th class="aa-th aa-td--center">在庫（中央）</th>
+            <th class="aa-th aa-td--right">価格（右寄せ）</th>
+          </tr>
+        </thead>
+        <tbody class="aa-tbody">
+          <tr class="aa-tr">
+            <td class="aa-td aa-td--left">ノートパソコン</td>
+            <td class="aa-td aa-td--center">15 台</td>
+            <td class="aa-td aa-td--right">¥120,000</td>
+          </tr>
+          <tr class="aa-tr">
+            <td class="aa-td aa-td--left">マウス</td>
+            <td class="aa-td aa-td--center">50 個</td>
+            <td class="aa-td aa-td--right">¥3,500</td>
+          </tr>
+          <tr class="aa-tr">
+            <td class="aa-td aa-td--left">モニター</td>
+            <td class="aa-td aa-td--center">8 台</td>
+            <td class="aa-td aa-td--right">¥45,000</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="demo-section" style="text-align: center; padding: 3rem 0; border-top: 2px solid var(--aa-gray-200);">
+    <p style="margin-bottom: 0.5rem;">
+      <strong>Adlaire Architect CSS Framework v0.8.0</strong>
+    </p>
+    <p style="color: var(--aa-text-secondary); font-size: 0.875rem;">
+      Copyright © 2026 Adlaire Group DX事業セグメントグループ
+    </p>
+    <p style="margin-top: 1rem;">
+      <a href="demo.html" class="aa-btn aa-btn--outline aa-btn--sm" style="margin: 0 0.5rem;">メインデモ</a>
+      <a href="complete-demo.html" class="aa-btn aa-btn--outline aa-btn--sm" style="margin: 0 0.5rem;">完全デモ</a>
+      <a href="forms-demo.html" class="aa-btn aa-btn--outline aa-btn--sm" style="margin: 0 0.5rem;">フォームデモ</a>
+    </p>
+  </footer>
+
+  <script>
+    // Theme Toggle Function
+    function toggleTheme() {
+      const html = document.documentElement;
+      const currentTheme = html.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      const themeIcon = document.getElementById('theme-icon');
+      
+      html.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      
+      themeIcon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+    }
+    
+    // Load saved theme on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      const savedTheme = localStorage.getItem('theme') || 'light';
+      const themeIcon = document.getElementById('theme-icon');
+      
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      themeIcon.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+    });
+  </script>
+</body>
+</html>

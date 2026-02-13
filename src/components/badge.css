@@ -1,0 +1,769 @@
+/**
+ * Adlaire Architect CSS Framework
+ * Badge/Tag Component
+ * Version: 0.8.0
+ * 
+ * Small visual indicators for status, labels, categories, and counts.
+ * Supports multiple sizes, colors, styles, and shapes with full accessibility.
+ * 
+ * License: Apache-2.0
+ * Copyright 2026 Adlaire Group DX事業セグメントグループ
+ */
+
+/* ============================================
+   Base Badge Styles
+   ============================================ */
+
+.aa-badge {
+  /* Display */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  
+  /* Typography */
+  font-family: var(--aa-font-family);
+  font-size: 0.875rem; /* 14px - default size */
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+  text-align: center;
+  
+  /* Spacing */
+  padding: 0.375rem 0.625rem;
+  
+  /* Colors - Default Primary Solid */
+  background-color: var(--aa-primary);
+  color: #ffffff;
+  
+  /* Border */
+  border: none;
+  border-radius: 4px;
+  
+  /* Effects */
+  transition: background-color 0.15s ease,
+              color 0.15s ease,
+              border-color 0.15s ease,
+              transform 0.15s ease,
+              box-shadow 0.15s ease;
+  
+  /* Performance */
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Base Tag Styles (alias for badge with different defaults) */
+.aa-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  
+  font-family: var(--aa-font-family);
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1;
+  white-space: nowrap;
+  
+  padding: 0.375rem 0.625rem;
+  
+  background-color: var(--aa-gray-100);
+  color: var(--aa-gray-700);
+  
+  border: none;
+  border-radius: 999px; /* pill shape default for tags */
+  
+  transition: background-color 0.15s ease,
+              color 0.15s ease,
+              border-color 0.15s ease,
+              transform 0.15s ease,
+              box-shadow 0.15s ease;
+}
+
+/* ============================================
+   Size Variations
+   ============================================ */
+
+/* Extra Small */
+.aa-badge--xs {
+  font-size: 0.625rem; /* 10px */
+  padding: 0.125rem 0.375rem;
+  min-height: 16px;
+}
+
+/* Small */
+.aa-badge--sm,
+.aa-tag--sm {
+  font-size: 0.75rem; /* 12px */
+  padding: 0.25rem 0.5rem;
+  min-height: 20px;
+}
+
+/* Medium (default) */
+.aa-badge--md,
+.aa-tag--md {
+  font-size: 0.875rem; /* 14px */
+  padding: 0.375rem 0.625rem;
+  min-height: 24px;
+}
+
+/* Large */
+.aa-badge--lg,
+.aa-tag--lg {
+  font-size: 1rem; /* 16px */
+  padding: 0.5rem 0.75rem;
+  min-height: 28px;
+}
+
+/* Extra Large */
+.aa-badge--xl,
+.aa-tag--xl {
+  font-size: 1.125rem; /* 18px */
+  padding: 0.625rem 1rem;
+  min-height: 32px;
+}
+
+/* ============================================
+   Color Variations - Solid (Default)
+   ============================================ */
+
+.aa-badge--primary,
+.aa-tag--primary {
+  background-color: var(--aa-primary);
+  color: #ffffff;
+}
+
+.aa-badge--secondary,
+.aa-tag--secondary {
+  background-color: var(--aa-secondary);
+  color: #ffffff;
+}
+
+.aa-badge--success,
+.aa-tag--success {
+  background-color: var(--aa-success);
+  color: #ffffff;
+}
+
+.aa-badge--error,
+.aa-tag--error {
+  background-color: var(--aa-error);
+  color: #ffffff;
+}
+
+.aa-badge--warning,
+.aa-tag--warning {
+  background-color: var(--aa-warning);
+  color: #ffffff;
+}
+
+.aa-badge--info,
+.aa-tag--info {
+  background-color: var(--aa-info);
+  color: #ffffff;
+}
+
+.aa-badge--neutral,
+.aa-tag--neutral {
+  background-color: #6c757d;
+  color: #ffffff;
+}
+
+/* ============================================
+   Style Variations - Outline
+   ============================================ */
+
+.aa-badge--outline {
+  background-color: transparent;
+  border: 1px solid currentColor;
+}
+
+.aa-badge--outline.aa-badge--primary,
+.aa-tag--outline.aa-tag--primary {
+  color: var(--aa-primary);
+  border-color: var(--aa-primary);
+}
+
+.aa-badge--outline.aa-badge--secondary,
+.aa-tag--outline.aa-tag--secondary {
+  color: var(--aa-secondary);
+  border-color: var(--aa-secondary);
+}
+
+.aa-badge--outline.aa-badge--success,
+.aa-tag--outline.aa-tag--success {
+  color: var(--aa-success);
+  border-color: var(--aa-success);
+}
+
+.aa-badge--outline.aa-badge--error,
+.aa-tag--outline.aa-tag--error {
+  color: var(--aa-error);
+  border-color: var(--aa-error);
+}
+
+.aa-badge--outline.aa-badge--warning,
+.aa-tag--outline.aa-tag--warning {
+  color: var(--aa-warning);
+  border-color: var(--aa-warning);
+}
+
+.aa-badge--outline.aa-badge--info,
+.aa-tag--outline.aa-tag--info {
+  color: var(--aa-info);
+  border-color: var(--aa-info);
+}
+
+.aa-badge--outline.aa-badge--neutral,
+.aa-tag--outline.aa-tag--neutral {
+  color: #6c757d;
+  border-color: #6c757d;
+}
+
+/* ============================================
+   Style Variations - Subtle
+   ============================================ */
+
+.aa-badge--subtle.aa-badge--primary,
+.aa-tag--subtle.aa-tag--primary {
+  background-color: rgba(0, 169, 104, 0.1);
+  color: var(--aa-primary);
+}
+
+.aa-badge--subtle.aa-badge--secondary,
+.aa-tag--subtle.aa-tag--secondary {
+  background-color: rgba(52, 152, 219, 0.1);
+  color: var(--aa-secondary);
+}
+
+.aa-badge--subtle.aa-badge--success,
+.aa-tag--subtle.aa-tag--success {
+  background-color: rgba(88, 190, 137, 0.1);
+  color: var(--aa-success);
+}
+
+.aa-badge--subtle.aa-badge--error,
+.aa-tag--subtle.aa-tag--error {
+  background-color: rgba(231, 76, 60, 0.1);
+  color: var(--aa-error);
+}
+
+.aa-badge--subtle.aa-badge--warning,
+.aa-tag--subtle.aa-tag--warning {
+  background-color: rgba(243, 156, 18, 0.1);
+  color: var(--aa-warning);
+}
+
+.aa-badge--subtle.aa-badge--info,
+.aa-tag--subtle.aa-tag--info {
+  background-color: rgba(64, 170, 239, 0.1);
+  color: var(--aa-info);
+}
+
+.aa-badge--subtle.aa-badge--neutral,
+.aa-tag--subtle.aa-tag--neutral {
+  background-color: rgba(108, 117, 125, 0.1);
+  color: #6c757d;
+}
+
+/* ============================================
+   Shape Variations
+   ============================================ */
+
+/* Rounded (default for badge) */
+.aa-badge--rounded {
+  border-radius: 4px;
+}
+
+/* Pill (default for tag) */
+.aa-badge--pill,
+.aa-tag--pill {
+  border-radius: 999px;
+}
+
+/* Square */
+.aa-badge--square,
+.aa-tag--square {
+  border-radius: 0;
+}
+
+/* Circle (for numeric counts) */
+.aa-badge--circle {
+  border-radius: 50%;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0;
+  aspect-ratio: 1;
+}
+
+.aa-badge--circle.aa-badge--xs {
+  width: 1rem;
+  height: 1rem;
+  font-size: 0.5rem;
+}
+
+.aa-badge--circle.aa-badge--sm {
+  width: 1.25rem;
+  height: 1.25rem;
+  font-size: 0.625rem;
+}
+
+.aa-badge--circle.aa-badge--md {
+  width: 1.5rem;
+  height: 1.5rem;
+  font-size: 0.75rem;
+}
+
+.aa-badge--circle.aa-badge--lg {
+  width: 1.75rem;
+  height: 1.75rem;
+  font-size: 0.875rem;
+}
+
+.aa-badge--circle.aa-badge--xl {
+  width: 2rem;
+  height: 2rem;
+  font-size: 1rem;
+}
+
+/* ============================================
+   Dot Badge (Status Indicator)
+   ============================================ */
+
+.aa-badge--dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  padding: 0;
+  border-radius: 50%;
+  min-width: 0.5rem;
+  min-height: 0.5rem;
+}
+
+.aa-badge--dot.aa-badge--sm {
+  width: 0.375rem;
+  height: 0.375rem;
+  min-width: 0.375rem;
+  min-height: 0.375rem;
+}
+
+.aa-badge--dot.aa-badge--lg {
+  width: 0.625rem;
+  height: 0.625rem;
+  min-width: 0.625rem;
+  min-height: 0.625rem;
+}
+
+/* Pulse Animation for Dot Badge */
+.aa-badge--dot-pulse {
+  animation: badge-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes badge-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Dot with ring animation */
+.aa-badge--dot-pulse::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  animation: badge-ring 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes badge-ring {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+/* ============================================
+   Interactive Badge (Clickable)
+   ============================================ */
+
+.aa-badge--interactive {
+  cursor: pointer;
+  user-select: none;
+}
+
+.aa-badge--interactive:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.aa-badge--interactive:active {
+  transform: translateY(0);
+}
+
+.aa-badge--interactive:focus-visible {
+  outline: 2px solid var(--aa-primary);
+  outline-offset: 2px;
+}
+
+/* Hover effects for solid badges */
+.aa-badge--interactive.aa-badge--primary:hover {
+  background-color: #008f5a;
+}
+
+.aa-badge--interactive.aa-badge--secondary:hover {
+  background-color: #2980b9;
+}
+
+.aa-badge--interactive.aa-badge--success:hover {
+  background-color: #4aa775;
+}
+
+.aa-badge--interactive.aa-badge--error:hover {
+  background-color: #c0392b;
+}
+
+.aa-badge--interactive.aa-badge--warning:hover {
+  background-color: #e67e22;
+}
+
+.aa-badge--interactive.aa-badge--info:hover {
+  background-color: #2e8fd1;
+}
+
+/* Hover effects for outline badges */
+.aa-badge--interactive.aa-badge--outline:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Hover effects for subtle badges */
+.aa-badge--interactive.aa-badge--subtle:hover {
+  opacity: 0.8;
+}
+
+/* ============================================
+   Dismissible Badge/Tag (Removable)
+   ============================================ */
+
+.aa-badge--dismissible,
+.aa-tag--dismissible {
+  padding-right: 0.25rem;
+}
+
+.aa-badge__close,
+.aa-tag__close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  
+  margin-left: 0.25rem;
+  padding: 0;
+  
+  width: 1rem;
+  height: 1rem;
+  
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1;
+  
+  background: none;
+  border: none;
+  border-radius: 50%;
+  
+  color: currentColor;
+  opacity: 0.7;
+  cursor: pointer;
+  
+  transition: opacity 0.15s ease,
+              background-color 0.15s ease;
+}
+
+.aa-badge__close:hover,
+.aa-tag__close:hover {
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.aa-badge__close:focus-visible,
+.aa-tag__close:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 1px;
+  opacity: 1;
+}
+
+/* ============================================
+   Badge with Icon
+   ============================================ */
+
+.aa-badge__icon,
+.aa-tag__icon {
+  display: inline-flex;
+  width: 0.875rem;
+  height: 0.875rem;
+}
+
+.aa-badge--xs .aa-badge__icon {
+  width: 0.625rem;
+  height: 0.625rem;
+}
+
+.aa-badge--sm .aa-badge__icon {
+  width: 0.75rem;
+  height: 0.75rem;
+}
+
+.aa-badge--lg .aa-badge__icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.aa-badge--xl .aa-badge__icon {
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+/* ============================================
+   Absolute Positioning (Notification Badge)
+   ============================================ */
+
+.aa-badge--absolute {
+  position: absolute;
+  top: -0.5rem;
+  right: -0.5rem;
+  z-index: 10;
+}
+
+.aa-badge--absolute.aa-badge--sm {
+  top: -0.375rem;
+  right: -0.375rem;
+}
+
+.aa-badge--absolute.aa-badge--lg {
+  top: -0.625rem;
+  right: -0.625rem;
+}
+
+/* Dot positioning */
+.aa-badge--absolute.aa-badge--dot {
+  top: 0;
+  right: 0;
+}
+
+/* ============================================
+   Inline Display
+   ============================================ */
+
+.aa-badge--inline,
+.aa-tag--inline {
+  display: inline-flex;
+  vertical-align: middle;
+  margin: 0 0.25rem;
+}
+
+/* ============================================
+   Dark Mode Support
+   ============================================ */
+
+@media (prefers-color-scheme: dark) {
+  .aa-badge,
+  .aa-tag {
+    /* Ensure contrast in dark mode */
+  }
+  
+  /* Solid badges - already have good contrast */
+  
+  /* Outline badges - brighten borders */
+  .aa-badge--outline.aa-badge--primary {
+    color: #00c97e;
+    border-color: #00c97e;
+  }
+  
+  .aa-badge--outline.aa-badge--secondary {
+    color: #5dade2;
+    border-color: #5dade2;
+  }
+  
+  .aa-badge--outline.aa-badge--success {
+    color: #6dd5a5;
+    border-color: #6dd5a5;
+  }
+  
+  .aa-badge--outline.aa-badge--error {
+    color: #ec7063;
+    border-color: #ec7063;
+  }
+  
+  .aa-badge--outline.aa-badge--warning {
+    color: #f8b739;
+    border-color: #f8b739;
+  }
+  
+  .aa-badge--outline.aa-badge--info {
+    color: #5dade2;
+    border-color: #5dade2;
+  }
+  
+  /* Subtle badges - increase background opacity */
+  .aa-badge--subtle.aa-badge--primary {
+    background-color: rgba(0, 169, 104, 0.15);
+    color: #00c97e;
+  }
+  
+  .aa-badge--subtle.aa-badge--secondary {
+    background-color: rgba(52, 152, 219, 0.15);
+    color: #5dade2;
+  }
+  
+  .aa-badge--subtle.aa-badge--success {
+    background-color: rgba(88, 190, 137, 0.15);
+    color: #6dd5a5;
+  }
+  
+  .aa-badge--subtle.aa-badge--error {
+    background-color: rgba(231, 76, 60, 0.15);
+    color: #ec7063;
+  }
+  
+  .aa-badge--subtle.aa-badge--warning {
+    background-color: rgba(243, 156, 18, 0.15);
+    color: #f8b739;
+  }
+  
+  .aa-badge--subtle.aa-badge--info {
+    background-color: rgba(64, 170, 239, 0.15);
+    color: #5dade2;
+  }
+  
+  /* Default tag colors in dark mode */
+  .aa-tag {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--aa-text-primary, #f5f5f5);
+  }
+  
+  /* Interactive hover in dark mode */
+  .aa-badge--interactive.aa-badge--outline:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+  
+  .aa-badge__close:hover,
+  .aa-tag__close:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* ============================================
+   Responsive Design (Container Queries)
+   ============================================ */
+
+/* Small containers (≥640px) */
+@container (min-width: 640px) {
+  .aa-badge,
+  .aa-tag {
+    font-size: 0.875rem;
+  }
+  
+  .aa-badge--xs {
+    font-size: 0.625rem;
+  }
+  
+  .aa-badge--sm {
+    font-size: 0.75rem;
+  }
+  
+  .aa-badge--lg {
+    font-size: 1rem;
+  }
+  
+  .aa-badge--xl {
+    font-size: 1.125rem;
+  }
+}
+
+/* Medium containers (≥768px) */
+@container (min-width: 768px) {
+  .aa-badge,
+  .aa-tag {
+    padding: 0.375rem 0.75rem;
+  }
+  
+  .aa-badge--xs {
+    padding: 0.125rem 0.5rem;
+  }
+  
+  .aa-badge--sm {
+    padding: 0.25rem 0.625rem;
+  }
+  
+  .aa-badge--lg {
+    padding: 0.5rem 1rem;
+  }
+  
+  .aa-badge--xl {
+    padding: 0.625rem 1.25rem;
+  }
+}
+
+/* Large containers (≥1024px) */
+@container (min-width: 1024px) {
+  .aa-badge--lg,
+  .aa-tag--lg {
+    font-size: 1.125rem;
+  }
+  
+  .aa-badge--xl,
+  .aa-tag--xl {
+    font-size: 1.25rem;
+  }
+}
+
+/* ============================================
+   Accessibility - Reduced Motion
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .aa-badge,
+  .aa-tag {
+    transition: none;
+  }
+  
+  .aa-badge--dot-pulse {
+    animation: none;
+  }
+  
+  .aa-badge--dot-pulse::before {
+    animation: none;
+    display: none;
+  }
+  
+  .aa-badge--interactive:hover {
+    transform: none;
+  }
+}
+
+/* ============================================
+   Print Styles
+   ============================================ */
+
+@media print {
+  .aa-badge,
+  .aa-tag {
+    background-color: transparent !important;
+    color: #000 !important;
+    border: 1px solid #000 !important;
+  }
+  
+  .aa-badge__close,
+  .aa-tag__close {
+    display: none;
+  }
+  
+  .aa-badge--dot,
+  .aa-badge--dot-pulse {
+    border: 1px solid #000 !important;
+  }
+}

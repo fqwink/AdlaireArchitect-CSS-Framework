@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Utility Classes Demo - Adlaire Architect CSS Framework</title>
+  <link rel="stylesheet" href="../src/adlaire-architect.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 2rem;
+      font-family: var(--aa-font-family);
+      background-color: var(--aa-bg-primary, #ffffff);
+      color: var(--aa-text-primary, #2c3e50);
+    }
+    
+    .demo-header {
+      max-width: 1200px;
+      margin: 0 auto 3rem;
+      text-align: center;
+    }
+    
+    .demo-header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--aa-primary);
+    }
+    
+    .demo-header p {
+      font-size: 1.125rem;
+      color: var(--aa-text-secondary, #7f8c8d);
+    }
+    
+    .demo-section {
+      max-width: 1200px;
+      margin: 0 auto 4rem;
+    }
+    
+    .demo-section h2 {
+      font-size: 1.75rem;
+      margin-bottom: 0.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--aa-primary);
+    }
+    
+    .demo-section h3 {
+      font-size: 1.25rem;
+      margin: 2rem 0 1rem;
+      color: var(--aa-secondary);
+    }
+    
+    .demo-section p {
+      margin-bottom: 1.5rem;
+      color: var(--aa-text-secondary);
+    }
+    
+    .utility-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    
+    .utility-card {
+      padding: 1rem;
+      border: 1px solid var(--aa-gray-200);
+      border-radius: 8px;
+      background-color: var(--aa-gray-50);
+    }
+    
+    .utility-card code {
+      display: block;
+      background-color: #2c3e50;
+      color: #00a968;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      margin-top: 0.5rem;
+      font-family: 'Courier New', monospace;
+    }
+    
+    .demo-box {
+      padding: 1rem;
+      background-color: var(--aa-primary);
+      color: white;
+      border-radius: 4px;
+      text-align: center;
+    }
+    
+    .demo-box-secondary {
+      padding: 1rem;
+      background-color: var(--aa-secondary);
+      color: white;
+      border-radius: 4px;
+      text-align: center;
+    }
+    
+    .demo-box-gray {
+      padding: 1rem;
+      background-color: var(--aa-gray-200);
+      color: var(--aa-gray-700);
+      border-radius: 4px;
+      text-align: center;
+    }
+    
+    .theme-toggle {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      z-index: 1000;
+    }
+    
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin: 1.5rem 0;
+    }
+    
+    @media (max-width: 768px) {
+      .comparison-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Theme Toggle -->
+  <div class="theme-toggle">
+    <button class="aa-btn aa-btn--outline aa-btn--sm" onclick="toggleTheme()">
+      <span id="theme-icon">🌙</span> テーマ切替
+    </button>
+  </div>
+
+  <!-- Header -->
+  <header class="demo-header">
+    <h1>🎨 Utility Classes Demo</h1>
+    <p>Adlaire Architect CSS Framework v0.8.0</p>
+    <p>344+ のユーティリティクラス - Container Queries 対応レスポンシブデザイン</p>
+  </header>
+
+  <!-- Display Utilities -->
+  <section class="demo-section">
+    <h2>Display ユーティリティ（48クラス）</h2>
+    <p>要素の表示方法を制御します。</p>
+    
+    <h3>基本ディスプレイ</h3>
+    <div class="utility-grid">
+      <div class="utility-card">
+        <div class="d-block demo-box">Block</div>
+        <code>.d-block</code>
+      </div>
+      <div class="utility-card">
+        <div class="d-inline demo-box">Inline</div>
+        <code>.d-inline</code>
+      </div>
+      <div class="utility-card">
+        <div class="d-inline-block demo-box">Inline Block</div>
+        <code>.d-inline-block</code>
+      </div>
+      <div class="utility-card">
+        <div class="d-flex demo-box">Flex</div>
+        <code>.d-flex</code>
+      </div>
+      <div class="utility-card">
+        <div class="d-inline-flex demo-box">Inline Flex</div>
+        <code>.d-inline-flex</code>
+      </div>
+      <div class="utility-card">
+        <div class="d-grid demo-box">Grid</div>
+        <code>.d-grid</code>
+      </div>
+      <div class="utility-card">
+        <div class="d-none demo-box">None (隠れてます)</div>
+        <code>.d-none</code>
+      </div>
+    </div>
+  </section>
+
+  <!-- Flexbox Utilities -->
+  <section class="demo-section">
+    <h2>Flexbox ユーティリティ（80+クラス）</h2>
+    <p>Flexbox レイアウトを簡単に構築できます。</p>
+    
+    <h3>Flex Direction</h3>
+    <div class="utility-grid">
+      <div class="utility-card">
+        <div class="d-flex flex-row" style="gap: 0.5rem;">
+          <div class="demo-box" style="flex: 1;">1</div>
+          <div class="demo-box" style="flex: 1;">2</div>
+          <div class="demo-box" style="flex: 1;">3</div>
+        </div>
+        <code>.flex-row</code>
+      </div>
+      <div class="utility-card">
+        <div class="d-flex flex-column" style="gap: 0.5rem;">
+          <div class="demo-box">1</div>
+          <div class="demo-box">2</div>
+          <div class="demo-box">3</div>
+        </div>
+        <code>.flex-column</code>
+      </div>
+    </div>
+    
+    <h3>Justify Content</h3>
+    <div class="utility-grid">
+      <div class="utility-card">
+        <div class="d-flex justify-start" style="gap: 0.5rem; background: #f0f0f0; padding: 0.5rem;">
+          <div class="demo-box" style="width: 60px;">A</div>
+          <div class="demo-box" style="width: 60px;">B</div>
+        </div>
+        <code>.justify-start</code>
+      </div>
+      <div class="utility-card">
+        <div class="d-flex justify-center" style="gap: 0.5rem; background: #f0f0f0; padding: 0.5rem;">
+          <div class="demo-box" style="width: 60px;">A</div>
+          <div class="demo-box" style="width: 60px;">B</div>
+        </div>
+        <code>.justify-center</code>
+      </div>
+      <div class="utility-card">
+        <div class="d-flex justify-end" style="gap: 0.5rem; background: #f0f0f0; padding: 0.5rem;">
+          <div class="demo-box" style="width: 60px;">A</div>
+          <div class="demo-box" style="width: 60px;">B</div>
+        </div>
+        <code>.justify-end</code>
+      </div>
+      <div class="utility-card">
+        <div class="d-flex justify-between" style="gap: 0.5rem; background: #f0f0f0; padding: 0.5rem;">
+          <div class="demo-box" style="width: 60px;">A</div>
+          <div class="demo-box" style="width: 60px;">B</div>
+        </div>
+        <code>.justify-between</code>
+      </div>
+    </div>
+    
+    <h3>Align Items</h3>
+    <div class="utility-grid">
+      <div class="utility-card">
+        <div class="d-flex align-start" style="height: 100px; background: #f0f0f0; padding: 0.5rem;">
+          <div class="demo-box" style="width: 60px;">A</div>
+          <div class="demo-box" style="width: 60px;">B</div>
+        </div>
+        <code>.align-start</code>
+      </div>
+      <div class="utility-card">
+        <div class="d-flex align-center" style="height: 100px; background: #f0f0f0; padding: 0.5rem;">
+          <div class="demo-box" style="width: 60px;">A</div>
+          <div class="demo-box" style="width: 60px;">B</div>
+        </div>
+        <code>.align-center</code>
+      </div>
+      <div class="utility-card">
+        <div class="d-flex align-end" style="height: 100px; background: #f0f0f0; padding: 0.5rem;">
+          <div class="demo-box" style="width: 60px;">A</div>
+          <div class="demo-box" style="width: 60px;">B</div>
+        </div>
+        <code>.align-end</code>
+      </div>
+    </div>
+    
+    <h3>Gap</h3>
+    <div class="utility-grid">
+      <div class="utility-card">
+        <div class="d-flex gap-1">
+          <div class="demo-box-gray">A</div>
+          <div class="demo-box-gray">B</div>
+          <div class="demo-box-gray">C</div>
+        </div>
+        <code>.gap-1 (0.25rem)</code>
+      </div>
+      <div class="utility-card">
+        <div class="d-flex gap-2">
+          <div class="demo-box-gray">A</div>
+          <div class="demo-box-gray">B</div>
+          <div class="demo-box-gray">C</div>
+        </div>
+        <code>.gap-2 (0.5rem)</code>
+      </div>
+      <div class="utility-card">
+        <div class="d-flex gap-4">
+          <div class="demo-box-gray">A</div>
+          <div class="demo-box-gray">B</div>
+          <div class="demo-box-gray">C</div>
+        </div>
+        <code>.gap-4 (1rem)</code>
+      </div>
+    </div>
+  </section>
+
+  <!-- Spacing Utilities -->
+  <section class="demo-section">
+    <h2>Spacing ユーティリティ（132+クラス）</h2>
+    <p>マージンとパディングを細かく制御できます。8pt グリッドシステム対応。</p>
+    
+    <h3>マージン（Margin）</h3>
+    <div class="utility-grid">
+      <div class="utility-card">
+        <div style="background: #f0f0f0; padding: 0.5rem;">
+          <div class="demo-box m-0">m-0</div>
+        </div>
+        <code>.m-0 (0)</code>
+      </div>
+      <div class="utility-card">
+        <div style="background: #f0f0f0; padding: 0.5rem;">
+          <div class="demo-box m-2">m-2</div>
+        </div>
+        <code>.m-2 (0.5rem)</code>
+      </div>
+      <div class="utility-card">
+        <div style="background: #f0f0f0; padding: 0.5rem;">
+          <div class="demo-box m-4">m-4</div>
+        </div>
+        <code>.m-4 (1rem)</code>
+      </div>
+      <div class="utility-card">
+        <div style="background: #f0f0f0; padding: 0.5rem;">
+          <div class="demo-box m-8">m-8</div>
+        </div>
+        <code>.m-8 (2rem)</code>
+      </div>
+    </div>
+    
+    <h3>方向別マージン</h3>
+    <div class="utility-grid">
+      <div class="utility-card">
+        <div style="background: #f0f0f0; padding: 0.5rem;">
+          <div class="demo-box mt-4">mt-4 (上)</div>
+        </div>
+        <code>.mt-4</code>
+      </div>
+      <div class="utility-card">
+        <div style="background: #f0f0f0; padding: 0.5rem;">
+          <div class="demo-box mr-4">mr-4 (右)</div>
+        </div>
+        <code>.mr-4</code>
+      </div>
+      <div class="utility-card">
+        <div style="background: #f0f0f0; padding: 0.5rem;">
+          <div class="demo-box mb-4">mb-4 (下)</div>
+        </div>
+        <code>.mb-4</code>
+      </div>
+      <div class="utility-card">
+        <div style="background: #f0f0f0; padding: 0.5rem;">
+          <div class="demo-box ml-4">ml-4 (左)</div>
+        </div>
+        <code>.ml-4</code>
+      </div>
+    </div>
+    
+    <h3>パディング（Padding）</h3>
+    <div class="utility-grid">
+      <div class="utility-card">
+        <div class="demo-box p-0">p-0</div>
+        <code>.p-0 (0)</code>
+      </div>
+      <div class="utility-card">
+        <div class="demo-box p-2">p-2</div>
+        <code>.p-2 (0.5rem)</code>
+      </div>
+      <div class="utility-card">
+        <div class="demo-box p-4">p-4</div>
+        <code>.p-4 (1rem)</code>
+      </div>
+      <div class="utility-card">
+        <div class="demo-box p-8">p-8</div>
+        <code>.p-8 (2rem)</code>
+      </div>
+    </div>
+  </section>
+
+  <!-- Position Utilities -->
+  <section class="demo-section">
+    <h2>Position ユーティリティ（26クラス）</h2>
+    <p>要素の配置方法を制御します。</p>
+    
+    <h3>Position Type</h3>
+    <div class="utility-grid">
+      <div class="utility-card">
+        <div style="position: relative; height: 100px; background: #f0f0f0;">
+          <div class="position-static demo-box-gray">Static</div>
+        </div>
+        <code>.position-static</code>
+      </div>
+      <div class="utility-card">
+        <div style="position: relative; height: 100px; background: #f0f0f0;">
+          <div class="position-relative demo-box" style="top: 10px; left: 10px;">Relative</div>
+        </div>
+        <code>.position-relative</code>
+      </div>
+      <div class="utility-card">
+        <div style="position: relative; height: 100px; background: #f0f0f0;">
+          <div class="position-absolute demo-box-secondary" style="top: 0; right: 0; width: 60px;">Absolute</div>
+        </div>
+        <code>.position-absolute</code>
+      </div>
+      <div class="utility-card">
+        <div style="background: #f0f0f0; padding: 1rem;">
+          <div class="position-sticky demo-box" style="top: 0;">Sticky</div>
+          <p style="margin: 0.5rem 0; font-size: 0.875rem;">スクロールすると固定されます</p>
+        </div>
+        <code>.position-sticky</code>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sizing Utilities -->
+  <section class="demo-section">
+    <h2>Sizing ユーティリティ（30+クラス）</h2>
+    <p>幅と高さを簡単に設定できます。</p>
+    
+    <h3>Width</h3>
+    <div class="utility-grid">
+      <div class="utility-card">
+        <div class="demo-box w-1/4">w-1/4 (25%)</div>
+        <code>.w-1/4</code>
+      </div>
+      <div class="utility-card">
+        <div class="demo-box w-1/2">w-1/2 (50%)</div>
+        <code>.w-1/2</code>
+      </div>
+      <div class="utility-card">
+        <div class="demo-box w-3/4">w-3/4 (75%)</div>
+        <code>.w-3/4</code>
+      </div>
+      <div class="utility-card">
+        <div class="demo-box w-full">w-full (100%)</div>
+        <code>.w-full</code>
+      </div>
+    </div>
+    
+    <h3>Max Width</h3>
+    <div class="utility-grid">
+      <div class="utility-card">
+        <div class="demo-box max-w-xs">max-w-xs (20rem)</div>
+        <code>.max-w-xs</code>
+      </div>
+      <div class="utility-card">
+        <div class="demo-box max-w-sm">max-w-sm (24rem)</div>
+        <code>.max-w-sm</code>
+      </div>
+      <div class="utility-card">
+        <div class="demo-box max-w-md">max-w-md (28rem)</div>
+        <code>.max-w-md</code>
+      </div>
+      <div class="utility-card">
+        <div class="demo-box max-w-lg">max-w-lg (32rem)</div>
+        <code>.max-w-lg</code>
+      </div>
+    </div>
+  </section>
+
+  <!-- Border Utilities -->
+  <section class="demo-section">
+    <h2>Border ユーティリティ（30+クラス）</h2>
+    <p>ボーダーと角丸を制御します。</p>
+    
+    <h3>Border Width</h3>
+    <div class="utility-grid">
+      <div class="utility-card">
+        <div class="demo-box-gray border">border</div>
+        <code>.border (1px)</code>
+      </div>
+      <div class="utility-card">
+        <div class="demo-box-gray border-2">border-2</div>
+        <code>.border-2 (2px)</code>
+      </div>
+      <div class="utility-card">
+        <div class="demo-box-gray border-4">border-4</div>
+        <code>.border-4 (4px)</code>
+      </div>
+      <div class="utility-card">
+        <div class="demo-box-gray border-0">border-0</div>
+        <code>.border-0 (なし)</code>
+      </div>
+    </div>
+    
+    <h3>Border Radius</h3>
+    <div class="utility-grid">
+      <div class="utility-card">
+        <div class="demo-box rounded-none">rounded-none</div>
+        <code>.rounded-none</code>
+      </div>
+      <div class="utility-card">
+        <div class="demo-box rounded">rounded (4px)</div>
+        <code>.rounded</code>
+      </div>
+      <div class="utility-card">
+        <div class="demo-box rounded-lg">rounded-lg (8px)</div>
+        <code>.rounded-lg</code>
+      </div>
+      <div class="utility-card">
+        <div class="demo-box rounded-full">rounded-full</div>
+        <code>.rounded-full</code>
+      </div>
+    </div>
+  </section>
+
+  <!-- Shadow Utilities -->
+  <section class="demo-section">
+    <h2>Shadow ユーティリティ（7クラス）</h2>
+    <p>ボックスシャドウを追加します。</p>
+    
+    <div class="utility-grid">
+      <div class="utility-card">
+        <div class="demo-box-gray shadow-none">shadow-none</div>
+        <code>.shadow-none</code>
+      </div>
+      <div class="utility-card">
+        <div class="demo-box-gray shadow-sm">shadow-sm</div>
+        <code>.shadow-sm</code>
+      </div>
+      <div class="utility-card">
+        <div class="demo-box-gray shadow">shadow</div>
+        <code>.shadow</code>
+      </div>
+      <div class="utility-card">
+        <div class="demo-box-gray shadow-md">shadow-md</div>
+        <code>.shadow-md</code>
+      </div>
+      <div class="utility-card">
+        <div class="demo-box-gray shadow-lg">shadow-lg</div>
+        <code>.shadow-lg</code>
+      </div>
+      <div class="utility-card">
+        <div class="demo-box-gray shadow-xl">shadow-xl</div>
+        <code>.shadow-xl</code>
+      </div>
+      <div class="utility-card">
+        <div class="demo-box-gray shadow-2xl">shadow-2xl</div>
+        <code>.shadow-2xl</code>
+      </div>
+    </div>
+  </section>
+
+  <!-- Text Utilities -->
+  <section class="demo-section">
+    <h2>Text ユーティリティ（4クラス）</h2>
+    <p>テキストの配置を制御します。</p>
+    
+    <div class="utility-grid">
+      <div class="utility-card">
+        <div class="demo-box-gray text-left">Left Aligned</div>
+        <code>.text-left</code>
+      </div>
+      <div class="utility-card">
+        <div class="demo-box-gray text-center">Center Aligned</div>
+        <code>.text-center</code>
+      </div>
+      <div class="utility-card">
+        <div class="demo-box-gray text-right">Right Aligned</div>
+        <code>.text-right</code>
+      </div>
+      <div class="utility-card">
+        <div class="demo-box-gray text-justify">Justified text with multiple lines to show justification effect.</div>
+        <code>.text-justify</code>
+      </div>
+    </div>
+  </section>
+
+  <!-- Visibility Utilities -->
+  <section class="demo-section">
+    <h2>Visibility ユーティリティ（10+クラス）</h2>
+    <p>要素の可視性と透明度を制御します。</p>
+    
+    <h3>Visibility</h3>
+    <div class="utility-grid">
+      <div class="utility-card">
+        <div class="demo-box visible">Visible</div>
+        <code>.visible</code>
+      </div>
+      <div class="utility-card">
+        <div style="background: #f0f0f0; padding: 1rem; height: 60px;">
+          <div class="demo-box invisible">Invisible (スペース占有)</div>
+        </div>
+        <code>.invisible</code>
+      </div>
+    </div>
+    
+    <h3>Opacity</h3>
+    <div class="utility-grid">
+      <div class="utility-card">
+        <div class="demo-box opacity-0">opacity-0</div>
+        <code>.opacity-0</code>
+      </div>
+      <div class="utility-card">
+        <div class="demo-box opacity-25">opacity-25</div>
+        <code>.opacity-25</code>
+      </div>
+      <div class="utility-card">
+        <div class="demo-box opacity-50">opacity-50</div>
+        <code>.opacity-50</code>
+      </div>
+      <div class="utility-card">
+        <div class="demo-box opacity-75">opacity-75</div>
+        <code>.opacity-75</code>
+      </div>
+      <div class="utility-card">
+        <div class="demo-box opacity-100">opacity-100</div>
+        <code>.opacity-100</code>
+      </div>
+    </div>
+  </section>
+
+  <!-- Overflow Utilities -->
+  <section class="demo-section">
+    <h2>Overflow ユーティリティ（12クラス）</h2>
+    <p>要素のオーバーフロー動作を制御します。</p>
+    
+    <div class="utility-grid">
+      <div class="utility-card">
+        <div class="demo-box-gray overflow-auto" style="height: 80px;">
+          <p>overflow-auto - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</p>
+        </div>
+        <code>.overflow-auto</code>
+      </div>
+      <div class="utility-card">
+        <div class="demo-box-gray overflow-hidden" style="height: 80px;">
+          <p>overflow-hidden - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</p>
+        </div>
+        <code>.overflow-hidden</code>
+      </div>
+      <div class="utility-card">
+        <div class="demo-box-gray overflow-scroll" style="height: 80px;">
+          <p>overflow-scroll - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</p>
+        </div>
+        <code>.overflow-scroll</code>
+      </div>
+    </div>
+  </section>
+
+  <!-- Z-Index Utilities -->
+  <section class="demo-section">
+    <h2>Z-Index ユーティリティ（7クラス）</h2>
+    <p>要素の重なり順序を制御します。</p>
+    
+    <div class="utility-grid">
+      <div class="utility-card">
+        <div style="position: relative; height: 100px;">
+          <div class="position-absolute demo-box z-0" style="top: 0; left: 0; width: 80px;">z-0</div>
+          <div class="position-absolute demo-box-secondary z-10" style="top: 20px; left: 20px; width: 80px;">z-10</div>
+        </div>
+        <code>.z-0, .z-10</code>
+      </div>
+      <div class="utility-card">
+        <div style="position: relative; height: 100px;">
+          <div class="position-absolute demo-box z-20" style="top: 0; left: 0; width: 80px;">z-20</div>
+          <div class="position-absolute demo-box-secondary z-30" style="top: 20px; left: 20px; width: 80px;">z-30</div>
+        </div>
+        <code>.z-20, .z-30</code>
+      </div>
+      <div class="utility-card">
+        <div style="position: relative; height: 100px;">
+          <div class="position-absolute demo-box z-40" style="top: 0; left: 0; width: 80px;">z-40</div>
+          <div class="position-absolute demo-box-secondary z-50" style="top: 20px; left: 20px; width: 80px;">z-50</div>
+        </div>
+        <code>.z-40, .z-50</code>
+      </div>
+    </div>
+  </section>
+
+  <!-- Real-World Examples -->
+  <section class="demo-section">
+    <h2>実践例</h2>
+    <p>ユーティリティクラスを組み合わせた実際の使用例。</p>
+    
+    <h3>カード レイアウト</h3>
+    <div class="d-flex flex-wrap gap-4">
+      <div class="p-4 border rounded-lg shadow-md" style="flex: 1; min-width: 250px;">
+        <h4 class="mt-0 mb-2 text-center">プラン 1</h4>
+        <p class="mb-4 text-center opacity-75">基本プラン</p>
+        <div class="d-flex justify-center align-center mb-4">
+          <span class="aa-badge aa-badge--primary aa-badge--lg">¥5,000/月</span>
+        </div>
+        <button class="aa-btn aa-btn--primary w-full">選択</button>
+      </div>
+      
+      <div class="p-4 border-2 rounded-lg shadow-lg position-relative" style="flex: 1; min-width: 250px; border-color: var(--aa-primary);">
+        <div class="position-absolute aa-badge aa-badge--error aa-badge--sm" style="top: -12px; right: 16px;">人気</div>
+        <h4 class="mt-0 mb-2 text-center">プラン 2</h4>
+        <p class="mb-4 text-center opacity-75">プロフェッショナル</p>
+        <div class="d-flex justify-center align-center mb-4">
+          <span class="aa-badge aa-badge--primary aa-badge--lg">¥15,000/月</span>
+        </div>
+        <button class="aa-btn aa-btn--primary w-full">選択</button>
+      </div>
+      
+      <div class="p-4 border rounded-lg shadow-md" style="flex: 1; min-width: 250px;">
+        <h4 class="mt-0 mb-2 text-center">プラン 3</h4>
+        <p class="mb-4 text-center opacity-75">エンタープライズ</p>
+        <div class="d-flex justify-center align-center mb-4">
+          <span class="aa-badge aa-badge--primary aa-badge--lg">¥50,000/月</span>
+        </div>
+        <button class="aa-btn aa-btn--primary w-full">選択</button>
+      </div>
+    </div>
+    
+    <h3 class="mt-8">ナビゲーションバー</h3>
+    <div class="d-flex justify-between align-center p-4 border rounded shadow">
+      <div class="d-flex align-center gap-2">
+        <div class="w-8 h-8 rounded-full" style="background: var(--aa-primary);"></div>
+        <span style="font-weight: 600;">Adlaire</span>
+      </div>
+      <div class="d-flex gap-4">
+        <a href="#" style="text-decoration: none; color: inherit;">ホーム</a>
+        <a href="#" style="text-decoration: none; color: inherit;">製品</a>
+        <a href="#" style="text-decoration: none; color: inherit;">価格</a>
+        <a href="#" style="text-decoration: none; color: inherit;">お問い合わせ</a>
+      </div>
+      <button class="aa-btn aa-btn--primary aa-btn--sm">ログイン</button>
+    </div>
+    
+    <h3 class="mt-8">統計ダッシュボード</h3>
+    <div class="d-grid gap-4" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+      <div class="p-4 border rounded-lg shadow-sm text-center">
+        <div class="text-2xl" style="font-weight: 700; color: var(--aa-primary);">1,234</div>
+        <div class="mt-2 opacity-75">総ユーザー数</div>
+        <div class="mt-2">
+          <span class="aa-badge aa-badge--success aa-badge--xs">+12%</span>
+        </div>
+      </div>
+      
+      <div class="p-4 border rounded-lg shadow-sm text-center">
+        <div class="text-2xl" style="font-weight: 700; color: var(--aa-secondary);">567</div>
+        <div class="mt-2 opacity-75">アクティブユーザー</div>
+        <div class="mt-2">
+          <span class="aa-badge aa-badge--success aa-badge--xs">+8%</span>
+        </div>
+      </div>
+      
+      <div class="p-4 border rounded-lg shadow-sm text-center">
+        <div class="text-2xl" style="font-weight: 700; color: var(--aa-info);">89</div>
+        <div class="mt-2 opacity-75">新規登録</div>
+        <div class="mt-2">
+          <span class="aa-badge aa-badge--warning aa-badge--xs">-3%</span>
+        </div>
+      </div>
+      
+      <div class="p-4 border rounded-lg shadow-sm text-center">
+        <div class="text-2xl" style="font-weight: 700; color: var(--aa-success);">98.5%</div>
+        <div class="mt-2 opacity-75">稼働率</div>
+        <div class="mt-2">
+          <span class="aa-badge aa-badge--success aa-badge--xs">+0.2%</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Responsive Design -->
+  <section class="demo-section">
+    <h2>レスポンシブデザイン</h2>
+    <p>Container Queries を使用したレスポンシブバリエーション。ブラウザ幅を変更して確認してください。</p>
+    
+    <div class="comparison-grid">
+      <div>
+        <h4>レスポンシブなし</h4>
+        <div class="d-flex gap-2">
+          <div class="demo-box" style="flex: 1;">A</div>
+          <div class="demo-box" style="flex: 1;">B</div>
+          <div class="demo-box" style="flex: 1;">C</div>
+        </div>
+      </div>
+      
+      <div>
+        <h4>レスポンシブあり</h4>
+        <div class="d-flex flex-wrap gap-2">
+          <div class="demo-box" style="flex: 1; min-width: 100px;">A</div>
+          <div class="demo-box" style="flex: 1; min-width: 100px;">B</div>
+          <div class="demo-box" style="flex: 1; min-width: 100px;">C</div>
+        </div>
+      </div>
+    </div>
+    
+    <p class="mt-4" style="font-size: 0.875rem; color: var(--aa-text-secondary);">
+      <strong>Container Query Breakpoints:</strong><br>
+      sm: ≥640px | md: ≥768px | lg: ≥1024px | xl: ≥1280px
+    </p>
+  </section>
+
+  <!-- Summary -->
+  <section class="demo-section">
+    <h2>📊 統計情報</h2>
+    <div class="aa-table__container">
+      <table class="aa-table aa-table--striped">
+        <thead class="aa-thead">
+          <tr class="aa-tr">
+            <th class="aa-th">カテゴリ</th>
+            <th class="aa-th">クラス数</th>
+            <th class="aa-th">説明</th>
+          </tr>
+        </thead>
+        <tbody class="aa-tbody">
+          <tr class="aa-tr">
+            <td class="aa-td">Display</td>
+            <td class="aa-td"><span class="aa-badge aa-badge--primary aa-badge--sm">48</span></td>
+            <td class="aa-td">block, flex, grid, inline など</td>
+          </tr>
+          <tr class="aa-tr">
+            <td class="aa-td">Flexbox</td>
+            <td class="aa-td"><span class="aa-badge aa-badge--primary aa-badge--sm">80+</span></td>
+            <td class="aa-td">direction, justify, align, wrap, gap など</td>
+          </tr>
+          <tr class="aa-tr">
+            <td class="aa-td">Spacing</td>
+            <td class="aa-td"><span class="aa-badge aa-badge--primary aa-badge--sm">132+</span></td>
+            <td class="aa-td">margin, padding（0-64、8ptグリッド）</td>
+          </tr>
+          <tr class="aa-tr">
+            <td class="aa-td">Position</td>
+            <td class="aa-td"><span class="aa-badge aa-badge--primary aa-badge--sm">26</span></td>
+            <td class="aa-td">static, relative, absolute, fixed, sticky, top, right, bottom, left</td>
+          </tr>
+          <tr class="aa-tr">
+            <td class="aa-td">Sizing</td>
+            <td class="aa-td"><span class="aa-badge aa-badge--primary aa-badge--sm">30+</span></td>
+            <td class="aa-td">width, height, min/max variants</td>
+          </tr>
+          <tr class="aa-tr">
+            <td class="aa-td">Overflow</td>
+            <td class="aa-td"><span class="aa-badge aa-badge--primary aa-badge--sm">12</span></td>
+            <td class="aa-td">auto, hidden, visible, scroll, x/y variants</td>
+          </tr>
+          <tr class="aa-tr">
+            <td class="aa-td">Z-Index</td>
+            <td class="aa-td"><span class="aa-badge aa-badge--primary aa-badge--sm">7</span></td>
+            <td class="aa-td">0, 10, 20, 30, 40, 50, auto</td>
+          </tr>
+          <tr class="aa-tr">
+            <td class="aa-td">Visibility</td>
+            <td class="aa-td"><span class="aa-badge aa-badge--primary aa-badge--sm">10+</span></td>
+            <td class="aa-td">visible, invisible, opacity, sr-only</td>
+          </tr>
+          <tr class="aa-tr">
+            <td class="aa-td">Border</td>
+            <td class="aa-td"><span class="aa-badge aa-badge--primary aa-badge--sm">30+</span></td>
+            <td class="aa-td">width, radius, side-specific</td>
+          </tr>
+          <tr class="aa-tr">
+            <td class="aa-td">Shadow</td>
+            <td class="aa-td"><span class="aa-badge aa-badge--primary aa-badge--sm">7</span></td>
+            <td class="aa-td">none, sm, default, md, lg, xl, 2xl</td>
+          </tr>
+          <tr class="aa-tr">
+            <td class="aa-td">Text</td>
+            <td class="aa-td"><span class="aa-badge aa-badge--primary aa-badge--sm">4</span></td>
+            <td class="aa-td">left, center, right, justify</td>
+          </tr>
+          <tr class="aa-tr">
+            <td class="aa-td"><strong>合計</strong></td>
+            <td class="aa-td"><span class="aa-badge aa-badge--success aa-badge--lg">344+</span></td>
+            <td class="aa-td">全カテゴリの総クラス数</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="demo-section" style="text-align: center; padding: 3rem 0; border-top: 2px solid var(--aa-gray-200);">
+    <p style="margin-bottom: 0.5rem;">
+      <strong>Adlaire Architect CSS Framework v0.8.0</strong>
+    </p>
+    <p style="color: var(--aa-text-secondary); font-size: 0.875rem;">
+      Copyright © 2026 Adlaire Group DX事業セグメントグループ
+    </p>
+    <p style="margin-top: 1rem;">
+      <a href="demo.html" class="aa-btn aa-btn--outline aa-btn--sm" style="margin: 0 0.5rem;">メインデモ</a>
+      <a href="complete-demo.html" class="aa-btn aa-btn--outline aa-btn--sm" style="margin: 0 0.5rem;">完全デモ</a>
+      <a href="forms-demo.html" class="aa-btn aa-btn--outline aa-btn--sm" style="margin: 0 0.5rem;">フォームデモ</a>
+      <a href="table-demo.html" class="aa-btn aa-btn--outline aa-btn--sm" style="margin: 0 0.5rem;">テーブルデモ</a>
+    </p>
+  </footer>
+
+  <script>
+    // Theme Toggle Function
+    function toggleTheme() {
+      const html = document.documentElement;
+      const currentTheme = html.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      const themeIcon = document.getElementById('theme-icon');
+      
+      html.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      
+      themeIcon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+    }
+    
+    // Load saved theme on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      const savedTheme = localStorage.getItem('theme') || 'light';
+      const themeIcon = document.getElementById('theme-icon');
+      
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      themeIcon.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+    });
+  </script>
+</body>
+</html>
