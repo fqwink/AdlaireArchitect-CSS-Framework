@@ -183,6 +183,59 @@ TBD - ライセンスは仕様策定フェーズで決定されます。
 
 ---
 
+## Quick Start
+
+### Installation (Coming Soon)
+
+```bash
+# npm (planned)
+npm install adlaire-architect-css
+
+# CDN (planned)
+<link rel="stylesheet" href="https://cdn.adlaire.com/architect-css/0.1.0/adlaire-architect.min.css">
+```
+
+### Current Development Usage
+
+```bash
+# Clone repository
+git clone https://github.com/adlaire-group/adlaire-architect-css.git
+cd adlaire-architect-css
+
+# View demo
+# Open examples/demo.html in your browser
+# Or run a local server:
+python3 -m http.server 8000
+# Then visit: http://localhost:8000/examples/demo.html
+```
+
+### Basic Usage Example
+
+```html
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <link rel="stylesheet" href="path/to/adlaire-architect.css">
+</head>
+<body>
+  <div class="adlaire-container-3xl">
+    <button class="adlaire-button">Primary Button</button>
+    <button class="adlaire-button adlaire-button--outline">Outline Button</button>
+  </div>
+</body>
+</html>
+```
+
+---
+
+## Documentation
+
+- [仕様書 (Specification)](./docs/specification.md) - 詳細な技術仕様とアーキテクチャ
+- [調査レポート (Research)](./research/css-framework-trends-2026.md) - 2026年のCSSフレームワーク動向
+- [CHANGELOG](./CHANGELOG.md) - 変更履歴
+
+---
+
 ## Next Steps
 
 1. **ブランドカラー体系の定義** - Adlaire Groupの既存ブランドカラーの提供が必要

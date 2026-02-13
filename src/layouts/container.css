@@ -1,0 +1,135 @@
+/**
+ * Adlaire Architect CSS Framework
+ * Container System
+ * 
+ * Container Queries対応のコンテナシステム
+ * レスポンシブコンポーネントの基盤
+ */
+
+@layer layouts {
+  
+  /* ========================================
+     Container Query Support
+     ======================================== */
+  
+  /**
+   * Base Container
+   * デフォルトでContainer Queryを有効化
+   */
+  .adlaire-container {
+    container-type: inline-size;
+    width: 100%;
+  }
+  
+  /**
+   * Named Containers
+   * 名前付きコンテナで詳細な制御が可能
+   */
+  .adlaire-container--card {
+    container-type: inline-size;
+    container-name: card;
+  }
+  
+  .adlaire-container--sidebar {
+    container-type: inline-size;
+    container-name: sidebar;
+  }
+  
+  .adlaire-container--main {
+    container-type: inline-size;
+    container-name: main;
+  }
+  
+  /* ========================================
+     Max Width Containers
+     ======================================== */
+  
+  .adlaire-container-xs {
+    max-width: var(--adlaire-max-width-xs);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--adlaire-space-md);
+    padding-right: var(--adlaire-space-md);
+  }
+  
+  .adlaire-container-sm {
+    max-width: var(--adlaire-max-width-sm);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--adlaire-space-md);
+    padding-right: var(--adlaire-space-md);
+  }
+  
+  .adlaire-container-md {
+    max-width: var(--adlaire-max-width-md);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--adlaire-space-md);
+    padding-right: var(--adlaire-space-md);
+  }
+  
+  .adlaire-container-lg {
+    max-width: var(--adlaire-max-width-lg);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--adlaire-space-md);
+    padding-right: var(--adlaire-space-md);
+  }
+  
+  .adlaire-container-xl {
+    max-width: var(--adlaire-max-width-xl);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--adlaire-space-lg);
+    padding-right: var(--adlaire-space-lg);
+  }
+  
+  .adlaire-container-2xl {
+    max-width: var(--adlaire-max-width-2xl);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--adlaire-space-lg);
+    padding-right: var(--adlaire-space-lg);
+  }
+  
+  .adlaire-container-3xl {
+    max-width: var(--adlaire-max-width-3xl);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--adlaire-space-lg);
+    padding-right: var(--adlaire-space-lg);
+  }
+  
+  .adlaire-container-4xl {
+    max-width: var(--adlaire-max-width-4xl);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--adlaire-space-xl);
+    padding-right: var(--adlaire-space-xl);
+  }
+  
+  .adlaire-container-5xl {
+    max-width: var(--adlaire-max-width-5xl);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--adlaire-space-xl);
+    padding-right: var(--adlaire-space-xl);
+  }
+  
+  .adlaire-container-full {
+    max-width: 100%;
+    padding-left: var(--adlaire-space-md);
+    padding-right: var(--adlaire-space-md);
+  }
+  
+  /* ========================================
+     Fluid Container
+     ======================================== */
+  
+  .adlaire-container-fluid {
+    width: 100%;
+    padding-left: var(--adlaire-space-md);
+    padding-right: var(--adlaire-space-md);
+  }
+  
+}

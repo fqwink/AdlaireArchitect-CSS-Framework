@@ -1,0 +1,22 @@
+/**
+ * Adlaire Architect CSS Framework
+ * CSS Layers Definition
+ * 
+ * @layer を使用してカスケーディングの順序を明確に管理
+ * 詳細度の問題を解決し、保守性を向上
+ */
+
+@layer reset, tokens, layouts, components, utilities, themes;
+
+/**
+ * Layer Hierarchy:
+ * 
+ * 1. reset      - ブラウザデフォルトのリセット
+ * 2. tokens     - デザイントークン（CSS Variables）
+ * 3. layouts    - レイアウトシステム（Grid, Flexbox, Container）
+ * 4. components - UIコンポーネント
+ * 5. utilities  - ユーティリティクラス
+ * 6. themes     - テーマオーバーライド
+ * 
+ * 後のレイヤーが前のレイヤーを上書き可能
+ */

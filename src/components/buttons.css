@@ -1,0 +1,385 @@
+/**
+ * Adlaire Architect CSS Framework
+ * Button Component
+ * 
+ * Container Queries対応、アクセシビリティファースト設計
+ * BEM命名規則に基づく実装
+ */
+
+@layer components {
+  
+  /* ========================================
+     Base Button
+     ======================================== */
+  
+  .adlaire-button {
+    /* Container Query対応 */
+    container-type: inline-size;
+    
+    /* Layout */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--adlaire-space-sm);
+    
+    /* Spacing */
+    padding: var(--adlaire-space-sm) var(--adlaire-space-md);
+    
+    /* Typography */
+    font-family: inherit;
+    font-size: var(--adlaire-font-size-base);
+    font-weight: var(--adlaire-font-weight-medium);
+    line-height: var(--adlaire-line-height-normal);
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    
+    /* Colors */
+    background: var(--adlaire-color-brand-primary);
+    color: var(--adlaire-color-text-inverse);
+    
+    /* Border */
+    border: var(--adlaire-border-width-2) solid transparent;
+    border-radius: var(--adlaire-radius-md);
+    
+    /* Effects */
+    box-shadow: var(--adlaire-shadow-sm);
+    
+    /* Interaction */
+    cursor: pointer;
+    user-select: none;
+    
+    /* Transition */
+    transition-property: background-color, border-color, color, box-shadow, transform;
+    transition-duration: var(--adlaire-transition-base);
+    transition-timing-function: var(--adlaire-easing-default);
+    
+    /* Accessibility */
+    outline: none;
+  }
+  
+  /* ========================================
+     Focus State (Accessibility First)
+     ======================================== */
+  
+  .adlaire-button:focus-visible {
+    outline: 3px solid var(--adlaire-color-focus);
+    outline-offset: 2px;
+    box-shadow: 
+      var(--adlaire-shadow-sm),
+      0 0 0 4px var(--adlaire-color-focus-ring);
+  }
+  
+  /* ========================================
+     Hover State
+     ======================================== */
+  
+  .adlaire-button:hover:not(:disabled):not(.is-loading) {
+    background: var(--adlaire-color-brand-primary-hover);
+    transform: translateY(-1px);
+    box-shadow: var(--adlaire-shadow-md);
+  }
+  
+  /* ========================================
+     Active State
+     ======================================== */
+  
+  .adlaire-button:active:not(:disabled):not(.is-loading) {
+    background: var(--adlaire-color-brand-primary-active);
+    transform: translateY(0);
+    box-shadow: var(--adlaire-shadow-sm);
+  }
+  
+  /* ========================================
+     Disabled State
+     ======================================== */
+  
+  .adlaire-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+  }
+  
+  /* ========================================
+     SIZE VARIANTS
+     ======================================== */
+  
+  .adlaire-button--xs {
+    padding: calc(var(--adlaire-space-xs) * 0.75) var(--adlaire-space-xs);
+    font-size: var(--adlaire-font-size-xs);
+    gap: calc(var(--adlaire-space-xs) * 0.5);
+    border-radius: var(--adlaire-radius-sm);
+  }
+  
+  .adlaire-button--small {
+    padding: var(--adlaire-space-xs) var(--adlaire-space-sm);
+    font-size: var(--adlaire-font-size-sm);
+    gap: var(--adlaire-space-xs);
+    border-radius: var(--adlaire-radius-sm);
+  }
+  
+  /* Base size already defined in .adlaire-button */
+  
+  .adlaire-button--large {
+    padding: var(--adlaire-space-md) var(--adlaire-space-lg);
+    font-size: var(--adlaire-font-size-lg);
+    gap: var(--adlaire-space-md);
+    border-radius: var(--adlaire-radius-lg);
+  }
+  
+  .adlaire-button--xl {
+    padding: var(--adlaire-space-lg) var(--adlaire-space-xl);
+    font-size: var(--adlaire-font-size-xl);
+    gap: var(--adlaire-space-md);
+    border-radius: var(--adlaire-radius-lg);
+  }
+  
+  /* ========================================
+     COLOR VARIANTS
+     ======================================== */
+  
+  /* Secondary */
+  .adlaire-button--secondary {
+    background: var(--adlaire-color-brand-secondary);
+    color: var(--adlaire-color-text-inverse);
+  }
+  
+  .adlaire-button--secondary:hover:not(:disabled):not(.is-loading) {
+    background: var(--adlaire-color-brand-secondary-hover);
+  }
+  
+  .adlaire-button--secondary:focus-visible {
+    outline-color: var(--adlaire-color-brand-secondary);
+  }
+  
+  /* Success */
+  .adlaire-button--success {
+    background: var(--adlaire-color-success);
+    color: var(--adlaire-color-text-inverse);
+  }
+  
+  .adlaire-button--success:hover:not(:disabled):not(.is-loading) {
+    background: var(--adlaire-color-success-dark);
+  }
+  
+  /* Warning */
+  .adlaire-button--warning {
+    background: var(--adlaire-color-warning);
+    color: var(--adlaire-color-text-primary);
+  }
+  
+  .adlaire-button--warning:hover:not(:disabled):not(.is-loading) {
+    background: var(--adlaire-color-warning-dark);
+  }
+  
+  /* Error */
+  .adlaire-button--error {
+    background: var(--adlaire-color-error);
+    color: var(--adlaire-color-text-inverse);
+  }
+  
+  .adlaire-button--error:hover:not(:disabled):not(.is-loading) {
+    background: var(--adlaire-color-error-dark);
+  }
+  
+  /* Info */
+  .adlaire-button--info {
+    background: var(--adlaire-color-info);
+    color: var(--adlaire-color-text-inverse);
+  }
+  
+  .adlaire-button--info:hover:not(:disabled):not(.is-loading) {
+    background: var(--adlaire-color-info-dark);
+  }
+  
+  /* Neutral */
+  .adlaire-button--neutral {
+    background: var(--adlaire-color-neutral-100);
+    color: var(--adlaire-color-text-primary);
+  }
+  
+  .adlaire-button--neutral:hover:not(:disabled):not(.is-loading) {
+    background: var(--adlaire-color-neutral-200);
+  }
+  
+  /* ========================================
+     STYLE VARIANTS
+     ======================================== */
+  
+  /* Outline Button */
+  .adlaire-button--outline {
+    background: transparent;
+    color: var(--adlaire-color-brand-primary);
+    border-color: currentColor;
+    box-shadow: none;
+  }
+  
+  .adlaire-button--outline:hover:not(:disabled):not(.is-loading) {
+    background: var(--adlaire-color-brand-primary);
+    color: var(--adlaire-color-text-inverse);
+    border-color: transparent;
+  }
+  
+  /* Outline variants for other colors */
+  .adlaire-button--outline.adlaire-button--secondary {
+    color: var(--adlaire-color-brand-secondary);
+  }
+  
+  .adlaire-button--outline.adlaire-button--success {
+    color: var(--adlaire-color-success);
+  }
+  
+  .adlaire-button--outline.adlaire-button--error {
+    color: var(--adlaire-color-error);
+  }
+  
+  /* Ghost Button */
+  .adlaire-button--ghost {
+    background: transparent;
+    color: var(--adlaire-color-brand-primary);
+    border-color: transparent;
+    box-shadow: none;
+  }
+  
+  .adlaire-button--ghost:hover:not(:disabled):not(.is-loading) {
+    background: var(--adlaire-color-brand-primary-light);
+    color: var(--adlaire-color-brand-primary);
+  }
+  
+  /* Ghost variants for other colors */
+  .adlaire-button--ghost.adlaire-button--secondary {
+    color: var(--adlaire-color-brand-secondary);
+  }
+  
+  .adlaire-button--ghost.adlaire-button--secondary:hover:not(:disabled):not(.is-loading) {
+    background: var(--adlaire-color-brand-secondary-light);
+  }
+  
+  /* Link Button */
+  .adlaire-button--link {
+    background: transparent;
+    color: var(--adlaire-color-brand-primary);
+    border-color: transparent;
+    box-shadow: none;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  
+  .adlaire-button--link:hover:not(:disabled):not(.is-loading) {
+    background: transparent;
+    color: var(--adlaire-color-brand-primary-hover);
+    transform: none;
+  }
+  
+  /* ========================================
+     STATE MODIFIERS
+     ======================================== */
+  
+  /* Loading State */
+  .adlaire-button.is-loading {
+    position: relative;
+    color: transparent;
+    pointer-events: none;
+  }
+  
+  .adlaire-button.is-loading::after {
+    content: "";
+    position: absolute;
+    width: 1em;
+    height: 1em;
+    top: 50%;
+    left: 50%;
+    margin-top: -0.5em;
+    margin-left: -0.5em;
+    border: 2px solid currentColor;
+    border-right-color: transparent;
+    border-radius: 50%;
+    animation: adlaire-spin 0.6s linear infinite;
+  }
+  
+  @keyframes adlaire-spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* Active State Class */
+  .adlaire-button.is-active {
+    background: var(--adlaire-color-brand-primary-active);
+  }
+  
+  /* ========================================
+     LAYOUT MODIFIERS
+     ======================================== */
+  
+  /* Block (Full Width) */
+  .adlaire-button--block {
+    display: flex;
+    width: 100%;
+  }
+  
+  /* Icon Only */
+  .adlaire-button--icon-only {
+    padding: var(--adlaire-space-sm);
+    aspect-ratio: 1;
+  }
+  
+  .adlaire-button--icon-only.adlaire-button--small {
+    padding: var(--adlaire-space-xs);
+  }
+  
+  .adlaire-button--icon-only.adlaire-button--large {
+    padding: var(--adlaire-space-md);
+  }
+  
+  /* ========================================
+     Button Group
+     ======================================== */
+  
+  .adlaire-button-group {
+    display: inline-flex;
+    gap: 0;
+  }
+  
+  .adlaire-button-group > .adlaire-button {
+    border-radius: 0;
+  }
+  
+  .adlaire-button-group > .adlaire-button:first-child {
+    border-top-left-radius: var(--adlaire-radius-md);
+    border-bottom-left-radius: var(--adlaire-radius-md);
+  }
+  
+  .adlaire-button-group > .adlaire-button:last-child {
+    border-top-right-radius: var(--adlaire-radius-md);
+    border-bottom-right-radius: var(--adlaire-radius-md);
+  }
+  
+  .adlaire-button-group > .adlaire-button:not(:first-child) {
+    margin-left: -2px;
+  }
+  
+  /* ========================================
+     Container Query Variants
+     ======================================== */
+  
+  /* 小さいコンテナ内では自動的に block になる */
+  @container (max-width: 320px) {
+    .adlaire-button\@responsive {
+      display: flex;
+      width: 100%;
+    }
+  }
+  
+  /* Reduced Motion */
+  @media (prefers-reduced-motion: reduce) {
+    .adlaire-button {
+      transition-duration: 0.01ms;
+    }
+    
+    .adlaire-button.is-loading::after {
+      animation: none;
+    }
+  }
+  
+}

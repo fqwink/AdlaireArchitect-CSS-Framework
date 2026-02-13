@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adlaire Architect CSS Framework - Demo</title>
+  <meta name="description" content="Adlaire Architect CSS Framework のデモページ - Container Queries First、Pure CSS3、アクセシビリティファースト">
+  
+  <!-- Adlaire Architect CSS Framework -->
+  <link rel="stylesheet" href="../src/adlaire-architect.css">
+  
+  <style>
+    /* Demo page specific styles */
+    body {
+      padding: 2rem 0;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+    }
+    
+    .demo-header {
+      text-align: center;
+      margin-bottom: 3rem;
+      color: white;
+    }
+    
+    .demo-header h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+    
+    .demo-header p {
+      font-size: 1.25rem;
+      opacity: 0.9;
+    }
+    
+    .demo-section {
+      background: white;
+      border-radius: 1rem;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    }
+    
+    .demo-section h2 {
+      font-size: 1.875rem;
+      margin-bottom: 1.5rem;
+      color: #1976D2;
+      border-bottom: 3px solid #2196F3;
+      padding-bottom: 0.5rem;
+    }
+    
+    .demo-section h3 {
+      font-size: 1.25rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      color: #424242;
+    }
+    
+    .demo-grid {
+      display: grid;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    @media (min-width: 768px) {
+      .demo-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      }
+    }
+    
+    .code-block {
+      background: #f5f5f5;
+      border: 1px solid #e0e0e0;
+      border-radius: 0.5rem;
+      padding: 1rem;
+      margin-top: 1rem;
+      overflow-x: auto;
+    }
+    
+    .code-block code {
+      font-family: 'Courier New', monospace;
+      font-size: 0.875rem;
+      color: #d50000;
+    }
+    
+    .feature-badge {
+      display: inline-block;
+      background: #e3f2fd;
+      color: #1976d2;
+      padding: 0.25rem 0.75rem;
+      border-radius: 1rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      margin-right: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- Header -->
+  <div class="adlaire-container-3xl">
+    <div class="demo-header">
+      <h1>🎨 Adlaire Architect CSS Framework</h1>
+      <p>Container Queries First · Pure CSS3 · Accessibility First</p>
+      <p style="font-size: 1rem; margin-top: 1rem;">
+        <span class="feature-badge">Version 0.1.0</span>
+        <span class="feature-badge">Development</span>
+        <span class="feature-badge">MIT License (予定)</span>
+      </p>
+    </div>
+  </div>
+  
+  <!-- Main Content -->
+  <div class="adlaire-container-3xl">
+    
+    <!-- Buttons Section -->
+    <section class="demo-section">
+      <h2>📦 Buttons Component</h2>
+      
+      <h3>Basic Buttons</h3>
+      <div class="demo-grid">
+        <button class="adlaire-button">Primary Button</button>
+        <button class="adlaire-button adlaire-button--secondary">Secondary Button</button>
+        <button class="adlaire-button adlaire-button--success">Success Button</button>
+        <button class="adlaire-button adlaire-button--warning">Warning Button</button>
+        <button class="adlaire-button adlaire-button--error">Error Button</button>
+        <button class="adlaire-button adlaire-button--info">Info Button</button>
+      </div>
+      
+      <h3>Button Sizes</h3>
+      <div class="demo-grid">
+        <button class="adlaire-button adlaire-button--xs">Extra Small</button>
+        <button class="adlaire-button adlaire-button--small">Small Button</button>
+        <button class="adlaire-button">Base Size</button>
+        <button class="adlaire-button adlaire-button--large">Large Button</button>
+        <button class="adlaire-button adlaire-button--xl">Extra Large</button>
+      </div>
+      
+      <h3>Button Styles</h3>
+      <div class="demo-grid">
+        <button class="adlaire-button">Solid (Default)</button>
+        <button class="adlaire-button adlaire-button--outline">Outline Button</button>
+        <button class="adlaire-button adlaire-button--ghost">Ghost Button</button>
+        <button class="adlaire-button adlaire-button--link">Link Button</button>
+      </div>
+      
+      <h3>Outline Variants</h3>
+      <div class="demo-grid">
+        <button class="adlaire-button adlaire-button--outline">Primary Outline</button>
+        <button class="adlaire-button adlaire-button--outline adlaire-button--secondary">Secondary Outline</button>
+        <button class="adlaire-button adlaire-button--outline adlaire-button--success">Success Outline</button>
+        <button class="adlaire-button adlaire-button--outline adlaire-button--error">Error Outline</button>
+      </div>
+      
+      <h3>Button States</h3>
+      <div class="demo-grid">
+        <button class="adlaire-button">Normal State</button>
+        <button class="adlaire-button is-loading">Loading State</button>
+        <button class="adlaire-button is-active">Active State</button>
+        <button class="adlaire-button" disabled>Disabled State</button>
+      </div>
+      
+      <h3>Block Button</h3>
+      <button class="adlaire-button adlaire-button--block adlaire-button--large">Full Width Button</button>
+      
+      <h3>Button Group</h3>
+      <div class="adlaire-button-group">
+        <button class="adlaire-button">Left</button>
+        <button class="adlaire-button">Center</button>
+        <button class="adlaire-button">Right</button>
+      </div>
+      
+      <div class="code-block">
+        <code>
+&lt;button class="adlaire-button"&gt;Primary Button&lt;/button&gt;<br>
+&lt;button class="adlaire-button adlaire-button--outline"&gt;Outline Button&lt;/button&gt;<br>
+&lt;button class="adlaire-button adlaire-button--large"&gt;Large Button&lt;/button&gt;<br>
+&lt;button class="adlaire-button is-loading"&gt;Loading...&lt;/button&gt;
+        </code>
+      </div>
+    </section>
+    
+    <!-- Container Section -->
+    <section class="demo-section">
+      <h2>📐 Container System</h2>
+      
+      <h3>Container Queries Support</h3>
+      <p>このフレームワークは、最新のContainer Queriesを活用し、コンポーネント単位でレスポンシブデザインを実現します。</p>
+      
+      <div class="adlaire-container" style="background: #e3f2fd; padding: 2rem; border-radius: 0.5rem; margin-top: 1rem;">
+        <p style="margin: 0; color: #1976d2; font-weight: 600;">
+          ✨ このコンテナはContainer Query対応です
+        </p>
+        <p style="margin-top: 0.5rem; color: #424242;">
+          コンテナのサイズに応じて、内部のコンポーネントが自動的に調整されます。
+        </p>
+      </div>
+      
+      <h3>Max Width Containers</h3>
+      <div class="adlaire-container-sm" style="background: #fff3e0; padding: 1rem; border-radius: 0.5rem; margin-bottom: 1rem;">
+        <code>.adlaire-container-sm</code> - Small Container (max-width: 384px)
+      </div>
+      <div class="adlaire-container-md" style="background: #e8f5e9; padding: 1rem; border-radius: 0.5rem; margin-bottom: 1rem;">
+        <code>.adlaire-container-md</code> - Medium Container (max-width: 448px)
+      </div>
+      <div class="adlaire-container-lg" style="background: #fce4ec; padding: 1rem; border-radius: 0.5rem;">
+        <code>.adlaire-container-lg</code> - Large Container (max-width: 512px)
+      </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section class="demo-section">
+      <h2>✨ Framework Features</h2>
+      
+      <h3>🎯 差別化の4本柱</h3>
+      
+      <div style="display: grid; gap: 1.5rem; margin-top: 1.5rem;">
+        
+        <div style="background: #e3f2fd; padding: 1.5rem; border-radius: 0.5rem; border-left: 4px solid #2196f3;">
+          <h4 style="margin-top: 0; color: #1976d2;">1. Adlaire Group専用デザイントークン</h4>
+          <p style="margin-bottom: 0;">
+            ブランドアイデンティティに基づく統一された視覚言語。CSS Variablesによる柔軟なカスタマイズが可能。
+          </p>
+        </div>
+        
+        <div style="background: #e8f5e9; padding: 1.5rem; border-radius: 0.5rem; border-left: 4px solid #4caf50;">
+          <h4 style="margin-top: 0; color: #2e7d32;">2. Container Queries First 設計</h4>
+          <p style="margin-bottom: 0;">
+            2026年の最新技術を活用。コンポーネント単位でのレスポンシブ対応により、真の再利用性を実現。
+          </p>
+        </div>
+        
+        <div style="background: #fff3e0; padding: 1.5rem; border-radius: 0.5rem; border-left: 4px solid #ff9800;">
+          <h4 style="margin-top: 0; color: #ef6c00;">3. 極限の軽量性</h4>
+          <p style="margin-bottom: 0;">
+            Core CSS < 8KB、モジュラー設計により必要なものだけを読み込み。競合の3倍以上軽量。
+          </p>
+        </div>
+        
+        <div style="background: #fce4ec; padding: 1.5rem; border-radius: 0.5rem; border-left: 4px solid #e91e63;">
+          <h4 style="margin-top: 0; color: #c2185b;">4. アクセシビリティファースト</h4>
+          <p style="margin-bottom: 0;">
+            WCAG 2.1 AAA準拠を標準。すべてのコンポーネントで、カラーコントラスト7:1以上、完全なキーボードナビゲーション対応。
+          </p>
+        </div>
+        
+      </div>
+      
+      <h3 style="margin-top: 2rem;">🚀 Technology Stack</h3>
+      <ul style="columns: 2; column-gap: 2rem;">
+        <li>Pure CSS3のみ（プリプロセッサ不要）</li>
+        <li>CSS Custom Properties</li>
+        <li>Container Queries</li>
+        <li>CSS Grid & Flexbox</li>
+        <li>CSS Subgrid</li>
+        <li>CSS Layers (@layer)</li>
+        <li>BEM命名規則</li>
+        <li>Progressive Enhancement</li>
+      </ul>
+    </section>
+    
+    <!-- Status Section -->
+    <section class="demo-section">
+      <h2>📊 Development Status</h2>
+      
+      <h3>✅ Completed</h3>
+      <ul>
+        <li>CSSフレームワーク動向調査 (2026年版)</li>
+        <li>技術仕様策定</li>
+        <li>デザイントークンシステム設計</li>
+        <li>Core CSS実装 (Reset, Layers)</li>
+        <li>Container System実装</li>
+        <li>Button Component実装</li>
+      </ul>
+      
+      <h3>🔄 In Progress</h3>
+      <ul>
+        <li>Adlaire Groupブランドカラー確定待ち</li>
+        <li>追加コンポーネント開発</li>
+        <li>ユーティリティクラス実装</li>
+      </ul>
+      
+      <h3>⏳ Upcoming</h3>
+      <ul>
+        <li>Form Components</li>
+        <li>Card Component</li>
+        <li>Navigation Component</li>
+        <li>Modal Component</li>
+        <li>Grid System</li>
+        <li>Typography System</li>
+        <li>Dark Mode Theme</li>
+        <li>High Contrast Theme</li>
+        <li>公式ドキュメントサイト</li>
+        <li>npm パッケージ公開</li>
+      </ul>
+    </section>
+    
+    <!-- Next Steps Section -->
+    <section class="demo-section">
+      <h2>🎯 Next Steps</h2>
+      
+      <div style="background: #fff9c4; padding: 1.5rem; border-radius: 0.5rem; border-left: 4px solid #fdd835;">
+        <h3 style="margin-top: 0;">即座に必要な情報</h3>
+        <ol>
+          <li><strong>Adlaire Groupブランドカラー</strong>
+            <ul>
+              <li>プライマリカラー（HEX値）</li>
+              <li>セカンダリカラー</li>
+              <li>アクセントカラー</li>
+              <li>既存のカラーパレット</li>
+            </ul>
+          </li>
+          <li><strong>ライセンス承認</strong>
+            <ul>
+              <li>MIT License で進めてよいか確認</li>
+            </ul>
+          </li>
+          <li><strong>優先コンポーネント</strong>
+            <ul>
+              <li>最初に実装すべきコンポーネントの優先順位</li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+      
+      <div style="margin-top: 1.5rem; text-align: center;">
+        <button class="adlaire-button adlaire-button--large adlaire-button--success">
+          ✓ Ready to Start Development
+        </button>
+      </div>
+    </section>
+    
+  </div>
+  
+  <!-- Footer -->
+  <div class="adlaire-container-3xl" style="margin-top: 3rem;">
+    <div style="text-align: center; color: white; opacity: 0.8;">
+      <p style="margin: 0;">
+        <strong>Adlaire Architect CSS Framework</strong> v0.1.0
+      </p>
+      <p style="margin: 0.5rem 0 0 0; font-size: 0.875rem;">
+        Developed by Adlaire Group DX事業セグメントグループ
+      </p>
+    </div>
+  </div>
+  
+</body>
+</html>
