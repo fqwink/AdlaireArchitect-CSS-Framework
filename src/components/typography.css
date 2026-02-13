@@ -510,3 +510,27 @@
   }
   
 }
+/* ============================================
+   Dark Mode Support
+   ============================================ */
+
+@media (prefers-color-scheme: dark) {
+  code {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #00c97e;
+  }
+  
+  pre {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  blockquote {
+    border-color: #00c97e;
+    background-color: rgba(255, 255, 255, 0.03);
+  }
+  
+  hr {
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+}

@@ -390,3 +390,39 @@
   }
 
 }
+
+/* ============================================
+   Dark Mode Support
+   ============================================ */
+
+@media (prefers-color-scheme: dark) {
+  .aa-alert {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.9);
+  }
+  
+  .aa-alert--success {
+    background-color: rgba(88, 190, 137, 0.15);
+    border-color: rgba(88, 190, 137, 0.3);
+  }
+  
+  .aa-alert--error {
+    background-color: rgba(231, 76, 60, 0.15);
+    border-color: rgba(231, 76, 60, 0.3);
+  }
+  
+  .aa-alert--warning {
+    background-color: rgba(243, 156, 18, 0.15);
+    border-color: rgba(243, 156, 18, 0.3);
+  }
+  
+  .aa-alert--info {
+    background-color: rgba(64, 170, 239, 0.15);
+    border-color: rgba(64, 170, 239, 0.3);
+  }
+  
+  .aa-alert__close:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+}

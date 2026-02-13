@@ -5,7 +5,7 @@
 
 .aa-toast-container {
   position: fixed;
-  z-index: 9999;
+  z-index: var(--adlaire-z-toast);
   pointer-events: none;
 }
 

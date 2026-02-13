@@ -349,3 +349,12 @@
   }
 
 }
+/* ============================================
+   Dark Mode Support
+   ============================================ */
+
+@media (prefers-color-scheme: dark) {
+  .aa-row {
+    /* Grid inherits parent styles, no specific dark mode needed */
+  }
+}

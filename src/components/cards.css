@@ -329,3 +329,26 @@
   }
 
 }
+/* ============================================
+   Dark Mode Support
+   ============================================ */
+
+@media (prefers-color-scheme: dark) {
+  .aa-card {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .aa-card--interactive:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  }
+  
+  .aa-card__title {
+    color: rgba(255, 255, 255, 0.95);
+  }
+  
+  .aa-card__content {
+    color: rgba(255, 255, 255, 0.75);
+  }
+}

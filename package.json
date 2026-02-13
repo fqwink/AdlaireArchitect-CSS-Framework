@@ -1,6 +1,6 @@
 {
   "name": "adlaire-architect-css",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Adlaire Architect CSS Framework - Production-Ready Enterprise Component Library - 20 Components, 344+ Utilities, Full Dark Mode, Container Queries First by Adlaire Group",
   "main": "src/adlaire-architect.css",
   "scripts": {

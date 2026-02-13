@@ -258,13 +258,20 @@
     
     /* ----- Z-index Scale ----- */
     --adlaire-z-base: 0;
+    --adlaire-z-table-sticky: 5;
+    --adlaire-z-table-header: 10;
+    --adlaire-z-table-column: 15;
+    --adlaire-z-badge-absolute: 10;
     --adlaire-z-dropdown: 1000;
+    --adlaire-z-navigation: 1000;
+    --adlaire-z-submenu: 1001;
     --adlaire-z-sticky: 1100;
     --adlaire-z-fixed: 1200;
     --adlaire-z-modal-backdrop: 1300;
     --adlaire-z-modal: 1400;
     --adlaire-z-popover: 1500;
     --adlaire-z-tooltip: 1600;
+    --adlaire-z-toast: 9999;
     
     /* ----- Container Query Breakpoints ----- */
     --adlaire-container-xs: 320px;

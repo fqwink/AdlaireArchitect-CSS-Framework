@@ -383,3 +383,32 @@
   }
   
 }
+
+/* ============================================
+   Dark Mode Support
+   ============================================ */
+
+@media (prefers-color-scheme: dark) {
+  .aa-btn--outline {
+    border-color: rgba(255, 255, 255, 0.3);
+    color: rgba(255, 255, 255, 0.9);
+  }
+  
+  .aa-btn--outline:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.5);
+  }
+  
+  .aa-btn--ghost {
+    color: rgba(255, 255, 255, 0.9);
+  }
+  
+  .aa-btn--ghost:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .aa-btn:disabled,
+  .aa-btn--disabled {
+    opacity: 0.4;
+  }
+}

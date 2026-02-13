@@ -10,7 +10,7 @@
 
 .aa-tooltip__content {
   position: absolute;
-  z-index: 1000;
+  z-index: var(--adlaire-z-tooltip);
   padding: 0.5rem 0.75rem;
   font-family: var(--aa-font-family);
   font-size: 0.875rem;
@@ -95,6 +95,31 @@
   top: 50%;
   transform: translateY(-50%);
   border-right-color: #2c3e50;
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  .aa-tooltip__content {
+    background-color: rgba(255, 255, 255, 0.95);
+    color: #1a1a1a;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  .aa-tooltip__content--top::after {
+    border-top-color: rgba(255, 255, 255, 0.95);
+  }
+
+  .aa-tooltip__content--bottom::after {
+    border-bottom-color: rgba(255, 255, 255, 0.95);
+  }
+
+  .aa-tooltip__content--left::after {
+    border-left-color: rgba(255, 255, 255, 0.95);
+  }
+
+  .aa-tooltip__content--right::after {
+    border-right-color: rgba(255, 255, 255, 0.95);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
