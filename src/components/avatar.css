@@ -1,0 +1,114 @@
+/**
+ * Avatar Component - v1.0.0
+ * User profile images with status indicators
+ */
+
+.aa-avatar {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  font-family: var(--aa-font-family);
+  font-size: 1rem;
+  font-weight: 500;
+  color: #ffffff;
+  background-color: var(--aa-gray-400);
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.aa-avatar__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.aa-avatar__text {
+  text-transform: uppercase;
+}
+
+/* Sizes */
+.aa-avatar--xs {
+  width: 1.5rem;
+  height: 1.5rem;
+  font-size: 0.625rem;
+}
+
+.aa-avatar--sm {
+  width: 2rem;
+  height: 2rem;
+  font-size: 0.75rem;
+}
+
+.aa-avatar--lg {
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.25rem;
+}
+
+.aa-avatar--xl {
+  width: 4rem;
+  height: 4rem;
+  font-size: 1.5rem;
+}
+
+/* Shapes */
+.aa-avatar--rounded {
+  border-radius: 8px;
+}
+
+.aa-avatar--square {
+  border-radius: 0;
+}
+
+/* Colors */
+.aa-avatar--primary { background-color: var(--aa-primary); }
+.aa-avatar--secondary { background-color: var(--aa-secondary); }
+.aa-avatar--success { background-color: var(--aa-success); }
+.aa-avatar--error { background-color: var(--aa-error); }
+.aa-avatar--warning { background-color: var(--aa-warning); }
+.aa-avatar--info { background-color: var(--aa-info); }
+
+/* Status Indicator */
+.aa-avatar__status {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0.75rem;
+  height: 0.75rem;
+  border: 2px solid var(--aa-bg-primary, #ffffff);
+  border-radius: 50%;
+  background-color: var(--aa-gray-400);
+}
+
+.aa-avatar__status--online { background-color: #10b981; }
+.aa-avatar__status--offline { background-color: #6c757d; }
+.aa-avatar__status--away { background-color: #f59e0b; }
+.aa-avatar__status--busy { background-color: #ef4444; }
+
+/* Avatar Group */
+.aa-avatar-group {
+  display: inline-flex;
+  flex-direction: row-reverse;
+}
+
+.aa-avatar-group .aa-avatar {
+  margin-left: -0.75rem;
+  border: 2px solid var(--aa-bg-primary, #ffffff);
+}
+
+.aa-avatar-group .aa-avatar:first-child {
+  margin-left: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  .aa-avatar__status {
+    border-color: var(--aa-bg-primary, #1a1a1a);
+  }
+  .aa-avatar-group .aa-avatar {
+    border-color: var(--aa-bg-primary, #1a1a1a);
+  }
+}

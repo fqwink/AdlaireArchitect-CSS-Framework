@@ -1,0 +1,116 @@
+/**
+ * Pagination Component - v1.0.0
+ * Page navigation with various styles
+ */
+
+.aa-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.aa-pagination__item {
+  display: inline-flex;
+}
+
+.aa-pagination__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.5rem;
+  height: 2.5rem;
+  padding: 0.5rem 0.75rem;
+  font-family: var(--aa-font-family);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--aa-text-primary);
+  background-color: transparent;
+  border: 1px solid var(--aa-gray-300);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.aa-pagination__link:hover {
+  background-color: var(--aa-gray-50);
+  border-color: var(--aa-primary);
+  color: var(--aa-primary);
+}
+
+.aa-pagination__link:focus-visible {
+  outline: 2px solid var(--aa-primary);
+  outline-offset: 2px;
+}
+
+.aa-pagination__link--active {
+  color: #ffffff;
+  background-color: var(--aa-primary);
+  border-color: var(--aa-primary);
+}
+
+.aa-pagination__link--disabled {
+  color: var(--aa-gray-400);
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.aa-pagination__ellipsis {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.5rem;
+  height: 2.5rem;
+  color: var(--aa-text-secondary);
+}
+
+/* Sizes */
+.aa-pagination--sm .aa-pagination__link {
+  min-width: 2rem;
+  height: 2rem;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+}
+
+.aa-pagination--lg .aa-pagination__link {
+  min-width: 3rem;
+  height: 3rem;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+}
+
+/* Variants */
+.aa-pagination--rounded .aa-pagination__link {
+  border-radius: 999px;
+}
+
+@media (max-width: 640px) {
+  .aa-pagination {
+    gap: 0.125rem;
+  }
+  .aa-pagination__link {
+    min-width: 2rem;
+    padding: 0.375rem 0.5rem;
+    font-size: 0.8125rem;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .aa-pagination__link {
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+  .aa-pagination__link:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: #00c97e;
+    color: #00c97e;
+  }
+  .aa-pagination__link--active {
+    background-color: #00c97e;
+    border-color: #00c97e;
+  }
+}

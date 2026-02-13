@@ -1,0 +1,126 @@
+/**
+ * Progress & Loading Component - v1.0.0
+ * Progress bars and loading spinners
+ */
+
+/* Progress Bar */
+.aa-progress {
+  width: 100%;
+  height: 1rem;
+  background-color: var(--aa-gray-200);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.aa-progress__bar {
+  height: 100%;
+  background-color: var(--aa-primary);
+  border-radius: 999px;
+  transition: width 0.3s ease;
+}
+
+.aa-progress--sm {
+  height: 0.5rem;
+}
+
+.aa-progress--lg {
+  height: 1.5rem;
+}
+
+/* Color variants */
+.aa-progress__bar--success { background-color: var(--aa-success); }
+.aa-progress__bar--error { background-color: var(--aa-error); }
+.aa-progress__bar--warning { background-color: var(--aa-warning); }
+.aa-progress__bar--info { background-color: var(--aa-info); }
+
+/* Striped */
+.aa-progress__bar--striped {
+  background-image: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.15) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.15) 50%,
+    rgba(255, 255, 255, 0.15) 75%,
+    transparent 75%,
+    transparent
+  );
+  background-size: 1rem 1rem;
+}
+
+.aa-progress__bar--animated {
+  animation: progress-stripes 1s linear infinite;
+}
+
+@keyframes progress-stripes {
+  0% { background-position: 0 0; }
+  100% { background-position: 1rem 0; }
+}
+
+/* Loading Spinner */
+.aa-spinner {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  border: 3px solid var(--aa-gray-200);
+  border-top-color: var(--aa-primary);
+  border-radius: 50%;
+  animation: spinner-rotate 0.6s linear infinite;
+}
+
+.aa-spinner--sm {
+  width: 1rem;
+  height: 1rem;
+  border-width: 2px;
+}
+
+.aa-spinner--lg {
+  width: 3rem;
+  height: 3rem;
+  border-width: 4px;
+}
+
+@keyframes spinner-rotate {
+  to { transform: rotate(360deg); }
+}
+
+/* Dots Loader */
+.aa-loader-dots {
+  display: inline-flex;
+  gap: 0.5rem;
+}
+
+.aa-loader-dots__dot {
+  width: 0.75rem;
+  height: 0.75rem;
+  background-color: var(--aa-primary);
+  border-radius: 50%;
+  animation: loader-dots 1.4s infinite ease-in-out both;
+}
+
+.aa-loader-dots__dot:nth-child(1) { animation-delay: -0.32s; }
+.aa-loader-dots__dot:nth-child(2) { animation-delay: -0.16s; }
+
+@keyframes loader-dots {
+  0%, 80%, 100% { transform: scale(0); }
+  40% { transform: scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aa-progress__bar,
+  .aa-spinner,
+  .aa-loader-dots__dot {
+    animation: none;
+    transition: none;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .aa-progress {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  .aa-spinner {
+    border-color: rgba(255, 255, 255, 0.2);
+    border-top-color: #00c97e;
+  }
+}

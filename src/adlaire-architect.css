@@ -2,10 +2,11 @@
  * Adlaire Architect CSS Framework
  * Main Entry Point
  * 
- * Version: 0.8.0
+ * Version: 1.0.0
  * License: Apache License 2.0
  * Copyright: 2026 Adlaire Group DX Division
  * 
+ * Production-ready enterprise CSS framework
  * すべてのモジュールを統合
  */
 
@@ -39,6 +40,14 @@
 @import url('./components/modal.css');
 @import url('./components/table.css');
 @import url('./components/badge.css');
+@import url('./components/tabs.css');
+@import url('./components/accordion.css');
+@import url('./components/pagination.css');
+@import url('./components/tooltip.css');
+@import url('./components/progress.css');
+@import url('./components/avatar.css');
+@import url('./components/divider.css');
+@import url('./components/toast.css');
 
 /* ========================================
    UTILITIES

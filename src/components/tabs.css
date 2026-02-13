@@ -1,0 +1,391 @@
+/**
+ * Adlaire Architect CSS Framework
+ * Tabs Component
+ * Version: 1.0.0
+ * 
+ * Tab navigation for organizing content into switchable panels.
+ * Supports horizontal/vertical layouts, multiple styles, and full accessibility.
+ * 
+ * License: Apache-2.0
+ * Copyright 2026 Adlaire Group DX事業セグメントグループ
+ */
+
+/* ============================================
+   Base Tabs Structure
+   ============================================ */
+
+.aa-tabs {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* Tab List (Navigation) */
+.aa-tabs__list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-bottom: 2px solid var(--aa-gray-200);
+  gap: 0.5rem;
+}
+
+/* Individual Tab */
+.aa-tabs__tab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  
+  padding: 0.75rem 1.5rem;
+  margin-bottom: -2px;
+  
+  font-family: var(--aa-font-family);
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.5;
+  text-decoration: none;
+  white-space: nowrap;
+  
+  color: var(--aa-text-secondary, #7f8c8d);
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  border-radius: 4px 4px 0 0;
+  
+  cursor: pointer;
+  user-select: none;
+  
+  transition: color 0.2s ease,
+              background-color 0.2s ease,
+              border-color 0.2s ease;
+}
+
+.aa-tabs__tab:hover {
+  color: var(--aa-primary);
+  background-color: var(--aa-gray-50);
+}
+
+.aa-tabs__tab:focus-visible {
+  outline: 2px solid var(--aa-primary);
+  outline-offset: 2px;
+}
+
+/* Active Tab */
+.aa-tabs__tab--active {
+  color: var(--aa-primary);
+  border-bottom-color: var(--aa-primary);
+}
+
+/* Disabled Tab */
+.aa-tabs__tab--disabled {
+  color: var(--aa-gray-400);
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* Tab Panels Container */
+.aa-tabs__panels {
+  padding: 1.5rem 0;
+}
+
+/* Individual Tab Panel */
+.aa-tabs__panel {
+  display: none;
+}
+
+.aa-tabs__panel--active {
+  display: block;
+  animation: tab-fade-in 0.2s ease;
+}
+
+@keyframes tab-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Tab Icon */
+.aa-tabs__icon {
+  display: inline-flex;
+  width: 1rem;
+  height: 1rem;
+}
+
+/* ============================================
+   Tabs Variants - Underline (Default)
+   ============================================ */
+
+.aa-tabs--underline {
+  /* Default style - already applied above */
+}
+
+/* ============================================
+   Tabs Variants - Pills
+   ============================================ */
+
+.aa-tabs--pills .aa-tabs__list {
+  border-bottom: none;
+  gap: 0.5rem;
+}
+
+.aa-tabs--pills .aa-tabs__tab {
+  margin-bottom: 0;
+  border: none;
+  border-radius: 999px;
+}
+
+.aa-tabs--pills .aa-tabs__tab--active {
+  color: #ffffff;
+  background-color: var(--aa-primary);
+  border-bottom-color: transparent;
+}
+
+.aa-tabs--pills .aa-tabs__tab:hover {
+  background-color: rgba(0, 169, 104, 0.1);
+}
+
+.aa-tabs--pills .aa-tabs__tab--active:hover {
+  background-color: var(--aa-primary);
+}
+
+/* ============================================
+   Tabs Variants - Enclosed
+   ============================================ */
+
+.aa-tabs--enclosed .aa-tabs__list {
+  border-bottom: 1px solid var(--aa-gray-200);
+  gap: 0;
+}
+
+.aa-tabs--enclosed .aa-tabs__tab {
+  margin-bottom: -1px;
+  border: 1px solid transparent;
+  border-radius: 4px 4px 0 0;
+}
+
+.aa-tabs--enclosed .aa-tabs__tab--active {
+  background-color: var(--aa-bg-primary, #ffffff);
+  border-color: var(--aa-gray-200);
+  border-bottom-color: var(--aa-bg-primary, #ffffff);
+}
+
+/* ============================================
+   Tabs Variants - Boxed
+   ============================================ */
+
+.aa-tabs--boxed .aa-tabs__list {
+  border: 1px solid var(--aa-gray-200);
+  border-radius: 4px;
+  padding: 0.25rem;
+  gap: 0.25rem;
+  background-color: var(--aa-gray-50);
+}
+
+.aa-tabs--boxed .aa-tabs__tab {
+  margin-bottom: 0;
+  border: none;
+  border-radius: 4px;
+}
+
+.aa-tabs--boxed .aa-tabs__tab--active {
+  color: var(--aa-text-primary);
+  background-color: var(--aa-bg-primary, #ffffff);
+  border-bottom-color: transparent;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* ============================================
+   Tabs Sizes
+   ============================================ */
+
+/* Small */
+.aa-tabs--sm .aa-tabs__tab {
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+}
+
+/* Large */
+.aa-tabs--lg .aa-tabs__tab {
+  padding: 1rem 2rem;
+  font-size: 1rem;
+}
+
+/* ============================================
+   Vertical Tabs
+   ============================================ */
+
+.aa-tabs--vertical {
+  flex-direction: row;
+}
+
+.aa-tabs--vertical .aa-tabs__list {
+  flex-direction: column;
+  border-bottom: none;
+  border-right: 2px solid var(--aa-gray-200);
+  min-width: 200px;
+}
+
+.aa-tabs--vertical .aa-tabs__tab {
+  justify-content: flex-start;
+  margin-bottom: 0;
+  margin-right: -2px;
+  border-bottom: none;
+  border-right: 2px solid transparent;
+  border-radius: 4px 0 0 4px;
+}
+
+.aa-tabs--vertical .aa-tabs__tab--active {
+  border-bottom-color: transparent;
+  border-right-color: var(--aa-primary);
+}
+
+.aa-tabs--vertical .aa-tabs__panels {
+  flex: 1;
+  padding: 0 0 0 1.5rem;
+}
+
+/* ============================================
+   Tabs with Icons
+   ============================================ */
+
+.aa-tabs__tab--icon-only {
+  padding: 0.75rem;
+}
+
+.aa-tabs__tab--icon-only .aa-tabs__icon {
+  margin: 0;
+}
+
+/* ============================================
+   Tabs Alignment
+   ============================================ */
+
+.aa-tabs--center .aa-tabs__list {
+  justify-content: center;
+}
+
+.aa-tabs--end .aa-tabs__list {
+  justify-content: flex-end;
+}
+
+.aa-tabs--stretch .aa-tabs__tab {
+  flex: 1;
+}
+
+/* ============================================
+   Dark Mode Support
+   ============================================ */
+
+@media (prefers-color-scheme: dark) {
+  .aa-tabs__list {
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .aa-tabs__tab {
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  .aa-tabs__tab:hover {
+    color: #00c97e;
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+  
+  .aa-tabs__tab--active {
+    color: #00c97e;
+    border-color: #00c97e;
+  }
+  
+  .aa-tabs--enclosed .aa-tabs__tab--active {
+    background-color: var(--aa-bg-primary, #1a1a1a);
+    border-color: rgba(255, 255, 255, 0.1);
+    border-bottom-color: var(--aa-bg-primary, #1a1a1a);
+  }
+  
+  .aa-tabs--boxed .aa-tabs__list {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .aa-tabs--boxed .aa-tabs__tab--active {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* ============================================
+   Responsive Design
+   ============================================ */
+
+@container (max-width: 640px) {
+  .aa-tabs__list {
+    overflow-x: auto;
+    scrollbar-width: thin;
+  }
+  
+  .aa-tabs__tab {
+    padding: 0.625rem 1rem;
+    font-size: 0.8125rem;
+  }
+  
+  .aa-tabs--vertical {
+    flex-direction: column;
+  }
+  
+  .aa-tabs--vertical .aa-tabs__list {
+    flex-direction: row;
+    border-right: none;
+    border-bottom: 2px solid var(--aa-gray-200);
+    min-width: auto;
+  }
+  
+  .aa-tabs--vertical .aa-tabs__tab {
+    margin-right: 0;
+    margin-bottom: -2px;
+    border-right: none;
+    border-bottom: 2px solid transparent;
+    border-radius: 4px 4px 0 0;
+  }
+  
+  .aa-tabs--vertical .aa-tabs__tab--active {
+    border-right-color: transparent;
+    border-bottom-color: var(--aa-primary);
+  }
+  
+  .aa-tabs--vertical .aa-tabs__panels {
+    padding: 1.5rem 0 0 0;
+  }
+}
+
+/* ============================================
+   Accessibility - Reduced Motion
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .aa-tabs__tab {
+    transition: none;
+  }
+  
+  .aa-tabs__panel--active {
+    animation: none;
+  }
+}
+
+/* ============================================
+   Print Styles
+   ============================================ */
+
+@media print {
+  .aa-tabs__list {
+    display: none;
+  }
+  
+  .aa-tabs__panel {
+    display: block !important;
+  }
+}

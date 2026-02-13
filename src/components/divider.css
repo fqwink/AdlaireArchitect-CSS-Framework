@@ -1,0 +1,95 @@
+/**
+ * Divider Component - v1.0.0
+ * Visual separators with optional labels
+ */
+
+.aa-divider {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin: 1.5rem 0;
+  font-family: var(--aa-font-family);
+  font-size: 0.875rem;
+  color: var(--aa-text-secondary);
+}
+
+.aa-divider::before,
+.aa-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background-color: var(--aa-gray-200);
+}
+
+.aa-divider::before {
+  margin-right: 1rem;
+}
+
+.aa-divider::after {
+  margin-left: 1rem;
+}
+
+/* No text */
+.aa-divider--plain::before {
+  margin-right: 0;
+}
+
+.aa-divider--plain::after {
+  margin-left: 0;
+}
+
+/* Vertical */
+.aa-divider--vertical {
+  display: inline-flex;
+  flex-direction: column;
+  width: auto;
+  height: 1.5rem;
+  margin: 0 1rem;
+}
+
+.aa-divider--vertical::before,
+.aa-divider--vertical::after {
+  width: 1px;
+  height: auto;
+}
+
+/* Alignment */
+.aa-divider--left::before {
+  flex: 0 0 1rem;
+}
+
+.aa-divider--right::after {
+  flex: 0 0 1rem;
+}
+
+/* Styles */
+.aa-divider--dashed::before,
+.aa-divider--dashed::after {
+  background-image: linear-gradient(
+    to right,
+    var(--aa-gray-300) 50%,
+    transparent 50%
+  );
+  background-size: 8px 1px;
+  background-repeat: repeat-x;
+  background-color: transparent;
+}
+
+.aa-divider--dotted::before,
+.aa-divider--dotted::after {
+  background-image: radial-gradient(
+    circle,
+    var(--aa-gray-300) 1px,
+    transparent 1px
+  );
+  background-size: 6px 1px;
+  background-repeat: repeat-x;
+  background-color: transparent;
+}
+
+@media (prefers-color-scheme: dark) {
+  .aa-divider::before,
+  .aa-divider::after {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+}
