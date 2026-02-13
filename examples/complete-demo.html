@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="ja" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adlaire Architect CSS Framework - Complete Demo</title>
+  <link rel="stylesheet" href="../src/adlaire-architect.css">
+  <style>
+    /* Demo-specific styles */
+    .demo-section {
+      margin-bottom: 4rem;
+      padding-bottom: 4rem;
+      border-bottom: 1px solid var(--aa-border-color);
+    }
+    
+    .demo-section:last-child {
+      border-bottom: none;
+    }
+    
+    .demo-section__title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--aa-text-primary);
+    }
+    
+    .demo-section__description {
+      font-size: 1.125rem;
+      color: var(--aa-text-secondary);
+      margin-bottom: 2rem;
+    }
+    
+    .component-demo {
+      margin-bottom: 2rem;
+    }
+    
+    .component-demo__label {
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      color: var(--aa-text-primary);
+    }
+    
+    .component-preview {
+      padding: 2rem;
+      background-color: var(--aa-bg-secondary);
+      border-radius: 8px;
+      border: 1px solid var(--aa-border-color);
+    }
+    
+    .hero {
+      padding: 6rem 0;
+      text-align: center;
+      background: linear-gradient(135deg, var(--aa-brand-emerald-500) 0%, var(--aa-brand-blue-500) 100%);
+      color: white;
+      margin-bottom: 4rem;
+    }
+    
+    .hero__title {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+    
+    .hero__subtitle {
+      font-size: 1.5rem;
+      opacity: 0.9;
+      margin-bottom: 2rem;
+    }
+    
+    .hero__version {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 999px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      backdrop-filter: blur(10px);
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+    
+    .stat-card {
+      text-align: center;
+      padding: 2rem;
+      background-color: var(--aa-bg-tertiary);
+      border-radius: 8px;
+      border: 1px solid var(--aa-border-color);
+    }
+    
+    .stat-card__value {
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--aa-brand-emerald-500);
+      margin-bottom: 0.5rem;
+    }
+    
+    .stat-card__label {
+      font-size: 0.875rem;
+      color: var(--aa-text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar--sticky" role="navigation" aria-label="Main navigation">
+    <div class="navbar__container">
+      <div class="navbar__brand">
+        <a href="/" class="navbar__logo">
+          <span style="color: var(--aa-brand-emerald-500); font-weight: 800; font-size: 1.5rem;">Adlaire</span>
+        </a>
+      </div>
+      
+      <button class="navbar__toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="navbar__toggle-icon"></span>
+      </button>
+      
+      <ul class="navbar__menu" role="menubar">
+        <li class="navbar__item" role="none">
+          <a href="#components" class="navbar__link" role="menuitem">Components</a>
+        </li>
+        <li class="navbar__item" role="none">
+          <a href="#documentation" class="navbar__link navbar__dropdown-trigger" role="menuitem" aria-haspopup="true">
+            Documentation
+          </a>
+          <ul class="navbar__dropdown" role="menu">
+            <li role="none"><a href="#getting-started" class="navbar__dropdown-item" role="menuitem">Getting Started</a></li>
+            <li role="none"><a href="#customization" class="navbar__dropdown-item" role="menuitem">Customization</a></li>
+            <li role="none"><a href="#accessibility" class="navbar__dropdown-item" role="menuitem">Accessibility</a></li>
+            <li role="none"><a href="#examples" class="navbar__dropdown-item" role="menuitem">Examples</a></li>
+          </ul>
+        </li>
+        <li class="navbar__item" role="none">
+          <a href="#about" class="navbar__link" role="menuitem">About</a>
+        </li>
+      </ul>
+      
+      <div class="navbar__actions">
+        <button id="theme-toggle" class="btn btn--ghost btn--sm" aria-label="Toggle dark mode">
+          <span class="theme-icon theme-icon--light" aria-hidden="true">☀️</span>
+          <span class="theme-icon theme-icon--dark" aria-hidden="true">🌙</span>
+        </button>
+        <a href="https://github.com/fqwink/AdlaireArchitect-CSS-Framework" class="btn btn--primary btn--sm" target="_blank" rel="noopener">
+          GitHub
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h1 class="hero__title">Adlaire Architect</h1>
+      <p class="hero__subtitle">Modern, Lightweight, Accessible CSS Framework</p>
+      <span class="hero__version">v0.5.0</span>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb" aria-label="Breadcrumb" style="margin-bottom: 3rem;">
+      <ol class="breadcrumb__list">
+        <li class="breadcrumb__item">
+          <a href="/" class="breadcrumb__link">Home</a>
+        </li>
+        <li class="breadcrumb__item">
+          <a href="/examples" class="breadcrumb__link">Examples</a>
+        </li>
+        <li class="breadcrumb__item breadcrumb__item--current">
+          <span class="breadcrumb__text">Complete Demo</span>
+        </li>
+      </ol>
+    </nav>
+
+    <!-- Stats Grid -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-card__value">9</div>
+        <div class="stat-card__label">Components</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card__value">500+</div>
+        <div class="stat-card__label">Variants</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card__value">25KB</div>
+        <div class="stat-card__label">Gzipped</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card__value">AAA</div>
+        <div class="stat-card__label">WCAG 2.1</div>
+      </div>
+    </div>
+
+    <!-- Alert Component -->
+    <section class="demo-section" id="alerts">
+      <h2 class="demo-section__title">Alert / Notification Component</h2>
+      <p class="demo-section__description">
+        Contextual feedback messages with multiple variants, styles, and accessibility features.
+      </p>
+
+      <div class="component-demo">
+        <div class="component-demo__label">Success Alert</div>
+        <div class="component-preview">
+          <div class="alert alert--success alert--dismissible">
+            <div class="alert__icon" aria-hidden="true">✓</div>
+            <div class="alert__content">
+              <div class="alert__title">Success!</div>
+              <div class="alert__message">Your changes have been saved successfully.</div>
+            </div>
+            <button class="alert__close" aria-label="Close alert">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="component-demo">
+        <div class="component-demo__label">Error Alert with Action</div>
+        <div class="component-preview">
+          <div class="alert alert--error">
+            <div class="alert__icon" aria-hidden="true">✕</div>
+            <div class="alert__content">
+              <div class="alert__title">Error</div>
+              <div class="alert__message">Failed to save changes. Please try again.</div>
+            </div>
+            <div class="alert__actions">
+              <button class="btn btn--sm btn--error">Retry</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="component-demo">
+        <div class="component-demo__label">Warning Alert</div>
+        <div class="component-preview">
+          <div class="alert alert--warning">
+            <div class="alert__icon" aria-hidden="true">⚠</div>
+            <div class="alert__content">
+              <div class="alert__title">Warning</div>
+              <div class="alert__message">Your session will expire in 5 minutes.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="component-demo">
+        <div class="component-demo__label">Info Alert</div>
+        <div class="component-preview">
+          <div class="alert alert--info alert--outlined">
+            <div class="alert__icon" aria-hidden="true">ℹ</div>
+            <div class="alert__content">
+              <div class="alert__title">Information</div>
+              <div class="alert__message">New features are now available. Check them out!</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Card Component -->
+    <section class="demo-section" id="cards">
+      <h2 class="demo-section__title">Card Component</h2>
+      <p class="demo-section__description">
+        Flexible content containers with header, body, footer, and various styles.
+      </p>
+
+      <div class="grid grid--cols-3 grid--gap-4">
+        <div class="card">
+          <div class="card__header">
+            <h3 class="card__title">Basic Card</h3>
+            <p class="card__subtitle">Card subtitle</p>
+          </div>
+          <div class="card__body">
+            <p>This is a basic card with header, body, and footer sections.</p>
+          </div>
+          <div class="card__footer">
+            <button class="btn btn--primary btn--sm">Action</button>
+            <button class="btn btn--ghost btn--sm">Cancel</button>
+          </div>
+        </div>
+
+        <div class="card card--interactive">
+          <div class="card__header">
+            <h3 class="card__title">Interactive Card</h3>
+          </div>
+          <div class="card__body">
+            <p>This card has hover and focus effects. Try hovering over it!</p>
+          </div>
+          <div class="card__footer">
+            <a href="#" class="card__link">Learn more →</a>
+          </div>
+        </div>
+
+        <div class="card card--brand-emerald">
+          <div class="card__header">
+            <h3 class="card__title">Brand Card</h3>
+          </div>
+          <div class="card__body">
+            <p>This card uses the Emerald brand color with proper contrast.</p>
+          </div>
+          <div class="card__footer">
+            <button class="btn btn--primary btn--sm">Get Started</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="component-demo" style="margin-top: 2rem;">
+        <div class="component-demo__label">Card with Avatar</div>
+        <div class="component-preview">
+          <div class="card card--horizontal">
+            <div class="card__avatar" aria-hidden="true">
+              <span style="font-size: 2rem;">👤</span>
+            </div>
+            <div class="card__body">
+              <h3 class="card__title">John Doe</h3>
+              <p class="card__subtitle">Software Engineer</p>
+              <p>Passionate about building accessible web applications.</p>
+            </div>
+            <div class="card__footer">
+              <button class="btn btn--secondary btn--sm">View Profile</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Grid System -->
+    <section class="demo-section" id="grid">
+      <h2 class="demo-section__title">Grid System</h2>
+      <p class="demo-section__description">
+        Flexible grid layout with 12 columns, auto-fit/fill, and responsive gap utilities.
+      </p>
+
+      <div class="component-demo">
+        <div class="component-demo__label">3 Column Grid</div>
+        <div class="component-preview">
+          <div class="grid grid--cols-3 grid--gap-4">
+            <div style="padding: 2rem; background: var(--aa-brand-emerald-100); border-radius: 8px; text-align: center;">
+              Column 1
+            </div>
+            <div style="padding: 2rem; background: var(--aa-brand-blue-100); border-radius: 8px; text-align: center;">
+              Column 2
+            </div>
+            <div style="padding: 2rem; background: var(--aa-brand-summer-100); border-radius: 8px; text-align: center;">
+              Column 3
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="component-demo">
+        <div class="component-demo__label">Auto-fit Grid (Responsive)</div>
+        <div class="component-preview">
+          <div class="grid grid--auto-fit grid--gap-3">
+            <div style="padding: 1.5rem; background: var(--aa-brand-emerald-50); border: 2px solid var(--aa-brand-emerald-200); border-radius: 8px; text-align: center;">
+              Auto 1
+            </div>
+            <div style="padding: 1.5rem; background: var(--aa-brand-blue-50); border: 2px solid var(--aa-brand-blue-200); border-radius: 8px; text-align: center;">
+              Auto 2
+            </div>
+            <div style="padding: 1.5rem; background: var(--aa-brand-summer-50); border: 2px solid var(--aa-brand-summer-200); border-radius: 8px; text-align: center;">
+              Auto 3
+            </div>
+            <div style="padding: 1.5rem; background: var(--aa-brand-solitude-50); border: 2px solid var(--aa-brand-solitude-200); border-radius: 8px; text-align: center;">
+              Auto 4
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="component-demo">
+        <div class="component-demo__label">Column Span Example</div>
+        <div class="component-preview">
+          <div class="grid grid--cols-4 grid--gap-3">
+            <div class="grid__col-span-2" style="padding: 1.5rem; background: var(--aa-brand-emerald-100); border-radius: 8px; text-align: center;">
+              Span 2
+            </div>
+            <div style="padding: 1.5rem; background: var(--aa-brand-blue-100); border-radius: 8px; text-align: center;">
+              Col 1
+            </div>
+            <div style="padding: 1.5rem; background: var(--aa-brand-summer-100); border-radius: 8px; text-align: center;">
+              Col 2
+            </div>
+            <div style="padding: 1.5rem; background: var(--aa-brand-solitude-100); border-radius: 8px; text-align: center;">
+              Col 3
+            </div>
+            <div class="grid__col-span-3" style="padding: 1.5rem; background: var(--aa-brand-emerald-100); border-radius: 8px; text-align: center;">
+              Span 3
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Form Components -->
+    <section class="demo-section" id="forms">
+      <h2 class="demo-section__title">Form Components</h2>
+      <p class="demo-section__description">
+        Comprehensive form controls with validation states and accessibility features.
+      </p>
+
+      <div class="component-preview">
+        <form class="form" style="max-width: 600px;">
+          <div class="form-group">
+            <label class="form-label form-label--required" for="name">Full Name</label>
+            <input type="text" id="name" class="form-input" placeholder="Enter your full name" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label form-label--required" for="email">Email Address</label>
+            <input type="email" id="email" class="form-input form-input--success" placeholder="your.email@example.com" value="user@example.com" required>
+            <span class="form-message form-message--success">✓ Email is valid</span>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="bio">Bio</label>
+            <textarea id="bio" class="form-textarea" rows="4" placeholder="Tell us about yourself..."></textarea>
+            <span class="form-hint">Maximum 500 characters</span>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="country">Country</label>
+            <select id="country" class="form-select">
+              <option value="">Select a country</option>
+              <option value="jp">Japan</option>
+              <option value="us">United States</option>
+              <option value="uk">United Kingdom</option>
+              <option value="ca">Canada</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Preferences</label>
+            <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+              <label class="form-checkbox">
+                <input type="checkbox" checked>
+                <span class="form-checkbox__label">Email notifications</span>
+              </label>
+              <label class="form-checkbox">
+                <input type="checkbox">
+                <span class="form-checkbox__label">SMS notifications</span>
+              </label>
+              <label class="form-checkbox">
+                <input type="checkbox" checked>
+                <span class="form-checkbox__label">Push notifications</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Account Type</label>
+            <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+              <label class="form-radio">
+                <input type="radio" name="account" value="personal" checked>
+                <span class="form-radio__label">Personal</span>
+              </label>
+              <label class="form-radio">
+                <input type="radio" name="account" value="business">
+                <span class="form-radio__label">Business</span>
+              </label>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 1rem; margin-top: 2rem;">
+            <button type="submit" class="btn btn--primary">Submit Form</button>
+            <button type="button" class="btn btn--secondary">Cancel</button>
+            <button type="button" class="btn btn--ghost">Reset</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Button Component -->
+    <section class="demo-section" id="buttons">
+      <h2 class="demo-section__title">Button Component</h2>
+      <p class="demo-section__description">
+        Versatile button styles with multiple variants, sizes, and states.
+      </p>
+
+      <div class="component-demo">
+        <div class="component-demo__label">Button Variants</div>
+        <div class="component-preview">
+          <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
+            <button class="btn btn--primary">Primary</button>
+            <button class="btn btn--secondary">Secondary</button>
+            <button class="btn btn--success">Success</button>
+            <button class="btn btn--error">Error</button>
+            <button class="btn btn--warning">Warning</button>
+            <button class="btn btn--ghost">Ghost</button>
+            <button class="btn btn--link">Link</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="component-demo">
+        <div class="component-demo__label">Button Sizes</div>
+        <div class="component-preview">
+          <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 1rem;">
+            <button class="btn btn--primary btn--xs">Extra Small</button>
+            <button class="btn btn--primary btn--sm">Small</button>
+            <button class="btn btn--primary">Base</button>
+            <button class="btn btn--primary btn--lg">Large</button>
+            <button class="btn btn--primary btn--xl">Extra Large</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="component-demo">
+        <div class="component-demo__label">Button States</div>
+        <div class="component-preview">
+          <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
+            <button class="btn btn--primary">Normal</button>
+            <button class="btn btn--primary btn--loading">Loading...</button>
+            <button class="btn btn--primary" disabled>Disabled</button>
+            <button class="btn btn--primary btn--full-width">Full Width</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Typography Component -->
+    <section class="demo-section" id="typography">
+      <h2 class="demo-section__title">Typography System</h2>
+      <p class="demo-section__description">
+        Complete typography scale with headings, body text, and utility classes.
+      </p>
+
+      <div class="component-preview">
+        <h1 class="heading-1">Heading 1 - The quick brown fox</h1>
+        <h2 class="heading-2">Heading 2 - The quick brown fox</h2>
+        <h3 class="heading-3">Heading 3 - The quick brown fox</h3>
+        <h4 class="heading-4">Heading 4 - The quick brown fox</h4>
+        <h5 class="heading-5">Heading 5 - The quick brown fox</h5>
+        <h6 class="heading-6">Heading 6 - The quick brown fox</h6>
+        
+        <p class="text-lg" style="margin-top: 2rem;">
+          Large body text - Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        </p>
+        <p class="text-base">
+          Base body text - Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        </p>
+        <p class="text-sm">
+          Small body text - Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        </p>
+        <p class="text-xs">
+          Extra small body text - Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        </p>
+      </div>
+    </section>
+
+    <!-- Modal Demo Button -->
+    <section class="demo-section" id="modal-section">
+      <h2 class="demo-section__title">Modal / Dialog Component</h2>
+      <p class="demo-section__description">
+        Accessible modal dialogs with overlay, animations, and keyboard support.
+      </p>
+
+      <div class="component-preview">
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+          <button id="openModalSmall" class="btn btn--primary">Open Small Modal</button>
+          <button id="openModalMedium" class="btn btn--secondary">Open Medium Modal</button>
+          <button id="openModalLarge" class="btn btn--success">Open Large Modal</button>
+          <button id="openModalConfirm" class="btn btn--error">Open Confirmation Modal</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dark Mode Demo -->
+    <section class="demo-section" id="dark-mode">
+      <h2 class="demo-section__title">Dark Mode Theme</h2>
+      <p class="demo-section__description">
+        Complete dark mode support with system preference detection and manual toggle.
+      </p>
+
+      <div class="component-preview">
+        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+          <div>
+            <h4 style="font-weight: 600; margin-bottom: 0.5rem;">Current Theme</h4>
+            <p id="current-theme-display" style="color: var(--aa-text-secondary);">Light Mode</p>
+          </div>
+          
+          <div>
+            <h4 style="font-weight: 600; margin-bottom: 0.5rem;">Theme Controls</h4>
+            <div style="display: flex; gap: 1rem;">
+              <button id="theme-light" class="btn btn--secondary btn--sm">☀️ Light</button>
+              <button id="theme-dark" class="btn btn--secondary btn--sm">🌙 Dark</button>
+              <button id="theme-auto" class="btn btn--secondary btn--sm">🔄 Auto</button>
+            </div>
+          </div>
+
+          <div>
+            <h4 style="font-weight: 600; margin-bottom: 0.5rem;">Features</h4>
+            <ul style="list-style: disc; padding-left: 1.5rem; color: var(--aa-text-secondary);">
+              <li>System preference detection (prefers-color-scheme)</li>
+              <li>Manual toggle with LocalStorage persistence</li>
+              <li>Smooth 200ms transitions</li>
+              <li>WCAG 2.1 AAA contrast in both themes</li>
+              <li>All components fully adapted</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Summary -->
+    <section class="demo-section">
+      <h2 class="demo-section__title">Framework Features</h2>
+      <p class="demo-section__description">
+        Modern, lightweight, and accessible CSS framework built with best practices.
+      </p>
+
+      <div class="grid grid--cols-2 grid--gap-4">
+        <div class="card">
+          <div class="card__header">
+            <h3 class="card__title">🎨 Design System</h3>
+          </div>
+          <div class="card__body">
+            <ul style="list-style: disc; padding-left: 1.5rem; color: var(--aa-text-secondary);">
+              <li>Official Adlaire brand colors</li>
+              <li>150+ design tokens</li>
+              <li>Consistent spacing (8pt grid)</li>
+              <li>Typography scale</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card__header">
+            <h3 class="card__title">♿ Accessibility</h3>
+          </div>
+          <div class="card__body">
+            <ul style="list-style: disc; padding-left: 1.5rem; color: var(--aa-text-secondary);">
+              <li>WCAG 2.1 AAA compliance</li>
+              <li>7:1 contrast ratios</li>
+              <li>Full keyboard navigation</li>
+              <li>Screen reader support</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card__header">
+            <h3 class="card__title">📱 Responsive</h3>
+          </div>
+          <div class="card__body">
+            <ul style="list-style: disc; padding-left: 1.5rem; color: var(--aa-text-secondary);">
+              <li>Container Queries First</li>
+              <li>Mobile-first approach</li>
+              <li>Flexible grid system</li>
+              <li>Adaptive components</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card__header">
+            <h3 class="card__title">⚡ Performance</h3>
+          </div>
+          <div class="card__body">
+            <ul style="list-style: disc; padding-left: 1.5rem; color: var(--aa-text-secondary);">
+              <li>~25 KB gzipped bundle</li>
+              <li>Pure CSS3, no JavaScript</li>
+              <li>Zero dependencies</li>
+              <li>Tree-shakeable</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Getting Started -->
+    <section class="demo-section">
+      <h2 class="demo-section__title">Getting Started</h2>
+      <p class="demo-section__description">
+        Quick start guide to use Adlaire Architect in your project.
+      </p>
+
+      <div class="component-preview" style="background: var(--aa-neutral-900); color: var(--aa-neutral-50); font-family: 'Courier New', monospace; padding: 1.5rem; overflow-x: auto;">
+        <pre style="margin: 0; white-space: pre-wrap;"><code>&lt;!-- Include CSS --&gt;
+&lt;link rel="stylesheet" href="adlaire-architect.css"&gt;
+
+&lt;!-- Use components --&gt;
+&lt;button class="btn btn--primary"&gt;Click me&lt;/button&gt;
+
+&lt;div class="card"&gt;
+  &lt;div class="card__header"&gt;
+    &lt;h3 class="card__title"&gt;Card Title&lt;/h3&gt;
+  &lt;/div&gt;
+  &lt;div class="card__body"&gt;
+    &lt;p&gt;Card content&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer style="background: var(--aa-bg-secondary); padding: 3rem 0; margin-top: 6rem; border-top: 1px solid var(--aa-border-color);">
+    <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 2rem; text-align: center;">
+      <p style="color: var(--aa-text-secondary); margin-bottom: 1rem;">
+        © 2026 Adlaire Group DX事業セグメントグループ
+      </p>
+      <p style="color: var(--aa-text-muted); font-size: 0.875rem;">
+        Licensed under Apache License 2.0
+      </p>
+      <div style="margin-top: 1.5rem;">
+        <a href="https://github.com/fqwink/AdlaireArchitect-CSS-Framework" class="btn btn--ghost btn--sm" target="_blank" rel="noopener">
+          GitHub Repository
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modals -->
+  <!-- Small Modal -->
+  <div class="modal" id="modalSmall" role="dialog" aria-modal="true" aria-labelledby="modal-small-title">
+    <div class="modal__overlay"></div>
+    <div class="modal__dialog modal__dialog--small">
+      <div class="modal__content">
+        <header class="modal__header">
+          <h2 class="modal__title" id="modal-small-title">Small Modal</h2>
+          <button class="modal__close" aria-label="Close dialog">
+            <span aria-hidden="true">×</span>
+          </button>
+        </header>
+        <div class="modal__body">
+          <p>This is a small modal dialog. Perfect for simple confirmations or brief messages.</p>
+        </div>
+        <footer class="modal__footer">
+          <button class="btn btn--secondary modal-close-btn">Close</button>
+        </footer>
+      </div>
+    </div>
+  </div>
+
+  <!-- Medium Modal -->
+  <div class="modal" id="modalMedium" role="dialog" aria-modal="true" aria-labelledby="modal-medium-title">
+    <div class="modal__overlay"></div>
+    <div class="modal__dialog modal__dialog--medium">
+      <div class="modal__content">
+        <header class="modal__header">
+          <h2 class="modal__title" id="modal-medium-title">Medium Modal</h2>
+          <button class="modal__close" aria-label="Close dialog">
+            <span aria-hidden="true">×</span>
+          </button>
+        </header>
+        <div class="modal__body">
+          <p>This is a medium-sized modal dialog. Great for forms, detailed content, or multi-step processes.</p>
+          <div class="form-group" style="margin-top: 1.5rem;">
+            <label class="form-label" for="modal-input">Example Input</label>
+            <input type="text" id="modal-input" class="form-input" placeholder="Enter some text...">
+          </div>
+        </div>
+        <footer class="modal__footer">
+          <button class="btn btn--secondary modal-close-btn">Cancel</button>
+          <button class="btn btn--primary">Save Changes</button>
+        </footer>
+      </div>
+    </div>
+  </div>
+
+  <!-- Large Modal -->
+  <div class="modal" id="modalLarge" role="dialog" aria-modal="true" aria-labelledby="modal-large-title">
+    <div class="modal__overlay"></div>
+    <div class="modal__dialog modal__dialog--large">
+      <div class="modal__content">
+        <header class="modal__header">
+          <h2 class="modal__title" id="modal-large-title">Large Modal</h2>
+          <button class="modal__close" aria-label="Close dialog">
+            <span aria-hidden="true">×</span>
+          </button>
+        </header>
+        <div class="modal__body">
+          <h3>Modal Content</h3>
+          <p>This is a large modal dialog. Ideal for complex forms, rich content, or data tables.</p>
+          
+          <h4 style="margin-top: 1.5rem; margin-bottom: 0.75rem;">Features</h4>
+          <ul style="list-style: disc; padding-left: 1.5rem;">
+            <li>Scrollable content area</li>
+            <li>Fixed header and footer</li>
+            <li>Keyboard support (Esc to close)</li>
+            <li>Focus trap</li>
+            <li>Backdrop click to close</li>
+          </ul>
+
+          <div class="alert alert--info" style="margin-top: 1.5rem;">
+            <div class="alert__icon">ℹ</div>
+            <div class="alert__content">
+              <div class="alert__message">You can include any components inside modals, including alerts, forms, and cards.</div>
+            </div>
+          </div>
+        </div>
+        <footer class="modal__footer">
+          <button class="btn btn--secondary modal-close-btn">Close</button>
+          <button class="btn btn--success">Confirm</button>
+        </footer>
+      </div>
+    </div>
+  </div>
+
+  <!-- Confirmation Modal -->
+  <div class="modal" id="modalConfirm" role="dialog" aria-modal="true" aria-labelledby="modal-confirm-title">
+    <div class="modal__overlay"></div>
+    <div class="modal__dialog modal__dialog--small">
+      <div class="modal__content">
+        <header class="modal__header">
+          <h2 class="modal__title" id="modal-confirm-title">Confirm Action</h2>
+          <button class="modal__close" aria-label="Close dialog">
+            <span aria-hidden="true">×</span>
+          </button>
+        </header>
+        <div class="modal__body">
+          <div class="alert alert--warning">
+            <div class="alert__icon">⚠</div>
+            <div class="alert__content">
+              <div class="alert__message">This action cannot be undone. Are you sure you want to proceed?</div>
+            </div>
+          </div>
+        </div>
+        <footer class="modal__footer">
+          <button class="btn btn--secondary modal-close-btn">Cancel</button>
+          <button class="btn btn--error">Delete</button>
+        </footer>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    // Theme Toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeLight = document.getElementById('theme-light');
+    const themeDark = document.getElementById('theme-dark');
+    const themeAuto = document.getElementById('theme-auto');
+    const currentThemeDisplay = document.getElementById('current-theme-display');
+
+    // Initialize theme
+    const initTheme = () => {
+      const savedTheme = localStorage.getItem('theme');
+      const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      
+      let theme = savedTheme;
+      if (!savedTheme) {
+        theme = systemPrefersDark ? 'dark' : 'light';
+      }
+      
+      document.documentElement.setAttribute('data-theme', theme);
+      updateThemeDisplay(theme);
+    };
+
+    // Update theme display
+    const updateThemeDisplay = (theme) => {
+      const themeNames = {
+        light: 'Light Mode ☀️',
+        dark: 'Dark Mode 🌙',
+        auto: 'Auto (System Preference) 🔄'
+      };
+      currentThemeDisplay.textContent = themeNames[theme] || themeNames.light;
+    };
+
+    // Toggle theme
+    const toggleTheme = () => {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      updateThemeDisplay(newTheme);
+    };
+
+    // Set specific theme
+    const setTheme = (theme) => {
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+      updateThemeDisplay(theme);
+    };
+
+    // Event listeners
+    themeToggle?.addEventListener('click', toggleTheme);
+    themeLight?.addEventListener('click', () => setTheme('light'));
+    themeDark?.addEventListener('click', () => setTheme('dark'));
+    themeAuto?.addEventListener('click', () => {
+      localStorage.removeItem('theme');
+      initTheme();
+    });
+
+    // Listen for system preference changes
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+      if (!localStorage.getItem('theme')) {
+        const theme = e.matches ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', theme);
+        updateThemeDisplay(theme);
+      }
+    });
+
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', initTheme);
+
+    // Modal functionality
+    const modals = {
+      small: document.getElementById('modalSmall'),
+      medium: document.getElementById('modalMedium'),
+      large: document.getElementById('modalLarge'),
+      confirm: document.getElementById('modalConfirm')
+    };
+
+    const openButtons = {
+      small: document.getElementById('openModalSmall'),
+      medium: document.getElementById('openModalMedium'),
+      large: document.getElementById('openModalLarge'),
+      confirm: document.getElementById('openModalConfirm')
+    };
+
+    // Open modal
+    const openModal = (modalId) => {
+      const modal = modals[modalId];
+      if (modal) {
+        modal.classList.add('modal--active');
+        document.body.style.overflow = 'hidden';
+        
+        // Focus first focusable element
+        const firstFocusable = modal.querySelector('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+        if (firstFocusable) {
+          setTimeout(() => firstFocusable.focus(), 100);
+        }
+      }
+    };
+
+    // Close modal
+    const closeModal = (modal) => {
+      if (modal && modal.classList.contains('modal--active')) {
+        modal.classList.remove('modal--active');
+        document.body.style.overflow = '';
+      }
+    };
+
+    // Setup modal listeners
+    Object.entries(openButtons).forEach(([key, button]) => {
+      button?.addEventListener('click', () => openModal(key));
+    });
+
+    Object.values(modals).forEach(modal => {
+      if (!modal) return;
+      
+      // Close button
+      const closeBtn = modal.querySelector('.modal__close');
+      closeBtn?.addEventListener('click', () => closeModal(modal));
+      
+      // Overlay click
+      const overlay = modal.querySelector('.modal__overlay');
+      overlay?.addEventListener('click', () => closeModal(modal));
+      
+      // Other close buttons
+      const closeButtons = modal.querySelectorAll('.modal-close-btn');
+      closeButtons.forEach(btn => {
+        btn.addEventListener('click', () => closeModal(modal));
+      });
+    });
+
+    // Esc key to close modals
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        Object.values(modals).forEach(modal => {
+          if (modal && modal.classList.contains('modal--active')) {
+            closeModal(modal);
+          }
+        });
+      }
+    });
+
+    // Alert dismiss functionality
+    document.querySelectorAll('.alert__close').forEach(button => {
+      button.addEventListener('click', (e) => {
+        const alert = e.target.closest('.alert');
+        if (alert) {
+          alert.style.opacity = '0';
+          alert.style.transform = 'translateY(-10px)';
+          setTimeout(() => {
+            alert.remove();
+          }, 200);
+        }
+      });
+    });
+
+    // Mobile menu toggle (if needed)
+    const navToggle = document.querySelector('.navbar__toggle');
+    const navMenu = document.querySelector('.navbar__menu');
+    
+    navToggle?.addEventListener('click', () => {
+      const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+      navToggle.setAttribute('aria-expanded', !isExpanded);
+      navMenu?.classList.toggle('navbar__menu--active');
+    });
+  </script>
+</body>
+</html>
