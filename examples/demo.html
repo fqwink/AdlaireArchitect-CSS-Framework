@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Adlaire Architect CSS Framework - Demo</title>
-  <meta name="description" content="Adlaire Architect CSS Framework のデモページ - Container Queries First、Pure CSS3、アクセシビリティファースト">
+  <title>Adlaire Architect CSS Framework v0.5.0 - Demo</title>
+  <meta name="description" content="Adlaire Architect CSS Framework v0.5.0 - Container Queries First、Pure CSS3、アクセシビリティファースト">
   
   <!-- Adlaire Architect CSS Framework -->
   <link rel="stylesheet" href="../src/adlaire-architect.css">
@@ -12,56 +12,70 @@
   <style>
     /* Demo page specific styles */
     body {
-      padding: 2rem 0;
-      background: linear-gradient(135deg, #00a968 0%, #3498db 50%, #40AAEF 100%);
+      padding: 0;
+      background: var(--aa-bg-primary);
       min-height: 100vh;
     }
     
-    .demo-header {
+    .demo-hero {
       text-align: center;
-      margin-bottom: 3rem;
+      padding: 6rem 2rem;
+      background: linear-gradient(135deg, #00a968 0%, #3498db 50%, #40AAEF 100%);
       color: white;
+      margin-bottom: 4rem;
     }
     
-    .demo-header h1 {
-      font-size: 3rem;
+    .demo-hero h1 {
+      font-size: 3.5rem;
       font-weight: 800;
-      margin-bottom: 0.5rem;
+      margin-bottom: 1rem;
       text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     }
     
-    .demo-header p {
-      font-size: 1.25rem;
-      opacity: 0.9;
+    .demo-hero p {
+      font-size: 1.5rem;
+      opacity: 0.95;
+      margin-bottom: 2rem;
+    }
+    
+    .demo-hero__version {
+      display: inline-block;
+      padding: 0.5rem 1.5rem;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 999px;
+      font-size: 1rem;
+      font-weight: 600;
+      backdrop-filter: blur(10px);
     }
     
     .demo-section {
-      background: white;
+      background: var(--aa-bg-secondary);
       border-radius: 1rem;
-      padding: 2rem;
-      margin-bottom: 2rem;
-      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+      padding: 3rem 2rem;
+      margin-bottom: 3rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border: 1px solid var(--aa-border-color);
     }
     
     .demo-section h2 {
-      font-size: 1.875rem;
+      font-size: 2rem;
       margin-bottom: 1.5rem;
-      color: #00a968;
-      border-bottom: 3px solid #00a968;
-      padding-bottom: 0.5rem;
+      color: var(--aa-brand-emerald-500);
+      border-bottom: 3px solid var(--aa-brand-emerald-500);
+      padding-bottom: 0.75rem;
     }
     
     .demo-section h3 {
-      font-size: 1.25rem;
+      font-size: 1.5rem;
       margin-top: 2rem;
       margin-bottom: 1rem;
-      color: #424242;
+      color: var(--aa-text-primary);
     }
     
     .demo-grid {
       display: grid;
-      gap: 1rem;
-      margin-bottom: 1.5rem;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
     }
     
     @media (min-width: 768px) {
@@ -70,487 +84,731 @@
       }
     }
     
-    .code-block {
-      background: #f5f5f5;
-      border: 1px solid #e0e0e0;
+    .component-preview {
+      padding: 2rem;
+      background: var(--aa-bg-tertiary);
       border-radius: 0.5rem;
-      padding: 1rem;
-      margin-top: 1rem;
-      overflow-x: auto;
+      border: 1px solid var(--aa-border-color);
+      margin-bottom: 2rem;
     }
     
-    .code-block code {
-      font-family: 'Courier New', monospace;
-      font-size: 0.875rem;
-      color: #d50000;
+    .feature-card {
+      background: var(--aa-bg-tertiary);
+      padding: 2rem;
+      border-radius: 0.75rem;
+      border: 2px solid var(--aa-border-color);
     }
     
-    .feature-badge {
-      display: inline-block;
-      background: #e6f7f0;
-      color: #00a968;
-      padding: 0.25rem 0.75rem;
-      border-radius: 1rem;
-      font-size: 0.875rem;
-      font-weight: 600;
-      margin-right: 0.5rem;
+    .feature-card h4 {
+      color: var(--aa-brand-emerald-500);
+      margin-top: 0;
+      font-size: 1.25rem;
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    
+    .stat-item {
+      text-align: center;
+      padding: 1.5rem;
+      background: var(--aa-bg-tertiary);
+      border-radius: 0.5rem;
+      border: 1px solid var(--aa-border-color);
+    }
+    
+    .stat-item__value {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--aa-brand-emerald-500);
       margin-bottom: 0.5rem;
+    }
+    
+    .stat-item__label {
+      font-size: 0.875rem;
+      color: var(--aa-text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
   </style>
 </head>
 <body>
   
-  <!-- Header -->
-  <div class="adlaire-container-3xl">
-    <div class="demo-header">
-      <h1>🎨 Adlaire Architect CSS Framework</h1>
-      <p>Container Queries First · Pure CSS3 · Accessibility First</p>
-      <p style="font-size: 1rem; margin-top: 1rem;">
-        <span class="feature-badge">Version 0.1.0</span>
-        <span class="feature-badge">Development</span>
-        <span class="feature-badge">MIT License (予定)</span>
-      </p>
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar--sticky" role="navigation" aria-label="Main navigation">
+    <div class="navbar__container">
+      <div class="navbar__brand">
+        <a href="/" class="navbar__logo">
+          <span style="color: var(--aa-brand-emerald-500); font-weight: 800; font-size: 1.5rem;">Adlaire</span>
+        </a>
+      </div>
+      
+      <button class="navbar__toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="navbar__toggle-icon"></span>
+      </button>
+      
+      <ul class="navbar__menu" role="menubar">
+        <li class="navbar__item" role="none">
+          <a href="#components" class="navbar__link" role="menuitem">Components</a>
+        </li>
+        <li class="navbar__item" role="none">
+          <a href="#features" class="navbar__link" role="menuitem">Features</a>
+        </li>
+        <li class="navbar__item" role="none">
+          <a href="#documentation" class="navbar__link navbar__dropdown-trigger" role="menuitem" aria-haspopup="true">
+            Documentation
+          </a>
+          <ul class="navbar__dropdown" role="menu">
+            <li role="none"><a href="#getting-started" class="navbar__dropdown-item" role="menuitem">Getting Started</a></li>
+            <li role="none"><a href="../docs/" class="navbar__dropdown-item" role="menuitem">Specifications</a></li>
+            <li role="none"><a href="./forms-demo.html" class="navbar__dropdown-item" role="menuitem">Forms Demo</a></li>
+            <li role="none"><a href="./complete-demo.html" class="navbar__dropdown-item" role="menuitem">Complete Demo</a></li>
+          </ul>
+        </li>
+      </ul>
+      
+      <div class="navbar__actions">
+        <button id="theme-toggle" class="btn btn--ghost btn--sm" aria-label="Toggle dark mode">
+          <span class="theme-icon theme-icon--light" aria-hidden="true">☀️</span>
+          <span class="theme-icon theme-icon--dark" aria-hidden="true">🌙</span>
+        </button>
+        <a href="https://github.com/fqwink/AdlaireArchitect-CSS-Framework" class="btn btn--primary btn--sm" target="_blank" rel="noopener">
+          GitHub
+        </a>
+      </div>
     </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <div class="demo-hero">
+    <h1>🎨 Adlaire Architect</h1>
+    <p>Container Queries First · Pure CSS3 · Accessibility First</p>
+    <span class="demo-hero__version">v0.5.0 - Apache 2.0</span>
+  </div>
+  
+  <!-- Breadcrumb -->
+  <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 2rem; margin-bottom: 2rem;">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol class="breadcrumb__list">
+        <li class="breadcrumb__item">
+          <a href="/" class="breadcrumb__link">Home</a>
+        </li>
+        <li class="breadcrumb__item">
+          <a href="/examples" class="breadcrumb__link">Examples</a>
+        </li>
+        <li class="breadcrumb__item breadcrumb__item--current">
+          <span class="breadcrumb__text">Demo</span>
+        </li>
+      </ol>
+    </nav>
   </div>
   
   <!-- Main Content -->
-  <div class="adlaire-container-3xl">
+  <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
+    
+    <!-- Stats Section -->
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-item__value">9</div>
+        <div class="stat-item__label">Components</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-item__value">500+</div>
+        <div class="stat-item__label">Variants</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-item__value">25KB</div>
+        <div class="stat-item__label">Gzipped</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-item__value">AAA</div>
+        <div class="stat-item__label">WCAG 2.1</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-item__value">0</div>
+        <div class="stat-item__label">Dependencies</div>
+      </div>
+    </div>
+    
+    <!-- Alert Examples -->
+    <section class="demo-section" id="alerts">
+      <h2>🔔 Alert / Notification Component</h2>
+      
+      <div class="alert alert--success alert--dismissible" style="margin-bottom: 1rem;">
+        <div class="alert__icon" aria-hidden="true">✓</div>
+        <div class="alert__content">
+          <div class="alert__title">Success!</div>
+          <div class="alert__message">Your changes have been saved successfully.</div>
+        </div>
+        <button class="alert__close" aria-label="Close alert">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      
+      <div class="alert alert--error" style="margin-bottom: 1rem;">
+        <div class="alert__icon" aria-hidden="true">✕</div>
+        <div class="alert__content">
+          <div class="alert__title">Error</div>
+          <div class="alert__message">Failed to process your request.</div>
+        </div>
+        <div class="alert__actions">
+          <button class="btn btn--sm btn--error">Retry</button>
+        </div>
+      </div>
+      
+      <div class="alert alert--warning" style="margin-bottom: 1rem;">
+        <div class="alert__icon" aria-hidden="true">⚠</div>
+        <div class="alert__content">
+          <div class="alert__title">Warning</div>
+          <div class="alert__message">Your session will expire in 5 minutes.</div>
+        </div>
+      </div>
+      
+      <div class="alert alert--info alert--outlined">
+        <div class="alert__icon" aria-hidden="true">ℹ</div>
+        <div class="alert__content">
+          <div class="alert__title">Information</div>
+          <div class="alert__message">New features are available. Check them out!</div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Card Examples -->
+    <section class="demo-section" id="cards">
+      <h2>🎴 Card Component</h2>
+      
+      <div class="grid grid--cols-3 grid--gap-4">
+        <div class="card">
+          <div class="card__header">
+            <h3 class="card__title">Basic Card</h3>
+            <p class="card__subtitle">Simple card example</p>
+          </div>
+          <div class="card__body">
+            <p>This is a basic card with header, body, and footer sections.</p>
+          </div>
+          <div class="card__footer">
+            <button class="btn btn--primary btn--sm">Action</button>
+          </div>
+        </div>
+        
+        <div class="card card--interactive">
+          <div class="card__header">
+            <h3 class="card__title">Interactive Card</h3>
+          </div>
+          <div class="card__body">
+            <p>Hover over this card to see the interactive effect!</p>
+          </div>
+          <div class="card__footer">
+            <a href="#" class="card__link">Learn more →</a>
+          </div>
+        </div>
+        
+        <div class="card card--brand-emerald">
+          <div class="card__header">
+            <h3 class="card__title">Brand Card</h3>
+          </div>
+          <div class="card__body">
+            <p>Uses Emerald brand color with proper contrast.</p>
+          </div>
+          <div class="card__footer">
+            <button class="btn btn--primary btn--sm">Get Started</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Grid System -->
+    <section class="demo-section" id="grid">
+      <h2>📐 Grid System</h2>
+      
+      <h3>3 Column Grid</h3>
+      <div class="grid grid--cols-3 grid--gap-4" style="margin-bottom: 2rem;">
+        <div style="padding: 2rem; background: var(--aa-brand-emerald-100); border-radius: 8px; text-align: center; color: var(--aa-brand-emerald-900);">
+          Column 1
+        </div>
+        <div style="padding: 2rem; background: var(--aa-brand-blue-100); border-radius: 8px; text-align: center; color: var(--aa-brand-blue-900);">
+          Column 2
+        </div>
+        <div style="padding: 2rem; background: var(--aa-brand-summer-100); border-radius: 8px; text-align: center; color: var(--aa-brand-summer-900);">
+          Column 3
+        </div>
+      </div>
+      
+      <h3>Auto-fit Grid (Responsive)</h3>
+      <div class="grid grid--auto-fit grid--gap-3">
+        <div style="padding: 1.5rem; background: var(--aa-brand-emerald-50); border: 2px solid var(--aa-brand-emerald-200); border-radius: 8px; text-align: center;">
+          Auto 1
+        </div>
+        <div style="padding: 1.5rem; background: var(--aa-brand-blue-50); border: 2px solid var(--aa-brand-blue-200); border-radius: 8px; text-align: center;">
+          Auto 2
+        </div>
+        <div style="padding: 1.5rem; background: var(--aa-brand-summer-50); border: 2px solid var(--aa-brand-summer-200); border-radius: 8px; text-align: center;">
+          Auto 3
+        </div>
+        <div style="padding: 1.5rem; background: var(--aa-brand-solitude-50); border: 2px solid var(--aa-brand-solitude-200); border-radius: 8px; text-align: center;">
+          Auto 4
+        </div>
+      </div>
+    </section>
     
     <!-- Typography Section -->
-    <section class="demo-section">
+    <section class="demo-section" id="typography">
       <h2>✍️ Typography System</h2>
       
-      <h3>Headings</h3>
-      <div style="margin-bottom: 2rem;">
-        <h1 style="margin-bottom: 0.5rem;">Heading 1 - The quick brown fox</h1>
-        <h2 style="margin-bottom: 0.5rem;">Heading 2 - The quick brown fox</h2>
-        <h3 style="margin-bottom: 0.5rem;">Heading 3 - The quick brown fox</h3>
-        <h4 style="margin-bottom: 0.5rem;">Heading 4 - The quick brown fox</h4>
-        <h5 style="margin-bottom: 0.5rem;">Heading 5 - The quick brown fox</h5>
-        <h6 style="margin-bottom: 0.5rem;">Heading 6 - The quick brown fox</h6>
-      </div>
-      
-      <h3>Heading Color Variants</h3>
-      <div style="margin-bottom: 2rem;">
-        <h2 style="margin-bottom: 0.5rem;">Default Heading</h2>
-        <h2 class="adlaire-heading--brand" style="margin-bottom: 0.5rem;">Brand Heading (Emerald Green)</h2>
-        <h2 class="adlaire-heading--secondary" style="margin-bottom: 0.5rem;">Secondary Heading (Blue Sky)</h2>
-        <h2 class="adlaire-heading--muted" style="margin-bottom: 0.5rem;">Muted Heading</h2>
-      </div>
-      
-      <h3>Paragraphs</h3>
-      <div style="margin-bottom: 2rem;">
-        <p class="adlaire-lead">
-          Lead paragraph: Adlaire-Architect-CSS-Framework は、Adlaire Group DX事業セグメントグループが開発する、モダンで軽量なCSSフレームワークです。
-        </p>
-        <p>
-          Default paragraph: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
-        </p>
-        <p class="adlaire-paragraph--large">
-          Large paragraph: Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-        </p>
-        <p class="adlaire-paragraph--small">
-          Small paragraph: Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </p>
-      </div>
-      
-      <h3>Links</h3>
-      <div style="margin-bottom: 2rem;">
-        <p>
-          This is a <a href="#">default link</a> with underline.<br>
-          This is a <a href="#" class="adlaire-link--secondary">secondary link</a> (Blue Sky).<br>
-          This is a <a href="#" class="adlaire-link--muted">muted link</a> without underline.
-        </p>
-      </div>
-      
-      <h3>Lists</h3>
-      <div class="demo-grid">
-        <div>
-          <h4 style="font-size: 1rem; margin-bottom: 0.5rem;">Unordered List</h4>
-          <ul>
-            <li>First item</li>
-            <li>Second item</li>
-            <li>Third item
-              <ul>
-                <li>Nested item 1</li>
-                <li>Nested item 2</li>
-              </ul>
-            </li>
-          </ul>
-        </div>
+      <div class="component-preview">
+        <h1 class="heading-1">Heading 1 - The quick brown fox</h1>
+        <h2 class="heading-2">Heading 2 - The quick brown fox</h2>
+        <h3 class="heading-3">Heading 3 - The quick brown fox</h3>
+        <h4 class="heading-4">Heading 4 - The quick brown fox</h4>
         
-        <div>
-          <h4 style="font-size: 1rem; margin-bottom: 0.5rem;">Ordered List</h4>
-          <ol>
-            <li>First step</li>
-            <li>Second step</li>
-            <li>Third step</li>
-          </ol>
-        </div>
-        
-        <div>
-          <h4 style="font-size: 1rem; margin-bottom: 0.5rem;">Brand List</h4>
-          <ul class="adlaire-list--brand">
-            <li>Emerald Green bullets</li>
-            <li>Second item</li>
-            <li>Third item</li>
-          </ul>
-        </div>
-      </div>
-      
-      <h3>Code & Preformatted</h3>
-      <p>
-        Inline code example: <code>const name = 'Adlaire';</code>
-      </p>
-      <pre><code>// Code block example
-function greet(name) {
-  console.log(`Hello, ${name}!`);
-}
-
-greet('Adlaire Group');</code></pre>
-      
-      <h3>Blockquote</h3>
-      <blockquote>
-        "Adlaire-Architect-CSS-Framework は、Container Queries First、Pure CSS3、アクセシビリティファーストを実現した、次世代CSSフレームワークです。"
-        <cite>Adlaire Group DX Team</cite>
-      </blockquote>
-      
-      <h3>Text Utilities</h3>
-      <div style="margin-bottom: 1rem;">
-        <p class="adlaire-text--brand adlaire-font--bold">Brand colored bold text (Emerald Green)</p>
-        <p class="adlaire-text--secondary">Secondary colored text (Blue Sky)</p>
-        <p class="adlaire-text--success">Success colored text (Solitude)</p>
-        <p class="adlaire-text--error">Error colored text</p>
-      </div>
-      
-      <div style="margin-bottom: 1rem;">
-        <p class="adlaire-text--xs">Extra small text</p>
-        <p class="adlaire-text--sm">Small text</p>
-        <p class="adlaire-text--base">Base text</p>
-        <p class="adlaire-text--lg">Large text</p>
-        <p class="adlaire-text--xl">Extra large text</p>
-      </div>
-      
-      <div>
-        <p class="adlaire-text--uppercase">Uppercase text</p>
-        <p class="adlaire-text--lowercase">LOWERCASE TEXT</p>
-        <p class="adlaire-text--capitalize">capitalize text</p>
-      </div>
-      
-      <hr class="adlaire-divider">
-      
-      <div style="background: #e6f7f0; padding: 1.5rem; border-radius: 0.5rem; border-left: 4px solid #00a968;">
-        <h4 style="margin-top: 0; color: #00a968;">✨ Typography System Complete</h4>
-        <p style="margin-bottom: 0; color: #424242;">
-          統一されたタイポグラフィシステムにより、Adlaireブランドの一貫性が保たれます。
-          すべてのテキスト要素が美しく、読みやすく表示されます。
+        <p class="text-lg" style="margin-top: 2rem;">
+          Large text - Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        </p>
+        <p class="text-base">
+          Base text - Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        </p>
+        <p class="text-sm">
+          Small text - Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         </p>
       </div>
     </section>
     
     <!-- Buttons Section -->
-    <section class="demo-section">
-      <h2>📦 Buttons Component</h2>
+    <section class="demo-section" id="buttons">
+      <h2>🔘 Button Component</h2>
       
-      <h3>Basic Buttons</h3>
+      <h3>Button Variants</h3>
       <div class="demo-grid">
-        <button class="adlaire-button">Primary Button</button>
-        <button class="adlaire-button adlaire-button--secondary">Secondary Button</button>
-        <button class="adlaire-button adlaire-button--success">Success Button</button>
-        <button class="adlaire-button adlaire-button--warning">Warning Button</button>
-        <button class="adlaire-button adlaire-button--error">Error Button</button>
-        <button class="adlaire-button adlaire-button--info">Info Button</button>
+        <button class="btn btn--primary">Primary</button>
+        <button class="btn btn--secondary">Secondary</button>
+        <button class="btn btn--success">Success</button>
+        <button class="btn btn--error">Error</button>
+        <button class="btn btn--warning">Warning</button>
+        <button class="btn btn--ghost">Ghost</button>
       </div>
       
       <h3>Button Sizes</h3>
-      <div class="demo-grid">
-        <button class="adlaire-button adlaire-button--xs">Extra Small</button>
-        <button class="adlaire-button adlaire-button--small">Small Button</button>
-        <button class="adlaire-button">Base Size</button>
-        <button class="adlaire-button adlaire-button--large">Large Button</button>
-        <button class="adlaire-button adlaire-button--xl">Extra Large</button>
-      </div>
-      
-      <h3>Button Styles</h3>
-      <div class="demo-grid">
-        <button class="adlaire-button">Solid (Default)</button>
-        <button class="adlaire-button adlaire-button--outline">Outline Button</button>
-        <button class="adlaire-button adlaire-button--ghost">Ghost Button</button>
-        <button class="adlaire-button adlaire-button--link">Link Button</button>
-      </div>
-      
-      <h3>Outline Variants</h3>
-      <div class="demo-grid">
-        <button class="adlaire-button adlaire-button--outline">Primary Outline</button>
-        <button class="adlaire-button adlaire-button--outline adlaire-button--secondary">Secondary Outline</button>
-        <button class="adlaire-button adlaire-button--outline adlaire-button--success">Success Outline</button>
-        <button class="adlaire-button adlaire-button--outline adlaire-button--error">Error Outline</button>
+      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; margin-bottom: 2rem;">
+        <button class="btn btn--primary btn--xs">Extra Small</button>
+        <button class="btn btn--primary btn--sm">Small</button>
+        <button class="btn btn--primary">Base</button>
+        <button class="btn btn--primary btn--lg">Large</button>
+        <button class="btn btn--primary btn--xl">Extra Large</button>
       </div>
       
       <h3>Button States</h3>
       <div class="demo-grid">
-        <button class="adlaire-button">Normal State</button>
-        <button class="adlaire-button is-loading">Loading State</button>
-        <button class="adlaire-button is-active">Active State</button>
-        <button class="adlaire-button" disabled>Disabled State</button>
-      </div>
-      
-      <h3>Block Button</h3>
-      <button class="adlaire-button adlaire-button--block adlaire-button--large">Full Width Button</button>
-      
-      <h3>Button Group</h3>
-      <div class="adlaire-button-group">
-        <button class="adlaire-button">Left</button>
-        <button class="adlaire-button">Center</button>
-        <button class="adlaire-button">Right</button>
-      </div>
-      
-      <div class="code-block">
-        <code>
-&lt;button class="adlaire-button"&gt;Primary Button&lt;/button&gt;<br>
-&lt;button class="adlaire-button adlaire-button--outline"&gt;Outline Button&lt;/button&gt;<br>
-&lt;button class="adlaire-button adlaire-button--large"&gt;Large Button&lt;/button&gt;<br>
-&lt;button class="adlaire-button is-loading"&gt;Loading...&lt;/button&gt;
-        </code>
+        <button class="btn btn--primary">Normal</button>
+        <button class="btn btn--primary btn--loading">Loading...</button>
+        <button class="btn btn--primary" disabled>Disabled</button>
       </div>
     </section>
     
-    <!-- Container Section -->
-    <section class="demo-section">
-      <h2>🎨 Adlaire Brand Colors</h2>
+    <!-- Form Components -->
+    <section class="demo-section" id="forms">
+      <h2>📝 Form Components</h2>
       
-      <h3>Official Brand Color Palette</h3>
-      <p>Adlaire Groupの公式ブランドカラーが完全に適用されました。</p>
-      
-      <div style="display: grid; gap: 1rem; margin-top: 1.5rem;">
-        
-        <!-- Emerald Green -->
-        <div style="display: flex; align-items: center; gap: 1rem; padding: 1rem; background: white; border-radius: 0.5rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-          <div style="width: 80px; height: 80px; background: #00a968; border-radius: 0.5rem; box-shadow: 0 2px 8px rgba(0,169,104,0.3);"></div>
-          <div style="flex: 1;">
-            <h4 style="margin: 0 0 0.5rem 0; color: #00a968; font-size: 1.25rem;">Emerald Green</h4>
-            <p style="margin: 0; color: #666; font-size: 0.875rem;">エメラルドグリーン - Primary Brand Color</p>
-            <code style="display: block; margin-top: 0.5rem; color: #00a968; font-weight: 600;">#00a968</code>
+      <div class="component-preview">
+        <form style="max-width: 600px;">
+          <div class="form-group">
+            <label class="form-label form-label--required" for="name">Full Name</label>
+            <input type="text" id="name" class="form-input" placeholder="Enter your name" required>
           </div>
-        </div>
-        
-        <!-- Blue Sky -->
-        <div style="display: flex; align-items: center; gap: 1rem; padding: 1rem; background: white; border-radius: 0.5rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-          <div style="width: 80px; height: 80px; background: #3498db; border-radius: 0.5rem; box-shadow: 0 2px 8px rgba(52,152,219,0.3);"></div>
-          <div style="flex: 1;">
-            <h4 style="margin: 0 0 0.5rem 0; color: #3498db; font-size: 1.25rem;">Blue Sky</h4>
-            <p style="margin: 0; color: #666; font-size: 0.875rem;">ブルースカイ - Secondary Color</p>
-            <code style="display: block; margin-top: 0.5rem; color: #3498db; font-weight: 600;">#3498db</code>
+          
+          <div class="form-group">
+            <label class="form-label" for="email">Email</label>
+            <input type="email" id="email" class="form-input form-input--success" placeholder="your@email.com" value="user@example.com">
+            <span class="form-message form-message--success">✓ Valid email</span>
           </div>
-        </div>
-        
-        <!-- Summer Sky -->
-        <div style="display: flex; align-items: center; gap: 1rem; padding: 1rem; background: white; border-radius: 0.5rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-          <div style="width: 80px; height: 80px; background: #40AAEF; border-radius: 0.5rem; box-shadow: 0 2px 8px rgba(64,170,239,0.3);"></div>
-          <div style="flex: 1;">
-            <h4 style="margin: 0 0 0.5rem 0; color: #40AAEF; font-size: 1.25rem;">Summer Sky</h4>
-            <p style="margin: 0; color: #666; font-size: 0.875rem;">サマースカイ - Accent Color</p>
-            <code style="display: block; margin-top: 0.5rem; color: #40AAEF; font-weight: 600;">#40AAEF</code>
+          
+          <div class="form-group">
+            <label class="form-label">Preferences</label>
+            <label class="form-checkbox">
+              <input type="checkbox" checked>
+              <span class="form-checkbox__label">Email notifications</span>
+            </label>
+            <label class="form-checkbox">
+              <input type="checkbox">
+              <span class="form-checkbox__label">SMS notifications</span>
+            </label>
           </div>
-        </div>
-        
-        <!-- Solitude -->
-        <div style="display: flex; align-items: center; gap: 1rem; padding: 1rem; background: white; border-radius: 0.5rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-          <div style="width: 80px; height: 80px; background: #58BE89; border-radius: 0.5rem; box-shadow: 0 2px 8px rgba(88,190,137,0.3);"></div>
-          <div style="flex: 1;">
-            <h4 style="margin: 0 0 0.5rem 0; color: #58BE89; font-size: 1.25rem;">Solitude</h4>
-            <p style="margin: 0; color: #666; font-size: 0.875rem;">ソリチュード - Success Color</p>
-            <code style="display: block; margin-top: 0.5rem; color: #58BE89; font-weight: 600;">#58BE89</code>
+          
+          <div style="display: flex; gap: 1rem;">
+            <button type="submit" class="btn btn--primary">Submit</button>
+            <button type="button" class="btn btn--secondary">Cancel</button>
           </div>
-        </div>
-        
-        <!-- White Rat & Silver Tree -->
-        <div style="display: flex; align-items: center; gap: 1rem; padding: 1rem; background: white; border-radius: 0.5rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-          <div style="display: flex; gap: 0.5rem;">
-            <div style="width: 60px; height: 80px; background: #ecf0f1; border-radius: 0.5rem; border: 1px solid #ddd;"></div>
-            <div style="width: 60px; height: 80px; background: #ECEEF1; border-radius: 0.5rem; border: 1px solid #ddd;"></div>
-          </div>
-          <div style="flex: 1;">
-            <h4 style="margin: 0 0 0.5rem 0; color: #5D6D7E; font-size: 1.25rem;">White Rat & Silver Tree</h4>
-            <p style="margin: 0; color: #666; font-size: 0.875rem;">ホワイトラット & シルバーツリー - Neutral Colors</p>
-            <code style="display: block; margin-top: 0.5rem; color: #5D6D7E; font-weight: 600;">#ecf0f1 / #ECEEF1</code>
-          </div>
-        </div>
-        
-      </div>
-      
-      <div style="background: #e6f7f0; padding: 1.5rem; border-radius: 0.5rem; margin-top: 1.5rem; border-left: 4px solid #00a968;">
-        <h4 style="margin-top: 0; color: #00a968;">✨ Brand Colors Applied</h4>
-        <p style="margin-bottom: 0; color: #424242;">
-          Adlaire Groupの公式ブランドカラーがフレームワーク全体に適用されました。すべてのコンポーネントでこれらのカラーが使用されます。
-          詳細は <a href="../docs/brand-colors.md" style="color: #00a968; font-weight: 600;">Brand Color Guide</a> を参照してください。
-        </p>
+        </form>
       </div>
     </section>
     
-    <!-- Container Section -->
-    <section class="demo-section">
-      <h2>📐 Container System</h2>
+    <!-- Modal Demo -->
+    <section class="demo-section" id="modal-demo">
+      <h2>💬 Modal / Dialog Component</h2>
       
-      <h3>Container Queries Support</h3>
-      <p>このフレームワークは、最新のContainer Queriesを活用し、コンポーネント単位でレスポンシブデザインを実現します。</p>
+      <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+        <button id="openModal" class="btn btn--primary">Open Modal</button>
+        <button id="openModalLarge" class="btn btn--secondary">Large Modal</button>
+        <button id="openModalConfirm" class="btn btn--error">Confirmation</button>
+      </div>
+    </section>
+    
+    <!-- Dark Mode Section -->
+    <section class="demo-section" id="dark-mode">
+      <h2>🌙 Dark Mode Theme</h2>
       
-      <div class="adlaire-container" style="background: #e6f7f0; padding: 2rem; border-radius: 0.5rem; margin-top: 1rem;">
-        <p style="margin: 0; color: #00a968; font-weight: 600;">
-          ✨ このコンテナはContainer Query対応です
-        </p>
-        <p style="margin-top: 0.5rem; color: #424242;">
-          コンテナのサイズに応じて、内部のコンポーネントが自動的に調整されます。
-        </p>
-      </div>
-      
-      <h3>Max Width Containers</h3>
-      <div class="adlaire-container-sm" style="background: #fff3e0; padding: 1rem; border-radius: 0.5rem; margin-bottom: 1rem;">
-        <code>.adlaire-container-sm</code> - Small Container (max-width: 384px)
-      </div>
-      <div class="adlaire-container-md" style="background: #e8f5e9; padding: 1rem; border-radius: 0.5rem; margin-bottom: 1rem;">
-        <code>.adlaire-container-md</code> - Medium Container (max-width: 448px)
-      </div>
-      <div class="adlaire-container-lg" style="background: #fce4ec; padding: 1rem; border-radius: 0.5rem;">
-        <code>.adlaire-container-lg</code> - Large Container (max-width: 512px)
+      <div class="feature-card">
+        <h4>Current Theme</h4>
+        <p id="current-theme-display" style="color: var(--aa-text-secondary); margin-bottom: 1.5rem;">Light Mode</p>
+        
+        <h4>Theme Controls</h4>
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+          <button id="theme-light" class="btn btn--secondary btn--sm">☀️ Light</button>
+          <button id="theme-dark" class="btn btn--secondary btn--sm">🌙 Dark</button>
+          <button id="theme-auto" class="btn btn--secondary btn--sm">🔄 Auto</button>
+        </div>
+        
+        <ul style="margin-top: 1.5rem; color: var(--aa-text-secondary); list-style: disc; padding-left: 1.5rem;">
+          <li>System preference detection</li>
+          <li>LocalStorage persistence</li>
+          <li>Smooth 200ms transitions</li>
+          <li>WCAG 2.1 AAA in both modes</li>
+        </ul>
       </div>
     </section>
     
     <!-- Features Section -->
-    <section class="demo-section">
+    <section class="demo-section" id="features">
       <h2>✨ Framework Features</h2>
       
-      <h3>🎯 差別化の4本柱</h3>
-      
-      <div style="display: grid; gap: 1.5rem; margin-top: 1.5rem;">
-        
-        <div style="background: #e6f7f0; padding: 1.5rem; border-radius: 0.5rem; border-left: 4px solid #00a968;">
-          <h4 style="margin-top: 0; color: #00a968;">1. Adlaire Group専用デザイントークン</h4>
-          <p style="margin-bottom: 0;">
-            ✅ <strong>完全適用済み</strong> - Adlaire Group公式ブランドカラー（Emerald Green, Blue Sky, Summer Sky等）が統合されました。
-          </p>
+      <div class="grid grid--cols-2 grid--gap-4">
+        <div class="feature-card">
+          <h4>🎨 Design System</h4>
+          <ul style="color: var(--aa-text-secondary); list-style: disc; padding-left: 1.5rem;">
+            <li>Official Adlaire brand colors</li>
+            <li>150+ design tokens</li>
+            <li>Consistent 8pt grid spacing</li>
+            <li>Typography scale</li>
+          </ul>
         </div>
         
-        <div style="background: #e8f5e9; padding: 1.5rem; border-radius: 0.5rem; border-left: 4px solid #4caf50;">
-          <h4 style="margin-top: 0; color: #2e7d32;">2. Container Queries First 設計</h4>
-          <p style="margin-bottom: 0;">
-            2026年の最新技術を活用。コンポーネント単位でのレスポンシブ対応により、真の再利用性を実現。
-          </p>
+        <div class="feature-card">
+          <h4>♿ Accessibility</h4>
+          <ul style="color: var(--aa-text-secondary); list-style: disc; padding-left: 1.5rem;">
+            <li>WCAG 2.1 AAA compliance</li>
+            <li>7:1 contrast ratios</li>
+            <li>Full keyboard navigation</li>
+            <li>Screen reader support</li>
+          </ul>
         </div>
         
-        <div style="background: #fff3e0; padding: 1.5rem; border-radius: 0.5rem; border-left: 4px solid #ff9800;">
-          <h4 style="margin-top: 0; color: #ef6c00;">3. 極限の軽量性</h4>
-          <p style="margin-bottom: 0;">
-            Core CSS < 8KB、モジュラー設計により必要なものだけを読み込み。競合の3倍以上軽量。
-          </p>
+        <div class="feature-card">
+          <h4>📱 Responsive</h4>
+          <ul style="color: var(--aa-text-secondary); list-style: disc; padding-left: 1.5rem;">
+            <li>Container Queries First</li>
+            <li>Mobile-first approach</li>
+            <li>Flexible grid system</li>
+            <li>Adaptive components</li>
+          </ul>
         </div>
         
-        <div style="background: #fce4ec; padding: 1.5rem; border-radius: 0.5rem; border-left: 4px solid #e91e63;">
-          <h4 style="margin-top: 0; color: #c2185b;">4. アクセシビリティファースト</h4>
-          <p style="margin-bottom: 0;">
-            WCAG 2.1 AAA準拠を標準。すべてのコンポーネントで、カラーコントラスト7:1以上、完全なキーボードナビゲーション対応。
-          </p>
+        <div class="feature-card">
+          <h4>⚡ Performance</h4>
+          <ul style="color: var(--aa-text-secondary); list-style: disc; padding-left: 1.5rem;">
+            <li>~25 KB gzipped bundle</li>
+            <li>Pure CSS3, minimal JS</li>
+            <li>Zero dependencies</li>
+            <li>Tree-shakeable</li>
+          </ul>
         </div>
-        
       </div>
-      
-      <h3 style="margin-top: 2rem;">🚀 Technology Stack</h3>
-      <ul style="columns: 2; column-gap: 2rem;">
-        <li>Pure CSS3のみ（プリプロセッサ不要）</li>
-        <li>CSS Custom Properties</li>
-        <li>Container Queries</li>
-        <li>CSS Grid & Flexbox</li>
-        <li>CSS Subgrid</li>
-        <li>CSS Layers (@layer)</li>
-        <li>BEM命名規則</li>
-        <li>Progressive Enhancement</li>
-      </ul>
     </section>
     
-    <!-- Status Section -->
+    <!-- Brand Colors -->
     <section class="demo-section">
-      <h2>📊 Development Status</h2>
+      <h2>🎨 Adlaire Brand Colors</h2>
       
-      <h3>✅ Completed</h3>
-      <ul>
-        <li>CSSフレームワーク動向調査 (2026年版)</li>
-        <li>技術仕様策定</li>
-        <li>デザイントークンシステム設計</li>
-        <li>Core CSS実装 (Reset, Layers)</li>
-        <li>Container System実装</li>
-        <li>Button Component実装</li>
-      </ul>
-      
-      <h3>🔄 In Progress</h3>
-      <ul>
-        <li>Adlaire Groupブランドカラー確定待ち</li>
-        <li>追加コンポーネント開発</li>
-        <li>ユーティリティクラス実装</li>
-      </ul>
-      
-      <h3>⏳ Upcoming</h3>
-      <ul>
-        <li>Form Components</li>
-        <li>Card Component</li>
-        <li>Navigation Component</li>
-        <li>Modal Component</li>
-        <li>Grid System</li>
-        <li>Typography System</li>
-        <li>Dark Mode Theme</li>
-        <li>High Contrast Theme</li>
-        <li>公式ドキュメントサイト</li>
-        <li>npm パッケージ公開</li>
-      </ul>
-    </section>
-    
-    <!-- Next Steps Section -->
-    <section class="demo-section">
-      <h2>🎯 Next Steps</h2>
-      
-      <div style="background: #fff9c4; padding: 1.5rem; border-radius: 0.5rem; border-left: 4px solid #fdd835;">
-        <h3 style="margin-top: 0;">即座に必要な情報</h3>
-        <ol>
-          <li><strong>Adlaire Groupブランドカラー</strong>
-            <ul>
-              <li>プライマリカラー（HEX値）</li>
-              <li>セカンダリカラー</li>
-              <li>アクセントカラー</li>
-              <li>既存のカラーパレット</li>
-            </ul>
-          </li>
-          <li><strong>ライセンス承認</strong>
-            <ul>
-              <li>MIT License で進めてよいか確認</li>
-            </ul>
-          </li>
-          <li><strong>優先コンポーネント</strong>
-            <ul>
-              <li>最初に実装すべきコンポーネントの優先順位</li>
-            </ul>
-          </li>
-        </ol>
-      </div>
-      
-      <div style="margin-top: 1.5rem; text-align: center;">
-        <button class="adlaire-button adlaire-button--large adlaire-button--success">
-          ✓ Ready to Start Development
-        </button>
+      <div style="display: grid; gap: 1.5rem;">
+        <div style="display: flex; align-items: center; gap: 1rem; padding: 1.5rem; background: var(--aa-bg-tertiary); border-radius: 0.5rem; border: 1px solid var(--aa-border-color);">
+          <div style="width: 80px; height: 80px; background: #00a968; border-radius: 0.5rem; flex-shrink: 0;"></div>
+          <div>
+            <h4 style="margin: 0 0 0.5rem 0; color: #00a968;">Emerald Green</h4>
+            <p style="margin: 0; color: var(--aa-text-secondary); font-size: 0.875rem;">Primary Brand Color</p>
+            <code style="color: var(--aa-text-muted); font-size: 0.875rem;">#00a968</code>
+          </div>
+        </div>
+        
+        <div style="display: flex; align-items: center; gap: 1rem; padding: 1.5rem; background: var(--aa-bg-tertiary); border-radius: 0.5rem; border: 1px solid var(--aa-border-color);">
+          <div style="width: 80px; height: 80px; background: #3498db; border-radius: 0.5rem; flex-shrink: 0;"></div>
+          <div>
+            <h4 style="margin: 0 0 0.5rem 0; color: #3498db;">Blue Sky</h4>
+            <p style="margin: 0; color: var(--aa-text-secondary); font-size: 0.875rem;">Secondary Color</p>
+            <code style="color: var(--aa-text-muted); font-size: 0.875rem;">#3498db</code>
+          </div>
+        </div>
+        
+        <div style="display: flex; align-items: center; gap: 1rem; padding: 1.5rem; background: var(--aa-bg-tertiary); border-radius: 0.5rem; border: 1px solid var(--aa-border-color);">
+          <div style="width: 80px; height: 80px; background: #40AAEF; border-radius: 0.5rem; flex-shrink: 0;"></div>
+          <div>
+            <h4 style="margin: 0 0 0.5rem 0; color: #40AAEF;">Summer Sky</h4>
+            <p style="margin: 0; color: var(--aa-text-secondary); font-size: 0.875rem;">Accent Color</p>
+            <code style="color: var(--aa-text-muted); font-size: 0.875rem;">#40AAEF</code>
+          </div>
+        </div>
       </div>
     </section>
     
   </div>
   
   <!-- Footer -->
-  <div class="adlaire-container-3xl" style="margin-top: 3rem;">
-    <div style="text-align: center; color: white; opacity: 0.8;">
-      <p style="margin: 0;">
-        <strong>Adlaire Architect CSS Framework</strong> v0.1.0
+  <footer style="background: var(--aa-bg-secondary); padding: 3rem 0; margin-top: 4rem; border-top: 1px solid var(--aa-border-color);">
+    <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 2rem; text-align: center;">
+      <p style="color: var(--aa-text-secondary); margin-bottom: 0.5rem;">
+        <strong>Adlaire Architect CSS Framework</strong> v0.5.0
       </p>
-      <p style="margin: 0.5rem 0 0 0; font-size: 0.875rem;">
-        Developed by Adlaire Group DX事業セグメントグループ
+      <p style="color: var(--aa-text-muted); font-size: 0.875rem; margin-bottom: 1rem;">
+        © 2026 Adlaire Group DX事業セグメントグループ
+      </p>
+      <p style="color: var(--aa-text-muted); font-size: 0.875rem;">
+        Licensed under Apache License 2.0
       </p>
     </div>
+  </footer>
+
+  <!-- Modals -->
+  <!-- Basic Modal -->
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal__overlay"></div>
+    <div class="modal__dialog modal__dialog--medium">
+      <div class="modal__content">
+        <header class="modal__header">
+          <h2 class="modal__title" id="modal-title">Modal Title</h2>
+          <button class="modal__close" aria-label="Close dialog">
+            <span aria-hidden="true">×</span>
+          </button>
+        </header>
+        <div class="modal__body">
+          <p>This is a basic modal dialog. Perfect for displaying important information or forms.</p>
+        </div>
+        <footer class="modal__footer">
+          <button class="btn btn--secondary modal-close-btn">Cancel</button>
+          <button class="btn btn--primary">Confirm</button>
+        </footer>
+      </div>
+    </div>
   </div>
-  
+
+  <!-- Large Modal -->
+  <div class="modal" id="modalLarge" role="dialog" aria-modal="true" aria-labelledby="modal-large-title">
+    <div class="modal__overlay"></div>
+    <div class="modal__dialog modal__dialog--large">
+      <div class="modal__content">
+        <header class="modal__header">
+          <h2 class="modal__title" id="modal-large-title">Large Modal</h2>
+          <button class="modal__close" aria-label="Close dialog">
+            <span aria-hidden="true">×</span>
+          </button>
+        </header>
+        <div class="modal__body">
+          <h3>Features</h3>
+          <ul style="list-style: disc; padding-left: 1.5rem;">
+            <li>Scrollable content area</li>
+            <li>Fixed header and footer</li>
+            <li>Keyboard support (Esc to close)</li>
+            <li>Focus trap</li>
+            <li>Backdrop click to close</li>
+          </ul>
+          
+          <div class="alert alert--info" style="margin-top: 1.5rem;">
+            <div class="alert__icon">ℹ</div>
+            <div class="alert__content">
+              <div class="alert__message">You can include any components inside modals!</div>
+            </div>
+          </div>
+        </div>
+        <footer class="modal__footer">
+          <button class="btn btn--secondary modal-close-btn">Close</button>
+        </footer>
+      </div>
+    </div>
+  </div>
+
+  <!-- Confirmation Modal -->
+  <div class="modal" id="modalConfirm" role="dialog" aria-modal="true" aria-labelledby="modal-confirm-title">
+    <div class="modal__overlay"></div>
+    <div class="modal__dialog modal__dialog--small">
+      <div class="modal__content">
+        <header class="modal__header">
+          <h2 class="modal__title" id="modal-confirm-title">Confirm Action</h2>
+          <button class="modal__close" aria-label="Close dialog">
+            <span aria-hidden="true">×</span>
+          </button>
+        </header>
+        <div class="modal__body">
+          <div class="alert alert--warning">
+            <div class="alert__icon">⚠</div>
+            <div class="alert__content">
+              <div class="alert__message">This action cannot be undone. Are you sure?</div>
+            </div>
+          </div>
+        </div>
+        <footer class="modal__footer">
+          <button class="btn btn--secondary modal-close-btn">Cancel</button>
+          <button class="btn btn--error">Delete</button>
+        </footer>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    // Theme Toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeLight = document.getElementById('theme-light');
+    const themeDark = document.getElementById('theme-dark');
+    const themeAuto = document.getElementById('theme-auto');
+    const currentThemeDisplay = document.getElementById('current-theme-display');
+
+    const initTheme = () => {
+      const savedTheme = localStorage.getItem('theme');
+      const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      
+      let theme = savedTheme;
+      if (!savedTheme) {
+        theme = systemPrefersDark ? 'dark' : 'light';
+      }
+      
+      document.documentElement.setAttribute('data-theme', theme);
+      updateThemeDisplay(theme);
+    };
+
+    const updateThemeDisplay = (theme) => {
+      const themeNames = {
+        light: 'Light Mode ☀️',
+        dark: 'Dark Mode 🌙',
+        auto: 'Auto (System) 🔄'
+      };
+      currentThemeDisplay.textContent = themeNames[theme] || themeNames.light;
+    };
+
+    const toggleTheme = () => {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      updateThemeDisplay(newTheme);
+    };
+
+    const setTheme = (theme) => {
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+      updateThemeDisplay(theme);
+    };
+
+    themeToggle?.addEventListener('click', toggleTheme);
+    themeLight?.addEventListener('click', () => setTheme('light'));
+    themeDark?.addEventListener('click', () => setTheme('dark'));
+    themeAuto?.addEventListener('click', () => {
+      localStorage.removeItem('theme');
+      initTheme();
+    });
+
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+      if (!localStorage.getItem('theme')) {
+        const theme = e.matches ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', theme);
+        updateThemeDisplay(theme);
+      }
+    });
+
+    document.addEventListener('DOMContentLoaded', initTheme);
+
+    // Modal functionality
+    const modals = {
+      basic: document.getElementById('modal'),
+      large: document.getElementById('modalLarge'),
+      confirm: document.getElementById('modalConfirm')
+    };
+
+    const openButtons = {
+      basic: document.getElementById('openModal'),
+      large: document.getElementById('openModalLarge'),
+      confirm: document.getElementById('openModalConfirm')
+    };
+
+    const openModal = (modalId) => {
+      const modal = modals[modalId];
+      if (modal) {
+        modal.classList.add('modal--active');
+        document.body.style.overflow = 'hidden';
+        
+        const firstFocusable = modal.querySelector('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+        if (firstFocusable) {
+          setTimeout(() => firstFocusable.focus(), 100);
+        }
+      }
+    };
+
+    const closeModal = (modal) => {
+      if (modal && modal.classList.contains('modal--active')) {
+        modal.classList.remove('modal--active');
+        document.body.style.overflow = '';
+      }
+    };
+
+    Object.entries(openButtons).forEach(([key, button]) => {
+      button?.addEventListener('click', () => openModal(key));
+    });
+
+    Object.values(modals).forEach(modal => {
+      if (!modal) return;
+      
+      const closeBtn = modal.querySelector('.modal__close');
+      closeBtn?.addEventListener('click', () => closeModal(modal));
+      
+      const overlay = modal.querySelector('.modal__overlay');
+      overlay?.addEventListener('click', () => closeModal(modal));
+      
+      const closeButtons = modal.querySelectorAll('.modal-close-btn');
+      closeButtons.forEach(btn => {
+        btn.addEventListener('click', () => closeModal(modal));
+      });
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        Object.values(modals).forEach(modal => {
+          if (modal && modal.classList.contains('modal--active')) {
+            closeModal(modal);
+          }
+        });
+      }
+    });
+
+    // Alert dismiss
+    document.querySelectorAll('.alert__close').forEach(button => {
+      button.addEventListener('click', (e) => {
+        const alert = e.target.closest('.alert');
+        if (alert) {
+          alert.style.opacity = '0';
+          alert.style.transform = 'translateY(-10px)';
+          setTimeout(() => alert.remove(), 200);
+        }
+      });
+    });
+
+    // Mobile menu toggle
+    const navToggle = document.querySelector('.navbar__toggle');
+    const navMenu = document.querySelector('.navbar__menu');
+    
+    navToggle?.addEventListener('click', () => {
+      const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+      navToggle.setAttribute('aria-expanded', !isExpanded);
+      navMenu?.classList.toggle('navbar__menu--active');
+    });
+  </script>
 </body>
 </html>
