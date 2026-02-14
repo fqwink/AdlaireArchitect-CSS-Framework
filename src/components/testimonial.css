@@ -1,0 +1,11 @@
+/* Testimonial v1.6.0 - Customer reviews */
+.testimonial{background:var(--color-background,#fff);border:1px solid var(--color-border,#e0e0e0);border-radius:12px;padding:2rem;display:flex;flex-direction:column;gap:1.5rem;box-shadow:0 2px 8px rgba(0,0,0,0.08);transition:box-shadow 0.3s}
+.testimonial:hover{box-shadow:0 4px 16px rgba(0,0,0,0.12)}
+.testimonial__quote{font-size:1.125rem;line-height:1.7;margin:0;font-style:italic;position:relative}
+.testimonial__quote::before{content:'"';font-size:3rem;color:#3498db;opacity:0.3;position:absolute;top:-1rem;left:-0.5rem}
+.testimonial__author{display:flex;align-items:center;gap:1rem;padding-top:1rem;border-top:1px solid var(--color-border,#e0e0e0)}
+.testimonial__avatar{width:56px;height:56px;border-radius:50%;object-fit:cover;flex-shrink:0}
+.testimonial__author-name{font-size:1rem;font-weight:600;margin:0 0 0.25rem}
+.testimonial__author-role{font-size:0.875rem;color:#6c757d;margin:0}
+.testimonial--featured{border-width:2px;border-color:#3498db}
+@media(max-width:768px){.testimonial{padding:1.5rem}}

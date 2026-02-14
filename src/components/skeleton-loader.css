@@ -1,0 +1,9 @@
+/* Skeleton Loader v1.6.0 - Loading placeholders */
+.skeleton{background:linear-gradient(90deg,rgba(0,0,0,0.08) 25%,rgba(255,255,255,0.6) 50%,rgba(0,0,0,0.08) 75%);background-size:200% 100%;animation:skeleton-shimmer 1.5s ease-in-out infinite;border-radius:4px;display:block}
+@keyframes skeleton-shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+.skeleton--text{height:1rem;width:100%;margin-bottom:0.5rem}
+.skeleton--title{height:1.5rem;width:60%;margin-bottom:1rem}
+.skeleton--circle{border-radius:50%;width:48px;height:48px}
+.skeleton--rect{width:100%;height:200px}
+.skeleton--avatar{width:40px;height:40px;border-radius:50%}
+@media(prefers-reduced-motion:reduce){.skeleton{animation:none}}

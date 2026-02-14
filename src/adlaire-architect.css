@@ -2,7 +2,7 @@
  * Adlaire Architect CSS Framework
  * Main Entry Point
  * 
- * Version: 1.5.0
+ * Version: 1.6.0
  * License: Apache License 2.0
  * Copyright: 2026 Adlaire Group DX Division
  * 
@@ -55,6 +55,38 @@
 @import url('./components/carousel.css');
 @import url('./components/timeline.css');
 @import url('./components/calendar.css');
+
+/* v1.6.0 - New Component Categories */
+/* Layout Components */
+@import url('./components/sidebar.css');
+@import url('./components/megamenu.css');
+
+/* Interactive Components */
+@import url('./components/kanban.css');
+
+/* Data Display Components */
+@import url('./components/widget.css');
+@import url('./components/list-group.css');
+@import url('./components/stats-counter.css');
+
+/* Forms Extended */
+@import url('./components/filter-panel.css');
+
+/* Content Components */
+@import url('./components/codeblock.css');
+@import url('./components/lightbox.css');
+@import url('./components/callout.css');
+
+/* Feedback Components */
+@import url('./components/empty-state.css');
+@import url('./components/skeleton-loader.css');
+
+/* Business Components */
+@import url('./components/testimonial.css');
+@import url('./components/pricing-table.css');
+
+/* Global Components */
+@import url('./components/language-switcher.css');
 
 /* ========================================
    UTILITIES

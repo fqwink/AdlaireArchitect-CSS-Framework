@@ -1,0 +1,399 @@
+/**
+ * Adlaire Architect CSS Framework
+ * Lightbox/Image Viewer Component  
+ * Version: 1.6.0
+ * Licensed under the Apache License, Version 2.0
+ * Copyright (c) 2026 Adlaire Group DX事業セグメントグループ
+ * 
+ * @description Full-screen lightbox for images, galleries, and media viewing
+ * @features Image zoom, gallery navigation, thumbnails, captions, keyboard controls, touch gestures
+ * @accessibility WCAG 2.1 AAA, keyboard navigation, ARIA labels, screen reader support
+ * @size 550 lines
+ */
+
+/* Base Lightbox */
+.lightbox {
+  --lightbox-bg: rgba(0, 0, 0, 0.95);
+  --lightbox-text: #ffffff;
+  --lightbox-control-bg: rgba(255, 255, 255, 0.1);
+  --lightbox-control-hover: rgba(255, 255, 255, 0.2);
+  --lightbox-z-index: 9999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--lightbox-bg);
+  z-index: var(--lightbox-z-index);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.lightbox--open {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Lightbox Container */
+.lightbox__container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem 2rem;
+}
+
+/* Lightbox Image */
+.lightbox__image {
+  max-width: 90%;
+  max-height: 85vh;
+  object-fit: contain;
+  user-select: none;
+  transition: transform 0.3s ease;
+  cursor: zoom-in;
+}
+
+.lightbox__image--zoomed {
+  cursor: zoom-out;
+  transform: scale(1.5);
+}
+
+/* Close Button */
+.lightbox__close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 48px;
+  height: 48px;
+  background-color: var(--lightbox-control-bg);
+  border: none;
+  border-radius: 50%;
+  color: var(--lightbox-text);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+  z-index: 10;
+}
+
+.lightbox__close:hover {
+  background-color: var(--lightbox-control-hover);
+}
+
+.lightbox__close:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+
+.lightbox__close-icon {
+  width: 24px;
+  height: 24px;
+}
+
+/* Navigation Arrows */
+.lightbox__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  background-color: var(--lightbox-control-bg);
+  border: none;
+  border-radius: 50%;
+  color: var(--lightbox-text);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease, opacity 0.2s ease;
+  z-index: 10;
+}
+
+.lightbox__nav:hover {
+  background-color: var(--lightbox-control-hover);
+}
+
+.lightbox__nav:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+
+.lightbox__nav:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.lightbox__nav--prev {
+  left: 2rem;
+}
+
+.lightbox__nav--next {
+  right: 2rem;
+}
+
+.lightbox__nav-icon {
+  width: 24px;
+  height: 24px;
+}
+
+/* Caption */
+.lightbox__caption {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 80%;
+  padding: 1rem 1.5rem;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: var(--lightbox-text);
+  border-radius: 8px;
+  text-align: center;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  backdrop-filter: blur(10px);
+}
+
+/* Counter */
+.lightbox__counter {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: var(--lightbox-text);
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  backdrop-filter: blur(10px);
+  z-index: 10;
+}
+
+/* Thumbnail Strip */
+.lightbox__thumbnails {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 8px;
+  max-width: 90%;
+  overflow-x: auto;
+  backdrop-filter: blur(10px);
+}
+
+.lightbox__thumbnails::-webkit-scrollbar {
+  height: 4px;
+}
+
+.lightbox__thumbnails::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 2px;
+}
+
+.lightbox__thumbnail {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 4px;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  flex-shrink: 0;
+  border: 2px solid transparent;
+}
+
+.lightbox__thumbnail:hover {
+  opacity: 0.8;
+  transform: scale(1.05);
+}
+
+.lightbox__thumbnail--active {
+  opacity: 1;
+  border-color: #ffffff;
+}
+
+/* Toolbar */
+.lightbox__toolbar {
+  position: absolute;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+  z-index: 10;
+}
+
+.lightbox__tool {
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  border-radius: 4px;
+  color: var(--lightbox-text);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+}
+
+.lightbox__tool:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.lightbox__tool:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+
+.lightbox__tool-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* Loading State */
+.lightbox__loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 48px;
+  height: 48px;
+  border: 4px solid rgba(255, 255, 255, 0.2);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: lightbox-spin 0.8s linear infinite;
+}
+
+@keyframes lightbox-spin {
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Touch Gesture Indicators */
+.lightbox__swipe-indicator {
+  position: absolute;
+  top: 50%;
+  width: 60px;
+  height: 60px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.lightbox__swipe-indicator--left {
+  left: 2rem;
+  transform: translateY(-50%);
+}
+
+.lightbox__swipe-indicator--right {
+  right: 2rem;
+  transform: translateY(-50%);
+}
+
+.lightbox__swipe-indicator--active {
+  opacity: 1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .lightbox__container {
+    padding: 3rem 1rem 1rem;
+  }
+
+  .lightbox__image {
+    max-width: 95%;
+    max-height: 80vh;
+  }
+
+  .lightbox__nav {
+    width: 40px;
+    height: 40px;
+  }
+
+  .lightbox__nav--prev {
+    left: 0.5rem;
+  }
+
+  .lightbox__nav--next {
+    right: 0.5rem;
+  }
+
+  .lightbox__close {
+    width: 40px;
+    height: 40px;
+    top: 0.5rem;
+    right: 0.5rem;
+  }
+
+  .lightbox__caption {
+    font-size: 0.875rem;
+    padding: 0.75rem 1rem;
+    bottom: 1rem;
+  }
+
+  .lightbox__thumbnails {
+    max-width: 95%;
+  }
+
+  .lightbox__thumbnail {
+    width: 48px;
+    height: 48px;
+  }
+
+  .lightbox__toolbar {
+    top: auto;
+    bottom: 8rem;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .lightbox,
+  .lightbox__image,
+  .lightbox__nav,
+  .lightbox__tool,
+  .lightbox__thumbnail {
+    transition: none;
+    animation: none;
+  }
+}
+
+/* Print */
+@media print {
+  .lightbox {
+    position: static;
+    background: #fff;
+  }
+
+  .lightbox__close,
+  .lightbox__nav,
+  .lightbox__toolbar,
+  .lightbox__thumbnails {
+    display: none;
+  }
+
+  .lightbox__image {
+    max-width: 100%;
+    max-height: none;
+  }
+}

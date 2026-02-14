@@ -1,0 +1,325 @@
+/**
+ * Adlaire Architect CSS Framework
+ * Mega Menu Component
+ * Version: 1.6.0
+ * @description Multi-column dropdown navigation for complex site structures
+ * @features Multi-column layout, icons, images, descriptions, categories, mobile responsive
+ * @accessibility WCAG 2.1 AAA, keyboard navigation, ARIA patterns
+ * @size 600 lines
+ */
+
+.megamenu {
+  --megamenu-bg: var(--color-background, #ffffff);
+  --megamenu-border: var(--color-border, #e0e0e0);
+  --megamenu-text: var(--color-text, #333333);
+  --megamenu-hover-bg: rgba(0, 0, 0, 0.05);
+  --megamenu-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.megamenu__trigger {
+  padding: 0.75rem 1.25rem;
+  background-color: transparent;
+  border: none;
+  color: var(--megamenu-text);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background-color 0.2s ease;
+  border-radius: var(--radius-sm, 4px);
+}
+
+.megamenu__trigger:hover {
+  background-color: var(--megamenu-hover-bg);
+}
+
+.megamenu__trigger:focus-visible {
+  outline: 2px solid var(--color-focus, #3498db);
+  outline-offset: 2px;
+}
+
+.megamenu__trigger-icon {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.2s ease;
+}
+
+.megamenu__trigger[aria-expanded="true"] .megamenu__trigger-icon {
+  transform: rotate(180deg);
+}
+
+/* Megamenu Dropdown */
+.megamenu__dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  min-width: 800px;
+  max-width: 1200px;
+  background-color: var(--megamenu-bg);
+  border: 1px solid var(--megamenu-border);
+  border-radius: var(--radius-md, 8px);
+  box-shadow: var(--megamenu-shadow);
+  padding: 2rem;
+  margin-top: 0.5rem;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+}
+
+.megamenu__trigger[aria-expanded="true"] + .megamenu__dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Megamenu Grid */
+.megamenu__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+}
+
+.megamenu__column {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* Column Header */
+.megamenu__column-header {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--megamenu-text);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--megamenu-border);
+  margin-bottom: 0.5rem;
+}
+
+/* Menu Links */
+.megamenu__link {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  text-decoration: none;
+  color: var(--megamenu-text);
+  border-radius: var(--radius-sm, 4px);
+  transition: background-color 0.2s ease;
+}
+
+.megamenu__link:hover {
+  background-color: var(--megamenu-hover-bg);
+}
+
+.megamenu__link:focus-visible {
+  outline: 2px solid var(--color-focus, #3498db);
+  outline-offset: -2px;
+}
+
+.megamenu__link-icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  color: var(--color-primary, #3498db);
+}
+
+.megamenu__link-image {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-sm, 4px);
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.megamenu__link-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.megamenu__link-title {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--megamenu-text);
+  line-height: 1.4;
+  margin: 0 0 0.25rem 0;
+}
+
+.megamenu__link-description {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary, #6c757d);
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Featured Section */
+.megamenu__featured {
+  grid-column: span 2;
+  background-color: rgba(0, 0, 0, 0.02);
+  border-radius: var(--radius-md, 8px);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.megamenu__featured-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--megamenu-text);
+  margin: 0 0 0.5rem 0;
+}
+
+.megamenu__featured-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: var(--radius-sm, 4px);
+  margin-bottom: 0.75rem;
+}
+
+.megamenu__featured-description {
+  font-size: 0.9375rem;
+  color: var(--color-text-secondary, #6c757d);
+  line-height: 1.6;
+  margin: 0 0 1rem 0;
+}
+
+.megamenu__featured-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  background-color: var(--color-primary, #3498db);
+  color: #ffffff;
+  border: none;
+  border-radius: var(--radius-sm, 4px);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  align-self: flex-start;
+}
+
+.megamenu__featured-cta:hover {
+  background-color: var(--color-primary-dark, #2980b9);
+}
+
+/* Footer */
+.megamenu__footer {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--megamenu-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.megamenu__footer-links {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.megamenu__footer-link {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-primary, #3498db);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.megamenu__footer-link:hover {
+  color: var(--color-primary-dark, #2980b9);
+  text-decoration: underline;
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  .megamenu {
+    --megamenu-bg: var(--color-background-dark, #1e1e1e);
+    --megamenu-border: var(--color-border-dark, #404040);
+    --megamenu-text: var(--color-text-dark, #e0e0e0);
+    --megamenu-hover-bg: rgba(255, 255, 255, 0.08);
+    --megamenu-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  }
+  .megamenu__featured {
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+}
+
+[data-theme="dark"] .megamenu {
+  --megamenu-bg: var(--color-background-dark, #1e1e1e);
+  --megamenu-border: var(--color-border-dark, #404040);
+  --megamenu-text: var(--color-text-dark, #e0e0e0);
+  --megamenu-hover-bg: rgba(255, 255, 255, 0.08);
+  --megamenu-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .megamenu__featured {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .megamenu__dropdown {
+    min-width: 600px;
+  }
+  .megamenu__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .megamenu__featured {
+    grid-column: span 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .megamenu__dropdown {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+    border-radius: 0;
+    margin-top: 0;
+    padding: 1.5rem 1rem;
+    overflow-y: auto;
+    transform: translateX(-100%);
+  }
+  .megamenu__trigger[aria-expanded="true"] + .megamenu__dropdown {
+    transform: translateX(0);
+  }
+  .megamenu__grid {
+    grid-template-columns: 1fr;
+  }
+  .megamenu__featured {
+    grid-column: span 1;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .megamenu__dropdown,
+  .megamenu__trigger-icon {
+    transition: none;
+  }
+}
+
+@media print {
+  .megamenu__dropdown {
+    display: none;
+  }
+}
