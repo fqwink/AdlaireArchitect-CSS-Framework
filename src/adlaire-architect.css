@@ -2,7 +2,7 @@
  * Adlaire Architect CSS Framework
  * Main Entry Point
  * 
- * Version: 1.0.0
+ * Version: 1.2.0
  * License: Apache License 2.0
  * Copyright: 2026 Adlaire Group DX Division
  * 
@@ -48,6 +48,8 @@
 @import url('./components/avatar.css');
 @import url('./components/divider.css');
 @import url('./components/toast.css');
+@import url('./components/breadcrumb.css');
+@import url('./components/dropdown.css');
 
 /* ========================================
    UTILITIES

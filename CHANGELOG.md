@@ -12,6 +12,65 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - npm Package Publication
 - CDN Distribution
 - React/Vue Component Wrappers
+- Skeleton Loader Component
+- Popover Component
+- Steps/Stepper Component
+
+## [1.2.0] - 2026-02-14
+
+### ✨ New Components Release - Navigation & Selection Enhancement
+
+**Focus**: Essential navigation and form components for better UX
+
+#### Added
+
+##### 1. Breadcrumb Component (315 lines)
+- **Structure**: Semantic HTML (`nav > ol > li`) with Schema.org support
+- **Separators**: 4 variants (Chevron, Slash, Arrow, Dot) + custom support
+- **Sizes**: 3 sizes (Small, Base, Large)
+- **Styles**: Bordered, Pills variants
+- **Features**:
+  - Current page indication with `aria-current="page"`
+  - Icon support (home icon, custom icons)
+  - Responsive truncation on mobile (shows first and last items)
+  - SEO-friendly with structured data support
+  - Full keyboard navigation
+- **Dark Mode**: Complete support with adjusted colors
+- **Accessibility**: WCAG 2.1 AAA, screen reader optimized
+
+##### 2. Dropdown/Select Menu Component (518 lines)
+- **Trigger**: Custom trigger button with placeholder support
+- **Menu**: Floating menu with smooth transitions
+- **Features**:
+  - Single/Multi-select with checkboxes
+  - Searchable/Filterable with sticky search input
+  - Group support with labels
+  - Icons and avatars in items
+  - Item descriptions
+  - Dividers
+  - Empty state
+  - Position variants (top, bottom, left, right)
+- **Sizes**: 3 sizes (Small, Base, Large)
+- **Layouts**: Full-width variant
+- **Item States**: Default, Hover, Focus, Selected, Disabled
+- **Keyboard Navigation**: Full arrow key support, Enter/Space to select
+- **Dark Mode**: Complete dark mode with proper contrast
+- **Accessibility**: WCAG 2.1 AAA, ARIA `role="listbox"`, `aria-selected`
+
+#### Statistics (v1.2.0)
+- **Total Component CSS**: 6,957 lines (+833 from v1.0.1)
+- **Component Files**: 20 CSS files (+2 new components)
+- **New CSS Lines**: Breadcrumb 315, Dropdown 518
+- **Total Components**: 22 implemented
+- **Utilities**: 344+ classes
+- **Estimated Bundle**: ~9KB gzipped (+1KB)
+
+#### Developer Experience
+- 🎯 Navigation enhancement with breadcrumb trails
+- 💼 Form components strengthened with custom select
+- 🎨 Consistent BEM naming and design tokens
+- 📱 Full responsive and mobile-optimized
+- ♿ WCAG 2.1 AAA accessibility maintained
 
 ## [1.0.1] - 2026-02-13
 

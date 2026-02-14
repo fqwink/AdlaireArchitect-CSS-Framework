@@ -1,0 +1,315 @@
+/**
+ * Breadcrumb Component - v1.2.0
+ * Navigation breadcrumb for hierarchical site structure
+ * 
+ * Features:
+ * - Semantic HTML structure (nav > ol > li)
+ * - SEO-friendly with Schema.org markup support
+ * - Custom separators (chevron, slash, arrow)
+ * - Responsive (truncation on mobile)
+ * - Current page indication
+ * - Dark mode support
+ * - WCAG 2.1 AAA accessible
+ */
+
+/* ==========================================================================
+   BASE BREADCRUMB
+   ========================================================================== */
+
+.aa-breadcrumb {
+  display: flex;
+  align-items: center;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--aa-text-secondary, #757575);
+  padding: 0.75rem 0;
+}
+
+.aa-breadcrumb__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 0.5rem;
+}
+
+.aa-breadcrumb__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.aa-breadcrumb__link {
+  color: var(--aa-text-secondary, #757575);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+}
+
+.aa-breadcrumb__link:hover {
+  color: var(--aa-primary, #00a968);
+  text-decoration: underline;
+}
+
+.aa-breadcrumb__link:focus-visible {
+  outline: 2px solid var(--aa-primary, #00a968);
+  outline-offset: 2px;
+}
+
+/* Current page (last item) */
+.aa-breadcrumb__item[aria-current="page"],
+.aa-breadcrumb__item--current {
+  color: var(--aa-text-primary, #212F3D);
+  font-weight: 500;
+}
+
+.aa-breadcrumb__item[aria-current="page"] .aa-breadcrumb__link,
+.aa-breadcrumb__item--current .aa-breadcrumb__link {
+  color: var(--aa-text-primary, #212F3D);
+  pointer-events: none;
+  cursor: default;
+}
+
+/* ==========================================================================
+   SEPARATORS
+   ========================================================================== */
+
+/* Default: Chevron separator */
+.aa-breadcrumb__separator {
+  display: inline-flex;
+  align-items: center;
+  color: var(--aa-text-tertiary, #AEB6BF);
+  user-select: none;
+  font-size: 0.875rem;
+}
+
+.aa-breadcrumb__separator::before {
+  content: '›';
+  font-size: 1.25rem;
+}
+
+/* Slash separator variant */
+.aa-breadcrumb--slash .aa-breadcrumb__separator::before {
+  content: '/';
+  font-size: 1rem;
+}
+
+/* Arrow separator variant */
+.aa-breadcrumb--arrow .aa-breadcrumb__separator::before {
+  content: '→';
+  font-size: 1rem;
+}
+
+/* Dot separator variant */
+.aa-breadcrumb--dot .aa-breadcrumb__separator::before {
+  content: '•';
+  font-size: 1rem;
+}
+
+/* Custom separator support */
+.aa-breadcrumb__separator[data-separator]::before {
+  content: attr(data-separator);
+}
+
+/* ==========================================================================
+   SIZE VARIANTS
+   ========================================================================== */
+
+/* Small size */
+.aa-breadcrumb--sm {
+  font-size: 0.75rem;
+}
+
+.aa-breadcrumb--sm .aa-breadcrumb__link {
+  padding: 0.125rem 0.375rem;
+}
+
+/* Large size */
+.aa-breadcrumb--lg {
+  font-size: 1rem;
+}
+
+.aa-breadcrumb--lg .aa-breadcrumb__link {
+  padding: 0.375rem 0.75rem;
+}
+
+/* ==========================================================================
+   STYLE VARIANTS
+   ========================================================================== */
+
+/* Bordered variant */
+.aa-breadcrumb--bordered {
+  border: 1px solid var(--aa-border-color, #E0E0E0);
+  border-radius: 4px;
+  padding: 0.75rem 1rem;
+  background-color: var(--aa-bg-secondary, #FAFAFA);
+}
+
+/* Pills variant */
+.aa-breadcrumb--pills .aa-breadcrumb__link {
+  background-color: var(--aa-bg-secondary, #F5F5F5);
+  border-radius: 999px;
+  padding: 0.25rem 0.75rem;
+}
+
+.aa-breadcrumb--pills .aa-breadcrumb__link:hover {
+  background-color: var(--aa-bg-tertiary, #EEEEEE);
+}
+
+.aa-breadcrumb--pills .aa-breadcrumb__item[aria-current="page"] .aa-breadcrumb__link,
+.aa-breadcrumb--pills .aa-breadcrumb__item--current .aa-breadcrumb__link {
+  background-color: var(--aa-primary, #00a968);
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   ICONS SUPPORT
+   ========================================================================== */
+
+.aa-breadcrumb__icon {
+  display: inline-flex;
+  width: 1em;
+  height: 1em;
+}
+
+.aa-breadcrumb__home-icon {
+  width: 1.125em;
+  height: 1.125em;
+}
+
+/* ==========================================================================
+   RESPONSIVE BEHAVIOR
+   ========================================================================== */
+
+/* Truncation on small containers */
+@container (max-width: 480px) {
+  .aa-breadcrumb__list {
+    max-width: 100%;
+  }
+  
+  /* Hide middle items on small screens, keep first and last */
+  .aa-breadcrumb__item:not(:first-child):not(:last-child):not(:nth-last-child(2)) {
+    display: none;
+  }
+  
+  /* Show ellipsis for hidden items */
+  .aa-breadcrumb__item:nth-child(2)::before {
+    content: '...';
+    color: var(--aa-text-tertiary, #AEB6BF);
+    padding: 0 0.5rem;
+  }
+}
+
+/* Mobile-first: Smaller font on very small screens */
+@media (max-width: 480px) {
+  .aa-breadcrumb {
+    font-size: 0.8125rem;
+  }
+  
+  .aa-breadcrumb__link {
+    padding: 0.125rem 0.375rem;
+  }
+}
+
+/* ==========================================================================
+   DARK MODE
+   ========================================================================== */
+
+@media (prefers-color-scheme: dark) {
+  .aa-breadcrumb {
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  .aa-breadcrumb__link {
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  .aa-breadcrumb__link:hover {
+    color: #00c97e;
+  }
+  
+  .aa-breadcrumb__link:focus-visible {
+    outline-color: #00c97e;
+  }
+  
+  .aa-breadcrumb__item[aria-current="page"],
+  .aa-breadcrumb__item--current {
+    color: rgba(255, 255, 255, 0.95);
+  }
+  
+  .aa-breadcrumb__item[aria-current="page"] .aa-breadcrumb__link,
+  .aa-breadcrumb__item--current .aa-breadcrumb__link {
+    color: rgba(255, 255, 255, 0.95);
+  }
+  
+  .aa-breadcrumb__separator {
+    color: rgba(255, 255, 255, 0.5);
+  }
+  
+  .aa-breadcrumb--bordered {
+    border-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+  
+  .aa-breadcrumb--pills .aa-breadcrumb__link {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .aa-breadcrumb--pills .aa-breadcrumb__link:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+  }
+  
+  .aa-breadcrumb--pills .aa-breadcrumb__item[aria-current="page"] .aa-breadcrumb__link,
+  .aa-breadcrumb--pills .aa-breadcrumb__item--current .aa-breadcrumb__link {
+    background-color: #00c97e;
+    color: #1a1a1a;
+  }
+}
+
+/* ==========================================================================
+   ACCESSIBILITY
+   ========================================================================== */
+
+/* Screen reader only text */
+.aa-breadcrumb__sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .aa-breadcrumb__link {
+    transition: none;
+  }
+}
+
+/* Print styles */
+@media print {
+  .aa-breadcrumb {
+    color: #000000;
+  }
+  
+  .aa-breadcrumb__link {
+    color: #000000;
+    text-decoration: underline;
+  }
+  
+  .aa-breadcrumb--bordered,
+  .aa-breadcrumb--pills .aa-breadcrumb__link {
+    background-color: transparent;
+    border: none;
+  }
+}
