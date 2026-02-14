@@ -101,32 +101,32 @@
        ======================================== */
     
     /* ----- Adlaire Brand Identity Colors ----- */
-    /* Adlaire Group Official Brand Colors Applied */
+    /* Custom Brand Colors v1.6.2 Applied */
     
     /* Primary: Emerald Green (#00a968) */
-    --adlaire-color-brand-primary: #00a968;
-    --adlaire-color-brand-primary-hover: #007a4a;
-    --adlaire-color-brand-primary-active: #00623b;
-    --adlaire-color-brand-primary-light: #e6f7f0;
-    --adlaire-color-brand-primary-dark: #004a2c;
+    --adlaire-color-brand-primary: var(--adlaire-brand-emerald-500);
+    --adlaire-color-brand-primary-hover: var(--adlaire-brand-emerald-700);
+    --adlaire-color-brand-primary-active: var(--adlaire-brand-emerald-800);
+    --adlaire-color-brand-primary-light: var(--adlaire-brand-emerald-100);
+    --adlaire-color-brand-primary-dark: var(--adlaire-brand-emerald-900);
     
     /* Secondary: Blue Sky (#3498db) */
-    --adlaire-color-brand-secondary: #3498db;
-    --adlaire-color-brand-secondary-hover: #216897;
-    --adlaire-color-brand-secondary-light: #ebf5fb;
-    --adlaire-color-brand-secondary-dark: #123853;
+    --adlaire-color-brand-secondary: var(--adlaire-brand-bluesky-500);
+    --adlaire-color-brand-secondary-hover: var(--adlaire-brand-bluesky-700);
+    --adlaire-color-brand-secondary-light: var(--adlaire-brand-bluesky-100);
+    --adlaire-color-brand-secondary-dark: var(--adlaire-brand-bluesky-900);
     
-    /* Accent: Summer Sky (#40AAEF) */
-    --adlaire-color-brand-accent: #40AAEF;
-    --adlaire-color-brand-accent-hover: #217bb5;
-    --adlaire-color-brand-accent-light: #ecf7fe;
-    --adlaire-color-brand-accent-dark: #13476b;
+    /* Accent: Silver Tree (#ECEEF1) - NEW */
+    --adlaire-color-brand-accent: var(--adlaire-brand-silver-500);
+    --adlaire-color-brand-accent-hover: var(--adlaire-brand-silver-700);
+    --adlaire-color-brand-accent-light: var(--adlaire-brand-silver-100);
+    --adlaire-color-brand-accent-dark: var(--adlaire-brand-silver-900);
     
     /* ----- Semantic State Colors ----- */
-    /* Success: Solitude (#58BE89) - Adlaire Brand */
-    --adlaire-color-success: #58BE89;
-    --adlaire-color-success-light: #eef8f3;
-    --adlaire-color-success-dark: #2e644d;
+    /* Success: Summer Sky (#40AAEF) - NEW */
+    --adlaire-color-success: var(--adlaire-brand-summersky-500);
+    --adlaire-color-success-light: var(--adlaire-brand-summersky-100);
+    --adlaire-color-success-dark: var(--adlaire-brand-summersky-900);
     
     --adlaire-color-warning: var(--primitive-yellow-700);
     --adlaire-color-warning-light: var(--primitive-yellow-50);
@@ -136,23 +136,24 @@
     --adlaire-color-error-light: var(--primitive-red-50);
     --adlaire-color-error-dark: var(--primitive-red-900);
     
-    /* Info: Blue Sky (#3498db) - Adlaire Brand */
-    --adlaire-color-info: #3498db;
-    --adlaire-color-info-light: #ebf5fb;
-    --adlaire-color-info-dark: #123853;
+    /* Info: Blue Sky (#3498db) */
+    --adlaire-color-info: var(--adlaire-brand-bluesky-500);
+    --adlaire-color-info-light: var(--adlaire-brand-bluesky-100);
+    --adlaire-color-info-dark: var(--adlaire-brand-bluesky-900);
     
     /* ----- Neutral Colors ----- */
-    /* Based on White Rat (#ecf0f1) and Silver Tree (#ECEEF1) */
-    --adlaire-color-neutral-50: #FAFBFC;
-    --adlaire-color-neutral-100: #F5F7F8;
-    --adlaire-color-neutral-200: #ECEEF1;  /* Silver Tree - Adlaire Brand */
-    --adlaire-color-neutral-300: #ecf0f1;  /* White Rat - Adlaire Brand */
-    --adlaire-color-neutral-400: #D5D8DC;
-    --adlaire-color-neutral-500: #AEB6BF;
-    --adlaire-color-neutral-600: #85929E;
-    --adlaire-color-neutral-700: #5D6D7E;
-    --adlaire-color-neutral-800: #34495E;
-    --adlaire-color-neutral-900: #212F3D;
+    /* Based on Silver Tree (#ECEEF1) */
+    --adlaire-color-neutral-50: var(--adlaire-brand-neutral-50);
+    --adlaire-color-neutral-100: var(--adlaire-brand-neutral-100);
+    --adlaire-color-neutral-200: var(--adlaire-brand-neutral-200);  /* Silver Tree Base */
+    --adlaire-color-neutral-300: var(--adlaire-brand-neutral-300);
+    --adlaire-color-neutral-400: var(--adlaire-brand-neutral-400);
+    --adlaire-color-neutral-500: var(--adlaire-brand-neutral-500);
+    --adlaire-color-neutral-600: var(--adlaire-brand-neutral-600);
+    --adlaire-color-neutral-700: var(--adlaire-brand-neutral-700);
+    --adlaire-color-neutral-800: var(--adlaire-brand-neutral-800);
+    --adlaire-color-neutral-900: var(--adlaire-brand-neutral-900);
+    --adlaire-color-neutral-950: var(--adlaire-brand-neutral-950);
     
     /* ----- Text Colors ----- */
     --adlaire-color-text-primary: var(--adlaire-color-neutral-900);

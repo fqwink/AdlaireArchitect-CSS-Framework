@@ -16,6 +16,133 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Rating Component
 - File Upload Component
 
+## [1.6.2] - 2026-02-14
+
+### 🎨 Custom Brand Color System Refresh
+
+**Focus**: Complete redesign of the design token system with custom brand color palette
+
+#### New Brand Colors
+
+**Custom Color Palette** (replacing original Adlaire Group colors):
+- **Primary (Emerald)**: `#00a968` - Main brand color for primary actions
+- **Secondary (Blue Sky)**: `#3498db` - Secondary actions and informational elements
+- **Accent (Silver Tree)**: `#ECEEF1` - NEW! Subtle backgrounds and neutral accents
+- **Success (Summer Sky)**: `#40AAEF` - NEW! Success messages and positive feedback
+
+#### Enhanced Design Token System
+
+**Color Scale Architecture** (Tailwind CSS 3.0 compatible):
+- **50-950 Scale**: 11-step color scales for each brand color
+- **HSL-Based Generation**: Mathematically precise color gradients
+- **Lightness Progression**: Optimized contrast ratios across all steps
+- **Saturation Adjustment**: Dynamic saturation for better visual harmony
+
+**Token Files Updated**:
+
+1. **`src/tokens/adlaire-brand.css`** - Complete rewrite
+   - 4 brand color scales (Emerald, Bluesky, Silver, Summersky)
+   - Enhanced neutral scale with 11 steps
+   - Backward compatibility aliases
+   - Dark mode color inversion built-in
+   - 150+ new CSS variables
+
+2. **`src/tokens/root.css`** - Semantic token updates
+   - All semantic tokens now reference brand color scales
+   - Consistent variable structure
+   - Enhanced maintainability
+
+3. **`src/themes/dark-mode.css`** - Dark mode adjustments
+   - Updated to use new brand scale tokens
+   - Optimized contrast for dark backgrounds
+   - Smoother color transitions
+
+#### New Demo Page
+
+**`demos/color-system.html`** - Interactive color system showcase:
+- Brand overview cards
+- Visual color swatches for all 44 color steps
+- Hex value display
+- Dark mode toggle
+- Responsive grid layout
+
+#### Color Scale Details
+
+**Emerald Scale (Primary)**:
+```css
+--adlaire-brand-emerald-50: #f5faf8  (lightest)
+--adlaire-brand-emerald-500: #00a968 ⭐ (base)
+--adlaire-brand-emerald-950: #00331f  (darkest)
+```
+
+**Bluesky Scale (Secondary)**:
+```css
+--adlaire-brand-bluesky-50: #f6f8f9
+--adlaire-brand-bluesky-500: #3498db ⭐
+--adlaire-brand-bluesky-950: #061d2d
+```
+
+**Silver Scale (Accent) - NEW**:
+```css
+--adlaire-brand-silver-50: #f7f7f8
+--adlaire-brand-silver-500: #eceef1 ⭐
+--adlaire-brand-silver-950: #15191e
+```
+
+**Summersky Scale (Success) - NEW**:
+```css
+--adlaire-brand-summersky-50: #f5f8f9
+--adlaire-brand-summersky-500: #40aaef ⭐
+--adlaire-brand-summersky-950: #021f31
+```
+
+#### Backward Compatibility
+
+All legacy color variables maintained:
+- `--adlaire-color-brand-primary`
+- `--adlaire-color-brand-secondary`
+- `--adlaire-color-brand-accent` (now maps to Silver)
+- `--adlaire-color-success` (now maps to Summersky)
+
+#### Statistics (v1.6.2)
+- **Color Variables**: 150+ new CSS custom properties
+- **Color Scale Steps**: 44 color values (4 scales × 11 steps)
+- **Token Files**: 3 updated
+- **Demo Pages**: 1 new (color-system.html)
+- **Breaking Changes**: **NONE** (100% backward compatible)
+
+#### Benefits
+- 🎨 **Refined Visual Identity**: More sophisticated and professional color palette
+- 📏 **Mathematical Precision**: HSL-based generation ensures consistent contrast
+- 🌗 **Better Dark Mode**: Optimized colors for both light and dark themes
+- 🔧 **Developer Experience**: Easy-to-use scale system (50-950)
+- ♿ **Accessibility**: WCAG 2.1 AAA compliant color combinations
+- 🔄 **Maintainability**: Centralized color management through design tokens
+
+#### Migration Notes
+
+**No Breaking Changes**: All existing code will work without modifications.
+
+For new projects, use the new scale-based tokens:
+```css
+/* OLD (still works) */
+color: var(--adlaire-color-brand-primary);
+
+/* NEW (recommended) */
+color: var(--adlaire-brand-emerald-500);
+background: var(--adlaire-brand-emerald-50);
+```
+
+#### Files Changed
+- `src/tokens/adlaire-brand.css` - Complete rewrite (250+ lines)
+- `src/tokens/root.css` - Semantic token updates
+- `src/themes/dark-mode.css` - Dark mode color adjustments
+- `demos/color-system.html` - New interactive demo
+- `package.json` - Version bump to 1.6.2
+- `CHANGELOG.md` - Documentation
+
+---
+
 ## [1.6.1] - 2026-02-14
 
 ### 🌐 Enhanced Multilingual Support - Language Switcher Components

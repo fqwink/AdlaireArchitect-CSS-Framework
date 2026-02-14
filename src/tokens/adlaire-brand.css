@@ -1,14 +1,15 @@
 /**
- * Adlaire Group Brand Colors
- * ブランドアイデンティティカラーの定義
+ * Adlaire Architect CSS Framework
+ * Brand Color System v1.6.2
  * 
- * Adlaire Group公式カラーパレット:
- * - Emerald Green (#00a968) - Primary
- * - Blue Sky (#3498db) - Secondary
- * - Summer Sky (#40AAEF) - Accent
- * - Solitude (#58BE89) - Success variant
- * - White Rat (#ecf0f1) - Light background
- * - Silver Tree (#ECEEF1) - Subtle background
+ * Custom Brand Color Palette:
+ * - Emerald Green (#00a968) - Primary Brand Color
+ * - Blue Sky (#3498db) - Secondary Brand Color
+ * - Silver Tree (#ECEEF1) - Accent / Neutral Background
+ * - Summer Sky (#40AAEF) - Success / Positive Actions
+ * 
+ * Color Scale: 50-950 (11 steps, Tailwind CSS 3.0 compatible)
+ * License: Apache 2.0
  */
 
 @layer tokens {
@@ -16,74 +17,200 @@
   :root {
     
     /* ========================================
-       ADLAIRE BRAND COLOR PRIMITIVES
-       Adlaire Group公式カラーとその派生色
+       ADLAIRE BRAND COLOR SCALES
+       50-950 の 11 段階カラースケール
        ======================================== */
     
-    /* ----- Emerald Green Scale (Primary Brand) ----- */
-    /* Base: #00a968 */
-    --adlaire-brand-emerald-50: #e6f7f0;
-    --adlaire-brand-emerald-100: #b3e8d4;
-    --adlaire-brand-emerald-200: #80d9b8;
-    --adlaire-brand-emerald-300: #4dca9c;
-    --adlaire-brand-emerald-400: #26bb85;
+    /* ----- Emerald Scale (Primary Brand) ----- */
+    /* Base: #00A968 (H:157° S:100% L:33%) */
+    /* Use Case: Primary actions, brand emphasis, links */
+    --adlaire-brand-emerald-50: #f5faf8;
+    --adlaire-brand-emerald-100: #ebf4f1;
+    --adlaire-brand-emerald-200: #d7eae3;
+    --adlaire-brand-emerald-300: #a0eed0;
+    --adlaire-brand-emerald-400: #67e4b4;
     --adlaire-brand-emerald-500: #00a968;  /* Official Brand Color */
-    --adlaire-brand-emerald-600: #009159;
-    --adlaire-brand-emerald-700: #007a4a;
-    --adlaire-brand-emerald-800: #00623b;
-    --adlaire-brand-emerald-900: #004a2c;
+    --adlaire-brand-emerald-600: #00b26e;
+    --adlaire-brand-emerald-700: #008f58;
+    --adlaire-brand-emerald-800: #006b42;
+    --adlaire-brand-emerald-900: #00472c;
+    --adlaire-brand-emerald-950: #00331f;
     
     /* ----- Blue Sky Scale (Secondary Brand) ----- */
-    /* Base: #3498db */
-    --adlaire-brand-bluesky-50: #ebf5fb;
-    --adlaire-brand-bluesky-100: #c8e2f4;
-    --adlaire-brand-bluesky-200: #a5cfed;
-    --adlaire-brand-bluesky-300: #82bce6;
-    --adlaire-brand-bluesky-400: #5ba8e0;
+    /* Base: #3498DB (H:204° S:70% L:53%) */
+    /* Use Case: Secondary actions, informational elements, links */
+    --adlaire-brand-bluesky-50: #f6f8f9;
+    --adlaire-brand-bluesky-100: #ecf0f3;
+    --adlaire-brand-bluesky-200: #dae2e7;
+    --adlaire-brand-bluesky-300: #abcce2;
+    --adlaire-brand-bluesky-400: #7aaed1;
     --adlaire-brand-bluesky-500: #3498db;  /* Official Brand Color */
-    --adlaire-brand-bluesky-600: #2980b9;
-    --adlaire-brand-bluesky-700: #216897;
-    --adlaire-brand-bluesky-800: #1a5075;
-    --adlaire-brand-bluesky-900: #123853;
+    --adlaire-brand-bluesky-600: #197fc3;
+    --adlaire-brand-bluesky-700: #146195;
+    --adlaire-brand-bluesky-800: #0e4468;
+    --adlaire-brand-bluesky-900: #08293f;
+    --adlaire-brand-bluesky-950: #061d2d;
     
-    /* ----- Summer Sky Scale (Accent Brand) ----- */
-    /* Base: #40AAEF */
-    --adlaire-brand-summersky-50: #ecf7fe;
-    --adlaire-brand-summersky-100: #c9e8fc;
-    --adlaire-brand-summersky-200: #a6d9fa;
-    --adlaire-brand-summersky-300: #83caf8;
-    --adlaire-brand-summersky-400: #5fbaf3;
-    --adlaire-brand-summersky-500: #40AAEF;  /* Official Brand Color */
-    --adlaire-brand-summersky-600: #2995da;
-    --adlaire-brand-summersky-700: #217bb5;
-    --adlaire-brand-summersky-800: #1a6190;
-    --adlaire-brand-summersky-900: #13476b;
+    /* ----- Silver Tree Scale (Accent / Neutral) ----- */
+    /* Base: #ECEEF1 (H:216° S:15% L:94%) */
+    /* Use Case: Subtle backgrounds, dividers, neutral accents */
+    --adlaire-brand-silver-50: #f7f7f8;
+    --adlaire-brand-silver-100: #eff0f0;
+    --adlaire-brand-silver-200: #dfe0e2;
+    --adlaire-brand-silver-300: #c1c6cd;
+    --adlaire-brand-silver-400: #9ca4af;
+    --adlaire-brand-silver-500: #eceef1;  /* Official Brand Color */
+    --adlaire-brand-silver-600: #ced4dc;
+    --adlaire-brand-silver-700: #b0b9c7;
+    --adlaire-brand-silver-800: #939fb1;
+    --adlaire-brand-silver-900: #75859c;
+    --adlaire-brand-silver-950: #15191e;
     
-    /* ----- Solitude Scale (Success/Green variant) ----- */
-    /* Base: #58BE89 */
-    --adlaire-brand-solitude-50: #eef8f3;
-    --adlaire-brand-solitude-100: #cfeadd;
-    --adlaire-brand-solitude-200: #b0ddc7;
-    --adlaire-brand-solitude-300: #91d0b1;
-    --adlaire-brand-solitude-400: #72c39b;
-    --adlaire-brand-solitude-500: #58BE89;  /* Official Brand Color */
-    --adlaire-brand-solitude-600: #49a075;
-    --adlaire-brand-solitude-700: #3b8261;
-    --adlaire-brand-solitude-800: #2e644d;
-    --adlaire-brand-solitude-900: #204639;
+    /* ----- Summer Sky Scale (Success / Positive) ----- */
+    /* Base: #40AAEF (H:204° S:85% L:59%) */
+    /* Use Case: Success messages, positive feedback, completion states */
+    --adlaire-brand-summersky-50: #f5f8f9;
+    --adlaire-brand-summersky-100: #ecf1f4;
+    --adlaire-brand-summersky-200: #d9e2e8;
+    --adlaire-brand-summersky-300: #a6cee8;
+    --adlaire-brand-summersky-400: #71b1db;
+    --adlaire-brand-summersky-500: #40aaef;  /* Official Brand Color */
+    --adlaire-brand-summersky-600: #0997f3;
+    --adlaire-brand-summersky-700: #0778c2;
+    --adlaire-brand-summersky-800: #055a91;
+    --adlaire-brand-summersky-900: #033b60;
+    --adlaire-brand-summersky-950: #021f31;
     
-    /* ----- Neutral Scale (White Rat & Silver Tree) ----- */
+    /* ----- Neutral Scale (Enhanced Grayscale) ----- */
+    /* Based on Silver Tree with extended dark range */
+    /* Use Case: Text, borders, backgrounds, UI structure */
     --adlaire-brand-neutral-50: #FAFBFC;
     --adlaire-brand-neutral-100: #F5F7F8;
-    --adlaire-brand-neutral-200: #ECEEF1;  /* Silver Tree */
-    --adlaire-brand-neutral-300: #ecf0f1;  /* White Rat */
+    --adlaire-brand-neutral-200: #ECEEF1;  /* Silver Tree Base */
+    --adlaire-brand-neutral-300: #E0E3E7;
     --adlaire-brand-neutral-400: #D5D8DC;
     --adlaire-brand-neutral-500: #AEB6BF;
     --adlaire-brand-neutral-600: #85929E;
     --adlaire-brand-neutral-700: #5D6D7E;
     --adlaire-brand-neutral-800: #34495E;
     --adlaire-brand-neutral-900: #212F3D;
+    --adlaire-brand-neutral-950: #0D1117;
     
+    /* ========================================
+       COLOR ALIASES (Backward Compatibility)
+       v1.6.1 以前の変数名との互換性維持
+       ======================================== */
+    
+    /* Legacy Primary Emerald aliases */
+    --adlaire-color-brand-primary: var(--adlaire-brand-emerald-500);
+    --adlaire-color-brand-primary-hover: var(--adlaire-brand-emerald-700);
+    --adlaire-color-brand-primary-active: var(--adlaire-brand-emerald-800);
+    --adlaire-color-brand-primary-light: var(--adlaire-brand-emerald-100);
+    --adlaire-color-brand-primary-dark: var(--adlaire-brand-emerald-900);
+    
+    /* Legacy Secondary Blue Sky aliases */
+    --adlaire-color-brand-secondary: var(--adlaire-brand-bluesky-500);
+    --adlaire-color-brand-secondary-hover: var(--adlaire-brand-bluesky-700);
+    --adlaire-color-brand-secondary-light: var(--adlaire-brand-bluesky-100);
+    --adlaire-color-brand-secondary-dark: var(--adlaire-brand-bluesky-900);
+    
+    /* NEW: Accent Silver aliases */
+    --adlaire-color-brand-accent: var(--adlaire-brand-silver-500);
+    --adlaire-color-brand-accent-hover: var(--adlaire-brand-silver-700);
+    --adlaire-color-brand-accent-light: var(--adlaire-brand-silver-100);
+    --adlaire-color-brand-accent-dark: var(--adlaire-brand-silver-900);
+    
+    /* NEW: Success Summer Sky aliases */
+    --adlaire-color-success: var(--adlaire-brand-summersky-500);
+    --adlaire-color-success-hover: var(--adlaire-brand-summersky-600);
+    --adlaire-color-success-light: var(--adlaire-brand-summersky-100);
+    --adlaire-color-success-dark: var(--adlaire-brand-summersky-900);
+    
+  }
+  
+  /* ========================================
+     DARK MODE COLOR ADJUSTMENTS
+     ダークモードでの色相調整
+     ======================================== */
+  
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      
+      /* Dark mode: 明度を反転してコントラストを確保 */
+      --adlaire-brand-emerald-50: var(--adlaire-brand-emerald-950);
+      --adlaire-brand-emerald-100: var(--adlaire-brand-emerald-900);
+      --adlaire-brand-emerald-200: var(--adlaire-brand-emerald-800);
+      --adlaire-brand-emerald-300: var(--adlaire-brand-emerald-700);
+      --adlaire-brand-emerald-400: var(--adlaire-brand-emerald-600);
+      /* 500 remains the same */
+      --adlaire-brand-emerald-600: var(--adlaire-brand-emerald-400);
+      --adlaire-brand-emerald-700: var(--adlaire-brand-emerald-300);
+      --adlaire-brand-emerald-800: var(--adlaire-brand-emerald-200);
+      --adlaire-brand-emerald-900: var(--adlaire-brand-emerald-100);
+      --adlaire-brand-emerald-950: var(--adlaire-brand-emerald-50);
+      
+      --adlaire-brand-bluesky-50: var(--adlaire-brand-bluesky-950);
+      --adlaire-brand-bluesky-100: var(--adlaire-brand-bluesky-900);
+      --adlaire-brand-bluesky-200: var(--adlaire-brand-bluesky-800);
+      --adlaire-brand-bluesky-300: var(--adlaire-brand-bluesky-700);
+      --adlaire-brand-bluesky-400: var(--adlaire-brand-bluesky-600);
+      --adlaire-brand-bluesky-600: var(--adlaire-brand-bluesky-400);
+      --adlaire-brand-bluesky-700: var(--adlaire-brand-bluesky-300);
+      --adlaire-brand-bluesky-800: var(--adlaire-brand-bluesky-200);
+      --adlaire-brand-bluesky-900: var(--adlaire-brand-bluesky-100);
+      --adlaire-brand-bluesky-950: var(--adlaire-brand-bluesky-50);
+      
+      --adlaire-brand-summersky-50: var(--adlaire-brand-summersky-950);
+      --adlaire-brand-summersky-100: var(--adlaire-brand-summersky-900);
+      --adlaire-brand-summersky-200: var(--adlaire-brand-summersky-800);
+      --adlaire-brand-summersky-300: var(--adlaire-brand-summersky-700);
+      --adlaire-brand-summersky-400: var(--adlaire-brand-summersky-600);
+      --adlaire-brand-summersky-600: var(--adlaire-brand-summersky-400);
+      --adlaire-brand-summersky-700: var(--adlaire-brand-summersky-300);
+      --adlaire-brand-summersky-800: var(--adlaire-brand-summersky-200);
+      --adlaire-brand-summersky-900: var(--adlaire-brand-summersky-100);
+      --adlaire-brand-summersky-950: var(--adlaire-brand-summersky-50);
+      
+    }
+  }
+  
+  /* Manual dark theme override */
+  [data-theme="dark"] {
+    --adlaire-brand-emerald-50: #00331f;
+    --adlaire-brand-emerald-100: #00472c;
+    --adlaire-brand-emerald-200: #006b42;
+    --adlaire-brand-emerald-300: #008f58;
+    --adlaire-brand-emerald-400: #00b26e;
+    /* 500 remains the same */
+    --adlaire-brand-emerald-600: #67e4b4;
+    --adlaire-brand-emerald-700: #a0eed0;
+    --adlaire-brand-emerald-800: #d7eae3;
+    --adlaire-brand-emerald-900: #ebf4f1;
+    --adlaire-brand-emerald-950: #f5faf8;
+    
+    --adlaire-brand-bluesky-50: #061d2d;
+    --adlaire-brand-bluesky-100: #08293f;
+    --adlaire-brand-bluesky-200: #0e4468;
+    --adlaire-brand-bluesky-300: #146195;
+    --adlaire-brand-bluesky-400: #197fc3;
+    /* 500 remains the same */
+    --adlaire-brand-bluesky-600: #7aaed1;
+    --adlaire-brand-bluesky-700: #abcce2;
+    --adlaire-brand-bluesky-800: #dae2e7;
+    --adlaire-brand-bluesky-900: #ecf0f3;
+    --adlaire-brand-bluesky-950: #f6f8f9;
+    
+    --adlaire-brand-summersky-50: #021f31;
+    --adlaire-brand-summersky-100: #033b60;
+    --adlaire-brand-summersky-200: #055a91;
+    --adlaire-brand-summersky-300: #0778c2;
+    --adlaire-brand-summersky-400: #0997f3;
+    /* 500 remains the same */
+    --adlaire-brand-summersky-600: #71b1db;
+    --adlaire-brand-summersky-700: #a6cee8;
+    --adlaire-brand-summersky-800: #d9e2e8;
+    --adlaire-brand-summersky-900: #ecf1f4;
+    --adlaire-brand-summersky-950: #f5f8f9;
   }
   
 }

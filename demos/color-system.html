@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Color System v1.6.2 - Adlaire Architect</title>
+  <link rel="stylesheet" href="../src/adlaire-architect.css">
+  <style>
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      margin: 0;
+      padding: 2rem;
+      background: var(--adlaire-color-bg-primary);
+      color: var(--adlaire-color-text-primary);
+    }
+    .header {
+      max-width: 1400px;
+      margin: 0 auto 3rem;
+    }
+    .header h1 {
+      font-size: 2.5rem;
+      margin: 0 0 0.5rem;
+      color: var(--adlaire-brand-emerald-500);
+    }
+    .header p {
+      font-size: 1.125rem;
+      color: var(--adlaire-color-text-secondary);
+      margin: 0;
+    }
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .section {
+      margin-bottom: 4rem;
+    }
+    .section-title {
+      font-size: 1.875rem;
+      font-weight: 600;
+      margin: 0 0 1.5rem;
+      color: var(--adlaire-color-text-primary);
+      border-bottom: 2px solid var(--adlaire-brand-emerald-500);
+      padding-bottom: 0.5rem;
+    }
+    .section-subtitle {
+      font-size: 1.125rem;
+      color: var(--adlaire-color-text-secondary);
+      margin: 0 0 1.5rem;
+    }
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .color-swatch {
+      border-radius: 0.5rem;
+      overflow: hidden;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+    .color-swatch:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 15px -3px rgba(0,0,0,0.15);
+    }
+    .color-box {
+      height: 100px;
+      display: flex;
+      align-items: flex-end;
+      padding: 0.75rem;
+      font-weight: 600;
+      font-size: 0.875rem;
+    }
+    .color-info {
+      background: white;
+      padding: 0.75rem;
+      border-top: 1px solid rgba(0,0,0,0.1);
+    }
+    :root[data-theme="dark"] .color-info {
+      background: #1f2937;
+    }
+    .color-name {
+      font-weight: 600;
+      font-size: 0.875rem;
+      margin: 0 0 0.25rem;
+    }
+    .color-value {
+      font-family: 'Courier New', monospace;
+      font-size: 0.75rem;
+      color: var(--adlaire-color-text-secondary);
+      margin: 0;
+    }
+    .brand-showcase {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+    .brand-card {
+      background: white;
+      border-radius: 1rem;
+      padding: 2rem;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+    }
+    :root[data-theme="dark"] .brand-card {
+      background: #1f2937;
+    }
+    .brand-card h3 {
+      margin: 0 0 1rem;
+      font-size: 1.5rem;
+    }
+    .brand-card p {
+      color: var(--adlaire-color-text-secondary);
+      line-height: 1.6;
+    }
+    .theme-toggle {
+      position: fixed;
+      top: 2rem;
+      right: 2rem;
+      width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
+      background: var(--adlaire-brand-emerald-500);
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.2);
+      transition: all 0.2s;
+      z-index: 1000;
+    }
+    .theme-toggle:hover {
+      transform: scale(1.1);
+      box-shadow: 0 10px 15px -3px rgba(0,0,0,0.3);
+    }
+  </style>
+</head>
+<body>
+  
+  <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+    <span class="theme-toggle__dark">🌙</span>
+    <span class="theme-toggle__light">☀️</span>
+  </button>
+
+  <div class="header">
+    <h1>🎨 Color System v1.6.2</h1>
+    <p>Adlaire Architect - Custom Brand Colors</p>
+  </div>
+
+  <div class="container">
+    
+    <!-- Brand Overview -->
+    <section class="section">
+      <h2 class="section-title">Brand Colors Overview</h2>
+      <div class="brand-showcase">
+        
+        <div class="brand-card" style="border-top: 4px solid var(--adlaire-brand-emerald-500);">
+          <h3 style="color: var(--adlaire-brand-emerald-500);">Primary - Emerald</h3>
+          <p><strong>#00a968</strong></p>
+          <p>Main brand color for primary actions, CTAs, and brand emphasis.</p>
+        </div>
+        
+        <div class="brand-card" style="border-top: 4px solid var(--adlaire-brand-bluesky-500);">
+          <h3 style="color: var(--adlaire-brand-bluesky-500);">Secondary - Blue Sky</h3>
+          <p><strong>#3498db</strong></p>
+          <p>Secondary actions, informational elements, and complementary use.</p>
+        </div>
+        
+        <div class="brand-card" style="border-top: 4px solid var(--adlaire-brand-silver-500);">
+          <h3 style="color: var(--adlaire-brand-silver-700);">Accent - Silver Tree</h3>
+          <p><strong>#ECEEF1</strong></p>
+          <p>Subtle backgrounds, neutral accents, and sophisticated UI elements.</p>
+        </div>
+        
+        <div class="brand-card" style="border-top: 4px solid var(--adlaire-brand-summersky-500);">
+          <h3 style="color: var(--adlaire-brand-summersky-500);">Success - Summer Sky</h3>
+          <p><strong>#40AAEF</strong></p>
+          <p>Success messages, positive feedback, and completion states.</p>
+        </div>
+        
+      </div>
+    </section>
+
+    <!-- Emerald Scale -->
+    <section class="section">
+      <h2 class="section-title">Emerald Green Scale (Primary)</h2>
+      <p class="section-subtitle">50-950 11-step color scale</p>
+      <div class="color-grid">
+        <div class="color-swatch">
+          <div class="color-box" style="background: var(--adlaire-brand-emerald-50); color: #000;">50</div>
+          <div class="color-info">
+            <p class="color-name">emerald-50</p>
+            <p class="color-value">#f5faf8</p>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-box" style="background: var(--adlaire-brand-emerald-100); color: #000;">100</div>
+          <div class="color-info">
+            <p class="color-name">emerald-100</p>
+            <p class="color-value">#ebf4f1</p>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-box" style="background: var(--adlaire-brand-emerald-200); color: #000;">200</div>
+          <div class="color-info">
+            <p class="color-name">emerald-200</p>
+            <p class="color-value">#d7eae3</p>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-box" style="background: var(--adlaire-brand-emerald-300); color: #000;">300</div>
+          <div class="color-info">
+            <p class="color-name">emerald-300</p>
+            <p class="color-value">#a0eed0</p>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-box" style="background: var(--adlaire-brand-emerald-400); color: #000;">400</div>
+          <div class="color-info">
+            <p class="color-name">emerald-400</p>
+            <p class="color-value">#67e4b4</p>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-box" style="background: var(--adlaire-brand-emerald-500); color: #fff;">500 ⭐</div>
+          <div class="color-info">
+            <p class="color-name">emerald-500</p>
+            <p class="color-value">#00a968</p>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-box" style="background: var(--adlaire-brand-emerald-600); color: #fff;">600</div>
+          <div class="color-info">
+            <p class="color-name">emerald-600</p>
+            <p class="color-value">#00b26e</p>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-box" style="background: var(--adlaire-brand-emerald-700); color: #fff;">700</div>
+          <div class="color-info">
+            <p class="color-name">emerald-700</p>
+            <p class="color-value">#008f58</p>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-box" style="background: var(--adlaire-brand-emerald-800); color: #fff;">800</div>
+          <div class="color-info">
+            <p class="color-name">emerald-800</p>
+            <p class="color-value">#006b42</p>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-box" style="background: var(--adlaire-brand-emerald-900); color: #fff;">900</div>
+          <div class="color-info">
+            <p class="color-name">emerald-900</p>
+            <p class="color-value">#00472c</p>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-box" style="background: var(--adlaire-brand-emerald-950); color: #fff;">950</div>
+          <div class="color-info">
+            <p class="color-name">emerald-950</p>
+            <p class="color-value">#00331f</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blue Sky Scale -->
+    <section class="section">
+      <h2 class="section-title">Blue Sky Scale (Secondary)</h2>
+      <p class="section-subtitle">50-950 11-step color scale</p>
+      <div class="color-grid">
+        <div class="color-swatch">
+          <div class="color-box" style="background: var(--adlaire-brand-bluesky-50); color: #000;">50</div>
+          <div class="color-info">
+            <p class="color-name">bluesky-50</p>
+            <p class="color-value">#f6f8f9</p>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-box" style="background: var(--adlaire-brand-bluesky-100); color: #000;">100</div>
+          <div class="color-info">
+            <p class="color-name">bluesky-100</p>
+            <p class="color-value">#ecf0f3</p>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-box" style="background: var(--adlaire-brand-bluesky-200); color: #000;">200</div>
+          <div class="color-info">
+            <p class="color-name">bluesky-200</p>
+            <p class="color-value">#dae2e7</p>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-box" style="background: var(--adlaire-brand-bluesky-300); color: #000;">300</div>
+          <div class="color-info">
+            <p class="color-name">bluesky-300</p>
+            <p class="color-value">#abcce2</p>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-box" style="background: var(--adlaire-brand-bluesky-400); color: #000;">400</div>
+          <div class="color-info">
+            <p class="color-name">bluesky-400</p>
+            <p class="color-value">#7aaed1</p>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-box" style="background: var(--adlaire-brand-bluesky-500); color: #fff;">500 ⭐</div>
+          <div class="color-info">
+            <p class="color-name">bluesky-500</p>
+            <p class="color-value">#3498db</p>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-box" style="background: var(--adlaire-brand-bluesky-600); color: #fff;">600</div>
+          <div class="color-info">
+            <p class="color-name">bluesky-600</p>
+            <p class="color-value">#197fc3</p>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-box" style="background: var(--adlaire-brand-bluesky-700); color: #fff;">700</div>
+          <div class="color-info">
+            <p class="color-name">bluesky-700</p>
+            <p class="color-value">#146195</p>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-box" style="background: var(--adlaire-brand-bluesky-800); color: #fff;">800</div>
+          <div class="color-info">
+            <p class="color-name">bluesky-800</p>
+            <p class="color-value">#0e4468</p>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-box" style="background: var(--adlaire-brand-bluesky-900); color: #fff;">900</div>
+          <div class="color-info">
+            <p class="color-name">bluesky-900</p>
+            <p class="color-value">#08293f</p>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-box" style="background: var(--adlaire-brand-bluesky-950); color: #fff;">950</div>
+          <div class="color-info">
+            <p class="color-name">bluesky-950</p>
+            <p class="color-value">#061d2d</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Silver Scale -->
+    <section class="section">
+      <h2 class="section-title">Silver Tree Scale (Accent)</h2>
+      <p class="section-subtitle">Neutral accent color scale</p>
+      <div class="color-grid">
+        <div class="color-swatch">
+          <div class="color-box" style="background: var(--adlaire-brand-silver-50); color: #000;">50</div>
+          <div class="color-info">
+            <p class="color-name">silver-50</p>
+            <p class="color-value">#f7f7f8</p>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-box" style="background: var(--adlaire-brand-silver-100); color: #000;">100</div>
+          <div class="color-info">
+            <p class="color-name">silver-100</p>
+            <p class="color-value">#eff0f0</p>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-box" style="background: var(--adlaire-brand-silver-200); color: #000;">200</div>
+          <div class="color-info">
+            <p class="color-name">silver-200</p>
+            <p class="color-value">#dfe0e2</p>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-box" style="background: var(--adlaire-brand-silver-300); color: #000;">300</div>
+          <div class="color-info">
+            <p class="color-name">silver-300</p>
+            <p class="color-value">#c1c6cd</p>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-box" style="background: var(--adlaire-brand-silver-400); color: #000;">400</div>
+          <div class="color-info">
+            <p class="color-name">silver-400</p>
+            <p class="color-value">#9ca4af</p>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-box" style="background: var(--adlaire-brand-silver-500); color: #000;">500 ⭐</div>
+          <div class="color-info">
+            <p class="color-name">silver-500</p>
+            <p class="color-value">#eceef1</p>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-box" style="background: var(--adlaire-brand-silver-600); color: #000;">600</div>
+          <div class="color-info">
+            <p class="color-name">silver-600</p>
+            <p class="color-value">#ced4dc</p>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-box" style="background: var(--adlaire-brand-silver-700); color: #fff;">700</div>
+          <div class="color-info">
+            <p class="color-name">silver-700</p>
+            <p class="color-value">#b0b9c7</p>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-box" style="background: var(--adlaire-brand-silver-800); color: #fff;">800</div>
+          <div class="color-info">
+            <p class="color-name">silver-800</p>
+            <p class="color-value">#939fb1</p>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-box" style="background: var(--adlaire-brand-silver-900); color: #fff;">900</div>
+          <div class="color-info">
+            <p class="color-name">silver-900</p>
+            <p class="color-value">#75859c</p>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-box" style="background: var(--adlaire-brand-silver-950); color: #fff;">950</div>
+          <div class="color-info">
+            <p class="color-name">silver-950</p>
+            <p class="color-value">#15191e</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Summer Sky Scale -->
+    <section class="section">
+      <h2 class="section-title">Summer Sky Scale (Success)</h2>
+      <p class="section-subtitle">Positive feedback color scale</p>
+      <div class="color-grid">
+        <div class="color-swatch">
+          <div class="color-box" style="background: var(--adlaire-brand-summersky-50); color: #000;">50</div>
+          <div class="color-info">
+            <p class="color-name">summersky-50</p>
+            <p class="color-value">#f5f8f9</p>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-box" style="background: var(--adlaire-brand-summersky-100); color: #000;">100</div>
+          <div class="color-info">
+            <p class="color-name">summersky-100</p>
+            <p class="color-value">#ecf1f4</p>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-box" style="background: var(--adlaire-brand-summersky-200); color: #000;">200</div>
+          <div class="color-info">
+            <p class="color-name">summersky-200</p>
+            <p class="color-value">#d9e2e8</p>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-box" style="background: var(--adlaire-brand-summersky-300); color: #000;">300</div>
+          <div class="color-info">
+            <p class="color-name">summersky-300</p>
+            <p class="color-value">#a6cee8</p>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-box" style="background: var(--adlaire-brand-summersky-400); color: #000;">400</div>
+          <div class="color-info">
+            <p class="color-name">summersky-400</p>
+            <p class="color-value">#71b1db</p>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-box" style="background: var(--adlaire-brand-summersky-500); color: #fff;">500 ⭐</div>
+          <div class="color-info">
+            <p class="color-name">summersky-500</p>
+            <p class="color-value">#40aaef</p>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-box" style="background: var(--adlaire-brand-summersky-600); color: #fff;">600</div>
+          <div class="color-info">
+            <p class="color-name">summersky-600</p>
+            <p class="color-value">#0997f3</p>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-box" style="background: var(--adlaire-brand-summersky-700); color: #fff;">700</div>
+          <div class="color-info">
+            <p class="color-name">summersky-700</p>
+            <p class="color-value">#0778c2</p>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-box" style="background: var(--adlaire-brand-summersky-800); color: #fff;">800</div>
+          <div class="color-info">
+            <p class="color-name">summersky-800</p>
+            <p class="color-value">#055a91</p>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-box" style="background: var(--adlaire-brand-summersky-900); color: #fff;">900</div>
+          <div class="color-info">
+            <p class="color-name">summersky-900</p>
+            <p class="color-value">#033b60</p>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-box" style="background: var(--adlaire-brand-summersky-950); color: #fff;">950</div>
+          <div class="color-info">
+            <p class="color-name">summersky-950</p>
+            <p class="color-value">#021f31</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <script>
+    // Theme toggle functionality
+    const theme = localStorage.getItem('theme') || 
+                  (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', theme);
+    
+    function toggleTheme() {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+    }
+  </script>
+
+</body>
+</html>

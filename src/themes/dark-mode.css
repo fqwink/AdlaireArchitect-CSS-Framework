@@ -52,26 +52,30 @@
     /* Focus ring (brighter for dark mode) */
     --focus-ring: var(--brand-primary-400);
     
-    /* Brand colors adjustments for dark mode */
-    /* Primary - Emerald Green (slightly brighter) */
-    --brand-primary-50: #1a3a2e;
-    --brand-primary-100: #235239;
-    --brand-primary-200: #2d6a44;
-    --brand-primary-300: #36824f;
-    --brand-primary-400: #3f9a5a;
-    --brand-primary-500: #00a968;
-    --brand-primary-600: #00c175;
-    --brand-primary-700: #33cd8e;
+    /* Brand colors adjustments for dark mode (v1.6.2) */
+    /* Use the new brand color scale tokens */
+    
+    /* Primary - Emerald Green */
+    --adlaire-color-brand-primary: var(--adlaire-brand-emerald-400);
+    --adlaire-color-brand-primary-hover: var(--adlaire-brand-emerald-300);
+    --adlaire-color-brand-primary-light: var(--adlaire-brand-emerald-900);
+    --adlaire-color-brand-primary-dark: var(--adlaire-brand-emerald-200);
     
     /* Secondary - Blue Sky */
-    --brand-secondary-50: #1e3a52;
-    --brand-secondary-100: #2a5070;
-    --brand-secondary-200: #36668e;
-    --brand-secondary-300: #3498db;
-    --brand-secondary-400: #4da6e0;
-    --brand-secondary-500: #66b4e5;
-    --brand-secondary-600: #7fc2ea;
-    --brand-secondary-700: #99d0ef;
+    --adlaire-color-brand-secondary: var(--adlaire-brand-bluesky-400);
+    --adlaire-color-brand-secondary-hover: var(--adlaire-brand-bluesky-300);
+    --adlaire-color-brand-secondary-light: var(--adlaire-brand-bluesky-900);
+    --adlaire-color-brand-secondary-dark: var(--adlaire-brand-bluesky-200);
+    
+    /* Accent - Silver Tree */
+    --adlaire-color-brand-accent: var(--adlaire-brand-silver-700);
+    --adlaire-color-brand-accent-hover: var(--adlaire-brand-silver-600);
+    --adlaire-color-brand-accent-light: var(--adlaire-brand-silver-900);
+    
+    /* Success - Summer Sky */
+    --adlaire-color-success: var(--adlaire-brand-summersky-400);
+    --adlaire-color-success-light: var(--adlaire-brand-summersky-900);
+    --adlaire-color-success-dark: var(--adlaire-brand-summersky-200);
   }
   
   /* ==========================================================================
