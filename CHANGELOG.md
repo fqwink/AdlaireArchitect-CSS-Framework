@@ -16,6 +16,111 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Rating Component
 - File Upload Component
 
+## [1.6.1] - 2026-02-14
+
+### 🌐 Enhanced Multilingual Support - Language Switcher Components
+
+**Focus**: Comprehensive internationalization (i18n) components for multilingual websites
+
+#### Enhanced Components
+
+##### Language Switcher & I18n System (800+ lines)
+Complete rewrite and expansion of the language switcher component with comprehensive multilingual website support.
+
+**New Component Types**:
+
+1. **Language Switcher (Dropdown)**
+   - Flag icons with language names
+   - Native language display
+   - Active state indicator
+   - Compact and icon-only variants
+   - Mobile bottom sheet mode
+   - Scrollable dropdown for many languages
+   - ARIA patterns for accessibility
+
+2. **Language Toggle**
+   - 2-language quick switch
+   - Perfect for bilingual websites
+   - Button-style toggle interface
+   - Active state highlighting
+   - Flag + code/name display
+
+3. **Language Menu**
+   - Expanded list style
+   - Suitable for footer/sidebar
+   - All languages visible
+   - Clean navigation structure
+   - Active link highlighting
+
+4. **Grid Language Selector**
+   - Visual card-based layout
+   - Perfect for settings pages
+   - Large flag display
+   - Hover and active states
+   - Responsive grid columns
+
+**I18n Helper Features**:
+
+- **Language Visibility Classes**: `lang-show-{code}`, `lang-hide-{code}`
+- **RTL (Right-to-Left) Support**: Automatic layout adjustment for Arabic
+- **Language-Specific Typography**:
+  - Japanese: Optimized font stack, line-height 1.8
+  - Chinese (Simplified/Traditional): Proper font families
+  - Korean: Word-break control, optimized fonts
+  - Arabic: RTL direction, increased line-height
+  - European languages: Hyphenation support
+- **Language Badge**: Compact language code display
+- **Dark Mode**: Full support across all variants
+
+**Supported Languages with Typography Optimization**:
+- English (en)
+- Japanese (ja) - 日本語
+- Chinese Simplified (zh-CN) - 中文
+- Chinese Traditional (zh-TW) - 中文
+- Korean (ko) - 한국어
+- Arabic (ar) - العربية
+- French (fr) - Français
+- German (de) - Deutsch
+- Spanish (es) - Español
+- Portuguese (pt) - Português
+- Russian (ru) - Русский
+
+#### Demo & Documentation
+- **New Demo**: `demos/language-switcher-demo.html`
+- Comprehensive showcase of all variants
+- Interactive examples with real flag icons
+- Usage code snippets
+- Typography comparison
+
+#### Statistics (v1.6.1)
+- **Language Switcher CSS**: 800+ lines (expanded from 300)
+- **Component Variants**: 4 types (Dropdown, Toggle, Menu, Grid)
+- **Language Support**: 11+ languages with typography optimization
+- **I18n Utilities**: Visibility classes, RTL support, typography adjustments
+- **Total Components**: 42 maintained
+
+#### Business Value
+- 🌍 **Global Reach**: Full multilingual website support
+- 🎯 **Professional I18n**: Enterprise-grade internationalization
+- 📱 **Mobile Optimized**: Responsive across all devices
+- ♿ **Accessible**: WCAG 2.1 AAA compliant
+- 🌙 **Dark Mode**: Complete theming support
+- 🔤 **Typography**: Language-specific font optimization
+
+#### Technical Enhancements
+- Comprehensive language visibility control system
+- RTL layout support for Arabic and Hebrew
+- Language-specific typography with proper font stacks
+- Mobile-first responsive design
+- Keyboard navigation support
+- ARIA patterns for screen readers
+- Reduced motion support
+- High contrast mode support
+
+#### Files Modified
+- Enhanced: `src/components/language-switcher.css` (300 → 800+ lines)
+- Added: `demos/language-switcher-demo.html` (comprehensive demo page)
+
 ## [1.6.0] - 2026-02-14
 
 ### ✨ Major Release - Component Category System & 15 New Components
