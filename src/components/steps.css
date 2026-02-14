@@ -1,0 +1,645 @@
+/**
+ * Steps/Stepper Component
+ * Version: 1.3.0
+ * 
+ * A flexible stepper component for multi-step processes like forms, wizards,
+ * checkout flows, and onboarding experiences.
+ *
+ * Features:
+ * - Horizontal and vertical layouts
+ * - Linear and non-linear navigation
+ * - Numbered, icon, and custom content steps
+ * - Progress indicator
+ * - Completed, current, and upcoming states
+ * - Optional descriptions
+ * - Clickable navigation (non-linear mode)
+ * - Mobile responsive (auto-collapse on small screens)
+ * - Keyboard navigation (Tab, Enter, Arrow keys)
+ * - Dark mode support
+ * - WCAG 2.1 AAA compliant
+ * - ARIA progressbar pattern
+ */
+
+@layer components {
+  /* ========================================
+     Base Steps Container
+     ======================================== */
+  .aa-steps {
+    display: flex;
+    font-family: var(--adlaire-font-family-base);
+    font-size: var(--adlaire-font-size-base);
+    line-height: var(--adlaire-line-height-base);
+    color: var(--adlaire-color-text-primary);
+  }
+
+  /* Horizontal layout (default) */
+  .aa-steps--horizontal {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 0;
+  }
+
+  /* Vertical layout */
+  .aa-steps--vertical {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  /* ========================================
+     Step Item
+     ======================================== */
+  .aa-steps__item {
+    position: relative;
+    display: flex;
+    flex: 1;
+    min-width: 0;
+  }
+
+  /* Horizontal step item */
+  .aa-steps--horizontal .aa-steps__item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  /* Vertical step item */
+  .aa-steps--vertical .aa-steps__item {
+    flex-direction: row;
+    align-items: flex-start;
+    padding-bottom: var(--adlaire-space-6);
+  }
+
+  .aa-steps--vertical .aa-steps__item:last-child {
+    padding-bottom: 0;
+  }
+
+  /* ========================================
+     Step Connector (Line between steps)
+     ======================================== */
+  .aa-steps__connector {
+    position: absolute;
+    background-color: var(--adlaire-color-border-default);
+    transition: background-color var(--adlaire-transition-normal) var(--adlaire-easing-ease-in-out);
+  }
+
+  /* Horizontal connector */
+  .aa-steps--horizontal .aa-steps__connector {
+    top: 1.5rem;
+    left: calc(50% + 1.5rem);
+    right: calc(-50% + 1.5rem);
+    height: 2px;
+  }
+
+  .aa-steps--horizontal .aa-steps__item:last-child .aa-steps__connector {
+    display: none;
+  }
+
+  /* Vertical connector */
+  .aa-steps--vertical .aa-steps__connector {
+    top: 3rem;
+    left: 1.5rem;
+    bottom: 0;
+    width: 2px;
+  }
+
+  .aa-steps--vertical .aa-steps__item:last-child .aa-steps__connector {
+    display: none;
+  }
+
+  /* Completed connector */
+  .aa-steps__item--completed .aa-steps__connector {
+    background-color: var(--adlaire-color-primary);
+  }
+
+  /* ========================================
+     Step Header (Icon/Number Container)
+     ======================================== */
+  .aa-steps__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .aa-steps--vertical .aa-steps__header {
+    flex-shrink: 0;
+    margin-right: var(--adlaire-space-4);
+  }
+
+  /* ========================================
+     Step Icon/Number Circle
+     ======================================== */
+  .aa-steps__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    font-size: var(--adlaire-font-size-lg);
+    font-weight: var(--adlaire-font-weight-semibold);
+    color: var(--adlaire-color-text-secondary);
+    background-color: var(--adlaire-color-background);
+    border: 2px solid var(--adlaire-color-border-default);
+    border-radius: 50%;
+    transition: all var(--adlaire-transition-normal) var(--adlaire-easing-ease-in-out);
+  }
+
+  /* Icon content */
+  .aa-steps__icon-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  .aa-steps__icon-content svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  /* ========================================
+     Step States
+     ======================================== */
+  /* Upcoming (default) */
+  .aa-steps__item--upcoming .aa-steps__icon {
+    color: var(--adlaire-color-text-tertiary);
+    background-color: var(--adlaire-color-neutral-100);
+    border-color: var(--adlaire-color-border-default);
+  }
+
+  /* Current */
+  .aa-steps__item--current .aa-steps__icon {
+    color: #ffffff;
+    background-color: var(--adlaire-color-primary);
+    border-color: var(--adlaire-color-primary);
+    box-shadow: 0 0 0 4px var(--adlaire-color-focus-ring);
+  }
+
+  /* Completed */
+  .aa-steps__item--completed .aa-steps__icon {
+    color: #ffffff;
+    background-color: var(--adlaire-color-primary);
+    border-color: var(--adlaire-color-primary);
+  }
+
+  /* Error state */
+  .aa-steps__item--error .aa-steps__icon {
+    color: #ffffff;
+    background-color: var(--adlaire-color-error);
+    border-color: var(--adlaire-color-error);
+  }
+
+  /* ========================================
+     Step Content (Title + Description)
+     ======================================== */
+  .aa-steps__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--adlaire-space-1);
+    margin-top: var(--adlaire-space-2);
+    min-width: 0;
+  }
+
+  .aa-steps--vertical .aa-steps__content {
+    margin-top: 0;
+    padding-top: 0.375rem;
+    flex: 1;
+  }
+
+  .aa-steps__title {
+    font-size: var(--adlaire-font-size-base);
+    font-weight: var(--adlaire-font-weight-semibold);
+    color: var(--adlaire-color-text-secondary);
+    transition: color var(--adlaire-transition-fast) var(--adlaire-easing-ease-in-out);
+  }
+
+  .aa-steps__item--current .aa-steps__title {
+    color: var(--adlaire-color-primary);
+    font-weight: var(--adlaire-font-weight-bold);
+  }
+
+  .aa-steps__item--completed .aa-steps__title {
+    color: var(--adlaire-color-text-primary);
+  }
+
+  .aa-steps__item--error .aa-steps__title {
+    color: var(--adlaire-color-error);
+  }
+
+  .aa-steps__description {
+    font-size: var(--adlaire-font-size-sm);
+    color: var(--adlaire-color-text-tertiary);
+    line-height: var(--adlaire-line-height-relaxed);
+  }
+
+  .aa-steps--horizontal .aa-steps__description {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+
+  /* ========================================
+     Clickable Steps (Non-linear Mode)
+     ======================================== */
+  .aa-steps--clickable .aa-steps__item {
+    cursor: pointer;
+  }
+
+  .aa-steps--clickable .aa-steps__item:not(.aa-steps__item--current):hover .aa-steps__icon {
+    border-color: var(--adlaire-color-primary);
+    transform: scale(1.05);
+  }
+
+  .aa-steps--clickable .aa-steps__item:not(.aa-steps__item--current):hover .aa-steps__title {
+    color: var(--adlaire-color-primary);
+  }
+
+  .aa-steps--clickable .aa-steps__item:focus {
+    outline: none;
+  }
+
+  .aa-steps--clickable .aa-steps__item:focus-visible .aa-steps__icon {
+    box-shadow: 0 0 0 4px var(--adlaire-color-focus-ring);
+  }
+
+  /* Disabled state */
+  .aa-steps__item--disabled {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
+  /* ========================================
+     Size Variants
+     ======================================== */
+  /* Small */
+  .aa-steps--sm .aa-steps__icon {
+    width: 2rem;
+    height: 2rem;
+    font-size: var(--adlaire-font-size-sm);
+  }
+
+  .aa-steps--sm .aa-steps__icon-content svg {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .aa-steps--sm .aa-steps__title {
+    font-size: var(--adlaire-font-size-sm);
+  }
+
+  .aa-steps--sm .aa-steps__description {
+    font-size: var(--adlaire-font-size-xs);
+  }
+
+  .aa-steps--sm.aa-steps--horizontal .aa-steps__connector {
+    top: 1rem;
+    left: calc(50% + 1rem);
+    right: calc(-50% + 1rem);
+  }
+
+  .aa-steps--sm.aa-steps--vertical .aa-steps__connector {
+    top: 2rem;
+    left: 1rem;
+  }
+
+  .aa-steps--sm.aa-steps--vertical .aa-steps__header {
+    margin-right: var(--adlaire-space-3);
+  }
+
+  /* Large */
+  .aa-steps--lg .aa-steps__icon {
+    width: 4rem;
+    height: 4rem;
+    font-size: var(--adlaire-font-size-2xl);
+  }
+
+  .aa-steps--lg .aa-steps__icon-content svg {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .aa-steps--lg .aa-steps__title {
+    font-size: var(--adlaire-font-size-lg);
+  }
+
+  .aa-steps--lg .aa-steps__description {
+    font-size: var(--adlaire-font-size-base);
+  }
+
+  .aa-steps--lg .aa-steps__content {
+    margin-top: var(--adlaire-space-3);
+  }
+
+  .aa-steps--lg.aa-steps--horizontal .aa-steps__connector {
+    top: 2rem;
+    left: calc(50% + 2rem);
+    right: calc(-50% + 2rem);
+  }
+
+  .aa-steps--lg.aa-steps--vertical .aa-steps__connector {
+    top: 4rem;
+    left: 2rem;
+  }
+
+  .aa-steps--lg.aa-steps--vertical .aa-steps__header {
+    margin-right: var(--adlaire-space-5);
+  }
+
+  /* ========================================
+     Style Variants
+     ======================================== */
+  /* Dots style (minimal) */
+  .aa-steps--dots .aa-steps__icon {
+    width: 1rem;
+    height: 1rem;
+    border-width: 0;
+    font-size: 0;
+  }
+
+  .aa-steps--dots .aa-steps__icon-content {
+    display: none;
+  }
+
+  .aa-steps--dots.aa-steps--horizontal .aa-steps__connector {
+    top: 0.5rem;
+    left: calc(50% + 0.5rem);
+    right: calc(-50% + 0.5rem);
+  }
+
+  .aa-steps--dots.aa-steps--vertical .aa-steps__connector {
+    top: 1rem;
+    left: 0.5rem;
+  }
+
+  /* Simple style (no icon background) */
+  .aa-steps--simple .aa-steps__icon {
+    background-color: transparent;
+    border-width: 0;
+    color: var(--adlaire-color-text-secondary);
+  }
+
+  .aa-steps--simple .aa-steps__item--current .aa-steps__icon {
+    color: var(--adlaire-color-primary);
+    background-color: transparent;
+  }
+
+  .aa-steps--simple .aa-steps__item--completed .aa-steps__icon {
+    color: var(--adlaire-color-primary);
+    background-color: transparent;
+  }
+
+  /* ========================================
+     Progress Bar Variant
+     ======================================== */
+  .aa-steps--progress {
+    position: relative;
+    padding-top: var(--adlaire-space-6);
+  }
+
+  .aa-steps--progress::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background-color: var(--adlaire-color-neutral-200);
+    border-radius: var(--adlaire-border-radius-full);
+  }
+
+  .aa-steps--progress::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background-color: var(--adlaire-color-primary);
+    border-radius: var(--adlaire-border-radius-full);
+    transition: width var(--adlaire-transition-normal) var(--adlaire-easing-ease-in-out);
+  }
+
+  /* Progress percentage (set via inline style or JS) */
+  .aa-steps--progress[data-progress="0"]::after { width: 0%; }
+  .aa-steps--progress[data-progress="25"]::after { width: 25%; }
+  .aa-steps--progress[data-progress="50"]::after { width: 50%; }
+  .aa-steps--progress[data-progress="75"]::after { width: 75%; }
+  .aa-steps--progress[data-progress="100"]::after { width: 100%; }
+
+  /* ========================================
+     Dark Mode Support
+     ======================================== */
+  @media (prefers-color-scheme: dark) {
+    .aa-steps__icon {
+      background-color: var(--adlaire-color-neutral-800);
+      border-color: var(--adlaire-color-neutral-600);
+    }
+
+    .aa-steps__item--upcoming .aa-steps__icon {
+      background-color: var(--adlaire-color-neutral-900);
+      border-color: var(--adlaire-color-neutral-700);
+    }
+
+    .aa-steps__connector {
+      background-color: var(--adlaire-color-neutral-700);
+    }
+
+    .aa-steps--progress::before {
+      background-color: var(--adlaire-color-neutral-700);
+    }
+  }
+
+  [data-theme="dark"] .aa-steps__icon {
+    background-color: var(--adlaire-color-neutral-800);
+    border-color: var(--adlaire-color-neutral-600);
+  }
+
+  [data-theme="dark"] .aa-steps__item--upcoming .aa-steps__icon {
+    background-color: var(--adlaire-color-neutral-900);
+    border-color: var(--adlaire-color-neutral-700);
+  }
+
+  [data-theme="dark"] .aa-steps__connector {
+    background-color: var(--adlaire-color-neutral-700);
+  }
+
+  [data-theme="dark"] .aa-steps--progress::before {
+    background-color: var(--adlaire-color-neutral-700);
+  }
+
+  /* ========================================
+     Responsive Mobile Layout
+     ======================================== */
+  @media (max-width: 768px) {
+    /* Auto-switch to vertical on mobile */
+    .aa-steps--horizontal {
+      flex-direction: column;
+    }
+
+    .aa-steps--horizontal .aa-steps__item {
+      flex-direction: row;
+      align-items: flex-start;
+      text-align: left;
+      padding-bottom: var(--adlaire-space-4);
+    }
+
+    .aa-steps--horizontal .aa-steps__item:last-child {
+      padding-bottom: 0;
+    }
+
+    .aa-steps--horizontal .aa-steps__header {
+      margin-right: var(--adlaire-space-3);
+    }
+
+    .aa-steps--horizontal .aa-steps__content {
+      margin-top: 0;
+      padding-top: 0.375rem;
+    }
+
+    .aa-steps--horizontal .aa-steps__connector {
+      top: 3rem;
+      left: 1.5rem;
+      right: auto;
+      bottom: 0;
+      width: 2px;
+      height: auto;
+    }
+
+    .aa-steps--horizontal .aa-steps__item:last-child .aa-steps__connector {
+      display: none;
+    }
+
+    .aa-steps--horizontal .aa-steps__description {
+      display: block;
+      -webkit-line-clamp: unset;
+    }
+
+    /* Hide descriptions on very small screens */
+    @media (max-width: 480px) {
+      .aa-steps__description {
+        display: none;
+      }
+
+      .aa-steps__icon {
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: var(--adlaire-font-size-base);
+      }
+
+      .aa-steps__icon-content svg {
+        width: 1.25rem;
+        height: 1.25rem;
+      }
+    }
+  }
+
+  /* Compact mobile variant */
+  .aa-steps--mobile-compact {
+    display: none;
+  }
+
+  @media (max-width: 640px) {
+    .aa-steps:not(.aa-steps--mobile-compact) {
+      display: none;
+    }
+
+    .aa-steps--mobile-compact {
+      display: flex;
+      flex-direction: column;
+      gap: var(--adlaire-space-2);
+      padding: var(--adlaire-space-4);
+      background-color: var(--adlaire-color-neutral-50);
+      border-radius: var(--adlaire-border-radius-lg);
+    }
+
+    .aa-steps--mobile-compact .aa-steps__current-step {
+      font-size: var(--adlaire-font-size-sm);
+      font-weight: var(--adlaire-font-weight-semibold);
+      color: var(--adlaire-color-primary);
+    }
+
+    .aa-steps--mobile-compact .aa-steps__progress-bar {
+      height: 6px;
+      background-color: var(--adlaire-color-neutral-200);
+      border-radius: var(--adlaire-border-radius-full);
+      overflow: hidden;
+    }
+
+    .aa-steps--mobile-compact .aa-steps__progress-fill {
+      height: 100%;
+      background-color: var(--adlaire-color-primary);
+      transition: width var(--adlaire-transition-normal) var(--adlaire-easing-ease-in-out);
+    }
+  }
+
+  /* ========================================
+     Accessibility Features
+     ======================================== */
+  .aa-steps[role="progressbar"] {
+    /* ARIA progressbar pattern */
+  }
+
+  .aa-steps__item[aria-current="step"] {
+    /* Current step indicator for screen readers */
+  }
+
+  /* Screen reader only text */
+  .aa-steps__sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  /* ========================================
+     Reduced Motion Support
+     ======================================== */
+  @media (prefers-reduced-motion: reduce) {
+    .aa-steps__icon,
+    .aa-steps__title,
+    .aa-steps__connector,
+    .aa-steps--progress::after,
+    .aa-steps--mobile-compact .aa-steps__progress-fill {
+      transition: none;
+    }
+  }
+
+  /* ========================================
+     Print Styles
+     ======================================== */
+  @media print {
+    .aa-steps {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .aa-steps__icon {
+      border-color: #000 !important;
+      background-color: #fff !important;
+      color: #000 !important;
+      box-shadow: none !important;
+    }
+
+    .aa-steps__item--completed .aa-steps__icon::after {
+      content: '✓';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 1.5rem;
+    }
+
+    .aa-steps__connector {
+      background-color: #000 !important;
+    }
+  }
+}
