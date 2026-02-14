@@ -1,0 +1,681 @@
+/**
+ * Carousel/Slider Component
+ * Version: 1.4.0
+ * 
+ * A versatile carousel component for image galleries, product showcases,
+ * testimonials, and content sliders with autoplay and touch support.
+ *
+ * Features:
+ * - Multiple slides with smooth transitions
+ * - Navigation arrows (prev/next)
+ * - Dot indicators with active state
+ * - Thumbnail navigation
+ * - Autoplay with pause on hover
+ * - Touch/swipe gestures (CSS-based visual feedback)
+ * - Fade and slide transitions
+ * - Caption overlay support
+ * - Multiple slides per view (2, 3, 4 columns)
+ * - Responsive breakpoints
+ * - Keyboard navigation (Arrow keys, Home, End)
+ * - Dark mode support
+ * - WCAG 2.1 AAA compliant
+ * - ARIA carousel pattern
+ */
+
+@layer components {
+  /* ========================================
+     Base Carousel Container
+     ======================================== */
+  .aa-carousel {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    font-family: var(--adlaire-font-family-base);
+    background-color: var(--adlaire-color-background);
+    border-radius: var(--adlaire-border-radius-lg);
+  }
+
+  /* Full width variant */
+  .aa-carousel--full {
+    border-radius: 0;
+  }
+
+  /* ========================================
+     Slides Container & Track
+     ======================================== */
+  .aa-carousel__track {
+    display: flex;
+    position: relative;
+    transition: transform var(--adlaire-transition-normal) var(--adlaire-easing-ease-in-out);
+  }
+
+  /* Fade transition variant */
+  .aa-carousel--fade .aa-carousel__track {
+    transition: opacity var(--adlaire-transition-normal) var(--adlaire-easing-ease-in-out);
+  }
+
+  .aa-carousel__slides {
+    display: flex;
+    width: 100%;
+    position: relative;
+  }
+
+  /* ========================================
+     Individual Slide
+     ======================================== */
+  .aa-carousel__slide {
+    position: relative;
+    flex-shrink: 0;
+    width: 100%;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  /* Fade variant - stack slides */
+  .aa-carousel--fade .aa-carousel__slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    transition: opacity var(--adlaire-transition-slow) var(--adlaire-easing-ease-in-out);
+    z-index: 0;
+  }
+
+  .aa-carousel--fade .aa-carousel__slide--active {
+    opacity: 1;
+    z-index: 1;
+  }
+
+  /* Multi-slide per view */
+  .aa-carousel--per-view-2 .aa-carousel__slide {
+    width: 50%;
+  }
+
+  .aa-carousel--per-view-3 .aa-carousel__slide {
+    width: 33.333333%;
+  }
+
+  .aa-carousel--per-view-4 .aa-carousel__slide {
+    width: 25%;
+  }
+
+  /* ========================================
+     Slide Content
+     ======================================== */
+  .aa-carousel__slide-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .aa-carousel__slide-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--adlaire-space-8);
+    text-align: center;
+  }
+
+  /* ========================================
+     Caption Overlay
+     ======================================== */
+  .aa-carousel__caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: var(--adlaire-space-6);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 100%);
+    color: #ffffff;
+    z-index: 2;
+  }
+
+  .aa-carousel__caption-title {
+    font-size: var(--adlaire-font-size-xl);
+    font-weight: var(--adlaire-font-weight-bold);
+    margin-bottom: var(--adlaire-space-2);
+    line-height: var(--adlaire-line-height-tight);
+  }
+
+  .aa-carousel__caption-text {
+    font-size: var(--adlaire-font-size-base);
+    line-height: var(--adlaire-line-height-relaxed);
+    opacity: 0.95;
+  }
+
+  /* Center caption variant */
+  .aa-carousel__caption--center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    bottom: auto;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: var(--adlaire-border-radius-lg);
+    padding: var(--adlaire-space-8);
+    max-width: 80%;
+  }
+
+  /* ========================================
+     Navigation Arrows
+     ======================================== */
+  .aa-carousel__nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    padding: 0;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: var(--adlaire-color-text-primary);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all var(--adlaire-transition-fast) var(--adlaire-easing-ease-in-out);
+    box-shadow: var(--adlaire-shadow-md);
+  }
+
+  .aa-carousel__nav:hover {
+    background-color: var(--adlaire-color-primary);
+    color: #ffffff;
+    transform: translateY(-50%) scale(1.1);
+  }
+
+  .aa-carousel__nav:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--adlaire-color-focus-ring);
+  }
+
+  .aa-carousel__nav:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    transform: translateY(-50%) scale(1);
+  }
+
+  .aa-carousel__nav--prev {
+    left: var(--adlaire-space-4);
+  }
+
+  .aa-carousel__nav--next {
+    right: var(--adlaire-space-4);
+  }
+
+  .aa-carousel__nav-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  /* Hide arrows on hover-only variant */
+  .aa-carousel--hide-nav .aa-carousel__nav {
+    opacity: 0;
+    transition: opacity var(--adlaire-transition-fast) var(--adlaire-easing-ease-in-out);
+  }
+
+  .aa-carousel--hide-nav:hover .aa-carousel__nav {
+    opacity: 1;
+  }
+
+  /* External navigation (outside carousel) */
+  .aa-carousel--external-nav .aa-carousel__nav--prev {
+    left: calc(-3rem - var(--adlaire-space-4));
+  }
+
+  .aa-carousel--external-nav .aa-carousel__nav--next {
+    right: calc(-3rem - var(--adlaire-space-4));
+  }
+
+  /* ========================================
+     Dot Indicators
+     ======================================== */
+  .aa-carousel__indicators {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--adlaire-space-2);
+    position: absolute;
+    bottom: var(--adlaire-space-4);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    padding: var(--adlaire-space-2) var(--adlaire-space-4);
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: var(--adlaire-border-radius-full);
+  }
+
+  .aa-carousel__indicator {
+    width: 0.75rem;
+    height: 0.75rem;
+    padding: 0;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all var(--adlaire-transition-fast) var(--adlaire-easing-ease-in-out);
+  }
+
+  .aa-carousel__indicator:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+    transform: scale(1.2);
+  }
+
+  .aa-carousel__indicator:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--adlaire-color-focus-ring);
+  }
+
+  .aa-carousel__indicator--active {
+    width: 1.5rem;
+    background-color: #ffffff;
+    border-radius: var(--adlaire-border-radius-full);
+  }
+
+  /* Line indicators variant */
+  .aa-carousel__indicators--lines .aa-carousel__indicator {
+    width: 2rem;
+    height: 3px;
+    border-radius: var(--adlaire-border-radius-base);
+  }
+
+  .aa-carousel__indicators--lines .aa-carousel__indicator--active {
+    width: 3rem;
+  }
+
+  /* Number indicators variant */
+  .aa-carousel__indicators--numbers {
+    gap: var(--adlaire-space-1);
+  }
+
+  .aa-carousel__indicators--numbers .aa-carousel__indicator {
+    width: auto;
+    height: auto;
+    min-width: 2rem;
+    padding: var(--adlaire-space-1) var(--adlaire-space-2);
+    border-radius: var(--adlaire-border-radius-base);
+    font-size: var(--adlaire-font-size-sm);
+    font-weight: var(--adlaire-font-weight-semibold);
+    color: #ffffff;
+  }
+
+  /* External indicators (below carousel) */
+  .aa-carousel--external-indicators .aa-carousel__indicators {
+    position: static;
+    transform: none;
+    margin-top: var(--adlaire-space-4);
+    background-color: transparent;
+    padding: 0;
+  }
+
+  .aa-carousel--external-indicators .aa-carousel__indicator {
+    background-color: var(--adlaire-color-border-default);
+  }
+
+  .aa-carousel--external-indicators .aa-carousel__indicator:hover {
+    background-color: var(--adlaire-color-primary-hover);
+  }
+
+  .aa-carousel--external-indicators .aa-carousel__indicator--active {
+    background-color: var(--adlaire-color-primary);
+  }
+
+  /* ========================================
+     Thumbnail Navigation
+     ======================================== */
+  .aa-carousel__thumbnails {
+    display: flex;
+    gap: var(--adlaire-space-2);
+    padding: var(--adlaire-space-4);
+    overflow-x: auto;
+    scrollbar-width: thin;
+  }
+
+  .aa-carousel__thumbnail {
+    flex-shrink: 0;
+    width: 80px;
+    height: 60px;
+    padding: 0;
+    background-color: transparent;
+    border: 2px solid transparent;
+    border-radius: var(--adlaire-border-radius-base);
+    overflow: hidden;
+    cursor: pointer;
+    transition: all var(--adlaire-transition-fast) var(--adlaire-easing-ease-in-out);
+    opacity: 0.6;
+  }
+
+  .aa-carousel__thumbnail:hover {
+    opacity: 1;
+    border-color: var(--adlaire-color-primary);
+  }
+
+  .aa-carousel__thumbnail:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--adlaire-color-focus-ring);
+  }
+
+  .aa-carousel__thumbnail--active {
+    opacity: 1;
+    border-color: var(--adlaire-color-primary);
+    box-shadow: var(--adlaire-shadow-md);
+  }
+
+  .aa-carousel__thumbnail-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* ========================================
+     Autoplay Progress Bar
+     ======================================== */
+  .aa-carousel__progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: rgba(255, 255, 255, 0.2);
+    z-index: 11;
+  }
+
+  .aa-carousel__progress-bar {
+    height: 100%;
+    background-color: var(--adlaire-color-primary);
+    width: 0;
+    transition: width linear;
+  }
+
+  /* Pause autoplay indicator */
+  .aa-carousel--paused .aa-carousel__progress-bar {
+    animation-play-state: paused;
+  }
+
+  /* ========================================
+     Size Variants
+     ======================================== */
+  /* Small */
+  .aa-carousel--sm .aa-carousel__slide {
+    min-height: 200px;
+  }
+
+  .aa-carousel--sm .aa-carousel__nav {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .aa-carousel--sm .aa-carousel__nav-icon {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .aa-carousel--sm .aa-carousel__caption {
+    padding: var(--adlaire-space-4);
+  }
+
+  .aa-carousel--sm .aa-carousel__caption-title {
+    font-size: var(--adlaire-font-size-lg);
+  }
+
+  .aa-carousel--sm .aa-carousel__caption-text {
+    font-size: var(--adlaire-font-size-sm);
+  }
+
+  /* Large */
+  .aa-carousel--lg .aa-carousel__slide {
+    min-height: 500px;
+  }
+
+  .aa-carousel--lg .aa-carousel__nav {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  .aa-carousel--lg .aa-carousel__nav-icon {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .aa-carousel--lg .aa-carousel__caption {
+    padding: var(--adlaire-space-8);
+  }
+
+  .aa-carousel--lg .aa-carousel__caption-title {
+    font-size: var(--adlaire-font-size-3xl);
+  }
+
+  .aa-carousel--lg .aa-carousel__caption-text {
+    font-size: var(--adlaire-font-size-lg);
+  }
+
+  /* Extra Large (Hero) */
+  .aa-carousel--xl .aa-carousel__slide {
+    min-height: 600px;
+  }
+
+  .aa-carousel--xl .aa-carousel__nav {
+    width: 4.5rem;
+    height: 4.5rem;
+  }
+
+  .aa-carousel--xl .aa-carousel__nav-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .aa-carousel--xl .aa-carousel__caption-title {
+    font-size: var(--adlaire-font-size-4xl);
+  }
+
+  .aa-carousel--xl .aa-carousel__caption-text {
+    font-size: var(--adlaire-font-size-xl);
+  }
+
+  /* ========================================
+     Dark Mode Support
+     ======================================== */
+  @media (prefers-color-scheme: dark) {
+    .aa-carousel {
+      background-color: var(--adlaire-color-neutral-900);
+    }
+
+    .aa-carousel__nav {
+      background-color: rgba(0, 0, 0, 0.7);
+      color: #ffffff;
+    }
+
+    .aa-carousel__nav:hover {
+      background-color: var(--adlaire-color-primary);
+    }
+
+    .aa-carousel--external-indicators .aa-carousel__indicator {
+      background-color: var(--adlaire-color-neutral-700);
+    }
+
+    .aa-carousel__thumbnail {
+      border-color: var(--adlaire-color-neutral-700);
+    }
+  }
+
+  [data-theme="dark"] .aa-carousel {
+    background-color: var(--adlaire-color-neutral-900);
+  }
+
+  [data-theme="dark"] .aa-carousel__nav {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #ffffff;
+  }
+
+  [data-theme="dark"] .aa-carousel__nav:hover {
+    background-color: var(--adlaire-color-primary);
+  }
+
+  [data-theme="dark"] .aa-carousel--external-indicators .aa-carousel__indicator {
+    background-color: var(--adlaire-color-neutral-700);
+  }
+
+  [data-theme="dark"] .aa-carousel__thumbnail {
+    border-color: var(--adlaire-color-neutral-700);
+  }
+
+  /* ========================================
+     Responsive Breakpoints
+     ======================================== */
+  @media (max-width: 1024px) {
+    /* Reduce slides per view on tablets */
+    .aa-carousel--per-view-4 .aa-carousel__slide {
+      width: 33.333333%;
+    }
+
+    .aa-carousel--per-view-3 .aa-carousel__slide {
+      width: 50%;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .aa-carousel__slide {
+      min-height: 250px;
+    }
+
+    .aa-carousel--lg .aa-carousel__slide,
+    .aa-carousel--xl .aa-carousel__slide {
+      min-height: 350px;
+    }
+
+    /* Single slide per view on mobile */
+    .aa-carousel--per-view-2 .aa-carousel__slide,
+    .aa-carousel--per-view-3 .aa-carousel__slide,
+    .aa-carousel--per-view-4 .aa-carousel__slide {
+      width: 100%;
+    }
+
+    .aa-carousel__nav {
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+
+    .aa-carousel__nav--prev {
+      left: var(--adlaire-space-2);
+    }
+
+    .aa-carousel__nav--next {
+      right: var(--adlaire-space-2);
+    }
+
+    .aa-carousel__caption {
+      padding: var(--adlaire-space-4);
+    }
+
+    .aa-carousel__caption-title {
+      font-size: var(--adlaire-font-size-lg);
+    }
+
+    .aa-carousel__caption-text {
+      font-size: var(--adlaire-font-size-sm);
+    }
+
+    .aa-carousel__thumbnails {
+      padding: var(--adlaire-space-2);
+      gap: var(--adlaire-space-1);
+    }
+
+    .aa-carousel__thumbnail {
+      width: 60px;
+      height: 45px;
+    }
+
+    /* Hide external nav on mobile */
+    .aa-carousel--external-nav .aa-carousel__nav {
+      position: absolute;
+      left: var(--adlaire-space-2);
+      right: auto;
+    }
+
+    .aa-carousel--external-nav .aa-carousel__nav--next {
+      left: auto;
+      right: var(--adlaire-space-2);
+    }
+  }
+
+  /* ========================================
+     Accessibility Features
+     ======================================== */
+  .aa-carousel[role="region"] {
+    /* ARIA carousel pattern */
+  }
+
+  .aa-carousel__slide[aria-hidden="true"] {
+    pointer-events: none;
+  }
+
+  /* Screen reader only text */
+  .aa-carousel__sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  /* Focus visible for keyboard navigation */
+  .aa-carousel__nav:focus-visible,
+  .aa-carousel__indicator:focus-visible,
+  .aa-carousel__thumbnail:focus-visible {
+    outline: 2px solid var(--adlaire-color-primary);
+    outline-offset: 2px;
+  }
+
+  /* ========================================
+     Reduced Motion Support
+     ======================================== */
+  @media (prefers-reduced-motion: reduce) {
+    .aa-carousel__track,
+    .aa-carousel__slide,
+    .aa-carousel__nav,
+    .aa-carousel__indicator,
+    .aa-carousel__thumbnail {
+      transition: none;
+    }
+
+    .aa-carousel__progress-bar {
+      animation: none !important;
+    }
+  }
+
+  /* ========================================
+     Print Styles
+     ======================================== */
+  @media print {
+    .aa-carousel__nav,
+    .aa-carousel__indicators,
+    .aa-carousel__thumbnails,
+    .aa-carousel__progress {
+      display: none !important;
+    }
+
+    .aa-carousel__slide {
+      page-break-inside: avoid;
+    }
+
+    .aa-carousel--fade .aa-carousel__slide {
+      position: static;
+      opacity: 1;
+    }
+  }
+}

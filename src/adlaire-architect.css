@@ -2,7 +2,7 @@
  * Adlaire Architect CSS Framework
  * Main Entry Point
  * 
- * Version: 1.3.0
+ * Version: 1.4.0
  * License: Apache License 2.0
  * Copyright: 2026 Adlaire Group DX Division
  * 
@@ -52,6 +52,8 @@
 @import url('./components/dropdown.css');
 @import url('./components/datepicker.css');
 @import url('./components/steps.css');
+@import url('./components/carousel.css');
+@import url('./components/timeline.css');
 
 /* ========================================
    UTILITIES
